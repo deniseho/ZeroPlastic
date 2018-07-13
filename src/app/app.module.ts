@@ -14,6 +14,8 @@ import { TopicTwoPage } from '../pages/topic-two/topic-two';
 import { TopicThreePage } from '../pages/topic-three/topic-three';
 import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
+import { FormsModule } from '@angular/forms';
+// import { MnFullpageModule } from 'ngx-fullpage';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,10 @@ import { TopicFivePage } from '../pages/topic-five/topic-five';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    FormsModule,
+    // HttpModule,
+    // MnFullpageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

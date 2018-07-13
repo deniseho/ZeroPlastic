@@ -30,10 +30,10 @@
   
   </ion-slides>
 </ion-content> -->
-
-<ion-content>
+<!-- 
+<ion-content fullscreen>
     <ion-slides>
-    <ion-slide>
+    <ion-slide >
         <ion-list>
       <ion-item>
         <ion-label floating>item1</ion-label>
@@ -70,4 +70,12 @@
     </ion-list>
     </ion-slide>
   </ion-slides>
+</ion-content> -->
+<ion-content (swipe)="swipeEvent($event)" >
+<div id="fullpage">
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+  </div>
 </ion-content>
