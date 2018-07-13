@@ -15,7 +15,7 @@ import { TopicThreePage } from '../pages/topic-three/topic-three';
 import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
 import { FormsModule } from '@angular/forms';
-// import { MnFullpageModule } from 'ngx-fullpage';
+import { CustomNavBarPage } from '../pages/custom-nav-bar/custom-nav-bar';
 
 @NgModule({
   declarations: [
@@ -28,13 +28,12 @@ import { FormsModule } from '@angular/forms';
     TopicThreePage,
     TopicFourPage,
     TopicFivePage,
+    CustomNavBarPage
   ],
   imports: [
     BrowserModule,
     FormsModule,
     FormsModule,
-    // HttpModule,
-    // MnFullpageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -48,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     TopicThreePage,
     TopicFourPage,
     TopicFivePage,
+    CustomNavBarPage
   ],
   providers: [
     StatusBar,

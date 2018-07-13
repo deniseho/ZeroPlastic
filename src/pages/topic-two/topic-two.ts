@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import fullpage from 'fullpage.js';
+import { TopicThreePage } from '../topic-three/topic-three';
 
 /**
  * Generated class for the TopicTwoPage page.
@@ -18,7 +20,22 @@ export class TopicTwoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TopicTwoPage');
+    new fullpage('#fullpage', {
+      //options here
+      autoScrolling:true,
+      scrollHorizontally: true,
+      offsetSections: false,
+      paddingTop: '3em',
+    });
   }
 
+  swipeEvent(e) {
+    if (e.direction == 2) {
+      this.navCtrl.push(TopicThreePage);
+    }
+
+    if (e.direction == 4) {
+      this.navCtrl.push(TopicTwoPage);
+    }
+  }
 }
