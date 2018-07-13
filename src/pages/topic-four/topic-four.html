@@ -12,7 +12,11 @@
 
 </ion-header>
 
-
-<ion-content padding>
-
-</ion-content>
+<ion-content (swipe)="swipeEvent($event)">
+    <div id="fullpage">
+      <div class="section">Some section</div>
+      <div class="section">Some section</div>
+      <div class="section">Some section</div>
+      <div class="section">Some section</div>
+    </div>
+  </ion-content>

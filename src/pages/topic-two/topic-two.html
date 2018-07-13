@@ -12,11 +12,11 @@
 
 </ion-header>
 
-
-<ion-content>
-<section>section1</section>
-<section>section2</section>
-<section>section3</section>
-<section>section4</section>
-<section>section5</section>
+<ion-content (swipe)="swipeEvent($event)">
+  <div id="fullpage">
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+  </div>
 </ion-content>
