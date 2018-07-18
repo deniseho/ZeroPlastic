@@ -3,7 +3,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 
@@ -16,11 +15,16 @@ import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
 import { FormsModule } from '@angular/forms';
 import { CustomNavBarPage } from '../pages/custom-nav-bar/custom-nav-bar';
+import { ProfilePage } from '../pages/profile/profile';
+import { TopicMenu } from '../pages/topic-menu/topic-menu';
+import { AccountMenuPage } from '../pages/account-menu/account-menu';
+import { AchievementPage } from '../pages/achievement/achievement';
 
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
+    CustomNavBarPage,
+    TopicMenu,
     ItemDetailsPage,
     ListPage,
     TopicOnePage,
@@ -28,26 +32,30 @@ import { CustomNavBarPage } from '../pages/custom-nav-bar/custom-nav-bar';
     TopicThreePage,
     TopicFourPage,
     TopicFivePage,
-    CustomNavBarPage
+    AccountMenuPage,
+    ProfilePage,
+    AchievementPage
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     FormsModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
+    CustomNavBarPage,
     ItemDetailsPage,
     ListPage,
+    TopicMenu,
     TopicOnePage,
     TopicTwoPage,
     TopicThreePage,
     TopicFourPage,
     TopicFivePage,
-    CustomNavBarPage
+    AccountMenuPage,
+    ProfilePage,
+    AchievementPage    
   ],
   providers: [
     StatusBar,

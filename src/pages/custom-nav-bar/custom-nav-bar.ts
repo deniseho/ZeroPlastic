@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AccountMenuPage } from '../account-menu/account-menu';
 
 /**
  * Generated class for the CustomNavBarPage page.
@@ -11,6 +12,8 @@ import { NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'custom-nav-bar',
   templateUrl: 'custom-nav-bar.html',
+  inputs: ['title', 'addBack', 'addHome', 'addPerson'],
+  outputs: ['home']
 })
 export class CustomNavBarPage {
 
@@ -19,6 +22,10 @@ export class CustomNavBarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CustomNavBarPage');
+  }
+
+  gotoAccountMenu(){
+    this.navCtrl.push(AccountMenuPage);
   }
 
 }

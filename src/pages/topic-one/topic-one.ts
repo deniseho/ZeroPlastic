@@ -27,6 +27,7 @@ export class TopicOnePage {
       scrollHorizontally: true,
       offsetSections: false,
       paddingTop: '3em',
+      // OPEN-SOURCE-GPLV3-LICENSE
     });
   }
 
