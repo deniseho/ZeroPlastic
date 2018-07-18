@@ -1,20 +1,17 @@
-<!--
-  Generated template for the TopicTwoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>topicTwo</ion-title>
-  </ion-navbar>
+  <!-- 
+    <ion-navbar>
+      <ion-title>topicOne</ion-title>
+    </ion-navbar> -->
+  <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
 
 </ion-header>
 
 <ion-content (swipe)="swipeEvent($event)">
   <div id="fullpage">
-    <div class="section">Some section</div>
+    <div class="section">
+        <h2>About Plastic</h2>
+    </div>
     <div class="section">Some section</div>
     <div class="section">Some section</div>
     <div class="section">Some section</div>
