@@ -1,18 +1,25 @@
 <ion-toolbar>
-  <ion-buttons *ngIf="addBack" start>
-    <button ion-button icon-only color="royal">
-      <ion-icon name="arrow-back"></ion-icon>
-    </button>
-  </ion-buttons>
-  <ion-title> </ion-title>
-  <ion-buttons *ngIf="addHome" end>
-    <button ion-button icon-only color="royal">
-      <ion-icon name="home"></ion-icon>
-    </button>
-  </ion-buttons>
-  <ion-buttons *ngIf="addPerson" end>
-      <button ion-button icon-only color="royal" (click)="gotoAccountMenu()">
-        <ion-icon name="person"></ion-icon>
-      </button>
-    </ion-buttons>
+  <ion-row>
+    <ion-col col-3>
+      <ion-buttons *ngIf="addBack" start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col col-6>
+      <ion-buttons *ngIf="addHome">
+        <button ion-button icon-only color="royal" (click)="gotoHomepage()">
+          PLASTIC OCEAN LOGO
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col col-3>
+      <ion-buttons *ngIf="addPerson" end>
+        <button ion-button icon-only color="royal" (click)="gotoAccountMenu()">
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
 </ion-toolbar>

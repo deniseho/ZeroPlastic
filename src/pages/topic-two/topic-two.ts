@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import fullpage from 'fullpage.js';
 import { TopicThreePage } from '../topic-three/topic-three';
+import { TopicOnePage } from '../topic-one/topic-one';
 
 /**
  * Generated class for the TopicTwoPage page.
@@ -35,7 +36,7 @@ export class TopicTwoPage {
     }
 
     if (e.direction == 4) {
-      this.navCtrl.push(TopicTwoPage);
+      this.navCtrl.push(TopicOnePage);
     }
   }
 }
