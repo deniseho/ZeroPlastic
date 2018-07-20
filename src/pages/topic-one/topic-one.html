@@ -6,14 +6,45 @@
   <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
 
 </ion-header>
-
-<ion-content (swipe)="swipeEvent($event)">
-  <div id="fullpage">
-    <div class="section">
-      <h2>Plastic Pollution</h2>
+<!-- <div class="tabs-striped tabs-top tabs-background-stable tabs-color-calm">
+    <div class="tabs tabs-icon-left">
+        <a class="tab-item" href="#">
+            <i class="icon ion-person"></i>
+            Followers
+        </a>
+        <a class="tab-item" href="#">
+            <i class="icon ion-star"></i>
+            Following
+        </a>
+        <a class="tab-item active" ui-sref="search">
+            <i class="icon ion-search"></i>
+            Search
+        </a>
     </div>
-    <div class="section">Some section</div>
-    <div class="section">Some section</div>
-    <div class="section">Some section</div>
-  </div>
+</div> -->
+<ion-content>
+  <!-- <header id="header">
+      <ul class="nav">
+          <li> <a href="#Problem">Problem</a></li>
+          <li><a href="#Cause">Cause</a></li>
+          <li><a href="#Effect">Effect</a></li>
+          <li><a href="#Importance">Importance</a></li>
+          <li><a href="#Quiz">Quiz</a></li>
+      </ul>
+  </header> -->
+  <ion-slides pager>
+
+      <ion-slide style="background-color: green">
+        <h2>Slide 1</h2>
+      </ion-slide>
+    
+      <ion-slide style="background-color: blue">
+        <h2>Slide 2</h2>
+      </ion-slide>
+    
+      <ion-slide style="background-color: red">
+        <h2>Slide 3</h2>
+      </ion-slide>
+    
+    </ion-slides>
 </ion-content>

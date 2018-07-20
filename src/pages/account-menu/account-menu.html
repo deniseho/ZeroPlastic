@@ -1,22 +1,11 @@
-<!--
-  Generated template for the AccountMenuPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>account-menu</ion-title>
-  </ion-navbar>
-
+    <custom-nav-bar [title]="'topicOne'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
 </ion-header>
 
-
 <ion-content padding>
-      <ion-list>
-          <button ion-item *ngFor="let page of pages" (click)="pageSelected(page)">
-            {{ page.title }}
-          </button>  
-        </ion-list>
+  <ion-list>
+    <button ion-item *ngFor="let page of pages" (click)="pageSelected(page)">
+      {{ page.title }}
+    </button>
+  </ion-list>
 </ion-content>

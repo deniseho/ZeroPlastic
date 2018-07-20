@@ -34,7 +34,7 @@ import { AchievementPage } from '../pages/achievement/achievement';
     TopicFivePage,
     AccountMenuPage,
     ProfilePage,
-    AchievementPage
+    AchievementPage,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +55,7 @@ import { AchievementPage } from '../pages/achievement/achievement';
     TopicFivePage,
     AccountMenuPage,
     ProfilePage,
-    AchievementPage    
+    AchievementPage,
   ],
   providers: [
     StatusBar,

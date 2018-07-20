@@ -7,6 +7,12 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { TopicOnePage } from '../pages/topic-one/topic-one';
+import { TopicTwoPage } from '../pages/topic-two/topic-two';
+import { TopicThreePage } from '../pages/topic-three/topic-three';
+import { TopicFourPage } from '../pages/topic-four/topic-four';
+import { TopicFivePage } from '../pages/topic-five/topic-five';
+import { ProfilePage } from '../pages/profile/profile';
 
 
 @Component({
@@ -16,7 +22,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = TopicMenu;
+  // rootPage = TopicMenu;
+  rootPage = ProfilePage;
+  
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -30,7 +38,11 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Home', component: TopicMenu },
-      { title: 'My First List', component: ListPage }
+      { title: 'Plastic Pollution', component: TopicOnePage },
+      { title: 'About Pollution', component: TopicTwoPage },
+      { title: 'Species Affected', component: TopicThreePage },
+      { title: 'Take Action', component: TopicFourPage },
+      { title: 'Activities', component: TopicFivePage },
     ];
   }
 
