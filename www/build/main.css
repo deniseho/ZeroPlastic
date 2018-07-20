@@ -25731,7 +25731,29 @@ page-topic-one .section:nth-child(even) {
   padding-bottom: 5px;
 }
 
-page-topic-two section {
-  height: 100%;
-  border: 1px gray solid;
+page-many-tabs .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-many-tabs .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-many-tabs .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-many-tabs .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
 }
