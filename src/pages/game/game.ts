@@ -27,16 +27,18 @@ export class GamePage {
     fall();
     function fall() {
       var bunny = {
-        url:'../assets/imgs/bunny.png',
+        url: '../assets/imgs/bunny.png',
         count: 2,
-        speed: 0.6
+        speed: 0.6,
+        category: 1
       }
-  
+
       var bottle = {
-        url:'../assets/imgs/bottle.png',
+        url: '../assets/imgs/bottle.png',
         count: 3,
-        speed: 0.9
-      }  
+        speed: 0.9,
+        category: 2
+      }
 
       for (var i = 0; i < bunny.count; i++) {
         createItem(PIXI.Sprite.fromImage(bunny.url), getItemPosX(), getItemPosY(i), bunny.speed);
@@ -51,11 +53,11 @@ export class GamePage {
     }
 
     function getItemPosX() {
-      // define dropping area
-      var padding = 40;
-      var max = app.screen.width - padding;
-      var min = padding;
-      return Math.floor(Math.random() * (max - min + 1)) + min;
+      // define falling panels
+      var posX = 0;
+      var panelWidth = app.screen.width / 4;
+      var randomPanel = Math.floor(Math.random() * 4);
+      return randomPanel * panelWidth + panelWidth / 2;
     }
 
     function getItemPosY(i) {
@@ -119,25 +121,45 @@ export class GamePage {
         var newPosition = this
           .data
           .getLocalPosition(this.parent);
-        this.x = newPosition.x;
+
+        var panelWidth = app.screen.width / 4;
+        if (newPosition.x > 0 && newPosition.x < panelWidth) {
+          this.x = panelWidth * 0 + panelWidth / 2;
+        } else if (newPosition.x > panelWidth * 2 && newPosition.x < panelWidth * 3) {
+          this.x = panelWidth * 1 + panelWidth / 2;
+        } else if (newPosition.x > panelWidth * 3 && newPosition.x < panelWidth * 4) {
+          this.x = panelWidth * 2 + panelWidth / 2;
+        } else if (newPosition.x > panelWidth * 4) {
+          this.x = panelWidth * 3 + panelWidth / 2;
+        }
         this.y = newPosition.y;
       }
     }
 
+    //sea bottom
     let graphics = new PIXI.Graphics();
     graphics.lineStyle(1);
     graphics.beginFill(0xFFFF0B, 0.7);
-    graphics.drawRect(0, app.screen.height - 120, app.screen.width / 2, 80);
+    graphics.drawRect(app.screen.width / 4 * 0, app.screen.height - 120, app.screen.width / 4, 80);
     graphics.endFill();
 
     graphics.lineStyle(1);
     graphics.beginFill(0x33FF00, 0.7);
-    graphics.drawRect(app.screen.width / 2, app.screen.height - 120, app.screen.width / 2, 80);
+    graphics.drawRect(app.screen.width / 4 * 1, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.endFill();
+
+    graphics.lineStyle(1);
+    graphics.beginFill(0xFFFF0B, 0.7);
+    graphics.drawRect(app.screen.width / 4 * 2, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.endFill();
+
+    graphics.lineStyle(1);
+    graphics.beginFill(0x33FF00, 0.7);
+    graphics.drawRect(app.screen.width / 4 * 3, app.screen.height - 120, app.screen.width / 4, 80);
     graphics.endFill();
 
     app
       .stage
       .addChild(graphics);
   }
-
 }
