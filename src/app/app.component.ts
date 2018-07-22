@@ -13,6 +13,7 @@ import { TopicThreePage } from '../pages/topic-three/topic-three';
 import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
 import { ProfilePage } from '../pages/profile/profile';
+import { GamePage } from '../pages/game/game';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   // rootPage = TopicMenu;
-  rootPage = ProfilePage;
+  rootPage = GamePage;
   
   pages: Array<{title: string, component: any}>;
 

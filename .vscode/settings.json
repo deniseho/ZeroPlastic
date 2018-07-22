@@ -1,4 +1,4 @@
 {
     "git.ignoreLimitWarning": true,
-    "files.autoSave": "afterDelay"
+    // "files.autoSave": "afterDelay"
 }
