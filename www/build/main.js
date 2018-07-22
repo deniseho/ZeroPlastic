@@ -165,15 +165,17 @@ var GamePage = /** @class */ (function () {
             setTimeout(fall, 8000);
         }
         function getItemPosX() {
-            // define falling panels
-            var posX = 0;
-            var panelWidth = app.screen.width / 4;
-            var randomPanel = Math.floor(Math.random() * 4);
-            return randomPanel * panelWidth + panelWidth / 2;
+            // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
+            // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
+            // 2;
+            var padding = 40;
+            var min = padding;
+            var max = app.screen.width - padding;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
         function getItemPosY(i) {
-            var max = 100;
             var min = 0;
+            var max = 100;
             return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
         }
         function createItem(item, x, y, speed) {
@@ -190,11 +192,17 @@ var GamePage = /** @class */ (function () {
                 .set(0.5);
             item.interactive = true;
             item.buttonMode = true;
-            item
-                .on('pointerdown', onDragStart)
-                .on('pointerup', onDragEnd)
-                .on('pointerupoutside', onDragEnd)
-                .on('pointermove', onDragMove);
+            item.on('tap', function () {
+                app
+                    .ticker
+                    .add(function (delta) {
+                    item.rotation += 0.6 * delta;
+                    item.scale.x *= 0.8;
+                    item.scale.y *= 0.8;
+                });
+            });
+            // item   .on('pointerdown', onDragStart)   .on('pointerup', onDragEnd)
+            // .on('pointerupoutside', onDragEnd)   .on('pointermove', onDragMove);
             container.addChild(item);
             // Listen for animate update
             app
@@ -205,43 +213,21 @@ var GamePage = /** @class */ (function () {
                 }
             });
         }
-        function onDragStart(event) {
-            console.log(this);
-            this.data = event.data;
-            this.alpha = 0.5;
-            this.dragging = true;
-        }
-        function onDragEnd() {
-            this.alpha = 1;
-            this.dragging = false;
-            // set the interaction data to null
-            this.data = null;
-        }
-        function onDragMove() {
-            if (this.x <= 0 || this.x >= app.screen.width || this.y >= app.screen.height) {
-                this.dragging = false;
-            }
-            if (this.dragging) {
-                var newPosition = this
-                    .data
-                    .getLocalPosition(this.parent);
-                var panelWidth = app.screen.width / 4;
-                if (newPosition.x > 0 && newPosition.x < panelWidth) {
-                    this.x = panelWidth * 0 + panelWidth / 2;
-                }
-                else if (newPosition.x > panelWidth * 2 && newPosition.x < panelWidth * 3) {
-                    this.x = panelWidth * 1 + panelWidth / 2;
-                }
-                else if (newPosition.x > panelWidth * 3 && newPosition.x < panelWidth * 4) {
-                    this.x = panelWidth * 2 + panelWidth / 2;
-                }
-                else if (newPosition.x > panelWidth * 4) {
-                    this.x = panelWidth * 3 + panelWidth / 2;
-                }
-                this.x = newPosition.x;
-                this.y = newPosition.y;
-            }
-        }
+        // function onDragStart(event) {   console.log(this);   this.data = event.data;
+        //  this.alpha = 0.5;   this.dragging = true; } function onDragEnd() {
+        // this.alpha = 1;   this.dragging = false;   // set the interaction data to
+        // null   this.data = null; } function onDragMove() {   if (this.x <= 0 ||
+        // this.x >= app.screen.width || this.y >= app.screen.height) {
+        // this.dragging = false;   }   if (this.dragging) {     var newPosition = this
+        //      .data       .getLocalPosition(this.parent);     var panelWidth =
+        // app.screen.width / 4;     if (newPosition.x > 0 && newPosition.x <
+        // panelWidth) {       this.x = panelWidth * 0 + panelWidth / 2;     } else if
+        // (newPosition.x > panelWidth * 2 && newPosition.x < panelWidth * 3) {
+        // this.x = panelWidth * 1 + panelWidth / 2;     } else if (newPosition.x >
+        // panelWidth * 3 && newPosition.x < panelWidth * 4) {       this.x = panelWidth
+        // * 2 + panelWidth / 2;     } else if (newPosition.x > panelWidth * 4) {
+        // this.x = panelWidth * 3 + panelWidth / 2;     }     this.x = newPosition.x;
+        //   this.y = newPosition.y;   } }
         var graphics = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Graphics"]();
         graphics.lineStyle(1);
         graphics.beginFill(0xFFFF0B, 0.7);
