@@ -67,6 +67,7 @@ export class GamePage {
     }
 
     function createItem(item, x, y, speed) {
+      var bunnyAmount = 0;
 
       // center the sprite's anchor point
       item
@@ -82,6 +83,7 @@ export class GamePage {
         .set(0.5);
       item.interactive = true;
       item.buttonMode = true;
+
       item
         .on('pointerdown', onDragStart)
         .on('pointerup', onDragEnd)
@@ -98,9 +100,11 @@ export class GamePage {
             item.y += speed;
           }
         });
+
     }
 
     function onDragStart(event) {
+      console.log(this);
       this.data = event.data;
       this.alpha = 0.5;
       this.dragging = true;
@@ -132,11 +136,12 @@ export class GamePage {
         } else if (newPosition.x > panelWidth * 4) {
           this.x = panelWidth * 3 + panelWidth / 2;
         }
+
+        this.x = newPosition.x;
         this.y = newPosition.y;
       }
     }
 
-    //sea bottom
     let graphics = new PIXI.Graphics();
     graphics.lineStyle(1);
     graphics.beginFill(0xFFFF0B, 0.7);

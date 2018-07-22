@@ -177,6 +177,7 @@ var GamePage = /** @class */ (function () {
             return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
         }
         function createItem(item, x, y, speed) {
+            var bunnyAmount = 0;
             // center the sprite's anchor point
             item
                 .anchor
@@ -205,6 +206,7 @@ var GamePage = /** @class */ (function () {
             });
         }
         function onDragStart(event) {
+            console.log(this);
             this.data = event.data;
             this.alpha = 0.5;
             this.dragging = true;
@@ -236,10 +238,10 @@ var GamePage = /** @class */ (function () {
                 else if (newPosition.x > panelWidth * 4) {
                     this.x = panelWidth * 3 + panelWidth / 2;
                 }
+                this.x = newPosition.x;
                 this.y = newPosition.y;
             }
         }
-        //sea bottom
         var graphics = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Graphics"]();
         graphics.lineStyle(1);
         graphics.beginFill(0xFFFF0B, 0.7);
@@ -661,7 +663,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/deniseho/plastic/src/app/app.html"*/'<ion-menu [content]="content" [swipeEnabled]="false">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>MENU</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>Pages</ion-list-header>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>Settings</ion-list-header>\n        <!-- <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n          {{p.title}}\n        </button> -->\n      </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>\n'/*ion-inline-end:"/Users/deniseho/plastic/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/deniseho/plastic/src/app/app.html"*/'<ion-menu [content]="content" [swipeEnabled]="false">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>MENU</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>Pages</ion-list-header>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>Settings</ion-list-header>\n        <!-- <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n          {{p.title}}\n        </button> -->\n      </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>\n\n<script>\n  var canvas = document.getElementsByTagName("canvas");\nif (canvas.getContext) \n{\nvar ctx = canvas.getContext(\'2d\');\nctx.shadowColor = "black";\nctx.shadowBlur = 6;\nctx.shadowOffsetX = 6;\nctx.shadowOffsetY = 6;\nctx.shadowColor = "orange";\nctx.strokeRect(25, 25, 200, 200);\nctx.shadowColor = "green";\nctx.strokeRect(50, 50, 200, 200);\nctx.shadowColor = "blue";\nctx.strokeRect(75, 75, 200, 200);\nctx.shadowColor = "red";\nctx.strokeRect(100, 100, 200, 200);\n}\n</script>\n'/*ion-inline-end:"/Users/deniseho/plastic/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */],
