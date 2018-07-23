@@ -129,8 +129,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GamePage = /** @class */ (function () {
     function GamePage(navCtrl) {
         this.navCtrl = navCtrl;
+        this.self = this;
+        this.score = 0;
         console.log(window.innerWidth, window.innerHeight);
     }
+    Object.defineProperty(GamePage.prototype, "scoreSum", {
+        get: function () {
+            return this.score;
+        },
+        set: function (val) {
+            this.score = val;
+        },
+        enumerable: true,
+        configurable: true
+    });
     GamePage.prototype.ionViewDidLoad = function () {
         var app = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Application"](window.innerWidth, window.innerHeight, { backgroundColor: 0x1099bb });
         this
@@ -145,15 +157,15 @@ var GamePage = /** @class */ (function () {
         function fall() {
             var bunny = {
                 url: '../assets/imgs/bunny.png',
-                count: 2,
+                count: 3,
                 speed: 0.6,
-                category: 1
+                score: 1
             };
             var bottle = {
                 url: '../assets/imgs/bottle.png',
-                count: 3,
+                count: 4,
                 speed: 0.9,
-                category: 2
+                score: 2
             };
             for (var i = 0; i < bunny.count; i++) {
                 createItem(__WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"].fromImage(bunny.url), getItemPosX(), getItemPosY(i), bunny.speed);
@@ -162,12 +174,9 @@ var GamePage = /** @class */ (function () {
                 createItem(__WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"].fromImage(bottle.url), getItemPosX(), getItemPosY(i), bottle.speed);
             }
             // and schedule a repeat
-            setTimeout(fall, 8000);
+            setTimeout(fall, 5000);
         }
         function getItemPosX() {
-            // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
-            // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
-            // 2;
             var padding = 40;
             var min = padding;
             var max = app.screen.width - padding;
@@ -179,7 +188,7 @@ var GamePage = /** @class */ (function () {
             return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
         }
         function createItem(item, x, y, speed) {
-            var bunnyAmount = 0;
+            var _this = this;
             // center the sprite's anchor point
             item
                 .anchor
@@ -187,9 +196,12 @@ var GamePage = /** @class */ (function () {
             // move the sprite to the center of the screen
             item.x = x;
             item.y = y;
+            item.rotation = Math.random() * 360;
+            var max = 6;
+            var min = 3;
             item
                 .scale
-                .set(0.5);
+                .set((Math.floor(Math.random() * (max - min + 1)) + min) / 10);
             item.interactive = true;
             item.buttonMode = true;
             item.on('tap', function () {
@@ -200,9 +212,8 @@ var GamePage = /** @class */ (function () {
                     item.scale.x *= 0.8;
                     item.scale.y *= 0.8;
                 });
+                console.log(_this);
             });
-            // item   .on('pointerdown', onDragStart)   .on('pointerup', onDragEnd)
-            // .on('pointerupoutside', onDragEnd)   .on('pointermove', onDragMove);
             container.addChild(item);
             // Listen for animate update
             app
@@ -213,37 +224,22 @@ var GamePage = /** @class */ (function () {
                 }
             });
         }
-        // function onDragStart(event) {   console.log(this);   this.data = event.data;
-        //  this.alpha = 0.5;   this.dragging = true; } function onDragEnd() {
-        // this.alpha = 1;   this.dragging = false;   // set the interaction data to
-        // null   this.data = null; } function onDragMove() {   if (this.x <= 0 ||
-        // this.x >= app.screen.width || this.y >= app.screen.height) {
-        // this.dragging = false;   }   if (this.dragging) {     var newPosition = this
-        //      .data       .getLocalPosition(this.parent);     var panelWidth =
-        // app.screen.width / 4;     if (newPosition.x > 0 && newPosition.x <
-        // panelWidth) {       this.x = panelWidth * 0 + panelWidth / 2;     } else if
-        // (newPosition.x > panelWidth * 2 && newPosition.x < panelWidth * 3) {
-        // this.x = panelWidth * 1 + panelWidth / 2;     } else if (newPosition.x >
-        // panelWidth * 3 && newPosition.x < panelWidth * 4) {       this.x = panelWidth
-        // * 2 + panelWidth / 2;     } else if (newPosition.x > panelWidth * 4) {
-        // this.x = panelWidth * 3 + panelWidth / 2;     }     this.x = newPosition.x;
-        //   this.y = newPosition.y;   } }
         var graphics = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Graphics"]();
         graphics.lineStyle(1);
         graphics.beginFill(0xFFFF0B, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 0, app.screen.height - 120, app.screen.width / 4, 80);
+        graphics.drawRect(app.screen.width / 4 * 0, app.screen.height - 95, app.screen.width / 4, 200);
         graphics.endFill();
         graphics.lineStyle(1);
         graphics.beginFill(0x33FF00, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 1, app.screen.height - 120, app.screen.width / 4, 80);
+        graphics.drawRect(app.screen.width / 4 * 1, app.screen.height - 130, app.screen.width / 4, 230);
         graphics.endFill();
         graphics.lineStyle(1);
         graphics.beginFill(0xFFFF0B, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 2, app.screen.height - 120, app.screen.width / 4, 80);
+        graphics.drawRect(app.screen.width / 4 * 2, app.screen.height - 120, app.screen.width / 4, 260);
         graphics.endFill();
         graphics.lineStyle(1);
         graphics.beginFill(0x33FF00, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 3, app.screen.height - 120, app.screen.width / 4, 80);
+        graphics.drawRect(app.screen.width / 4 * 3, app.screen.height - 100, app.screen.width / 4, 210);
         graphics.endFill();
         app
             .stage
@@ -254,7 +250,7 @@ var GamePage = /** @class */ (function () {
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], GamePage.prototype, "content", void 0);
     GamePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-game',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/game/game.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Game</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <div #content></div>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/game/game.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-game',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/game/game.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Game</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div #content ion-fixed>\n    <h4 ion-fixed> score: {{scoreSum}}</h4>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/game/game.html"*/ }),
         __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object])
     ], GamePage);
     return GamePage;
@@ -646,17 +642,15 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/deniseho/plastic/src/app/app.html"*/'<ion-menu [content]="content" [swipeEnabled]="false">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>MENU</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>Pages</ion-list-header>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>Settings</ion-list-header>\n        <!-- <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n          {{p.title}}\n        </button> -->\n      </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>\n\n<script>\n  var canvas = document.getElementsByTagName("canvas");\nif (canvas.getContext) \n{\nvar ctx = canvas.getContext(\'2d\');\nctx.shadowColor = "black";\nctx.shadowBlur = 6;\nctx.shadowOffsetX = 6;\nctx.shadowOffsetY = 6;\nctx.shadowColor = "orange";\nctx.strokeRect(25, 25, 200, 200);\nctx.shadowColor = "green";\nctx.strokeRect(50, 50, 200, 200);\nctx.shadowColor = "blue";\nctx.strokeRect(75, 75, 200, 200);\nctx.shadowColor = "red";\nctx.strokeRect(100, 100, 200, 200);\n}\n</script>\n'/*ion-inline-end:"/Users/deniseho/plastic/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _e || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=app.component.js.map

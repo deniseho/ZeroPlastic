@@ -11,6 +11,16 @@ export class GamePage {
     console.log(window.innerWidth, window.innerHeight);
   }
 
+  self:any= this;
+  score:any = 0;
+  
+  get scoreSum() : any {
+      return this.score;
+  }
+  set scoreSum(val : any) {
+      this.score = val;
+  }
+
   ionViewDidLoad() {
     var app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});
 
@@ -28,16 +38,16 @@ export class GamePage {
     function fall() {
       var bunny = {
         url: '../assets/imgs/bunny.png',
-        count: 2,
+        count: 3,
         speed: 0.6,
-        category: 1
+        score: 1
       }
 
       var bottle = {
         url: '../assets/imgs/bottle.png',
-        count: 3,
+        count: 4,
         speed: 0.9,
-        category: 2
+        score: 2
       }
 
       for (var i = 0; i < bunny.count; i++) {
@@ -49,13 +59,10 @@ export class GamePage {
       }
 
       // and schedule a repeat
-      setTimeout(fall, 8000);
+      setTimeout(fall, 5000);
     }
 
     function getItemPosX() {
-      // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
-      // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
-      // 2;
       var padding = 40;
       var min = padding;
       var max = app.screen.width - padding;
@@ -69,8 +76,6 @@ export class GamePage {
     }
 
     function createItem(item, x, y, speed) {
-      var bunnyAmount = 0;
-
       // center the sprite's anchor point
       item
         .anchor
@@ -80,9 +85,14 @@ export class GamePage {
       item.x = x;
       item.y = y;
 
+      item.rotation = Math.random() * 360;
+
+      var max = 6;
+      var min = 3;
       item
         .scale
-        .set(0.5);
+        .set((Math.floor(Math.random() * (max - min + 1)) + min) / 10);
+
       item.interactive = true;
       item.buttonMode = true;
       item.on('tap', () => {
@@ -93,10 +103,9 @@ export class GamePage {
             item.scale.x *= 0.8;
             item.scale.y *= 0.8;
           });
-      });
+        console.log(this);
 
-      // item   .on('pointerdown', onDragStart)   .on('pointerup', onDragEnd)
-      // .on('pointerupoutside', onDragEnd)   .on('pointermove', onDragMove);
+      });
 
       container.addChild(item);
 
@@ -110,41 +119,25 @@ export class GamePage {
         });
     }
 
-    // function onDragStart(event) {   console.log(this);   this.data = event.data;
-    //  this.alpha = 0.5;   this.dragging = true; } function onDragEnd() {
-    // this.alpha = 1;   this.dragging = false;   // set the interaction data to
-    // null   this.data = null; } function onDragMove() {   if (this.x <= 0 ||
-    // this.x >= app.screen.width || this.y >= app.screen.height) {
-    // this.dragging = false;   }   if (this.dragging) {     var newPosition = this
-    //      .data       .getLocalPosition(this.parent);     var panelWidth =
-    // app.screen.width / 4;     if (newPosition.x > 0 && newPosition.x <
-    // panelWidth) {       this.x = panelWidth * 0 + panelWidth / 2;     } else if
-    // (newPosition.x > panelWidth * 2 && newPosition.x < panelWidth * 3) {
-    // this.x = panelWidth * 1 + panelWidth / 2;     } else if (newPosition.x >
-    // panelWidth * 3 && newPosition.x < panelWidth * 4) {       this.x = panelWidth
-    // * 2 + panelWidth / 2;     } else if (newPosition.x > panelWidth * 4) {
-    // this.x = panelWidth * 3 + panelWidth / 2;     }     this.x = newPosition.x;
-    //   this.y = newPosition.y;   } }
-
     let graphics = new PIXI.Graphics();
     graphics.lineStyle(1);
     graphics.beginFill(0xFFFF0B, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 0, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.drawRect(app.screen.width / 4 * 0, app.screen.height - 95, app.screen.width / 4, 200);
     graphics.endFill();
 
     graphics.lineStyle(1);
     graphics.beginFill(0x33FF00, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 1, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.drawRect(app.screen.width / 4 * 1, app.screen.height - 130, app.screen.width / 4, 230);
     graphics.endFill();
 
     graphics.lineStyle(1);
     graphics.beginFill(0xFFFF0B, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 2, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.drawRect(app.screen.width / 4 * 2, app.screen.height - 120, app.screen.width / 4, 260);
     graphics.endFill();
 
     graphics.lineStyle(1);
     graphics.beginFill(0x33FF00, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 3, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.drawRect(app.screen.width / 4 * 3, app.screen.height - 100, app.screen.width / 4, 210);
     graphics.endFill();
 
     app
