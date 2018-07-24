@@ -11,14 +11,8 @@
 
 
 <ion-content>
-
-
   <!-- <p>
     <button ion-button color="primary" menuToggle>Toggle Menu</button>
   </p> -->
-    <div class="menuList" (click)="gotoTopicOne()">topic 1</div>
-    <div class="menuList" (click)="gotoTopicTwo()">topic 2</div>
-    <div class="menuList" (click)="gotoTopicThree()">topic 3</div>
-    <div class="menuList" (click)="gotoTopicFour()">topic 4</div>
-    <div class="menuList" (click)="gotoTopicFive()">topic 5</div>
+  <div class="menuList" *ngFor="let p of pages" (click)="gotoPage(p.component)">{{p.title}}</div>
 </ion-content>

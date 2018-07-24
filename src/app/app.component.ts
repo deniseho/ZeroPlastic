@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, MenuController, Nav, NavController } from 'ionic-angular';
 
 import { TopicMenu } from '../pages/topic-menu/topic-menu';
 import { ListPage } from '../pages/list/list';
@@ -23,8 +23,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  // rootPage = TopicMenu;
-  rootPage = GamePage;
+  rootPage = TopicMenu;
+  // rootPage = GamePage;
   
   pages: Array<{title: string, component: any}>;
 
@@ -32,7 +32,7 @@ export class MyApp {
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
   ) {
     this.initializeApp();
 
@@ -61,5 +61,10 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  openGame(){
+    this.menu.close();
+    this.nav.push(GamePage);
   }
 }
