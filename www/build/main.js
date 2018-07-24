@@ -148,7 +148,7 @@ var GamePage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__game_items__["a" /* items */].forEach(function (elemData, index) {
                 createItem(elemData, index);
             });
-            // setTimeout(fall, 3000);
+            setTimeout(fall, 3000);
         }
         var reachBottomCount = 0;
         function createItem(elemData, index) {
@@ -162,13 +162,13 @@ var GamePage = /** @class */ (function () {
             item.x = getItemPosX();
             item.y = getItemPosY(index);
             function getItemPosX() {
-                // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
-                // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
-                // 2;
                 var padding = 40;
                 var max = app.screen.width - padding;
                 var min = padding;
-                return Math.floor(Math.random() * (max - min + 1)) + min;
+                var posX = Math.floor(Math.random() * (max - min + 1)) + min;
+                if (posX > min && posX < app.screen.width / 2 - padding || posX > app.screen.width / 2 + padding / 2 && posX < max) {
+                    return posX;
+                }
             }
             function getItemPosY(i) {
                 var max = 100;
@@ -186,6 +186,7 @@ var GamePage = /** @class */ (function () {
                 .on('pointerupoutside', onDragEnd)
                 .on('pointermove', onDragMove);
             container.addChild(item);
+            var count = 0;
             app
                 .ticker
                 .add(function (delta) {

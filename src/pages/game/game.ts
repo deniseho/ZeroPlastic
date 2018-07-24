@@ -24,14 +24,14 @@ export class GamePage {
     app
       .stage
       .addChild(container);
-      
+
     fall();
 
     function fall() {
       items.forEach((elemData, index) => {
         createItem(elemData, index);
       });
-      // setTimeout(fall, 3000);
+      setTimeout(fall, 3000);
     }
 
     let reachBottomCount = 0;
@@ -50,13 +50,14 @@ export class GamePage {
       item.y = getItemPosY(index);
 
       function getItemPosX() {
-        // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
-        // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
-        // 2;
         var padding = 40;
         var max = app.screen.width - padding;
         var min = padding;
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        var posX = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (posX > min && posX < app.screen.width / 2 - padding || posX > app.screen.width / 2 + padding / 2 && posX < max) {
+          return posX;
+        }
       }
 
       function getItemPosY(i) {
@@ -79,10 +80,10 @@ export class GamePage {
 
       container.addChild(item);
 
+      var count = 0;
       app
         .ticker
         .add(function (delta) {
-
           if (item.y < app.screen.height - item.height) {
             item.y += elemData.speed;
           } else {
