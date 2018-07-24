@@ -13,6 +13,16 @@ export class GamePage {
   constructor(public navCtrl : NavController, public alertCtrl : AlertController) {
   }
 
+  self:any= this;
+  score:any = 0;
+  
+  get scoreSum() : any {
+      return this.score;
+  }
+  set scoreSum(val : any) {
+      this.score = val;
+  }
+
   ionViewDidLoad() {
     let app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});
     let errorCount = 0;
@@ -68,17 +78,27 @@ export class GamePage {
         return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
       }
 
+      item.rotation = Math.random() * 360;
+
+      var max = 6;
+      var min = 3;
       item
         .scale
-        .set(0.5);
+        .set((Math.floor(Math.random() * (max - min + 1)) + min) / 10);
+
       item.interactive = true;
       item.buttonMode = true;
+      item.on('tap', () => {
+        app
+          .ticker
+          .add(function (delta) {
+            item.rotation += 0.6 * delta;
+            item.scale.x *= 0.8;
+            item.scale.y *= 0.8;
+          });
+        console.log(this);
 
-      item
-        .on('pointerdown', onDragStart)
-        .on('pointerup', onDragEnd)
-        .on('pointerupoutside', onDragEnd)
-        .on('pointermove', onDragMove);
+      });
 
       container.addChild(item);
 
