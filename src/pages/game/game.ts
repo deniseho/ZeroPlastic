@@ -26,38 +26,41 @@ export class GamePage {
 
     fall();
     function fall() {
-      var bunny = {
-        url: '../assets/imgs/bunny.png',
-        count: 2,
-        speed: 0.6,
-        category: 1
-      }
 
-      var bottle = {
-        url: '../assets/imgs/bottle.png',
-        count: 3,
-        speed: 0.9,
-        category: 2
-      }
+      var items = [
+        {
+          index: 0,
+          url: '../assets/imgs/bunny.png',
+          count: 2,
+          speed: 0.9,
+          category: 1
+        },
+        {
+          index: 1,
+          url: '../assets/imgs/bottle.png',
+          count: 3,
+          speed: 1.3,
+          category: 2
+        }
+      ]
 
-      for (var i = 0; i < bunny.count; i++) {
-        createItem(PIXI.Sprite.fromImage(bunny.url), getItemPosX(), getItemPosY(i), bunny.speed);
-      }
-
-      for (var i = 0; i < bottle.count; i++) {
-        createItem(PIXI.Sprite.fromImage(bottle.url), getItemPosX(), getItemPosY(i), bottle.speed);
-      }
+      items.forEach(element => {
+        createItem(PIXI.Sprite.fromImage(element.url), getItemPosX(), getItemPosY(element.index), element.speed);
+      });
 
       // and schedule a repeat
-      setTimeout(fall, 8000);
+      setTimeout(fall, 3000);
     }
 
     function getItemPosX() {
-      // define falling panels
-      var posX = 0;
-      var panelWidth = app.screen.width / 4;
-      var randomPanel = Math.floor(Math.random() * 4);
-      return randomPanel * panelWidth + panelWidth / 2;
+      // var posX = 0;
+      // var panelWidth = app.screen.width / 4;
+      // var randomPanel = Math.floor(Math.random() * 4);
+      // return randomPanel * panelWidth + panelWidth / 2;
+      var padding = 40;
+      var max = app.screen.width - padding;
+      var min = padding;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     function getItemPosY(i) {
@@ -104,7 +107,6 @@ export class GamePage {
     }
 
     function onDragStart(event) {
-      console.log(this);
       this.data = event.data;
       this.alpha = 0.5;
       this.dragging = true;
@@ -126,16 +128,12 @@ export class GamePage {
           .data
           .getLocalPosition(this.parent);
 
-        var panelWidth = app.screen.width / 4;
-        if (newPosition.x > 0 && newPosition.x < panelWidth) {
-          this.x = panelWidth * 0 + panelWidth / 2;
-        } else if (newPosition.x > panelWidth * 2 && newPosition.x < panelWidth * 3) {
-          this.x = panelWidth * 1 + panelWidth / 2;
-        } else if (newPosition.x > panelWidth * 3 && newPosition.x < panelWidth * 4) {
-          this.x = panelWidth * 2 + panelWidth / 2;
-        } else if (newPosition.x > panelWidth * 4) {
-          this.x = panelWidth * 3 + panelWidth / 2;
-        }
+        // var panelWidth = app.screen.width / 2;
+        // if (newPosition.x > 0 && newPosition.x < panelWidth) {
+        //   this.x = 0 + panelWidth / 2;
+        // } else if (newPosition.x > panelWidth) {
+        //   this.x = panelWidth + panelWidth / 2;
+        // }
 
         this.x = newPosition.x;
         this.y = newPosition.y;
@@ -145,22 +143,12 @@ export class GamePage {
     let graphics = new PIXI.Graphics();
     graphics.lineStyle(1);
     graphics.beginFill(0xFFFF0B, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 0, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.drawRect(0, app.screen.height - 120, app.screen.width / 2, 80);
     graphics.endFill();
 
     graphics.lineStyle(1);
     graphics.beginFill(0x33FF00, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 1, app.screen.height - 120, app.screen.width / 4, 80);
-    graphics.endFill();
-
-    graphics.lineStyle(1);
-    graphics.beginFill(0xFFFF0B, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 2, app.screen.height - 120, app.screen.width / 4, 80);
-    graphics.endFill();
-
-    graphics.lineStyle(1);
-    graphics.beginFill(0x33FF00, 0.7);
-    graphics.drawRect(app.screen.width / 4 * 3, app.screen.height - 120, app.screen.width / 4, 80);
+    graphics.drawRect(app.screen.width / 2, app.screen.height - 120, app.screen.width / 2, 80);
     graphics.endFill();
 
     app

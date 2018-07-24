@@ -109,180 +109,6 @@ webpackEmptyAsyncContext.id = 192;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GamePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_js__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_pixi_js__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var GamePage = /** @class */ (function () {
-    function GamePage(navCtrl) {
-        this.navCtrl = navCtrl;
-        console.log(window.innerWidth, window.innerHeight);
-    }
-    GamePage.prototype.ionViewDidLoad = function () {
-        var app = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Application"](window.innerWidth, window.innerHeight, { backgroundColor: 0x1099bb });
-        this
-            .content
-            .nativeElement
-            .appendChild(app.view);
-        var container = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Container"]();
-        app
-            .stage
-            .addChild(container);
-        fall();
-        function fall() {
-            var bunny = {
-                url: '../assets/imgs/bunny.png',
-                count: 2,
-                speed: 0.6,
-                category: 1
-            };
-            var bottle = {
-                url: '../assets/imgs/bottle.png',
-                count: 3,
-                speed: 0.9,
-                category: 2
-            };
-            for (var i = 0; i < bunny.count; i++) {
-                createItem(__WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"].fromImage(bunny.url), getItemPosX(), getItemPosY(i), bunny.speed);
-            }
-            for (var i = 0; i < bottle.count; i++) {
-                createItem(__WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"].fromImage(bottle.url), getItemPosX(), getItemPosY(i), bottle.speed);
-            }
-            // and schedule a repeat
-            setTimeout(fall, 8000);
-        }
-        function getItemPosX() {
-            // define falling panels
-            var posX = 0;
-            var panelWidth = app.screen.width / 4;
-            var randomPanel = Math.floor(Math.random() * 4);
-            return randomPanel * panelWidth + panelWidth / 2;
-        }
-        function getItemPosY(i) {
-            var max = 100;
-            var min = 0;
-            return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
-        }
-        function createItem(item, x, y, speed) {
-            var bunnyAmount = 0;
-            // center the sprite's anchor point
-            item
-                .anchor
-                .set(0.5);
-            // move the sprite to the center of the screen
-            item.x = x;
-            item.y = y;
-            item
-                .scale
-                .set(0.5);
-            item.interactive = true;
-            item.buttonMode = true;
-            item
-                .on('pointerdown', onDragStart)
-                .on('pointerup', onDragEnd)
-                .on('pointerupoutside', onDragEnd)
-                .on('pointermove', onDragMove);
-            container.addChild(item);
-            // Listen for animate update
-            app
-                .ticker
-                .add(function (delta) {
-                if (item.y < app.screen.height - item.height) {
-                    item.y += speed;
-                }
-            });
-        }
-        function onDragStart(event) {
-            console.log(this);
-            this.data = event.data;
-            this.alpha = 0.5;
-            this.dragging = true;
-        }
-        function onDragEnd() {
-            this.alpha = 1;
-            this.dragging = false;
-            // set the interaction data to null
-            this.data = null;
-        }
-        function onDragMove() {
-            if (this.x <= 0 || this.x >= app.screen.width || this.y >= app.screen.height) {
-                this.dragging = false;
-            }
-            if (this.dragging) {
-                var newPosition = this
-                    .data
-                    .getLocalPosition(this.parent);
-                var panelWidth = app.screen.width / 4;
-                if (newPosition.x > 0 && newPosition.x < panelWidth) {
-                    this.x = panelWidth * 0 + panelWidth / 2;
-                }
-                else if (newPosition.x > panelWidth * 2 && newPosition.x < panelWidth * 3) {
-                    this.x = panelWidth * 1 + panelWidth / 2;
-                }
-                else if (newPosition.x > panelWidth * 3 && newPosition.x < panelWidth * 4) {
-                    this.x = panelWidth * 2 + panelWidth / 2;
-                }
-                else if (newPosition.x > panelWidth * 4) {
-                    this.x = panelWidth * 3 + panelWidth / 2;
-                }
-                this.x = newPosition.x;
-                this.y = newPosition.y;
-            }
-        }
-        var graphics = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Graphics"]();
-        graphics.lineStyle(1);
-        graphics.beginFill(0xFFFF0B, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 0, app.screen.height - 120, app.screen.width / 4, 80);
-        graphics.endFill();
-        graphics.lineStyle(1);
-        graphics.beginFill(0x33FF00, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 1, app.screen.height - 120, app.screen.width / 4, 80);
-        graphics.endFill();
-        graphics.lineStyle(1);
-        graphics.beginFill(0xFFFF0B, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 2, app.screen.height - 120, app.screen.width / 4, 80);
-        graphics.endFill();
-        graphics.lineStyle(1);
-        graphics.beginFill(0x33FF00, 0.7);
-        graphics.drawRect(app.screen.width / 4 * 3, app.screen.height - 120, app.screen.width / 4, 80);
-        graphics.endFill();
-        app
-            .stage
-            .addChild(graphics);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('content'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
-    ], GamePage.prototype, "content", void 0);
-    GamePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-game',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/game/game.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Game</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <div #content></div>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/game/game.html"*/ }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object])
-    ], GamePage);
-    return GamePage;
-    var _a, _b;
-}());
-
-//# sourceMappingURL=game.js.map
-
-/***/ }),
-
-/***/ 288:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
@@ -317,15 +143,15 @@ var ItemDetailsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 289:
+/***/ 237:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountMenuPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_profile__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__achievement_achievement__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_profile__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__achievement_achievement__ = __webpack_require__(239);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -378,7 +204,7 @@ var AccountMenuPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 290:
+/***/ 238:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -418,7 +244,7 @@ var ProfilePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 291:
+/***/ 239:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -463,13 +289,13 @@ var AchievementPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 292:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(314);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -477,7 +303,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 315:
+/***/ 314:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -485,9 +311,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_item_details_item_details__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_item_details_item_details__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(235);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_one_topic_one__ = __webpack_require__(68);
@@ -496,12 +322,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_topic_four_topic_four__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_topic_five_topic_five__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_forms__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_custom_nav_bar_custom_nav_bar__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_profile_profile__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_custom_nav_bar_custom_nav_bar__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_profile_profile__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_topic_menu_topic_menu__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_account_menu_account_menu__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_achievement_achievement__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_game_game__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_account_menu_account_menu__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_achievement_achievement__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_game_game__ = __webpack_require__(368);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -587,7 +413,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 358:
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -602,7 +428,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_three_topic_three__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_four_topic_four__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_game_game__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_game_game__ = __webpack_require__(368);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -660,31 +486,29 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/deniseho/plastic/src/app/app.html"*/'<ion-menu [content]="content" [swipeEnabled]="false">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>MENU</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <ion-list-header>Pages</ion-list-header>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>Settings</ion-list-header>\n        <!-- <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n          {{p.title}}\n        </button> -->\n      </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>\n\n<script>\n  var canvas = document.getElementsByTagName("canvas");\nif (canvas.getContext) \n{\nvar ctx = canvas.getContext(\'2d\');\nctx.shadowColor = "black";\nctx.shadowBlur = 6;\nctx.shadowOffsetX = 6;\nctx.shadowOffsetY = 6;\nctx.shadowColor = "orange";\nctx.strokeRect(25, 25, 200, 200);\nctx.shadowColor = "green";\nctx.strokeRect(50, 50, 200, 200);\nctx.shadowColor = "blue";\nctx.strokeRect(75, 75, 200, 200);\nctx.shadowColor = "red";\nctx.strokeRect(100, 100, 200, 200);\n}\n</script>\n'/*ion-inline-end:"/Users/deniseho/plastic/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _e || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 470:
+/***/ 366:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__item_details_item_details__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__item_details_item_details__ = __webpack_require__(236);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -730,14 +554,14 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 471:
+/***/ 367:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomNavBarPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_menu_account_menu__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_menu_account_menu__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topic_menu_topic_menu__ = __webpack_require__(125);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -784,6 +608,168 @@ var CustomNavBarPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=custom-nav-bar.js.map
+
+/***/ }),
+
+/***/ 368:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GamePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_js__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_pixi_js__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GamePage = /** @class */ (function () {
+    function GamePage(navCtrl) {
+        this.navCtrl = navCtrl;
+        console.log(window.innerWidth, window.innerHeight);
+    }
+    GamePage.prototype.ionViewDidLoad = function () {
+        var app = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Application"](window.innerWidth, window.innerHeight, { backgroundColor: 0x1099bb });
+        this
+            .content
+            .nativeElement
+            .appendChild(app.view);
+        var container = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Container"]();
+        app
+            .stage
+            .addChild(container);
+        fall();
+        function fall() {
+            var items = [
+                {
+                    index: 0,
+                    url: '../assets/imgs/bunny.png',
+                    count: 2,
+                    speed: 0.9,
+                    category: 1
+                },
+                {
+                    index: 1,
+                    url: '../assets/imgs/bottle.png',
+                    count: 3,
+                    speed: 1.3,
+                    category: 2
+                }
+            ];
+            items.forEach(function (element) {
+                createItem(__WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"].fromImage(element.url), getItemPosX(), getItemPosY(element.index), element.speed);
+            });
+            // and schedule a repeat
+            setTimeout(fall, 3000);
+        }
+        function getItemPosX() {
+            // var posX = 0;
+            // var panelWidth = app.screen.width / 4;
+            // var randomPanel = Math.floor(Math.random() * 4);
+            // return randomPanel * panelWidth + panelWidth / 2;
+            var padding = 40;
+            var max = app.screen.width - padding;
+            var min = padding;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function getItemPosY(i) {
+            var max = 100;
+            var min = 0;
+            return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
+        }
+        function createItem(item, x, y, speed) {
+            var bunnyAmount = 0;
+            // center the sprite's anchor point
+            item
+                .anchor
+                .set(0.5);
+            // move the sprite to the center of the screen
+            item.x = x;
+            item.y = y;
+            item
+                .scale
+                .set(0.5);
+            item.interactive = true;
+            item.buttonMode = true;
+            item
+                .on('pointerdown', onDragStart)
+                .on('pointerup', onDragEnd)
+                .on('pointerupoutside', onDragEnd)
+                .on('pointermove', onDragMove);
+            container.addChild(item);
+            // Listen for animate update
+            app
+                .ticker
+                .add(function (delta) {
+                if (item.y < app.screen.height - item.height) {
+                    item.y += speed;
+                }
+            });
+        }
+        function onDragStart(event) {
+            this.data = event.data;
+            this.alpha = 0.5;
+            this.dragging = true;
+        }
+        function onDragEnd() {
+            this.alpha = 1;
+            this.dragging = false;
+            // set the interaction data to null
+            this.data = null;
+        }
+        function onDragMove() {
+            if (this.x <= 0 || this.x >= app.screen.width || this.y >= app.screen.height) {
+                this.dragging = false;
+            }
+            if (this.dragging) {
+                var newPosition = this
+                    .data
+                    .getLocalPosition(this.parent);
+                // var panelWidth = app.screen.width / 2;
+                // if (newPosition.x > 0 && newPosition.x < panelWidth) {
+                //   this.x = 0 + panelWidth / 2;
+                // } else if (newPosition.x > panelWidth) {
+                //   this.x = panelWidth + panelWidth / 2;
+                // }
+                this.x = newPosition.x;
+                this.y = newPosition.y;
+            }
+        }
+        var graphics = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Graphics"]();
+        graphics.lineStyle(1);
+        graphics.beginFill(0xFFFF0B, 0.7);
+        graphics.drawRect(0, app.screen.height - 120, app.screen.width / 2, 80);
+        graphics.endFill();
+        graphics.lineStyle(1);
+        graphics.beginFill(0x33FF00, 0.7);
+        graphics.drawRect(app.screen.width / 2, app.screen.height - 120, app.screen.width / 2, 80);
+        graphics.endFill();
+        app
+            .stage
+            .addChild(graphics);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('content'),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
+    ], GamePage.prototype, "content", void 0);
+    GamePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-game',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/game/game.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Game</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <div #content ion-fixed></div>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/game/game.html"*/ }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object])
+    ], GamePage);
+    return GamePage;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=game.js.map
 
 /***/ }),
 
@@ -862,7 +848,7 @@ var TopicFourPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullpage_js__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullpage_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_fullpage_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__(358);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -967,7 +953,7 @@ var TopicTwoPage = /** @class */ (function () {
     ], TopicTwoPage.prototype, "scroll", void 0);
     TopicTwoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-many-tabs',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/'\n<ion-header>\n<!-- \n    <ion-navbar>\n      <ion-title>Empty</ion-title>\n    </ion-navbar> -->\n    <custom-nav-bar [title]="\'Home\'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>    \n  <ion-content  #scroll scrollX="true" scrollY="false" style="height: 50px;">\n    <ion-segment  class="SwipedTabs-tabs">\n      <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)"\n      [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'  [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" >\n        {{tab}}\n      </ion-segment-button>\n    </ion-segment>\n  \n    <!-- here is our dynamic line  "indicator"-->\n    <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" ></div>\n  </ion-content>\n  </ion-header>\n  \n  <ion-content >\n  \n    <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"\n                (ionSlideWillChange)="updateIndicatorPosition()"\n                (ionSlideDidChange)="updateIndicatorPosition()"\n                (pan)="updateIndicatorPosition()"\n                [pager]="false"\n          >\n      <ion-slide>\n        <h1>Problem</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Cause</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Effect</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Importance</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Quiz</h1>\n      </ion-slide>\n    </ion-slides>\n  \n  \n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/,
+            selector: 'page-many-tabs',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/'\n<ion-header>\n<!-- \n    <ion-navbar>\n      <ion-title>Empty</ion-title>\n    </ion-navbar> -->\n    <custom-nav-bar [title]="\'Home\'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>    \n  <ion-content  #scroll scrollX="true" scrollY="false" style="height: 50px;">\n    <ion-segment  class="SwipedTabs-tabs">\n      <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)"\n      [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'  [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" >\n        {{tab}}\n      </ion-segment-button>\n    </ion-segment>\n  \n    <!-- here is our dynamic line  "indicator"-->\n    <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" ></div>\n  </ion-content>\n  </ion-header>\n  \n  <ion-content >\n  \n    <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"\n                (ionSlideWillChange)="updateIndicatorPosition()"\n                (ionSlideDidChange)="updateIndicatorPosition()"\n                (pan)="updateIndicatorPosition()"\n                [pager]="false"\n          >\n      <ion-slide class="test">\n        <h1>Problem</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Cause</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Effect</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Importance</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Quiz</h1>\n      </ion-slide>\n    </ion-slides>\n  \n  \n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], TopicTwoPage);
@@ -1110,5 +1096,5 @@ var TopicFivePage = /** @class */ (function () {
 
 /***/ })
 
-},[292]);
+},[291]);
 //# sourceMappingURL=main.js.map
