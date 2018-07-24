@@ -1,48 +1,47 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import fullpage from 'fullpage.js';
-import { TopicTwoPage } from '../topic-two/topic-two';
-import { TopicFivePage } from '../topic-five/topic-five';
-import * as $ from 'jquery';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
 
-/**
- * Generated class for the TopicTwoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@Component({
-  selector: 'page-topic-one',
-  templateUrl: 'topic-one.html',
-})
-
+@Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild('SwipedTabsSlider')SwipedTabsSlider : Slides;
+  @ViewChild('scroll')scroll : Content;
+
+  SwipedTabsIndicator : any = null;
+  tabElementWidth_px : number = 100;
+  tabs : any = [];
+
+  constructor(public navCtrl : NavController) {
+    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
   }
 
-  ionViewDidLoad() {
-    new fullpage('#fullpage', {
-      autoScrolling:true,
-      scrollHorizontally: true,
-      offsetSections: false,
-      paddingTop: '3em',
-    });
+  ionViewDidEnter() {
+    this.SwipedTabsIndicator = document.getElementById("indicator");
+  }
 
-    if ($("body").hasClass("edit-mode")) {
-      console.log("has class")
+  selectTab(index) {
+    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
+    this
+      .scroll
+      .scrollTo(index * this.tabElementWidth_px, 0, 500);
+    this
+      .SwipedTabsSlider
+      .slideTo(index, 500);
+  }
+
+  updateIndicatorPosition() {
+    this
+      .scroll
+      .scrollTo(this.SwipedTabsSlider.getActiveIndex() * this.tabElementWidth_px, 0, 200);
+
+    // this condition is to avoid passing to incorrect index
+    if (this.SwipedTabsSlider.length() > this.SwipedTabsSlider.getActiveIndex()) {
+      this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)';
     }
   }
 
-  // swipeEvent(e) {
-  //   if (e.direction == 2) {
-  //     this.navCtrl.push(TopicTwoPage);
-  //   }
-
-  //   if (e.direction == 4) {
-  //     this.navCtrl.push(TopicFivePage);
-  //   }
-  // }
-
-}
+  animateIndicator($event) {
+    if (this.SwipedTabsIndicator) 
+      this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
+    }
+  }

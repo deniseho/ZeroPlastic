@@ -25678,6 +25678,60 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-topic-five .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-five .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-five .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-five .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+page-topic-four .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-four .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-four .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-four .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
 page-hello-ionic .menuList {
   width: 100%;
   height: 20%;
@@ -25692,50 +25746,7 @@ page-hello-ionic .menuList:nth-child(even) {
   background-color: #f1f1f1;
 }
 
-page-topic-one .section:nth-child(odd) {
-  background: #f1f1f1;
-}
-
-page-topic-one .section:nth-child(even) {
-  background: #cecece;
-}
-
-#header {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #cecece;
-  background-color: #fff;
-  position: fixed;
-  height: 8em;
-  top: 0;
-  z-index: 99;
-}
-
-#header ul.nav {
-  padding: 4.5em 0 0 0;
-  margin: 0 auto;
-}
-
-#header ul.nav li {
-  display: inline;
-  padding: 0 3px;
-}
-
-#header ul.nav li a {
-  color: grey;
-  text-decoration: none;
-}
-
-#header ul.nav li:active {
-  border-bottom: 2px solid grey;
-  padding-bottom: 5px;
-}
-
-.test {
-  background: Red;
-}
-
-page-many-tabs .SwipedTabs-indicatorSegment {
+page-topic-one .SwipedTabs-indicatorSegment {
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   -webkit-transform-origin: top 0 left 0;
@@ -25746,17 +25757,71 @@ page-many-tabs .SwipedTabs-indicatorSegment {
   background-color: blue !important;
 }
 
-page-many-tabs .SwipedTabs-tabs ion-segment-button {
+page-topic-one .SwipedTabs-tabs ion-segment-button {
   border: none !important;
   color: green !important;
   background-color: white !important;
 }
 
-page-many-tabs .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+page-topic-one .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
   color: blue !important;
 }
 
-page-many-tabs .SwipedTabs-tabs {
+page-topic-one .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+page-topic-three .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-three .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-three .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-three .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+page-topic-two .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-two .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-two .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-two .SwipedTabs-tabs {
   width: -webkit-fit-content !important;
   width: -moz-fit-content !important;
   width: fit-content !important;

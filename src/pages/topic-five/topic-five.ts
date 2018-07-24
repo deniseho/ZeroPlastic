@@ -1,42 +1,47 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import fullpage from 'fullpage.js';
-import { TopicOnePage } from '../topic-one/topic-one';
-import { TopicFourPage } from '../topic-four/topic-four';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
 
-/**
- * Generated class for the TopicFivePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@Component({
-  selector: 'page-topic-five',
-  templateUrl: 'topic-five.html',
-})
+@Component({selector: 'page-topic-five', templateUrl: 'topic-five.html'})
 export class TopicFivePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild('SwipedTabsSlider')SwipedTabsSlider : Slides;
+  @ViewChild('scroll')scroll : Content;
+
+  SwipedTabsIndicator : any = null;
+  tabElementWidth_px : number = 100;
+  tabs : any = [];
+
+  constructor(public navCtrl : NavController) {
+    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
   }
 
-  ionViewDidLoad() {
-    new fullpage('#fullpage', {
-      //options here
-      autoScrolling:true,
-      scrollHorizontally: true,
-      offsetSections: false,
-      paddingTop: '3em',
-    });
+  ionViewDidEnter() {
+    this.SwipedTabsIndicator = document.getElementById("indicator");
   }
 
-  swipeEvent(e) {
-    if (e.direction == 2) {
-      this.navCtrl.push(TopicOnePage);
+  selectTab(index) {
+    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
+    this
+      .scroll
+      .scrollTo(index * this.tabElementWidth_px, 0, 500);
+    this
+      .SwipedTabsSlider
+      .slideTo(index, 500);
+  }
+
+  updateIndicatorPosition() {
+    this
+      .scroll
+      .scrollTo(this.SwipedTabsSlider.getActiveIndex() * this.tabElementWidth_px, 0, 200);
+
+    // this condition is to avoid passing to incorrect index
+    if (this.SwipedTabsSlider.length() > this.SwipedTabsSlider.getActiveIndex()) {
+      this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)';
     }
+  }
 
-    if (e.direction == 4) {
-      this.navCtrl.push(TopicFourPage);
+  animateIndicator($event) {
+    if (this.SwipedTabsIndicator) 
+      this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
   }
-}

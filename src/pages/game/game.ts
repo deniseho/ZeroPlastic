@@ -2,6 +2,8 @@ import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
 import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
+import { TopicTwoPage } from '../topic-two/topic-two';
+import { TopicMenu } from '../topic-menu/topic-menu';
 
 @Component({selector: 'page-game', templateUrl: 'game.html'})
 
@@ -128,12 +130,12 @@ export class GamePage {
             {
               text: 'Play again',
               handler: data => {
-                console.log('Play again clicked');
+                self.navCtrl.push(TopicTwoPage);
               }
             }, {
-              text: 'Go back to the topic',
+              text: 'Menu',
               handler: data => {
-                console.log('Go back to the topic clicked');
+                self.navCtrl.push(TopicMenu);
               }
             }
           ]

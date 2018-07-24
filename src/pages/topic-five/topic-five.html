@@ -1,18 +1,42 @@
 <ion-header>
     <!-- 
-    <ion-navbar>
-      <ion-title>topicOne</ion-title>
-    </ion-navbar> -->
+            <ion-navbar>
+              <ion-title>Topic Five</ion-title>
+            </ion-navbar> -->
     <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
+    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">
+        <ion-segment class="SwipedTabs-tabs">
+            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'
+                [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
+                {{tab}}
+            </ion-segment-button>
+        </ion-segment>
+
+        <!-- here is our dynamic line  "indicator"-->
+        <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.px': (this.tabElementWidth_px)}"></div>
+    </ion-content>
 </ion-header>
 
-<ion-content (swipe)="swipeEvent($event)">
-    <div id="fullpage">
-      <div class="section">
-          <h2>Activities</h2>
-      </div>
-      <div class="section">Some section</div>
-      <div class="section">Some section</div>
-      <div class="section">Some section</div>
-    </div>
-  </ion-content>
+<ion-content>
+
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
+        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
+        <ion-slide>
+            <h1>Problem</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Cause</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Effect</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Importance</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Quiz</h1>
+        </ion-slide>
+    </ion-slides>
+
+
+</ion-content>

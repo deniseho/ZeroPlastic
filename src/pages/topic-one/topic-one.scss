@@ -1,38 +1,33 @@
 page-topic-one {
-    .section:nth-child(odd){
-        background: #f1f1f1;
-    }
-    .section:nth-child(even){
-        background: #cecece;
-    }
-}
 
-#header {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #cecece;
-    background-color: #fff;
-    position: fixed;
-    height: 8em;
-    top: 0;
-    z-index: 99;
+    .SwipedTabs-indicatorSegment
+   {
+       -webkit-transition: 0.3s all;
+       -moz-transition:  0.3s all;
+       -o-transition:  0.3s all;
+       transition:  0.3s all;
+       transform-origin: top 0 left 0;
+       height: 1px;
+       position: relative;
+       top: -2px;
+       background-color: blue !important;
 
-    ul.nav{
-        padding: 4.5em 0 0 0;
-        margin: 0 auto;
-    }
 
-    ul.nav li{
-        display: inline;
-        padding: 0 3px;
-        a{
-            color: grey;
-            text-decoration: none;
-        }
-    }
+   }
+   .SwipedTabs-tabs ion-segment-button
+   {
+       border:none !important;
+       color:green!important;
+       background-color:white!important;
 
-    ul.nav li:active{
-        border-bottom: 2px solid grey;
-        padding-bottom: 5px;
-    }
+   }
+    .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
+   {
+       color:blue !important;
+   }
+   .SwipedTabs-tabs
+   {
+       width: fit-content !important;
+   }
+
 }
