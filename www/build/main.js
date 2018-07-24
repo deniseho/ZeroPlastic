@@ -114,7 +114,6 @@ webpackEmptyAsyncContext.id = 192;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_js__ = __webpack_require__(367);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__game_items__ = __webpack_require__(472);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -124,7 +123,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -145,36 +143,51 @@ var GamePage = /** @class */ (function () {
             .addChild(container);
         fall();
         function fall() {
-            __WEBPACK_IMPORTED_MODULE_3__game_items__["a" /* items */].forEach(function (elemData, index) {
-                createItem(elemData, index);
+            var items = [
+                {
+                    index: 0,
+                    url: '../assets/imgs/bunny.png',
+                    count: 2,
+                    speed: 0.9,
+                    category: 1
+                }, {
+                    index: 1,
+                    url: '../assets/imgs/bottle.png',
+                    count: 3,
+                    speed: 1.3,
+                    category: 2
+                }
+            ];
+            items.forEach(function (elemData) {
+                createItem(elemData);
             });
+            // and schedule a repeat
             setTimeout(fall, 3000);
         }
-        var reachBottomCount = 0;
-        function createItem(elemData, index) {
-            var item = __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"]
-                .fromImage(elemData.url);
+        function getItemPosX() {
+            // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
+            // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
+            // 2;
+            var padding = 40;
+            var max = app.screen.width - padding;
+            var min = padding;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function getItemPosY(i) {
+            var max = 100;
+            var min = 0;
+            return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
+        }
+        var count = 0;
+        function createItem(elemData) {
+            var item = __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"].fromImage(elemData.url);
             // center the sprite's anchor point
             item
                 .anchor
                 .set(0.5);
             // move the sprite to the center of the screen
             item.x = getItemPosX();
-            item.y = getItemPosY(index);
-            function getItemPosX() {
-                var padding = 40;
-                var max = app.screen.width - padding;
-                var min = padding;
-                var posX = Math.floor(Math.random() * (max - min + 1)) + min;
-                if (posX > min && posX < app.screen.width / 2 - padding || posX > app.screen.width / 2 + padding / 2 && posX < max) {
-                    return posX;
-                }
-            }
-            function getItemPosY(i) {
-                var max = 100;
-                var min = 0;
-                return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
-            }
+            item.y = getItemPosY(elemData.index);
             item
                 .scale
                 .set(0.5);
@@ -186,7 +199,6 @@ var GamePage = /** @class */ (function () {
                 .on('pointerupoutside', onDragEnd)
                 .on('pointermove', onDragMove);
             container.addChild(item);
-            var count = 0;
             app
                 .ticker
                 .add(function (delta) {
@@ -194,16 +206,9 @@ var GamePage = /** @class */ (function () {
                     item.y += elemData.speed;
                 }
                 else {
-                    if (elemData.recycable) {
-                        reachBottomCount += 1;
-                    }
-                    if (reachBottomCount == 10) {
-                        app
-                            .ticker
-                            .stop();
-                    }
+                    count += 1;
+                    console.log(count);
                     this.destroy();
-                    container.removeChild(item);
                 }
             }, this);
         }
@@ -248,14 +253,13 @@ var GamePage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('content'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], GamePage.prototype, "content", void 0);
     GamePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-game',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/game/game.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Game</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <div #content ion-fixed></div>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/game/game.html"*/ }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], GamePage);
     return GamePage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=game.js.map
@@ -767,43 +771,6 @@ var CustomNavBarPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=custom-nav-bar.js.map
-
-/***/ }),
-
-/***/ 472:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return items; });
-var items = [
-    {
-        url: '../assets/imgs/cup.png',
-        name: "Plastic Cup",
-        type: "tag1",
-        recycable: false,
-        speed: 3,
-    }, {
-        url: '../assets/imgs/bottle.png',
-        name: "Plastic Cup",
-        type: "tag2",
-        recycable: true,
-        speed: 2,
-    }, {
-        url: '../assets/imgs/microplastic.png',
-        type: "tag3",
-        recycable: false,
-        speed: 4,
-    },
-    ,
-    {
-        url: '../assets/imgs/fork_knife.png',
-        type: "tag4",
-        recycable: false,
-        speed: 3.5,
-    }
-];
-
-//# sourceMappingURL=items.js.map
 
 /***/ }),
 
