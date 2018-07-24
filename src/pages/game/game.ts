@@ -24,37 +24,21 @@ export class GamePage {
     app
       .stage
       .addChild(container);
-
-    fall();
-    function fall() {
       
-      items.forEach(elemData => {
-        createItem(elemData);
+    fall();
+
+    function fall() {
+      items.forEach((elemData, index) => {
+        createItem(elemData, index);
       });
-
-      // and schedule a repeat
-      setTimeout(fall, 3000);
+      // setTimeout(fall, 3000);
     }
 
-    function getItemPosX() {
-      // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
-      // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
-      // 2;
-      var padding = 40;
-      var max = app.screen.width - padding;
-      var min = padding;
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function getItemPosY(i) {
-      var max = 100;
-      var min = 0;
-      return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
-    }
-
-    let reachBottomCount = 0;    
-    function createItem(elemData) {
-      var item = PIXI.Sprite.fromImage(elemData.url);
+    let reachBottomCount = 0;
+    function createItem(elemData, index) {
+      var item = PIXI
+        .Sprite
+        .fromImage(elemData.url);
 
       // center the sprite's anchor point
       item
@@ -63,7 +47,23 @@ export class GamePage {
 
       // move the sprite to the center of the screen
       item.x = getItemPosX();
-      item.y = getItemPosY(elemData.index);
+      item.y = getItemPosY(index);
+
+      function getItemPosX() {
+        // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
+        // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
+        // 2;
+        var padding = 40;
+        var max = app.screen.width - padding;
+        var min = padding;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function getItemPosY(i) {
+        var max = 100;
+        var min = 0;
+        return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
+      }
 
       item
         .scale
@@ -82,19 +82,23 @@ export class GamePage {
       app
         .ticker
         .add(function (delta) {
-          
+
           if (item.y < app.screen.height - item.height) {
             item.y += elemData.speed;
-          } else{
-            if(elemData.recycable){
-              reachBottomCount += 1; 
+          } else {
+            if (elemData.recycable) {
+              reachBottomCount += 1;
             }
-            if(reachBottomCount == 10){
-              app.ticker.stop();
+            if (reachBottomCount == 10) {
+              app
+                .ticker
+                .stop();
             }
             this.destroy();
+            container.removeChild(item);
           }
         }, this);
+
     }
 
     function onDragStart(event) {

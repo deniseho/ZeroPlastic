@@ -145,36 +145,36 @@ var GamePage = /** @class */ (function () {
             .addChild(container);
         fall();
         function fall() {
-            __WEBPACK_IMPORTED_MODULE_3__game_items__["a" /* items */].forEach(function (elemData) {
-                createItem(elemData);
+            __WEBPACK_IMPORTED_MODULE_3__game_items__["a" /* items */].forEach(function (elemData, index) {
+                createItem(elemData, index);
             });
-            // and schedule a repeat
-            setTimeout(fall, 3000);
-        }
-        function getItemPosX() {
-            // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
-            // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
-            // 2;
-            var padding = 40;
-            var max = app.screen.width - padding;
-            var min = padding;
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        function getItemPosY(i) {
-            var max = 100;
-            var min = 0;
-            return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
+            // setTimeout(fall, 3000);
         }
         var reachBottomCount = 0;
-        function createItem(elemData) {
-            var item = __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"].fromImage(elemData.url);
+        function createItem(elemData, index) {
+            var item = __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Sprite"]
+                .fromImage(elemData.url);
             // center the sprite's anchor point
             item
                 .anchor
                 .set(0.5);
             // move the sprite to the center of the screen
             item.x = getItemPosX();
-            item.y = getItemPosY(elemData.index);
+            item.y = getItemPosY(index);
+            function getItemPosX() {
+                // var posX = 0; var panelWidth = app.screen.width / 4; var randomPanel =
+                // Math.floor(Math.random() * 4); return randomPanel * panelWidth + panelWidth /
+                // 2;
+                var padding = 40;
+                var max = app.screen.width - padding;
+                var min = padding;
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            function getItemPosY(i) {
+                var max = 100;
+                var min = 0;
+                return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
+            }
             item
                 .scale
                 .set(0.5);
@@ -197,9 +197,12 @@ var GamePage = /** @class */ (function () {
                         reachBottomCount += 1;
                     }
                     if (reachBottomCount == 10) {
-                        app.ticker.stop();
+                        app
+                            .ticker
+                            .stop();
                     }
                     this.destroy();
+                    container.removeChild(item);
                 }
             }, this);
         }
@@ -773,17 +776,29 @@ var CustomNavBarPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return items; });
 var items = [
     {
-        index: 0,
-        url: '../assets/imgs/bunny.png',
-        count: 2,
-        speed: 0.9,
-        recycable: false
+        url: '../assets/imgs/cup.png',
+        name: "Plastic Cup",
+        type: "tag1",
+        recycable: false,
+        speed: 3,
     }, {
-        index: 1,
         url: '../assets/imgs/bottle.png',
-        count: 3,
-        speed: 1.3,
-        recycable: true
+        name: "Plastic Cup",
+        type: "tag2",
+        recycable: true,
+        speed: 2,
+    }, {
+        url: '../assets/imgs/microplastic.png',
+        type: "tag3",
+        recycable: false,
+        speed: 4,
+    },
+    ,
+    {
+        url: '../assets/imgs/fork_knife.png',
+        type: "tag4",
+        recycable: false,
+        speed: 3.5,
     }
 ];
 
