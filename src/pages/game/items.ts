@@ -1,29 +1,17 @@
-export class Items {
-    private id : number;
-    private text : string;
-
-    constructor(id, text) {
-        this.id = id;
-        this.text = text;
+var items : any[] = [
+    {
+        index: 0,
+        url: '../assets/imgs/bunny.png',
+        count: 2,
+        speed: 0.9,
+        recycable: false
+    }, {
+        index: 1,
+        url: '../assets/imgs/bottle.png',
+        count: 3,
+        speed: 1.3,
+        recycable: true
     }
+]
 
-    public mySentences : any[] = [
-        {
-            id: 1,
-            text: 'Sentence 1'
-        }, {
-            id: 2,
-            text: 'Sentence 2'
-        }, {
-            id: 3,
-            text: 'Sentence 3'
-        }, {
-            id: 4,
-            text: 'Sentenc4 '
-        }
-    ];
-
-    public getItems():any[] {
-        return this.mySentences;
-    }
-}
+export {items};
