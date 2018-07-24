@@ -3,7 +3,7 @@ var items : any[] = [
         url: '../assets/imgs/cup.png',
         name: "Plastic Cup",
         type: "tag1",
-        recycable: false,
+        recycable: true,
         speed: 3,
     }, {
         url: '../assets/imgs/bottle.png',
