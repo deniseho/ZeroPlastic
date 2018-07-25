@@ -9,13 +9,13 @@
   <ion-content>
     <ion-list>
       <ion-list-header>Pages</ion-list-header>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button ion-item *ngFor="let p of pages" (click)="gotoPage(p)">
         {{p.title}}
       </button>
     </ion-list>
     <ion-list>
       <ion-list-header>Settings</ion-list-header>
-        <button ion-item (click)="openGame()">Game</button>
+        <button ion-item (click)="gotoGamePage()">Game</button>
       </ion-list>
   </ion-content>
 

@@ -1,10 +1,15 @@
 <ion-header>
 
-    <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
+  <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
 
-  </ion-header>
-  
-  
-  <ion-content>
-    <div #content ion-fixed></div>
-  </ion-content>
+</ion-header>
+
+
+<ion-content>
+  <div #content ion-fixed>
+    <div ion-fixed padding>
+      <h4>Score: {{gameScore}}</h4>
+      <h4>Error: {{gameError}}</h4>
+    </div>
+  </div>
+</ion-content>

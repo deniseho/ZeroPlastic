@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
+import { GamePage } from '../game/game';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
@@ -44,4 +45,8 @@ export class TopicFourPage {
     if (this.SwipedTabsIndicator) 
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
+  
+  gotoGamePage(){
+    this.navCtrl.push(GamePage);
   }
+}

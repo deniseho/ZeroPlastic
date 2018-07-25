@@ -2,49 +2,43 @@ import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
 import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
-import { TopicTwoPage } from '../topic-two/topic-two';
-import { TopicMenu } from '../topic-menu/topic-menu';
+import {TopicTwoPage} from '../topic-two/topic-two';
+import {TopicFourPage} from '../topic-four/topic-four';
 
 @Component({selector: 'page-game', templateUrl: 'game.html'})
 
 export class GamePage {
 
   @ViewChild('content')content : ElementRef;
-  constructor(public navCtrl : NavController, public alertCtrl : AlertController) {
-  }
+  constructor(public navCtrl : NavController, public alertCtrl : AlertController) {}
 
-  self:any= this;
-  score:any = 0;
-  
-  get scoreSum() : any {
-      return this.score;
-  }
-  set scoreSum(val : any) {
-      this.score = val;
-  }
+  app : any;
+  gameScore : number = 0;
+  gameError : number = 0;
 
   ionViewDidLoad() {
-    let app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});
-    let errorCount = 0;
     let self = this;
+
+    self.app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});;
 
     this
       .content
       .nativeElement
-      .appendChild(app.view);
+      .appendChild(self.app.view);
 
     let container = new PIXI.Container();
-    app
+    self
+      .app
       .stage
       .addChild(container);
 
-    fall();
+    startAlert(self);
 
     function fall() {
       items.forEach((elemData, index) => {
         createItem(elemData, index);
       });
-      setTimeout(fall, 3000);
+      setTimeout(fall, 1500);
     }
 
     function createItem(elemData, index) {
@@ -62,12 +56,12 @@ export class GamePage {
       item.y = getItemPosY(index);
 
       function getItemPosX() {
-        let padding = 40;
-        let max = app.screen.width - padding;
+        let padding = 60;
+        let max = self.app.screen.width - padding;
         let min = padding;
 
         let posX = Math.random() * (max - min + 1) + min;
-        if (posX > min && posX < app.screen.width / 2 - padding || posX > app.screen.width / 2 + padding / 2 && posX < max) {
+        if (posX > min && posX < self.app.screen.width / 2 - padding || posX > self.app.screen.width / 2 + padding / 2 && posX < max) {
           return posX;
         }
       }
@@ -79,65 +73,78 @@ export class GamePage {
       }
 
       item.rotation = Math.random() * 360;
-
-      var max = 6;
-      var min = 3;
       item
         .scale
-        .set((Math.floor(Math.random() * (max - min + 1)) + min) / 10);
+        .set(0.6);
 
       item.interactive = true;
       item.buttonMode = true;
-      item.on('tap', () => {
-        app
-          .ticker
-          .add(function (delta) {
-            item.rotation += 0.6 * delta;
-            item.scale.x *= 0.8;
-            item.scale.y *= 0.8;
-          });
-        console.log(this);
 
-      });
+      // item.on('tap', () => {   app     .ticker     .add(function (delta) {
+      // item.rotation += 0.6 * delta;       item.scale.x *= 0.8;       item.scale.y
+      // *= 0.8;     }); });
+
+      item
+        .on('pointerdown', onDragStart)
+        .on('pointerup', onDragEnd)
+        .on('pointerupoutside', onDragEnd)
+        .on('pointermove', onDragMove);
 
       container.addChild(item);
 
-      let count = 0;
-      app
+      self
+        .app
         .ticker
         .add(function (delta) {
-          if (item.y < app.screen.height - item.height) {
+          if (item.y < self.app.screen.height - item.height) {
             item.y += elemData.speed;
           } else {
-            if (checkItemAnswer(elemData, item) > 3) {
-              app
+            calScore(elemData, item);
+
+            if (self.gameError >= 10) {
+              self
+                .app
                 .ticker
                 .stop();
-                gameOverAlert(self);
+              gameOverAlert(self);
             }
             this.destroy();
-            container.removeChild(item);
           }
         }, this);
     }
 
-    function checkItemAnswer(elemData, item) {
-      //the item is recycable
-      if (elemData.recycable && item.x > app.screen.width / 2) {
-        //run correct effect
-      } else {
-        errorCount++;
-      }
+    function calScore(elemData, item) {
+      if (elemData.recycable && item.x > self.app.screen.width / 2 || !elemData.recycable && item.x < self.app.screen.width / 2) {
+        //answer recycable items correctly
+        self.gameScore++;
+        self.gameError += 0;
 
-      //the item is not recycable
-      if (!elemData.recycable && item.x < app.screen.width / 2) {
-        //run correct effect
+        container.removeChild(item);
       } else {
-        errorCount++;
+        //answer wrongly
+        item.y = self.app.screen.height - item.height;
+        self.gameScore + 0;
+        self.gameError++;
       }
+    }
 
-      console.log(errorCount);
-      return errorCount;
+    function startAlert(self) {
+      const alert = self
+        .alertCtrl
+        .create({
+          title: 'Start the game!',
+          subTitle: 'Description',
+          buttons: [
+            {
+              text: 'OK',
+              handler: data => {
+                fall();
+              }
+            }
+          ],
+          enableBackdropDismiss: false
+        });
+      alert.present();
     }
 
     function gameOverAlert(self) {
@@ -145,23 +152,28 @@ export class GamePage {
         .alertCtrl
         .create({
           title: 'Game Over.',
-          message: "Your score:",
+          message: "Your score: " + self.gameScore,
           buttons: [
             {
               text: 'Play again',
               handler: data => {
-                self.navCtrl.push(TopicTwoPage);
+                self
+                  .navCtrl
+                  .push(GamePage);
               }
             }, {
-              text: 'Menu',
+              text: 'Back to the topic',
               handler: data => {
-                self.navCtrl.push(TopicMenu);
+                self
+                  .navCtrl
+                  .push(TopicFourPage);
               }
             }
-          ]
+          ],
+          enableBackdropDismiss: false
         });
       prompt.present();
-    }  
+    }
 
     function onDragStart(event) {
       this.data = event.data;
@@ -177,17 +189,13 @@ export class GamePage {
     }
 
     function onDragMove() {
-      if (this.x <= 0 || this.x >= app.screen.width || this.y >= app.screen.height) {
+      if (this.x <= 0 || this.x >= self.app.screen.width || this.y >= self.app.screen.height) {
         this.dragging = false;
       }
       if (this.dragging) {
         let newPosition = this
           .data
           .getLocalPosition(this.parent);
-
-        // var panelWidth = app.screen.width / 2; if (newPosition.x > 0 && newPosition.x
-        // < panelWidth) {   this.x = 0 + panelWidth / 2; } else if (newPosition.x >
-        // panelWidth) {   this.x = panelWidth + panelWidth / 2; }
 
         this.x = newPosition.x;
         this.y = newPosition.y;
@@ -197,16 +205,26 @@ export class GamePage {
     let graphics = new PIXI.Graphics();
     graphics.lineStyle(1);
     graphics.beginFill(0xFF0000, 0.7);
-    graphics.drawRect(0, app.screen.height - 120, app.screen.width / 2, 80);
+    graphics.drawRect(0, self.app.screen.height - 120, self.app.screen.width / 2, 80);
     graphics.endFill();
 
     graphics.lineStyle(1);
     graphics.beginFill(0x33FF00, 0.7);
-    graphics.drawRect(app.screen.width / 2, app.screen.height - 120, app.screen.width / 2, 80);
+    graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 120, self.app.screen.width / 2, 80);
     graphics.endFill();
 
-    app
+    self
+      .app
       .stage
       .addChild(graphics);
+  }
+
+  ionViewWillLeave() {
+    let self = this;
+
+    self
+      .app
+      .ticker
+      .stop();
   }
 }

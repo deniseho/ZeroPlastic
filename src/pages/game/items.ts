@@ -4,18 +4,18 @@ var items : any[] = [
         name: "Plastic Cup",
         type: "tag1",
         recycable: true,
-        speed: 3,
+        speed: 2.5,
     }, {
         url: '../assets/imgs/bottle.png',
         name: "Plastic Cup",
         type: "tag2",
         recycable: true,
-        speed: 2,
+        speed: 3,
     }, {
         url: '../assets/imgs/microplastic.png',
         type: "tag3",
-        recycable: false,
-        speed: 4,
+        recycable: true,
+        speed: 1.8,
     },
     , {
         url: '../assets/imgs/fork_knife.png',
