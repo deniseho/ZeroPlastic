@@ -14,7 +14,7 @@ export class GamePage {
 
   app : any;
   gameScore : number = 0;
-  gameError : number = 0;
+  gameLife : number = 5;
 
   ionViewDidLoad() {
     let self = this;
@@ -101,7 +101,7 @@ export class GamePage {
           } else {
             calScore(elemData, item);
 
-            if (self.gameError >= 10) {
+            if (self.gameLife == 0) {
               self
                 .app
                 .ticker
@@ -114,17 +114,18 @@ export class GamePage {
     }
 
     function calScore(elemData, item) {
-      if (elemData.recycable && item.x > self.app.screen.width / 2 || !elemData.recycable && item.x < self.app.screen.width / 2) {
-        //answer recycable items correctly
+      if (elemData.recycable && item.x >= self.app.screen.width / 2) {
+        //answer recycable items correctly, add 2 points
+        self.gameScore+=2;
+        container.removeChild(item);
+      } else if(!elemData.recycable && item.x < self.app.screen.width / 2){
+        //answer unrecycable items correctly, add 1 points
         self.gameScore++;
-        self.gameError += 0;
-
         container.removeChild(item);
       } else {
         //answer wrongly
         item.y = self.app.screen.height - item.height;
-        self.gameScore + 0;
-        self.gameError++;
+        self.gameLife--;
       }
     }
 
