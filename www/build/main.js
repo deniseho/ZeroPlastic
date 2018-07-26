@@ -380,7 +380,6 @@ var GamePage = /** @class */ (function () {
             item
                 .anchor
                 .set(0.5);
-            // move the sprite to the center of the screen
             item.x = getItemPosX();
             item.y = getItemPosY(index);
             function getItemPosX() {
@@ -433,20 +432,27 @@ var GamePage = /** @class */ (function () {
             }, this);
         }
         function calScore(elemData, item) {
-            if (elemData.recycable && item.x >= self.app.screen.width / 2) {
-                //answer recycable items correctly, add 2 points
-                self.gameScore += 2;
-                container.removeChild(item);
+            //recycable bin
+            if (item.x >= self.app.screen.width / 2) {
+                if (elemData.recycable) {
+                    self.gameScore++;
+                    container.removeChild(item);
+                }
+                else if (!elemData.recycable) {
+                    item.y = self.app.screen.height - item.height;
+                    self.gameLife--;
+                }
             }
-            else if (!elemData.recycable && item.x < self.app.screen.width / 2) {
-                //answer unrecycable items correctly, add 1 points
-                self.gameScore++;
-                container.removeChild(item);
-            }
-            else {
-                //answer wrongly
-                item.y = self.app.screen.height - item.height;
-                self.gameLife--;
+            //unrecycable bin
+            if (item.x < self.app.screen.width / 2) {
+                if (elemData.recycable) {
+                    item.y = self.app.screen.height - item.height;
+                    self.gameLife--;
+                }
+                else if (!elemData.recycable) {
+                    self.gameScore++;
+                    container.removeChild(item);
+                }
             }
         }
         function startAlert(self) {
@@ -965,22 +971,24 @@ var items = [
         name: "Plastic Cup",
         type: "tag1",
         recycable: true,
-        speed: 3,
+        speed: 2.5,
     }, {
         url: '../assets/imgs/bottle.png',
         name: "Plastic Cup",
         type: "tag2",
         recycable: true,
-        speed: 2,
+        speed: 3,
     }, {
         url: '../assets/imgs/microplastic.png',
+        name: "Microplastic",
         type: "tag3",
-        recycable: false,
-        speed: 4,
+        recycable: true,
+        speed: 1.8,
     },
     ,
     {
         url: '../assets/imgs/fork_knife.png',
+        name: 'Fork and knife',
         type: "tag4",
         recycable: false,
         speed: 3.5,

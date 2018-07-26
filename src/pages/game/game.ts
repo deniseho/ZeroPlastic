@@ -51,7 +51,6 @@ export class GamePage {
         .anchor
         .set(0.5);
 
-      // move the sprite to the center of the screen
       item.x = getItemPosX();
       item.y = getItemPosY(index);
 
@@ -114,18 +113,27 @@ export class GamePage {
     }
 
     function calScore(elemData, item) {
-      if (elemData.recycable && item.x >= self.app.screen.width / 2) {
-        //answer recycable items correctly, add 2 points
-        self.gameScore+=2;
-        container.removeChild(item);
-      } else if(!elemData.recycable && item.x < self.app.screen.width / 2){
-        //answer unrecycable items correctly, add 1 points
-        self.gameScore++;
-        container.removeChild(item);
-      } else {
-        //answer wrongly
-        item.y = self.app.screen.height - item.height;
-        self.gameLife--;
+      
+      //recycable bin
+      if (item.x >= self.app.screen.width / 2) {
+        if (elemData.recycable) {
+          self.gameScore++;
+          container.removeChild(item);
+        } else if (!elemData.recycable) {
+          item.y = self.app.screen.height - item.height;
+          self.gameLife--;
+        }
+      }
+
+      //unrecycable bin
+      if (item.x < self.app.screen.width / 2) {
+        if (elemData.recycable) {
+          item.y = self.app.screen.height - item.height;
+          self.gameLife--;
+        } else if (!elemData.recycable) {
+          self.gameScore++;
+          container.removeChild(item);
+        }
       }
     }
 
