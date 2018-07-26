@@ -1,15 +1,26 @@
 <ion-header>
 
-  <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
-
-</ion-header>
-
-
-<ion-content>
-  <div #content ion-fixed>
-    <div ion-fixed padding>
-      <h4>Score: {{gameScore}}</h4>
-      <h4>Life: {{gameLife}}</h4>
+    <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    <div #content ion-fixed>
+      <ion-grid ion-fixed>
+        <ion-row>
+          <ion-col col-4>
+            <h4>Score: {{gameScore}}</h4>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button color="light" outline (click)="playGame()">
+              <ion-icon name="{{gamePlay?'pause':'play'}}"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <h4>Life: {{gameLife}}</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
-  </div>
-</ion-content>
+  </ion-content>

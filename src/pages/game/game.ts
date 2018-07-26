@@ -15,6 +15,17 @@ export class GamePage {
   app : any;
   gameScore : number = 0;
   gameLife : number = 5;
+  gamePlay: boolean = true;
+
+  playGame(){
+    let self = this;
+    self.gamePlay = !self.gamePlay;
+    if(self.gamePlay){
+      self.app.ticker.start();
+    }else{
+      self.app.ticker.stop();
+    }
+  }
 
   ionViewDidLoad() {
     let self = this;
@@ -79,10 +90,6 @@ export class GamePage {
       item.interactive = true;
       item.buttonMode = true;
 
-      // item.on('tap', () => {   app     .ticker     .add(function (delta) {
-      // item.rotation += 0.6 * delta;       item.scale.x *= 0.8;       item.scale.y
-      // *= 0.8;     }); });
-
       item
         .on('pointerdown', onDragStart)
         .on('pointerup', onDragEnd)
@@ -113,7 +120,12 @@ export class GamePage {
     }
 
     function calScore(elemData, item) {
-      
+      item
+        .on('pointerdown', onDragStop)
+        .on('pointerup', onDragStop)
+        .on('pointerupoutside', onDragStop)
+        .on('pointermove', onDragStop);
+
       //recycable bin
       if (item.x >= self.app.screen.width / 2) {
         if (elemData.recycable) {
@@ -211,6 +223,10 @@ export class GamePage {
       }
     }
 
+    function onDragStop(){
+      this.dragging = false;
+    }
+
     let graphics = new PIXI.Graphics();
     graphics.lineStyle(1);
     graphics.beginFill(0xFF0000, 0.7);
@@ -230,10 +246,11 @@ export class GamePage {
 
   ionViewWillLeave() {
     let self = this;
-
     self
       .app
       .ticker
       .stop();
   }
+
+
 }

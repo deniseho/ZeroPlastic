@@ -25678,6 +25678,10 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-game ion-grid ion-row ion-col {
+  text-align: center;
+}
+
 page-topic-five .SwipedTabs-indicatorSegment {
   -webkit-transition: 0.3s all;
   transition: 0.3s all;

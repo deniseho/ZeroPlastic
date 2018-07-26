@@ -147,7 +147,6 @@ var TopicThreePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TopicFourPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__game_game__ = __webpack_require__(235);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -157,7 +156,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 var TopicFourPage = /** @class */ (function () {
@@ -193,23 +191,19 @@ var TopicFourPage = /** @class */ (function () {
         if (this.SwipedTabsIndicator)
             this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     };
-    TopicFourPage.prototype.gotoGamePage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__game_game__["a" /* GamePage */]);
-    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('SwipedTabsSlider'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Slides */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Slides */])
     ], TopicFourPage.prototype, "SwipedTabsSlider", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('scroll'),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */])
     ], TopicFourPage.prototype, "scroll", void 0);
     TopicFourPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-topic-four',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-four/topic-four.html"*/'<ion-header>\n    <!-- \n            <ion-navbar>\n              <ion-title>Topic Four</ion-title>\n            </ion-navbar> -->\n    <custom-nav-bar [title]="\'Home\'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>\n    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">\n        <ion-segment class="SwipedTabs-tabs">\n            <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)" [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'\n                [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}">\n                {{tab}}\n            </ion-segment-button>\n        </ion-segment>\n\n        <!-- here is our dynamic line  "indicator"-->\n        <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}"></div>\n    </ion-content>\n</ion-header>\n\n<ion-content>\n\n    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"\n        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">\n        <ion-slide>\n            <h1>Problem</h1>\n        </ion-slide>\n        <ion-slide>\n            <h1>Cause</h1>\n        </ion-slide>\n        <ion-slide>\n            <h1>Effect</h1>\n        </ion-slide>\n        <ion-slide>\n            <h1>Importance</h1>\n        </ion-slide>\n        <ion-slide>\n            <h1>Quiz</h1>\n            <button ion-button (click)="gotoGamePage()">Start the game</button>\n        </ion-slide>\n    </ion-slides>\n\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-four/topic-four.html"*/ }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
     ], TopicFourPage);
     return TopicFourPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=topic-four.js.map
@@ -351,8 +345,19 @@ var GamePage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.gameScore = 0;
         this.gameLife = 5;
+        this.gamePlay = true;
     }
     GamePage_1 = GamePage;
+    GamePage.prototype.playGame = function () {
+        var self = this;
+        self.gamePlay = !self.gamePlay;
+        if (self.gamePlay) {
+            self.app.ticker.start();
+        }
+        else {
+            self.app.ticker.stop();
+        }
+    };
     GamePage.prototype.ionViewDidLoad = function () {
         var self = this;
         self.app = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Application"](window.innerWidth, window.innerHeight, { backgroundColor: 0x1099bb });
@@ -402,9 +407,6 @@ var GamePage = /** @class */ (function () {
                 .set(0.6);
             item.interactive = true;
             item.buttonMode = true;
-            // item.on('tap', () => {   app     .ticker     .add(function (delta) {
-            // item.rotation += 0.6 * delta;       item.scale.x *= 0.8;       item.scale.y
-            // *= 0.8;     }); });
             item
                 .on('pointerdown', onDragStart)
                 .on('pointerup', onDragEnd)
@@ -432,6 +434,11 @@ var GamePage = /** @class */ (function () {
             }, this);
         }
         function calScore(elemData, item) {
+            item
+                .on('pointerdown', onDragStop)
+                .on('pointerup', onDragStop)
+                .on('pointerupoutside', onDragStop)
+                .on('pointermove', onDragStop);
             //recycable bin
             if (item.x >= self.app.screen.width / 2) {
                 if (elemData.recycable) {
@@ -523,6 +530,9 @@ var GamePage = /** @class */ (function () {
                 this.y = newPosition.y;
             }
         }
+        function onDragStop() {
+            this.dragging = false;
+        }
         var graphics = new __WEBPACK_IMPORTED_MODULE_2_pixi_js__["Graphics"]();
         graphics.lineStyle(1);
         graphics.beginFill(0xFF0000, 0.7);
@@ -549,7 +559,7 @@ var GamePage = /** @class */ (function () {
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], GamePage.prototype, "content", void 0);
     GamePage = GamePage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-game',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/game/game.html"*/'<ion-header>\n\n  <custom-nav-bar [title]="\'Home\'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>\n\n</ion-header>\n\n\n<ion-content>\n  <div #content ion-fixed>\n    <div ion-fixed padding>\n      <h4>Score: {{gameScore}}</h4>\n      <h4>Life: {{gameLife}}</h4>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/game/game.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({ selector: 'page-game',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/game/game.html"*/'<ion-header>\n\n    <custom-nav-bar [title]="\'Home\'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <div #content ion-fixed>\n      <ion-grid ion-fixed>\n        <ion-row>\n          <ion-col col-4>\n            <h4>Score: {{gameScore}}</h4>\n          </ion-col>\n          <ion-col col-4>\n            <button ion-button color="light" outline (click)="playGame()">\n              <ion-icon name="{{gamePlay?\'pause\':\'play\'}}"></ion-icon>\n            </button>\n          </ion-col>\n          <ion-col col-4>\n            <h4>Life: {{gameLife}}</h4>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </div>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/game/game.html"*/ }),
         __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
     ], GamePage);
     return GamePage;
@@ -971,24 +981,22 @@ var items = [
         name: "Plastic Cup",
         type: "tag1",
         recycable: true,
-        speed: 2.5,
+        speed: 3,
     }, {
         url: '../assets/imgs/bottle.png',
         name: "Plastic Cup",
         type: "tag2",
         recycable: true,
-        speed: 3,
+        speed: 2,
     }, {
         url: '../assets/imgs/microplastic.png',
-        name: "Microplastic",
         type: "tag3",
-        recycable: true,
-        speed: 1.8,
+        recycable: false,
+        speed: 4,
     },
     ,
     {
         url: '../assets/imgs/fork_knife.png',
-        name: 'Fork and knife',
         type: "tag4",
         recycable: false,
         speed: 3.5,
