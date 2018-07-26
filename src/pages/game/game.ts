@@ -15,15 +15,21 @@ export class GamePage {
   app : any;
   gameScore : number = 0;
   gameLife : number = 5;
-  gamePlay: boolean = true;
+  gamePlay : boolean = true;
 
-  playGame(){
+  playGame() {
     let self = this;
     self.gamePlay = !self.gamePlay;
-    if(self.gamePlay){
-      self.app.ticker.start();
-    }else{
-      self.app.ticker.stop();
+    if (self.gamePlay) {
+      self
+        .app
+        .ticker
+        .start();
+    } else {
+      self
+        .app
+        .ticker
+        .stop();
     }
   }
 
@@ -46,10 +52,19 @@ export class GamePage {
     startAlert(self);
 
     function fall() {
-      items.forEach((elemData, index) => {
-        createItem(elemData, index);
-      });
-      setTimeout(fall, 1500);
+      let firstTime = true;
+
+      if (self.gamePlay) {
+        if (firstTime) {
+          items.forEach((elemData, index) => {
+            createItem(elemData, index);
+          });
+          firstTime = false;
+        }
+        if (!firstTime) {
+          setTimeout(fall, 1500);
+        }
+      }
     }
 
     function createItem(elemData, index) {
@@ -223,25 +238,29 @@ export class GamePage {
       }
     }
 
-    function onDragStop(){
+    function onDragStop() {
       this.dragging = false;
     }
 
-    let graphics = new PIXI.Graphics();
-    graphics.lineStyle(1);
-    graphics.beginFill(0xFF0000, 0.7);
-    graphics.drawRect(0, self.app.screen.height - 120, self.app.screen.width / 2, 80);
-    graphics.endFill();
+    let drawSeaBottom = () => {
+      let graphics = new PIXI.Graphics();
+      graphics.lineStyle(1);
+      graphics.beginFill(0xFF0000, 0.7);
+      graphics.drawRect(0, self.app.screen.height - 120, self.app.screen.width / 2, 80);
+      graphics.endFill();
 
-    graphics.lineStyle(1);
-    graphics.beginFill(0x33FF00, 0.7);
-    graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 120, self.app.screen.width / 2, 80);
-    graphics.endFill();
+      graphics.lineStyle(1);
+      graphics.beginFill(0x33FF00, 0.7);
+      graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 120, self.app.screen.width / 2, 80);
+      graphics.endFill();
 
-    self
-      .app
-      .stage
-      .addChild(graphics);
+      self
+        .app
+        .stage
+        .addChild(graphics);
+    }
+    drawSeaBottom();
+    
   }
 
   ionViewWillLeave() {
@@ -251,6 +270,5 @@ export class GamePage {
       .ticker
       .stop();
   }
-
 
 }
