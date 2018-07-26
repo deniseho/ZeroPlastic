@@ -20,6 +20,7 @@ import { TopicMenu } from '../pages/topic-menu/topic-menu';
 import { AccountMenuPage } from '../pages/account-menu/account-menu';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { GamePage } from '../pages/game/game';
+import { QuizPage } from '../pages/quiz/quiz';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { GamePage } from '../pages/game/game';
     ProfilePage,
     AchievementPage,
     GamePage,
+    QuizPage
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import { GamePage } from '../pages/game/game';
     ProfilePage,
     AchievementPage,
     GamePage,
+    QuizPage
   ],
   providers: [
     StatusBar,
