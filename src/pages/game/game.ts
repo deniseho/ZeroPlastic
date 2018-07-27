@@ -80,7 +80,7 @@ export class GamePage {
       item.x = getItemPosX();
       item.y = getItemPosY(index);
 
-      function getItemPosX() {
+      var getItemPosX = () => {
         let padding = 60;
         let max = self.app.screen.width - padding;
         let min = padding;
@@ -91,7 +91,7 @@ export class GamePage {
         }
       }
 
-      function getItemPosY(i) {
+      var getItemPosY = (i) => {
         let max = 100;
         let min = 0;
         return -i * (Math.floor(Math.random() * (max - min + 1)) + min) * 20 - Math.floor(Math.random() * 200);
@@ -242,7 +242,7 @@ export class GamePage {
       this.dragging = false;
     }
 
-    let drawSeaBottom = () => {
+    var drawSeaBottom = () => {
       let graphics = new PIXI.Graphics();
       graphics.lineStyle(1);
       graphics.beginFill(0xFF0000, 0.7);

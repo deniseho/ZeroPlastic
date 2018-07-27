@@ -1,18 +1,29 @@
-<!--
-  Generated template for the QuizPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>quiz</ion-title>
-  </ion-navbar>
-
+  <ion-toolbar>
+    <ion-title>
+      Quiz
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="showConfirm()">
+        <span ion-text color="primary">Cancel</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
+  <ion-slides #quizSlides>
+    <ion-slide *ngFor="let question of questions">
+      <h3>{{question.question}}</h3>
+      <ion-buttons *ngFor="let option of question.options">
+        <button ion-button block large 
+          [ngClass]="[btnStyle]"
+          (click)="checkAnswer($event, option)">
+          {{option.description}}
+        </button>
+      </ion-buttons>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>

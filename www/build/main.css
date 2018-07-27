@@ -25682,6 +25682,14 @@ page-game ion-grid ion-row ion-col {
   text-align: center;
 }
 
+page-quiz .btn-correct {
+  background-color: #32db64;
+}
+
+page-quiz .btn-wrong {
+  background-color: #f53d3d;
+}
+
 page-topic-five .SwipedTabs-indicatorSegment {
   -webkit-transition: 0.3s all;
   transition: 0.3s all;

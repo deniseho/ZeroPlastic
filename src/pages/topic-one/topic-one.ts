@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, ModalController, Slides, Content} from 'ionic-angular';
+import {IonicPage, NavController, ModalController, Slides, Content, ViewController} from 'ionic-angular';
 import { QuizPage } from '../quiz/quiz';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
@@ -12,7 +12,9 @@ export class TopicOnePage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
 
-  constructor(public navCtrl : NavController, public modalCtrl: ModalController) {
+  constructor(public navCtrl : NavController, 
+    public modalCtrl: ModalController,
+    public viewCtrl: ViewController) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
   }
 

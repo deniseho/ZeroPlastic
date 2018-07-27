@@ -23,6 +23,7 @@
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <ion-slide>
             <h1>Problem</h1>
+            <button ion-button (click)="startQuiz()">Start the quiz</button>
         </ion-slide>
         <ion-slide>
             <h1>Cause</h1>
@@ -35,7 +36,6 @@
         </ion-slide>
         <ion-slide>
             <h1>Quiz</h1>
-            <button ion-button (click)="startQuiz()">Start the quiz</button>
         </ion-slide>
     </ion-slides>
 

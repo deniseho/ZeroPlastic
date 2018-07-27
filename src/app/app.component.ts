@@ -14,6 +14,7 @@ import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
 import { ProfilePage } from '../pages/profile/profile';
 import { GamePage } from '../pages/game/game';
+import { QuizPage } from '../pages/quiz/quiz';
 
 
 @Component({
@@ -23,8 +24,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = TopicMenu;
-  // rootPage = GamePage;
+  // rootPage = TopicMenu;
+  rootPage = TopicOnePage;
   
   pages: Array<{title: string, component: any}>;
 
