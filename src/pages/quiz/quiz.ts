@@ -2,20 +2,20 @@ import {Component, ViewChild} from '@angular/core';
 import {NavController, NavParams, ViewController, AlertController, Slides} from 'ionic-angular';
 import {TopicOnePage} from '../topic-one/topic-one';
 import {questions} from '../quiz/questions';
+import {badges} from '../quiz/badges';
 
 @Component({selector: 'page-quiz', templateUrl: 'quiz.html'})
+
 export class QuizPage {
   @ViewChild(Slides)quizSlides : Slides;
 
   questions : any[] = questions;
   isAnswer : boolean = false;
   btnStyle : string = "";
+  score : number = 0;
+  badges : any[] = badges;
 
-  constructor(public navCtrl : NavController, 
-    public navParams : NavParams, 
-    public viewCtrl : ViewController, 
-    public alertCtrl : AlertController) {
-  }
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public alertCtrl : AlertController) {}
 
   ionViewDidEnter() {
     this
@@ -34,6 +34,7 @@ export class QuizPage {
         .parentNode
         .classList
         .add("btn-correct");
+      this.score++;
     } else {
       this.isAnswer = false;
       e
@@ -44,7 +45,7 @@ export class QuizPage {
     }
 
     setTimeout(() => {
-      if (this.quizSlides.clickedIndex < this.quizSlides.length()-1) {
+      if (this.quizSlides.clickedIndex < this.quizSlides.length() - 1) {
         this.nextSlide();
       } else {
         this.showCompleteConfirm();
@@ -97,7 +98,7 @@ export class QuizPage {
       .alertCtrl
       .create({
         title: 'Complete',
-        message: 'You will lose your current points!',
+        message: 'Your score: ' + this.score,
         buttons: [
           {
             text: 'Cancel',

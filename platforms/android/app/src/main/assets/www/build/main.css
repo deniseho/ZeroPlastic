@@ -25678,6 +25678,72 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-game ion-grid ion-row ion-col {
+  text-align: center;
+}
+
+page-quiz .btn-correct {
+  background-color: #32db64;
+}
+
+page-quiz .btn-wrong {
+  background-color: #f53d3d;
+}
+
+page-topic-five .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-five .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-five .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-five .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+page-topic-four .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-four .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-four .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-four .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
 page-hello-ionic .menuList {
   width: 100%;
   height: 20%;
@@ -25692,15 +25758,83 @@ page-hello-ionic .menuList:nth-child(even) {
   background-color: #f1f1f1;
 }
 
-page-topic-one .section:nth-child(odd) {
-  background: #f1f1f1;
+page-topic-one .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
 }
 
-page-topic-one .section:nth-child(even) {
-  background: #cecece;
+page-topic-one .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
 }
 
-page-topic-two section {
-  height: 100%;
-  border: 1px gray solid;
+page-topic-one .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-one .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+page-topic-three .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-three .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-three .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-three .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+page-topic-two .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 1px;
+  position: relative;
+  top: -2px;
+  background-color: blue !important;
+}
+
+page-topic-two .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: green !important;
+  background-color: white !important;
+}
+
+page-topic-two .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: blue !important;
+}
+
+page-topic-two .SwipedTabs-tabs {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
 }
