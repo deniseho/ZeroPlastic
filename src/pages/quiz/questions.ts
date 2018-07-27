@@ -1,67 +1,109 @@
 var questions : any[] = [
     {
-        question: "How are you?",
+        question: "question 01",
         options: [
             {
-                description: "I am fine, thank you.",
+                description: "correct",
                 isAnswer: true
             }, {
-                description: "Yes I am.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "He is happy.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "No, I don't.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "You are sad.",
+                description: "wrong",
                 isAnswer: false
             }
         ]
     },
     {
-        question: "How old are you?",
+        question: "question 02",
         options: [
             {
-                description: "I am fine, thank you.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "Yes I am.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "He is happy.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "I am 20 years old.",
+                description: "correct",
                 isAnswer: true
             }, {
-                description: "You are sad.",
+                description: "wrong",
                 isAnswer: false
             }
         ]
     },
     {
-        question: "Can I borrow your pen?",
+        question: "question 03",
         options: [
             {
-                description: "I am fine, thank you.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "Yes I am.",
+                description: "correct",
+                isAnswer: true
+            }, {
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "He is happy.",
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "I am 20 years old.",
+                description: "wrong",
+                isAnswer: false
+            }
+        ]
+    },
+    {
+        question: "question 04",
+        options: [
+            {
+                description: "wrong",
                 isAnswer: false
             }, {
-                description: "Yes you can.",
+                description: "wrong",
+                isAnswer: false
+            }, {
+                description: "wrong",
+                isAnswer: false
+            }, {
+                description: "correct",
+                isAnswer: true
+            }, {
+                description: "wrong",
+                isAnswer: false
+            }
+        ]
+    },
+    {
+        question: "question 05",
+        options: [
+            {
+                description: "wrong",
+                isAnswer: false
+            }, {
+                description: "wrong",
+                isAnswer: false
+            }, {
+                description: "wrong",
+                isAnswer: false
+            }, {
+                description: "wrong",
+                isAnswer: false
+            }, {
+                description: "correct",
                 isAnswer: true
             }
         ]
-    }
+    },
 ]
 
 export {questions};

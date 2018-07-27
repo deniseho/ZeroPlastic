@@ -14,5 +14,7 @@
   <!-- <p>
     <button ion-button color="primary" menuToggle>Toggle Menu</button>
   </p> -->
-  <div class="menuList" *ngFor="let p of pages" (click)="gotoPage(p.component)">{{p.title}}</div>
+  <button class="menuList" *ngFor="let p of pages" (click)="gotoPage(p.component)">
+    <h2>{{p.title}}</h2>
+  </button>
 </ion-content>

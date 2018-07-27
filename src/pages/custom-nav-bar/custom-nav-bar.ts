@@ -1,5 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { AccountMenuPage } from '../account-menu/account-menu';
 import { TopicMenu } from '../topic-menu/topic-menu';
 
@@ -18,7 +18,8 @@ import { TopicMenu } from '../topic-menu/topic-menu';
 })
 export class CustomNavBarPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public menuCtrl: MenuController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -33,4 +34,8 @@ export class CustomNavBarPage {
     this.navCtrl.push(AccountMenuPage);
   }
 
+  openMenu(){
+    this.menuCtrl.open();
+  }
+  
 }

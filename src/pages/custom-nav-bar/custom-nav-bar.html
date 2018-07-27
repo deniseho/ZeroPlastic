@@ -2,7 +2,7 @@
   <ion-row>
     <ion-col col-3>
       <ion-buttons *ngIf="addBack" start>
-        <button ion-button menuToggle>
+        <button ion-button menuToggle (click)="openMenu()">
           <ion-icon name="menu"></ion-icon>
         </button>
       </ion-buttons>

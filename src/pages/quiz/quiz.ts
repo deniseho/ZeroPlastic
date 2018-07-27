@@ -9,14 +9,13 @@ export class QuizPage {
 
   questions : any[] = questions;
   isAnswer : boolean = false;
-  btnStyle : string;
+  btnStyle : string = "";
 
   constructor(public navCtrl : NavController, 
     public navParams : NavParams, 
     public viewCtrl : ViewController, 
     public alertCtrl : AlertController) {
-      this.btnStyle = "";
-    }
+  }
 
   ionViewDidEnter() {
     this
@@ -27,17 +26,31 @@ export class QuizPage {
   ionViewDidLoad() {}
 
   checkAnswer(e, option) {
+
     if (option.isAnswer) {
       this.isAnswer = true;
-      e.target.parentNode.classList.add("btn-correct");
+      e
+        .target
+        .parentNode
+        .classList
+        .add("btn-correct");
     } else {
       this.isAnswer = false;
-      e.target.parentNode.classList.add("btn-wrong");
+      e
+        .target
+        .parentNode
+        .classList
+        .add("btn-wrong");
     }
 
     setTimeout(() => {
-      this.nextSlide();
-    }, 1500);
+      if (this.quizSlides.clickedIndex < this.quizSlides.length()-1) {
+        this.nextSlide();
+      } else {
+        this.showCompleteConfirm();
+      }
+    }, 1000);
+
   }
 
   nextSlide() {
@@ -52,7 +65,7 @@ export class QuizPage {
       .lockSwipes(true);
   }
 
-  showConfirm() {
+  showLeaveConfirm() {
     const confirm = this
       .alertCtrl
       .create({
@@ -71,7 +84,34 @@ export class QuizPage {
             handler: () => {
               this
                 .navCtrl
-                .push(TopicOnePage);
+                .pop();
+            }
+          }
+        ]
+      });
+    confirm.present();
+  }
+
+  showCompleteConfirm() {
+    const confirm = this
+      .alertCtrl
+      .create({
+        title: 'Complete',
+        message: 'You will lose your current points!',
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: () => {
+              this
+                .viewCtrl
+                .dismiss();
+            }
+          }, {
+            text: 'Confirm',
+            handler: () => {
+              this
+                .navCtrl
+                .setRoot(TopicOnePage);
             }
           }
         ]
