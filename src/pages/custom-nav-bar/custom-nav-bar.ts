@@ -13,7 +13,7 @@ import { TopicMenu } from '../topic-menu/topic-menu';
 @Component({
   selector: 'custom-nav-bar',
   templateUrl: 'custom-nav-bar.html',
-  inputs: ['title', 'addBack', 'addHome', 'addPerson'],
+  // inputs: ['title', 'addBack', 'addHome', 'addPerson'],
   outputs: ['home']
 })
 export class CustomNavBarPage {

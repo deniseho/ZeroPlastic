@@ -3,7 +3,7 @@
     <ion-navbar>
       <ion-title>Topic Two</ion-title>
     </ion-navbar> -->
-    <custom-nav-bar [title]="'Home'" [addBack]="true" [addHome]="true" [addPerson]="true"></custom-nav-bar>    
+    <custom-nav-bar></custom-nav-bar>    
   <ion-content  #scroll scrollX="true" scrollY="false" style="height: 50px;">
     <ion-segment  class="SwipedTabs-tabs">
       <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
