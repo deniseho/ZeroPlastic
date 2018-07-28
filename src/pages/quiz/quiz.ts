@@ -1,21 +1,35 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, NavParams, ViewController, AlertController, Slides} from 'ionic-angular';
+import {
+  NavController,
+  NavParams,
+  ViewController,
+  AlertController,
+  ModalController,
+  Slides
+} from 'ionic-angular';
 import {TopicOnePage} from '../topic-one/topic-one';
 import {questions} from '../quiz/questions';
+import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
 
 @Component({selector: 'page-quiz', templateUrl: 'quiz.html'})
-
 export class QuizPage {
+
   @ViewChild(Slides)quizSlides : Slides;
 
-  questions : any[] = questions;
-  isAnswer : boolean = false;
-  btnStyle : string = "";
-  score : number = 0;
-  badges : any[] = badges;
+  questions : any[];
+  isAnswer : boolean;
+  btnStyle : string;
+  score : number;
+  badges : any = [];
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public alertCtrl : AlertController) {}
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController) {
+    this.questions = questions;
+    this.isAnswer = false;
+    this.btnStyle = "";
+    this.score = 0;
+    this.badges = badges;
+  }
 
   ionViewDidEnter() {
     this
@@ -48,7 +62,7 @@ export class QuizPage {
       if (this.quizSlides.clickedIndex < this.quizSlides.length() - 1) {
         this.nextSlide();
       } else {
-        this.showCompleteConfirm();
+        this.showResultPage();
       }
     }, 1000);
 
@@ -75,17 +89,13 @@ export class QuizPage {
         buttons: [
           {
             text: 'Cancel',
-            handler: () => {
-              this
-                .viewCtrl
-                .dismiss();
-            }
+            handler: () => {}
           }, {
             text: 'Confirm',
             handler: () => {
               this
-                .navCtrl
-                .pop();
+                .viewCtrl
+                .dismiss();
             }
           }
         ]
@@ -93,30 +103,28 @@ export class QuizPage {
     confirm.present();
   }
 
-  showCompleteConfirm() {
-    const confirm = this
-      .alertCtrl
-      .create({
-        title: 'Complete',
-        message: 'Your score: ' + this.score,
-        buttons: [
-          {
-            text: 'Cancel',
-            handler: () => {
-              this
-                .viewCtrl
-                .dismiss();
-            }
-          }, {
-            text: 'Confirm',
-            handler: () => {
-              this
-                .navCtrl
-                .setRoot(TopicOnePage);
-            }
-          }
-        ]
+  showResultPage() {
+    // let result = this   .badges   .find((item, index, array) => {     return
+    // item.points == this.score;   }); console.log("result from quiz page");
+    // console.log(result);
+
+    const modal = this
+      .modalCtrl
+      .create(QuizResultPage, {
+        score: this.score,
+        badge: this
+          .badges
+          .find((item, index, array) => {
+            return item.points == this.score;
+          })
       });
-    confirm.present();
+    modal.onDidDismiss(data => {
+      if (data.action == 'remove') {
+        this
+          .navCtrl
+          .pop();
+      }
+    });
+    modal.present();
   }
 }

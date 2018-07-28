@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Result
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="close()">
+                <span ion-text color="primary">Cancel</span>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <h1>Your score: {{score}}</h1>
+    <h1>Badge: <span id="BadgeTitle"></span></h1>
+    <img id="BadgeImg"  src="">
+</ion-content>

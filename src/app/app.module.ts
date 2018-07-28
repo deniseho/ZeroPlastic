@@ -21,6 +21,7 @@ import { AccountMenuPage } from '../pages/account-menu/account-menu';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { GamePage } from '../pages/game/game';
 import { QuizPage } from '../pages/quiz/quiz';
+import { QuizResultPage } from '../pages/quiz/result';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { QuizPage } from '../pages/quiz/quiz';
     ProfilePage,
     AchievementPage,
     GamePage,
-    QuizPage
+    QuizPage,
+    QuizResultPage
   ],
   imports: [
     BrowserModule,
@@ -61,8 +63,8 @@ import { QuizPage } from '../pages/quiz/quiz';
     ProfilePage,
     AchievementPage,
     GamePage,
-    QuizPage
-  ],
+    QuizPage,
+    QuizResultPage  ],
   providers: [
     StatusBar,
     SplashScreen,
