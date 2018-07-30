@@ -24,6 +24,7 @@
         <ion-slide>
             <h1>Problem</h1>
             <button ion-button (click)="startQuiz()">Start the quiz</button>
+            <button ion-button (click)="addScore()">Add Score</button>
         </ion-slide>
         <ion-slide>
             <h1>Cause</h1>
@@ -36,6 +37,7 @@
         </ion-slide>
         <ion-slide>
             <h1>Quiz</h1>
+            <h3>Score: {{quizScore}}</h3>
         </ion-slide>
     </ion-slides>
 

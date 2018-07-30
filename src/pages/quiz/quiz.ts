@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, EventEmitter, Output} from '@angular/core';
 import {
   NavController,
   NavParams,
@@ -7,15 +7,16 @@ import {
   ModalController,
   Slides
 } from 'ionic-angular';
-import {TopicOnePage} from '../topic-one/topic-one';
 import {questions} from '../quiz/questions';
 import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
+import { TopicOnePage } from '../topic-one/topic-one';
 
 @Component({selector: 'page-quiz', templateUrl: 'quiz.html'})
 export class QuizPage {
 
   @ViewChild(Slides)quizSlides : Slides;
+  @Output() scoreEmitter = new EventEmitter();
 
   questions : any[];
   isAnswer : boolean;
@@ -96,6 +97,7 @@ export class QuizPage {
               this
                 .viewCtrl
                 .dismiss();
+              this.scoreEmitter.emit(this.score);
             }
           }
         ]
@@ -104,10 +106,6 @@ export class QuizPage {
   }
 
   showResultPage() {
-    // let result = this   .badges   .find((item, index, array) => {     return
-    // item.points == this.score;   }); console.log("result from quiz page");
-    // console.log(result);
-
     const modal = this
       .modalCtrl
       .create(QuizResultPage, {
@@ -119,10 +117,14 @@ export class QuizPage {
           })
       });
     modal.onDidDismiss(data => {
+      //todo: insert score into db
+      console.log("data.score")
+      console.log(data.score)
+
       if (data.action == 'remove') {
         this
           .navCtrl
-          .pop();
+          .push(TopicOnePage, {'topicOneQuizScore': data.score});
       }
     });
     modal.present();

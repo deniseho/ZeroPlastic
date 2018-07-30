@@ -8,9 +8,9 @@ export class QuizResultPage {
     badge : any;
     score : number;
 
-    constructor(public navCtrl : NavController, public param : NavParams, public viewCtrl : ViewController,) {
-        this.score = param.get('score');
-        this.badge = param.get('badge');
+    constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController,) {
+        this.score = navParams.get('score');
+        this.badge = navParams.get('badge');
     }
 
     ionViewDidLoad() {
@@ -19,7 +19,7 @@ export class QuizResultPage {
     close() {
         this
             .viewCtrl
-            .dismiss({'action': 'remove'});
+            .dismiss({'action': 'remove', 'score': this.score});
     }
 
 }

@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, ModalController, Slides, Content, ViewController} from 'ionic-angular';
+import {IonicPage, NavController, ModalController, Slides, Content, ViewController, Events, NavParams} from 'ionic-angular';
 import { QuizPage } from '../quiz/quiz';
+import { Subject } from 'rxjs/Subject';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -11,15 +12,34 @@ export class TopicOnePage {
   SwipedTabsIndicator : any = null;
   tabElementWidth_px : number = 100;
   tabs : any = [];
+  quizScore: number;
 
-  constructor(public navCtrl : NavController, 
+  constructor(
+    private event: Events,
+    public navCtrl: NavController, 
+    public navParams: NavParams,
     public modalCtrl: ModalController,
     public viewCtrl: ViewController) {
-    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+      this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+      this.quizScore = this.navParams.get('topicOneQuizScore');
+    console.log("this.quizScore")
+    console.log(this.quizScore)
+  }
+
+  addScore(){
+    this.event.publish('topicOneQuizScore', Number(this.quizScore));
   }
 
   ionViewDidEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
+  }
+
+  ionViewDidLoad(){
+    let mySubject = new Subject();
+    mySubject.subscribe((data)=>{
+      console.log(data);
+    })
+    mySubject.next('hello');
   }
 
   selectTab(index) {

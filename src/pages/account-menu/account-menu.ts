@@ -7,22 +7,27 @@ import { AchievementPage } from '../achievement/achievement';
 export class AccountMenuPage {
   pages : Array < {
     title: string,
-    icon: string
+    component: any
   } >;
+
+  userBadge : any;
+  userScore : number;
 
   constructor(public navCtrl : NavController, public navParams : NavParams) {
     this.pages = [
       {
         title: 'Profile',
-        icon: ''
+        component: ProfilePage
       }, {
         title: 'Achivement',
-        icon: ''
+        component: AchievementPage
       }, {
         title: 'Community Feed',
-        icon: ''   
+        component: AchievementPage
       }
     ];
+
+    this.userScore = navParams.get('score');
   }
 
   ionViewDidLoad() {
@@ -30,11 +35,7 @@ export class AccountMenuPage {
   }
 
   pageSelected(page) {
-    if(page.title=='Profile'){
-      this.navCtrl.push(ProfilePage)
-    }else if(page.title=='Achivement'){
-      this.navCtrl.push(AchievementPage)
-    }
+    this.navCtrl.push(page.component, {score: this.userScore});
   }
 
 }

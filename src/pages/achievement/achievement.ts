@@ -13,8 +13,10 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'achievement.html',
 })
 export class AchievementPage {
+  userScore : number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.userScore = navParams.get('score');
   }
 
   ionViewDidLoad() {

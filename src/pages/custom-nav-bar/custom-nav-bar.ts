@@ -1,7 +1,8 @@
-import { Component, EventEmitter } from '@angular/core';
-import { NavController, NavParams, MenuController } from 'ionic-angular';
-import { AccountMenuPage } from '../account-menu/account-menu';
-import { TopicMenu } from '../topic-menu/topic-menu';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import {NavController, NavParams, MenuController, Events} from 'ionic-angular';
+import {AccountMenuPage} from '../account-menu/account-menu';
+import {TopicMenu} from '../topic-menu/topic-menu';
+import {items} from '../game/items';
 
 /**
  * Generated class for the CustomNavBarPage page.
@@ -10,32 +11,42 @@ import { TopicMenu } from '../topic-menu/topic-menu';
  * Ionic pages and navigation.
  */
 
-@Component({
-  selector: 'custom-nav-bar',
-  templateUrl: 'custom-nav-bar.html',
-  // inputs: ['title', 'addBack', 'addHome', 'addPerson'],
-  outputs: ['home']
-})
+@Component({selector: 'custom-nav-bar', templateUrl: 'custom-nav-bar.html'})
+
 export class CustomNavBarPage {
 
-  constructor(public navCtrl: NavController, 
-    public menuCtrl: MenuController, public navParams: NavParams) {
+  totalScore: number = 0;
+
+  constructor(private event: Events, 
+    public navCtrl : NavController, 
+    public menuCtrl : MenuController, 
+    public navParams : NavParams) {
+      this.event.subscribe('topicOneQuizScore', (score)=>{
+        this.calculateScore(score);
+      })
+    }
+
+  calculateScore(score: number){
+    this.totalScore += score;
+    console.log(this.totalScore);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CustomNavBarPage');
   }
 
-  gotoHomepage(){
-    this.navCtrl.push(TopicMenu);
+  gotoHomepage() {
+    this
+      .navCtrl
+      .push(TopicMenu);
   }
 
-  gotoAccountMenu(){
-    this.navCtrl.push(AccountMenuPage);
+  gotoAccountMenu() {
   }
 
-  openMenu(){
-    this.menuCtrl.open();
+  openMenu() {
+    this
+      .menuCtrl
+      .open();
   }
-  
+
 }
