@@ -15,8 +15,8 @@ import {TopicMenu} from '../topic-menu/topic-menu';
 export class LoginPage {
   loading : Loading;
   registerCredentials = {
-    email: '',
-    password: ''
+    email: 'email',
+    password: 'pass'
   };
 
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private alertCtrl : AlertController, private loadingCtrl : LoadingController) {}

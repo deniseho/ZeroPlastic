@@ -16,6 +16,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { GamePage } from '../pages/game/game';
 import { QuizPage } from '../pages/quiz/quiz';
 import { LoginPage } from '../pages/login/login';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
+    private auth: AuthServiceProvider
   ) {
     this.initializeApp();
 
@@ -63,5 +65,11 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  logout(){
+    this.auth.logout().subscribe(succ => {
+      this.nav.setRoot(LoginPage);
+    });
   }
 }

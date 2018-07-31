@@ -61,6 +61,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPage,
     RegisterPage,
     TopicMenu,
+    AccountMenuPage,
+    ProfilePage,
+    AchievementPage,
 ],
   providers: [
     StatusBar,
