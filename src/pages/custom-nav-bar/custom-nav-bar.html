@@ -14,13 +14,21 @@
         </button>
       </ion-buttons>
     </ion-col>
-    <ion-col col-3>
+    <ion-col col-2>
       <ion-buttons end>
         <button ion-button icon-only color="royal" (click)="gotoAccountMenu()">
           <ion-label>{{totalScore}}</ion-label>
+          <ion-label>{{username}}</ion-label>
           <ion-icon name="person"></ion-icon>
         </button>
       </ion-buttons>
     </ion-col>
+    <ion-col col-1>
+        <ion-buttons end>
+          <button ion-button icon-only color="royal" (click)="logout()">
+            <ion-icon name="log-out"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
   </ion-row>
 </ion-toolbar>

@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {
   NavController,
   NavParams,
-  IonicPage,
   Loading,
   AlertController,
   LoadingController
@@ -18,7 +17,6 @@ import { TopicMenu } from '../topic-menu/topic-menu';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
   loading : Loading;
@@ -33,13 +31,13 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  public createAccount() {
+  createAccount() {
     this
       .navCtrl
       .push(RegisterPage);
   }
 
-  public Login() {
+   Login() {
     this.showLoading();
     this
       .auth
@@ -63,7 +61,7 @@ export class LoginPage {
     this.loading.present();
   }
 
-  showError(text: any): any {
+  showError(text: any) {
     this.loading.dismiss();
     let alert = this.alertCtrl.create({
       title: 'Fail',

@@ -9,7 +9,6 @@ import {TopicFivePage} from '../topic-five/topic-five';
 @Component({selector: 'page-hello-ionic', templateUrl: 'topic-menu.html'})
 
 export class TopicMenu {
-
   pages: Array<{title: string, component: any}>;
 
   constructor(public navCtrl : NavController, public navParams : NavParams) {

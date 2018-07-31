@@ -25,6 +25,8 @@ import { QuizPage } from '../pages/quiz/quiz';
 import { QuizResultPage } from '../pages/quiz/result';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { RegisterPage } from '../pages/register/register';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     ItemDetailsPage,
     ListPage,
     LoginPage,
+    RegisterPage,
     TopicOnePage,
     TopicTwoPage,
     TopicThreePage,
@@ -49,17 +52,19 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    LoginPage
 ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider 
+    AuthServiceProvider
   ]
 })
 export class AppModule {}
