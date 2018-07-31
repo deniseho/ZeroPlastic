@@ -58,7 +58,9 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    TopicMenu,
 ],
   providers: [
     StatusBar,

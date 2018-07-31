@@ -1,14 +1,8 @@
 import {Component} from '@angular/core';
-import {
-  NavController,
-  NavParams,
-  Loading,
-  AlertController,
-  LoadingController
-} from 'ionic-angular';
+import {NavController, NavParams, Loading, AlertController, LoadingController} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {RegisterPage} from '../register/register';
-import { TopicMenu } from '../topic-menu/topic-menu';
+import {TopicMenu} from '../topic-menu/topic-menu';
 
 /**
  * Generated class for the LoginPage page.
@@ -37,40 +31,41 @@ export class LoginPage {
       .push(RegisterPage);
   }
 
-   Login() {
+  login() {
     this.showLoading();
     this
       .auth
       .login(this.registerCredentials)
       .subscribe(allowed => {
         if (allowed) {
-          this.navCtrl.setRoot(TopicMenu);
-        }else{
+          this
+            .navCtrl
+            .setRoot(TopicMenu);
+        } else {
           this.showError("Access Denied");
         }
-      }, error =>{
-          this.showError(error);
+      }, error => {
+        this.showError(error);
       });
   }
 
   showLoading() {
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
-      dismissOnPageChange: true
-    });
-    this.loading.present();
+    this.loading = this
+      .loadingCtrl
+      .create({content: 'Please wait...', dismissOnPageChange: true});
+    this
+      .loading
+      .present();
   }
 
-  showError(text: any) {
-    this.loading.dismiss();
-    let alert = this.alertCtrl.create({
-      title: 'Fail',
-      subTitle: text,
-      buttons: ['OK']
-    });
+  showError(text : any) {
+    this
+      .loading
+      .dismiss();
+    let alert = this
+      .alertCtrl
+      .create({title: 'Fail', subTitle: text, buttons: ['OK']});
     alert.present();
   }
-
-
 
 }

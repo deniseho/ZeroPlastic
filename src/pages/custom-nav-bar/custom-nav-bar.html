@@ -1,6 +1,6 @@
 <ion-toolbar>
   <ion-row>
-    <ion-col col-3>
+    <ion-col col-1>
       <ion-buttons start>
         <button ion-button menuToggle (click)="openMenu()">
           <ion-icon name="menu"></ion-icon>
@@ -14,7 +14,7 @@
         </button>
       </ion-buttons>
     </ion-col>
-    <ion-col col-2>
+    <ion-col col-4>
       <ion-buttons end>
         <button ion-button icon-only color="royal" (click)="gotoAccountMenu()">
           <ion-label>{{totalScore}}</ion-label>
@@ -24,7 +24,7 @@
       </ion-buttons>
     </ion-col>
     <ion-col col-1>
-        <ion-buttons end>
+        <ion-buttons>
           <button ion-button icon-only color="royal" (click)="logout()">
             <ion-icon name="log-out"></ion-icon>
           </button>
