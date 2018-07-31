@@ -3,6 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 
@@ -22,6 +23,8 @@ import { AchievementPage } from '../pages/achievement/achievement';
 import { GamePage } from '../pages/game/game';
 import { QuizPage } from '../pages/quiz/quiz';
 import { QuizResultPage } from '../pages/quiz/result';
+import { LoginPage } from '../pages/login/login';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { QuizResultPage } from '../pages/quiz/result';
     TopicMenu,
     ItemDetailsPage,
     ListPage,
+    LoginPage,
     TopicOnePage,
     TopicTwoPage,
     TopicThreePage,
@@ -49,26 +53,13 @@ import { QuizResultPage } from '../pages/quiz/result';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    CustomNavBarPage,
-    ItemDetailsPage,
-    ListPage,
-    TopicMenu,
-    TopicOnePage,
-    TopicTwoPage,
-    TopicThreePage,
-    TopicFourPage,
-    TopicFivePage,
-    AccountMenuPage,
-    ProfilePage,
-    AchievementPage,
-    GamePage,
-    QuizPage,
-    QuizResultPage  ],
+    MyApp
+],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider 
   ]
 })
 export class AppModule {}
