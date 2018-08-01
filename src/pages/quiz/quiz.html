@@ -19,6 +19,7 @@
       <ion-buttons *ngFor="let option of question.options">
         <button ion-button block large 
           [ngClass]="[btnStyle]"
+          [disabled]="disableButtons"
           (click)="checkAnswer($event, option)">
           {{option.description}}
         </button>

@@ -10,19 +10,20 @@ import {
 import {questions} from '../quiz/questions';
 import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
-import { TopicOnePage } from '../topic-one/topic-one';
+import {TopicOnePage} from '../topic-one/topic-one';
 
 @Component({selector: 'page-quiz', templateUrl: 'quiz.html'})
 export class QuizPage {
 
   @ViewChild(Slides)quizSlides : Slides;
-  @Output() scoreEmitter = new EventEmitter();
+  @Output()scoreEmitter = new EventEmitter();
 
   questions : any[];
   isAnswer : boolean;
   btnStyle : string;
   score : number;
   badges : any = [];
+  disableButtons : boolean;
 
   constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController) {
     this.questions = questions;
@@ -30,6 +31,7 @@ export class QuizPage {
     this.btnStyle = "";
     this.score = 0;
     this.badges = badges;
+    this.disableButtons = false;
   }
 
   ionViewDidEnter() {
@@ -58,9 +60,13 @@ export class QuizPage {
         .classList
         .add("btn-wrong");
     }
+    setTimeout(() => {
+      this.disableButtons = true;
+    }, 300);
 
     setTimeout(() => {
       if (this.quizSlides.clickedIndex < this.quizSlides.length() - 1) {
+        this.disableButtons = false;
         this.nextSlide();
       } else {
         this.showResultPage();
@@ -97,7 +103,9 @@ export class QuizPage {
               this
                 .viewCtrl
                 .dismiss();
-              this.scoreEmitter.emit(this.score);
+              this
+                .scoreEmitter
+                .emit(this.score);
             }
           }
         ]
