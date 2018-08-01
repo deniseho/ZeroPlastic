@@ -4,19 +4,12 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {RegisterPage} from '../register/register';
 import {TopicMenu} from '../topic-menu/topic-menu';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
   loading : Loading;
   registerCredentials = {
-    email: 'email',
-    password: 'pass'
+    email: 'hoc2@tcd.ie',
+    password: 'pass001'
   };
 
   constructor(

@@ -21,10 +21,11 @@ export class AccountMenuPage {
       }, {
         title: 'Achivement',
         component: AchievementPage
-      }, {
-        title: 'Community Feed',
-        component: AchievementPage
       }
+      // , {
+      //   title: 'Community Feed',
+      //   component: AchievementPage
+      // }
     ];
 
     this.userScore = navParams.get('score');

@@ -1,37 +1,31 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import { userData } from './userData';
 
 export class User {
   name : string;
   email : string;
-  score : number;
-  badge : string;
+  password : string;
+  achievement : any[];
+  position : string;
 
-  constructor(name : string, email : string, score : number, badge : string) {
+  constructor(name : string, email : string, password : string, achievement : any[], position : string) {
     this.name = name;
     this.email = email;
-    this.score = score;
-    this.badge = badge;
-  }
-}
-
-export class UserCredentials {
-  email : string;
-  password : string;
-
-  constructor(email : string, password : string) {
-    this.email = email;
-    this.password = this.password
+    this.password = this.password;
+    this.achievement = achievement;
+    this.position = position;
   }
 }
 
 @Injectable()
 export class AuthServiceProvider {
   currentUser : User;
+  userData: any[];
 
   constructor(public http : HttpClient) {
-    console.log('Hello AuthServiceProvider Provider');
+    this.userData = userData;
   }
 
   login(credentials) {
@@ -39,11 +33,14 @@ export class AuthServiceProvider {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
-        //todo: make a request to your backend to make a real check
-        let access = (credentials.email === 'email' && credentials.password === 'pass');
-        this.currentUser = new User('Denise', 'hoc2@tcd.ie', 0, 'Novice');
-        observer.next(access);
-        observer.complete();
+        //todo: make a request to your backend to make a real check let access =
+        let user01 = this.userData[0];
+
+        if (credentials.email === 'hoc2@tcd.ie' && credentials.password === 'pass001') {
+          this.currentUser = user01;
+          observer.next(true);
+          observer.complete();
+        }
       });
     }
   }
@@ -61,7 +58,6 @@ export class AuthServiceProvider {
   }
 
   getUserInfo() : User {
-    //get userinfo from db    
     return this.currentUser;
   }
 

@@ -20,15 +20,15 @@ export class CustomNavBarPage {
     public navCtrl : NavController, 
     public menuCtrl : MenuController, 
     public navParams : NavParams) {
-      this.event.subscribe('topicOneQuizScore', (score)=>{
-        this.calculateScore(score);
-      })
+      // this.event.subscribe('topicOneQuizScore', (score)=>{
+      //   this.calculateScore(score);
+      // })
     }
 
-  calculateScore(score: number){
-    this.totalScore += score;
-    console.log(this.totalScore);
-  }
+  // calculateScore(score: number){
+  //   this.totalScore += score;
+  //   console.log(this.totalScore);
+  // }
 
   ionViewDidLoad() {
   }

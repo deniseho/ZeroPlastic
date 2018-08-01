@@ -1,4 +1,4 @@
-import {Component, ViewChild, EventEmitter, Output} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {
   NavController,
   NavParams,
@@ -16,7 +16,7 @@ import {TopicOnePage} from '../topic-one/topic-one';
 export class QuizPage {
 
   @ViewChild(Slides)quizSlides : Slides;
-  @Output()scoreEmitter = new EventEmitter();
+  // @Output()scoreEmitter = new EventEmitter();
 
   questions : any[];
   isAnswer : boolean;
@@ -103,9 +103,9 @@ export class QuizPage {
               this
                 .viewCtrl
                 .dismiss();
-              this
-                .scoreEmitter
-                .emit(this.score);
+              // this
+              //   .scoreEmitter
+              //   .emit(this.score);
             }
           }
         ]
@@ -124,15 +124,14 @@ export class QuizPage {
             return item.points == this.score;
           })
       });
-    modal.onDidDismiss(data => {
-      //todo: insert score into db
-      console.log("data.score")
-      console.log(data.score)
 
+    //todo: insert score & badge into db
+
+    modal.onDidDismiss(data => {
       if (data.action == 'remove') {
         this
-          .navCtrl
-          .push(TopicOnePage, {'topicOneQuizScore': data.score});
+        .navCtrl.push(TopicOnePage, {'topicOneQuizScore': data.score});
+        // .navCtrl.pop();
       }
     });
     modal.present();

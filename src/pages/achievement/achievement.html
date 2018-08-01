@@ -13,8 +13,13 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <h1>Score: {{totalScore}}</h1> -->
-  <h1>Score:</h1>
-  <h1>Badge:</h1>
-  <h1>Title:</h1>
+  <ion-card *ngFor="let a of achievement">
+    <ion-card-header>
+      {{a.section}}
+    </ion-card-header>
+    <ion-card-content>
+      <h4>Score: {{a.score}}</h4>
+      <h4>Badge: {{a.badge}}</h4>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ModalController, Slides, Content, ViewController, Events, NavParams} from 'ionic-angular';
 import { QuizPage } from '../quiz/quiz';
 import { Subject } from 'rxjs/Subject';
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -13,17 +14,20 @@ export class TopicOnePage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
   quizScore: number;
+  quizButtonText: string;
 
   constructor(
     private event: Events,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    private auth : AuthServiceProvider) {
       this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
-      this.quizScore = this.navParams.get('topicOneQuizScore');
-    console.log("this.quizScore")
-    console.log(this.quizScore)
+      
+      let score = this.navParams.get('topicOneQuizScore');
+      this.quizScore = score?score:0;
+      this.quizButtonText = score ? 'Try again' : 'Start the quiz';
   }
 
   addScore(){
