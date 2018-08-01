@@ -1,4 +1,4 @@
-var questions : any[] = [
+export const questions : any[] = [
     {
         question: "question 01",
         options: [
@@ -105,5 +105,3 @@ var questions : any[] = [
         ]
     },
 ]
-
-export {questions};

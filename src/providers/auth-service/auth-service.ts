@@ -2,22 +2,13 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
-/*
-  Generated class for the AuthServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-
 export class User {
-  userid : string;
   name : string;
   email : string;
   score : number;
   badge : string;
 
-  constructor(userid : string, name : string, email : string, score : number, badge : string) {
-    this.userid = userid;
+  constructor(name : string, email : string, score : number, badge : string) {
     this.name = name;
     this.email = email;
     this.score = score;
@@ -26,11 +17,11 @@ export class User {
 }
 
 export class UserCredentials {
-  userid : string;
+  email : string;
   password : string;
 
-  constructor(userid : string, password : string) {
-    this.userid = userid;
+  constructor(email : string, password : string) {
+    this.email = email;
     this.password = this.password
   }
 }
@@ -50,7 +41,7 @@ export class AuthServiceProvider {
       return Observable.create(observer => {
         //todo: make a request to your backend to make a real check
         let access = (credentials.email === 'email' && credentials.password === 'pass');
-        this.currentUser = new User('user001', 'Denise', 'hoc2@tcd.ie', 0, 'Novice');
+        this.currentUser = new User('Denise', 'hoc2@tcd.ie', 0, 'Novice');
         observer.next(access);
         observer.complete();
       });
@@ -69,7 +60,10 @@ export class AuthServiceProvider {
     }
   }
 
-  getUserInfo() : User {return this.currentUser;}
+  getUserInfo() : User {
+    //get userinfo from db    
+    return this.currentUser;
+  }
 
   logout() {
     return Observable.create(observer => {
