@@ -9,13 +9,13 @@ import {TopicFourPage} from '../topic-four/topic-four';
 
 export class GamePage {
 
-  @ViewChild('content')content : ElementRef;
-  constructor(public navCtrl : NavController, public alertCtrl : AlertController) {}
-
   app : any;
   gameScore : number = 0;
   gameLife : number = 5;
   gamePlay : boolean = true;
+
+  @ViewChild('content')content : ElementRef;
+  constructor(public navCtrl : NavController, public alertCtrl : AlertController) {}
 
   playGame() {
     let self = this;
@@ -35,6 +35,7 @@ export class GamePage {
 
   ionViewDidLoad() {
     let self = this;
+    let bottomPadding = 75;
 
     self.app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});;
 
@@ -50,6 +51,25 @@ export class GamePage {
       .addChild(container);
 
     startAlert(self);
+
+    function startAlert(self) {
+      const alert = self
+        .alertCtrl
+        .create({
+          title: 'Start the game!',
+          subTitle: 'Description',
+          buttons: [
+            {
+              text: 'OK',
+              handler: data => {
+                fall();
+              }
+            }
+          ],
+          enableBackdropDismiss: false
+        });
+      alert.present();
+    }
 
     function fall() {
       let firstTime = true;
@@ -68,6 +88,7 @@ export class GamePage {
     }
 
     function createItem(elemData, index) {
+      console.log("Create Item: " + elemData.url);
       let item = PIXI
         .Sprite
         .fromImage(elemData.url);
@@ -117,7 +138,7 @@ export class GamePage {
         .app
         .ticker
         .add(function (delta) {
-          if (item.y < self.app.screen.height - item.height) {
+          if (item.y < self.app.screen.height - bottomPadding) {
             item.y += elemData.speed;
           } else {
             calScore(elemData, item);
@@ -128,10 +149,11 @@ export class GamePage {
                 .ticker
                 .stop();
               gameOverAlert(self);
+              self.gamePlay = false;
             }
             this.destroy();
           }
-        }, this);
+        });
     }
 
     function calScore(elemData, item) {
@@ -147,7 +169,8 @@ export class GamePage {
           self.gameScore++;
           container.removeChild(item);
         } else if (!elemData.recycable) {
-          item.y = self.app.screen.height - item.height;
+          item.y = self.app.screen.height - bottomPadding;
+          bottomPadding += 3;
           self.gameLife--;
         }
       }
@@ -155,7 +178,8 @@ export class GamePage {
       //unrecycable bin
       if (item.x < self.app.screen.width / 2) {
         if (elemData.recycable) {
-          item.y = self.app.screen.height - item.height;
+          item.y = self.app.screen.height - bottomPadding;
+          bottomPadding += 3;
           self.gameLife--;
         } else if (!elemData.recycable) {
           self.gameScore++;
@@ -164,26 +188,8 @@ export class GamePage {
       }
     }
 
-    function startAlert(self) {
-      const alert = self
-        .alertCtrl
-        .create({
-          title: 'Start the game!',
-          subTitle: 'Description',
-          buttons: [
-            {
-              text: 'OK',
-              handler: data => {
-                fall();
-              }
-            }
-          ],
-          enableBackdropDismiss: false
-        });
-      alert.present();
-    }
-
     function gameOverAlert(self) {
+      self.app.ticker.stop();
       const prompt = self
         .alertCtrl
         .create({
@@ -246,12 +252,12 @@ export class GamePage {
       let graphics = new PIXI.Graphics();
       graphics.lineStyle(1);
       graphics.beginFill(0xFF0000, 0.7);
-      graphics.drawRect(0, self.app.screen.height - 120, self.app.screen.width / 2, 80);
+      graphics.drawRect(0, self.app.screen.height - 80, self.app.screen.width / 2, 80);
       graphics.endFill();
 
       graphics.lineStyle(1);
       graphics.beginFill(0x33FF00, 0.7);
-      graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 120, self.app.screen.width / 2, 80);
+      graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 80, self.app.screen.width / 2, 80);
       graphics.endFill();
 
       self
@@ -260,15 +266,17 @@ export class GamePage {
         .addChild(graphics);
     }
     drawSeaBottom();
-    
+
   }
 
   ionViewWillLeave() {
+    console.log("ionViewWillLeave")
     let self = this;
     self
       .app
       .ticker
-      .stop();
+      .stop()
+      .destroy();
   }
 
 }
