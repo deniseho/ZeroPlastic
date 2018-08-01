@@ -10,12 +10,28 @@ import {Observable} from 'rxjs/Observable';
 */
 
 export class User {
+  userid : string;
   name : string;
   email : string;
+  score : number;
+  badge : string;
 
-  constructor(name : string, email : string) {
+  constructor(userid : string, name : string, email : string, score : number, badge : string) {
+    this.userid = userid;
     this.name = name;
     this.email = email;
+    this.score = score;
+    this.badge = badge;
+  }
+}
+
+export class UserCredentials {
+  userid : string;
+  password : string;
+
+  constructor(userid : string, password : string) {
+    this.userid = userid;
+    this.password = this.password
   }
 }
 
@@ -23,21 +39,25 @@ export class User {
 export class AuthServiceProvider {
   currentUser : User;
 
-  public login(credentials) {
+  constructor(public http : HttpClient) {
+    console.log('Hello AuthServiceProvider Provider');
+  }
+
+  login(credentials) {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
         //todo: make a request to your backend to make a real check
-        let access = (credentials.password === 'pass' && credentials.email === 'email');
-        this.currentUser = new User('Denise', 'hoc2@tcd.ie');
+        let access = (credentials.email === 'email' && credentials.password === 'pass');
+        this.currentUser = new User('user001', 'Denise', 'hoc2@tcd.ie', 0, 'Novice');
         observer.next(access);
         observer.complete();
       });
     }
   }
 
-  public register(credentials) {
+  register(credentials) {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
@@ -49,20 +69,14 @@ export class AuthServiceProvider {
     }
   }
 
-  public getUserInfo(): User{
-    return this.currentUser;
-  }
+  getUserInfo() : User {return this.currentUser;}
 
-  public logout(){
+  logout() {
     return Observable.create(observer => {
       this.currentUser = null;
       observer.next(true);
       observer.complete();
     });
-  }
-
-  constructor(public http : HttpClient) {
-    console.log('Hello AuthServiceProvider Provider');
   }
 
 }

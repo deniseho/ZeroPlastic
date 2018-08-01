@@ -1,6 +1,5 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import * as PIXI from 'pixi.js';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'page-profile', templateUrl: 'profile.html'})

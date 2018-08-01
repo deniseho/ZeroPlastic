@@ -19,7 +19,14 @@ export class LoginPage {
     password: 'pass'
   };
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private alertCtrl : AlertController, private loadingCtrl : LoadingController) {}
+  constructor(
+    public navCtrl : NavController, 
+    public navParams : NavParams, 
+    private auth : AuthServiceProvider, 
+    private alertCtrl : AlertController, 
+    private loadingCtrl : LoadingController) {
+
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -38,9 +45,11 @@ export class LoginPage {
       .login(this.registerCredentials)
       .subscribe(allowed => {
         if (allowed) {
-          this
+          // this.userSetting.initStorage().then(()=>{
+            this
             .navCtrl
             .setRoot(TopicMenu);
+          // });
         } else {
           this.showError("Access Denied");
         }

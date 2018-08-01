@@ -1,12 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { SQLite } from '@ionic-native/sqlite';
 import { MyApp } from './app.component';
-
-
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TopicOnePage } from '../pages/topic-one/topic-one';
@@ -27,6 +25,8 @@ import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { RegisterPage } from '../pages/register/register';
 import { HttpClientModule } from '@angular/common/http';
+import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
+// import { UserSettingProvider } from '../providers/user-setting/user-setting';
 
 @NgModule({
   declarations: [
@@ -68,8 +68,11 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
+    SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    SqlStorageProvider,
+    // UserSettingProvider
   ]
 })
 export class AppModule {}

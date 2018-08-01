@@ -36,7 +36,7 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    private auth: AuthServiceProvider
+    private auth: AuthServiceProvider,
   ) {
     this.initializeApp();
 
@@ -57,18 +57,17 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    });
+    }); 
   }
 
   gotoPage(page) {
-    // close the menu when clicking a link from the menu
     this.menu.close();
-    // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
   }
 
   logout(){
     this.auth.logout().subscribe(succ => {
+      this.menu.close(); 
       this.nav.setRoot(LoginPage);
     });
   }
