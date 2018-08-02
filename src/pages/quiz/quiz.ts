@@ -44,16 +44,14 @@ export class QuizPage {
   ionViewDidLoad() {}
 
   checkAnswer(e, option) {
-    let audioOptions : StreamingAudioOptions = {
-      successCallback: () => {
-        console.log("audio successCallback");
-      },
-      errorCallback: ()=>{
-        console.log("audio errorCallback");
-      }
-    }
-
-    this.streamingMedia.playAudio("assets/audio/correct.m4a", audioOptions);
+    // let audioOptions : StreamingAudioOptions = {
+    //   successCallback: () => {
+    //     console.log("audio successCallback");
+    //   },
+    //   errorCallback: ()=>{
+    //     console.log("audio errorCallback");
+    //   }
+    // }
 
     if (option.isAnswer) {
       this.isAnswer = true;
@@ -63,6 +61,7 @@ export class QuizPage {
         .classList
         .add("btn-correct");
       this.score++;
+      this.streamingMedia.playAudio("assets/audio/correct.m4a");      
     } else {
       this.isAnswer = false;
       e
@@ -70,6 +69,7 @@ export class QuizPage {
         .parentNode
         .classList
         .add("btn-wrong");
+        this.streamingMedia.playAudio("assets/audio/wrong.m4a");
     }
     setTimeout(() => {
       this.disableButtons = true;
@@ -139,9 +139,8 @@ export class QuizPage {
     modal.onDidDismiss(data => {
       if (data.action == 'remove') {
         this
-          .navCtrl
-          .push(TopicOnePage, {'topicOneQuizScore': data.score});
-        // .navCtrl.pop();
+          // .navCtrl.push(TopicOnePage, {'topicOneQuizScore': data.score});
+        .navCtrl.pop();
       }
     });
     modal.present();

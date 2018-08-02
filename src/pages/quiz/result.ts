@@ -14,6 +14,9 @@ export class QuizResultPage {
     }
 
     ionViewDidLoad() {
+        // document.getElementById("BadgeTitle").innerHTML = this.badge.title;
+        // let badgeImg = document.getElementById("BadgeImg") as HTMLImageElement;
+        // badgeImg.src = this.badge.imgUrl;
     }
 
     close() {

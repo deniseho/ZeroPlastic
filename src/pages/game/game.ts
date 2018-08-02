@@ -275,8 +275,7 @@ export class GamePage {
     self
       .app
       .ticker
-      .stop()
-      .destroy();
+      .stop();
   }
 
 }

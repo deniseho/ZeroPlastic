@@ -26,8 +26,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { RegisterPage } from '../pages/register/register';
 import { HttpClientModule } from '@angular/common/http';
 import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
-// import { UserSettingProvider } from '../providers/user-setting/user-setting';
 import {StreamingMedia} from '@ionic-native/streaming-media';
+import { UserApiServiceProvider } from '../providers/user-api-service/user-api-service';
 
 @NgModule({
   declarations: [
@@ -84,8 +84,8 @@ import {StreamingMedia} from '@ionic-native/streaming-media';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     SqlStorageProvider,
-    // UserSettingProvider,
-    StreamingMedia
+    StreamingMedia,
+    UserApiServiceProvider,
   ]
 })
 export class AppModule {}

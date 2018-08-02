@@ -39,6 +39,14 @@ module.exports = [
     "clobbers": [
       "streamingMedia"
     ]
+  },
+  {
+    "id": "cordova-plugin-statusbar.statusbar",
+    "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+    "pluginId": "cordova-plugin-statusbar",
+    "clobbers": [
+      "window.StatusBar"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -50,7 +58,8 @@ module.exports.metadata =
   "cordova-plugin-ionic-webview": "1.1.19",
   "cordova-plugin-ionic-keyboard": "2.0.5",
   "cordova-sqlite-storage": "2.3.3",
-  "cordova-plugin-streaming-media": "2.1.2"
+  "cordova-plugin-streaming-media": "2.1.2",
+  "cordova-plugin-statusbar": "2.4.2"
 };
 // BOTTOM OF METADATA
 });

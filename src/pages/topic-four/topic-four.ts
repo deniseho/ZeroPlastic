@@ -13,7 +13,7 @@ export class TopicFourPage {
   tabs : any = [];
 
   constructor(public navCtrl : NavController) {
-    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Game"];
   }
 
   ionViewDidEnter() {

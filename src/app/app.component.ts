@@ -26,9 +26,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = TopicMenu;
-  // rootPage = GamePage;
-  2
+  // rootPage = TopicMenu;
+  rootPage = LoginPage;
+  
   pages: Array<{title: string, component: any}>;
 
   constructor(
