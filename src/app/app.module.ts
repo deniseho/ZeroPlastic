@@ -27,6 +27,7 @@ import { RegisterPage } from '../pages/register/register';
 import { HttpClientModule } from '@angular/common/http';
 import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
 // import { UserSettingProvider } from '../providers/user-setting/user-setting';
+import {StreamingMedia} from '@ionic-native/streaming-media';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     SqlStorageProvider,
-    // UserSettingProvider
+    // UserSettingProvider,
+    StreamingMedia
   ]
 })
 export class AppModule {}

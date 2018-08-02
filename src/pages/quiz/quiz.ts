@@ -7,6 +7,7 @@ import {
   ModalController,
   Slides
 } from 'ionic-angular';
+import {StreamingMedia, StreamingAudioOptions} from '@ionic-native/streaming-media';
 import {questions} from '../quiz/questions';
 import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
@@ -25,7 +26,7 @@ export class QuizPage {
   badges : any = [];
   disableButtons : boolean;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private streamingMedia : StreamingMedia) {
     this.questions = questions;
     this.isAnswer = false;
     this.btnStyle = "";
@@ -43,6 +44,16 @@ export class QuizPage {
   ionViewDidLoad() {}
 
   checkAnswer(e, option) {
+    let audioOptions : StreamingAudioOptions = {
+      successCallback: () => {
+        console.log("audio successCallback");
+      },
+      errorCallback: ()=>{
+        console.log("audio errorCallback");
+      }
+    }
+
+    this.streamingMedia.playAudio("assets/audio/correct.m4a", audioOptions);
 
     if (option.isAnswer) {
       this.isAnswer = true;
@@ -103,9 +114,7 @@ export class QuizPage {
               this
                 .viewCtrl
                 .dismiss();
-              // this
-              //   .scoreEmitter
-              //   .emit(this.score);
+              // this   .scoreEmitter   .emit(this.score);
             }
           }
         ]
@@ -130,7 +139,8 @@ export class QuizPage {
     modal.onDidDismiss(data => {
       if (data.action == 'remove') {
         this
-        .navCtrl.push(TopicOnePage, {'topicOneQuizScore': data.score});
+          .navCtrl
+          .push(TopicOnePage, {'topicOneQuizScore': data.score});
         // .navCtrl.pop();
       }
     });

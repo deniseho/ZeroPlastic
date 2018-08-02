@@ -4,9 +4,7 @@
             Result
         </ion-title>
         <ion-buttons start>
-            <button ion-button (click)="close()">
-                <span ion-text color="primary">Cancel</span>
-            </button>
+
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -15,4 +13,7 @@
     <h1>Your score: {{score}}</h1>
     <h1 *ngIf='badge'>Badge: {{badge.title}}</h1>
     <img [src]='badge.imgUrl'>
+    <button ion-button (click)="close()">
+        <span ion-text>Confirm</span>
+    </button>
 </ion-content>

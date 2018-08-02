@@ -1,28 +1,28 @@
 var badges : any[] = [
     {
         title: "Novice",
-        points: 0,
-        imgUrl: "../assets/imgs/badge01.jpg"
+        points: 5,
+        imgUrl: "assets/imgs/badge01.jpg"
     }, {
         title: "Beginner",
-        points: 1,
-        imgUrl: "../assets/imgs/badge01.jpg"
+        points: 10,
+        imgUrl: "assets/imgs/badge01.jpg"
     }, {
         title: "Beginner",
-        points: 2,
-        imgUrl: "../assets/imgs/badge01.jpg"
+        points: 15,
+        imgUrl: "assets/imgs/badge01.jpg"
     }, {
         title: "Intermediate",
-        points: 3,
-        imgUrl: "../assets/imgs/badge01.jpg"
+        points: 20,
+        imgUrl: "assets/imgs/badge01.jpg"
     }, {
         title: "Intermediate",
-        points: 4,
-        imgUrl: "../assets/imgs/badge01.jpg"
+        points: 25,
+        imgUrl: "assets/imgs/badge01.jpg"
     }, {
         title: "Expert",
-        points: 5,
-        imgUrl: "../assets/imgs/badge01.jpg"
+        points: 30,
+        imgUrl: "assets/imgs/badge01.jpg"
     }
 ];
 

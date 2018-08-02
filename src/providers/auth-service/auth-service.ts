@@ -13,7 +13,7 @@ export class User {
   constructor(name : string, email : string, password : string, achievement : any[], position : string) {
     this.name = name;
     this.email = email;
-    this.password = this.password;
+    this.password = password;
     this.achievement = achievement;
     this.position = position;
   }

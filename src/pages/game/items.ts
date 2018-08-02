@@ -1,25 +1,25 @@
 var items : any[] = [
     {
-        url: '../assets/imgs/cup.png',
+        url: 'assets/imgs/cup.png',
         name: "Plastic Cup",
         type: "tag1",
         recycable: true,
         speed: 2.5,
     }, {
-        url: '../assets/imgs/bottle.png',
+        url: 'assets/imgs/bottle.png',
         name: "Plastic Cup",
         type: "tag2",
         recycable: true,
         speed: 3,
     }, {
-        url: '../assets/imgs/microplastic.png',
+        url: 'assets/imgs/microplastic.png',
         name: "Microplastic",
         type: "tag3",
         recycable: true,
         speed: 1.8,
     },
     , {
-        url: '../assets/imgs/fork_knife.png',
+        url: 'assets/imgs/fork_knife.png',
         name: 'Fork and knife',
         type: "tag4",
         recycable: false,

@@ -31,6 +31,14 @@ module.exports = [
     "clobbers": [
       "SQLitePlugin"
     ]
+  },
+  {
+    "id": "cordova-plugin-streaming-media.StreamingMedia",
+    "file": "plugins/cordova-plugin-streaming-media/www/StreamingMedia.js",
+    "pluginId": "cordova-plugin-streaming-media",
+    "clobbers": [
+      "streamingMedia"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -41,7 +49,8 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-ionic-webview": "1.1.19",
   "cordova-plugin-ionic-keyboard": "2.0.5",
-  "cordova-sqlite-storage": "2.3.3"
+  "cordova-sqlite-storage": "2.3.3",
+  "cordova-plugin-streaming-media": "2.1.2"
 };
 // BOTTOM OF METADATA
 });
