@@ -14,10 +14,10 @@ export class UserApiServiceProvider {
     console.log('Hello UserApiServiceProvider Provider');
   }
 
-  getAllUsers(){
-    return new Promise(resolve =>{
-      // this.http.get(`${this.baseUrl}/allUsers.json`).subscribe(res => resolve(res.json()));
-    })
-  }
+  // getAllUsers(){
+  //   return new Promise(resolve =>{
+  //     // this.http.get(`${this.baseUrl}/allUsers.json`).subscribe(res => resolve(res.json()));
+  //   })
+  // }
 
 }

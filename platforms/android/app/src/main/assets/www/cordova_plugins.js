@@ -47,6 +47,14 @@ module.exports = [
     "clobbers": [
       "window.StatusBar"
     ]
+  },
+  {
+    "id": "cordova-plugin-nativeaudio.nativeaudio",
+    "file": "plugins/cordova-plugin-nativeaudio/www/nativeaudio.js",
+    "pluginId": "cordova-plugin-nativeaudio",
+    "clobbers": [
+      "window.plugins.NativeAudio"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -59,7 +67,8 @@ module.exports.metadata =
   "cordova-plugin-ionic-keyboard": "2.0.5",
   "cordova-sqlite-storage": "2.3.3",
   "cordova-plugin-streaming-media": "2.1.2",
-  "cordova-plugin-statusbar": "2.4.2"
+  "cordova-plugin-statusbar": "2.4.2",
+  "cordova-plugin-nativeaudio": "3.0.9"
 };
 // BOTTOM OF METADATA
 });
