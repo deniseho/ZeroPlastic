@@ -150,13 +150,12 @@ export class QuizPage {
       });
 
     //todo: insert score & badge into db
-
+// 
     modal.onDidDismiss(data => {
       if (data.action == 'remove') {
         this
-        // .navCtrl.push(TopicOnePage, {'topicOneQuizScore': data.score});
-          .navCtrl
-          .pop();
+        .viewCtrl
+        .dismiss();
       }
     });
     modal.present();

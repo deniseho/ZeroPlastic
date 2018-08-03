@@ -42,7 +42,6 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Home', component: TopicMenu },
       { title: 'Plastic Pollution', component: TopicOnePage },
       { title: 'About Pollution', component: TopicTwoPage },
       { title: 'Species Affected', component: TopicThreePage },
@@ -63,6 +62,11 @@ export class MyApp {
   gotoPage(page) {
     this.menu.close();
     this.nav.setRoot(page.component);
+  }
+
+  gotoHomepage(){
+    this.menu.close();
+    this.nav.setRoot(TopicMenu);
   }
 
   logout(){

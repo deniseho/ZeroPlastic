@@ -8,6 +8,11 @@
 
   <ion-content>
     <ion-list>
+      <button ion-item icon-only (click)="gotoHomepage()">
+          <ion-icon name="home"></ion-icon>
+        </button>
+    </ion-list>
+    <ion-list>
       <ion-list-header>Pages</ion-list-header>
       <button ion-item *ngFor="let p of pages" (click)="gotoPage(p)">
         {{p.title}}
@@ -16,9 +21,9 @@
     <ion-list>
       <ion-list-header>Settings</ion-list-header>
       <button ion-item (click)="logout()">
-          <ion-icon name="log-out"> Logout</ion-icon>
-        </button>
-      </ion-list>
+        <ion-icon name="log-out"> Logout</ion-icon>
+      </button>
+    </ion-list>
   </ion-content>
 
 </ion-menu>
