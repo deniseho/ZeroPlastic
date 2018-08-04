@@ -45,9 +45,6 @@ export class AuthServiceProvider {
         this.currentUser = _.first(_.filter(this.allUsers, item => {
           return item.email === credentials.email;
         }));
-
-        console.log(this.currentUser)
-
         observer.next(true);
         observer.complete();
       });
@@ -58,7 +55,6 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      //todo: store the credentials to your backend
       return Observable.create(observer => {
         observer.next(true);
         observer.complete();

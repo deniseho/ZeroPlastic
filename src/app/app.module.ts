@@ -29,6 +29,9 @@ import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
 import { UserApiServiceProvider } from '../providers/user-api-service/user-api-service';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FIREBASE_CONFIG } from './firebase.credentials';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,8 @@ import { HttpModule } from '@angular/http';
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
