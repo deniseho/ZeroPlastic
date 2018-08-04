@@ -5,7 +5,3 @@ www/
 .idea/
 .sourcemaps/
 
-config.xml
-ionic.config.json
-package-lock.json
-package.json
