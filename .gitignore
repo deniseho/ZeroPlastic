@@ -1,4 +1,5 @@
-node_modules
-plugins
-platforms
-www/build
+node_modules/
+plugins/
+platforms/
+www/
+.idea/
