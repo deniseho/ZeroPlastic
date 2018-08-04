@@ -1,59 +1,84 @@
-[
-    {
-        "email": "hoc2@tcd.ie",
-        "password": "pass001",
-        "name": "Denise",
-        "achievement": [
-            {
-                "section": "Topic1",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic2",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic3",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic4",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic5",
-                "score": 0,
-                "badge": "Novice"
+{
+    "users": [
+        {
+            "email": "hoc2@tcd.ie",
+            "name": "Chia",
+            "password": "pass001",
+            "badge": "Trainee",
+            "achivements": {
+                "topic1": {
+                    "q1": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    },
+                    "q2": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    },
+                    "q3": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    },
+                    "q4": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    },
+                    "q5": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    }
+                },
+                "topic4": {
+                    "game": {
+                        "score": 0
+                    }
+                }
             }
-        ],
-        "position": "Trainee"
-    }, {
-        "email": "deniseho630@gmail.com",
-        "name": "Chia",
-        "password": "pass002",
-        "achievement": [
-            {
-                "section": "Topic1",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic2",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic3",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic4",
-                "score": 0,
-                "badge": "Novice"
-            }, {
-                "section": "Topic5",
-                "score": 0,
-                "badge": "Novice"
+        },
+        {
+            "email": "deniseho630@gmail.com",
+            "name": "Denise",
+            "password": "pass002",
+            "badge": "Assistant",
+            "achivement": {
+                "topic1": {
+                    "q1": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    },
+                    "q2": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 0
+                    },
+                    "q3": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    },
+                    "q4": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    },
+                    "q5": {
+                        "isAnswered": false,
+                        "isCorrect": false,
+                        "points": 5
+                    }
+                },
+                "topic4": {
+                    "game": {
+                        "score": 0
+                    }
+                }
             }
-        ],
-        "position": "Assistant"
-    }
-]
+        }
+    ]
+}

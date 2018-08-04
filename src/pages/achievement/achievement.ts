@@ -12,6 +12,7 @@ export class AchievementPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth : AuthServiceProvider) {
     // this.userScore = navParams.get('score');
+    
     let info = this
     .auth
     .getUserInfo();

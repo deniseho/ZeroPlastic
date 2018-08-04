@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
 import { UserApiServiceProvider } from '../providers/user-api-service/user-api-service';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
@@ -85,7 +87,8 @@ import { NativeAudio } from '@ionic-native/native-audio';
     AuthServiceProvider,
     SqlStorageProvider,
     UserApiServiceProvider,
-    NativeAudio
+    NativeAudio,
+    UserApiServiceProvider
   ]
 })
 export class AppModule {}

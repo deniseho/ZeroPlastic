@@ -1,8 +1,20 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, ModalController, Slides, Content, ViewController, Events, NavParams} from 'ionic-angular';
-import { QuizPage } from '../quiz/quiz';
-import { Subject } from 'rxjs/Subject';
+import {
+  IonicPage,
+  NavController,
+  ModalController,
+  Slides,
+  Content,
+  ViewController,
+  Events,
+  NavParams
+} from 'ionic-angular';
+import {QuizPage} from '../quiz/quiz';
+import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import {UserApiServiceProvider} from '../../providers/user-api-service/user-api-service';
+
+import * as _ from 'lodash';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -13,37 +25,36 @@ export class TopicOnePage {
   SwipedTabsIndicator : any = null;
   tabElementWidth_px : number = 100;
   tabs : any = [];
-  quizScore: number;
-  quizButtonText: string;
+  quizScore : number;
+  quizButtonText : string;
 
-  constructor(
-    private event: Events,
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    public modalCtrl: ModalController,
-    public viewCtrl: ViewController,
-    private auth : AuthServiceProvider) {
-      this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
-      
-      let score = this.navParams.get('topicOneQuizScore');
-      this.quizScore = score?score:0;
-      this.quizButtonText = score ? 'Try again' : 'Start the quiz';
+  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
+    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+
+    let score = this
+      .navParams
+      .get('topicOneQuizScore');
+    this.quizScore = score
+      ? score
+      : 0;
+    this.quizButtonText = score
+      ? 'Try again'
+      : 'Start the quiz';
   }
 
-  addScore(){
-    this.event.publish('topicOneQuizScore', Number(this.quizScore));
+  addScore() {
+    this
+      .event
+      .publish('topicOneQuizScore', Number(this.quizScore));
   }
 
   ionViewDidEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
   }
 
-  ionViewDidLoad(){
-    let mySubject = new Subject();
-    mySubject.subscribe((data)=>{
-      console.log(data);
-    })
-    mySubject.next('hello');
+  ionViewDidLoad() {
+    // let mySubject = new Subject();
+    // mySubject.subscribe((data)=>{ console.log(data); }) mySubject.next('hello');
   }
 
   selectTab(index) {
@@ -73,7 +84,9 @@ export class TopicOnePage {
     }
   
   startQuiz() {
-    const modal = this.modalCtrl.create(QuizPage);
+    const modal = this
+      .modalCtrl
+      .create(QuizPage);
     modal.present();
   }
 }

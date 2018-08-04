@@ -1,46 +1,55 @@
+import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import { userData } from './userData';
+import {UserApiServiceProvider} from '../user-api-service/user-api-service';
+import * as _ from 'lodash';
 
 export class User {
   name : string;
   email : string;
   password : string;
   achievement : any[];
-  position : string;
+  badge : string;
 
-  constructor(name : string, email : string, password : string, achievement : any[], position : string) {
+  constructor(name : string, email : string, password : string, achievement : any[], badge : string) {
     this.name = name;
     this.email = email;
     this.password = password;
     this.achievement = achievement;
-    this.position = position;
+    this.badge = badge;
   }
 }
 
 @Injectable()
 export class AuthServiceProvider {
   currentUser : User;
-  userData: any[];
+  allUsers : any;
 
-  constructor(public http : HttpClient) {
-    this.userData = userData;
+  constructor(public http : HttpClient, private sqlite : SQLite, private userApi : UserApiServiceProvider) {
+    this
+      .userApi
+      .getAllUsers()
+      .then(data => {
+        this.allUsers = data;
+      });
   }
+
+  ionViewDidLoad() {}
 
   login(credentials) {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
-        //todo: make a request to your backend to make a real check let access =
-        let user01 = this.userData[0];
+        this.currentUser = _.first(_.filter(this.allUsers, item => {
+          return item.email === credentials.email;
+        }));
 
-        if (credentials.email === 'hoc2@tcd.ie' && credentials.password === 'pass001') {
-          this.currentUser = user01;
-          observer.next(true);
-          observer.complete();
-        }
+        console.log(this.currentUser)
+
+        observer.next(true);
+        observer.complete();
       });
     }
   }
@@ -57,9 +66,7 @@ export class AuthServiceProvider {
     }
   }
 
-  getUserInfo() : User {
-    return this.currentUser;
-  }
+  getUserInfo() : User {return this.currentUser;}
 
   logout() {
     return Observable.create(observer => {
