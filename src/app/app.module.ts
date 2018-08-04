@@ -26,8 +26,9 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { RegisterPage } from '../pages/register/register';
 import { HttpClientModule } from '@angular/common/http';
 import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
-import {StreamingMedia} from '@ionic-native/streaming-media';
 import { UserApiServiceProvider } from '../providers/user-api-service/user-api-service';
+import { NativeAudio } from '@ionic-native/native-audio';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { UserApiServiceProvider } from '../providers/user-api-service/user-api-s
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
@@ -84,8 +86,9 @@ import { UserApiServiceProvider } from '../providers/user-api-service/user-api-s
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     SqlStorageProvider,
-    StreamingMedia,
     UserApiServiceProvider,
+    NativeAudio,
+    UserApiServiceProvider
   ]
 })
 export class AppModule {}

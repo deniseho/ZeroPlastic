@@ -1,5 +1,6 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
+import {NativeAudio} from '@ionic-native/native-audio';
 import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
 import {TopicTwoPage} from '../topic-two/topic-two';
@@ -15,7 +16,7 @@ export class GamePage {
   gamePlay : boolean = true;
 
   @ViewChild('content')content : ElementRef;
-  constructor(public navCtrl : NavController, public alertCtrl : AlertController) {}
+  constructor(public navCtrl : NavController, public alertCtrl : AlertController, private nativeAudio : NativeAudio) {}
 
   playGame() {
     let self = this;
@@ -34,6 +35,18 @@ export class GamePage {
   }
 
   ionViewDidLoad() {
+    this
+      .nativeAudio
+      .preloadSimple('correct', 'assets/audio/correct.m4a');
+
+    this
+      .nativeAudio
+      .preloadSimple('wrong', 'assets/audio/wrong.m4a');
+
+    this
+      .nativeAudio
+      .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
+
     let self = this;
     let bottomPadding = 75;
 
@@ -166,30 +179,57 @@ export class GamePage {
       //recycable bin
       if (item.x >= self.app.screen.width / 2) {
         if (elemData.recycable) {
+
+          self
+            .nativeAudio
+            .play('correct');
+
           self.gameScore++;
           container.removeChild(item);
+
         } else if (!elemData.recycable) {
+
+          self
+            .nativeAudio
+            .play('wrong');
+
           item.y = self.app.screen.height - bottomPadding;
           bottomPadding += 3;
           self.gameLife--;
+
         }
       }
 
       //unrecycable bin
       if (item.x < self.app.screen.width / 2) {
         if (elemData.recycable) {
+
+          self
+            .nativeAudio
+            .play('wrong');
+
           item.y = self.app.screen.height - bottomPadding;
           bottomPadding += 3;
           self.gameLife--;
+
         } else if (!elemData.recycable) {
+
+          self
+            .nativeAudio
+            .play('correct');
+            
           self.gameScore++;
           container.removeChild(item);
+
         }
       }
     }
 
     function gameOverAlert(self) {
-      self.app.ticker.stop();
+      self
+        .app
+        .ticker
+        .stop();
       const prompt = self
         .alertCtrl
         .create({
@@ -270,7 +310,6 @@ export class GamePage {
   }
 
   ionViewWillLeave() {
-    console.log("ionViewWillLeave")
     let self = this;
     self
       .app

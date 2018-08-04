@@ -7,7 +7,7 @@ import {
   ModalController,
   Slides
 } from 'ionic-angular';
-import {StreamingMedia, StreamingAudioOptions} from '@ionic-native/streaming-media';
+import {NativeAudio} from '@ionic-native/native-audio';
 import {questions} from '../quiz/questions';
 import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
@@ -26,7 +26,7 @@ export class QuizPage {
   badges : any = [];
   disableButtons : boolean;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private streamingMedia : StreamingMedia) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio) {
     this.questions = questions;
     this.isAnswer = false;
     this.btnStyle = "";
@@ -41,18 +41,22 @@ export class QuizPage {
       .lockSwipes(true);
   }
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() {
+    this
+    .nativeAudio
+    .preloadSimple('correct', 'assets/audio/correct.m4a');
+
+    this
+    .nativeAudio
+    .preloadSimple('wrong', 'assets/audio/wrong.m4a');
+
+    this
+    .nativeAudio
+    .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
+
+  }
 
   checkAnswer(e, option) {
-    // let audioOptions : StreamingAudioOptions = {
-    //   successCallback: () => {
-    //     console.log("audio successCallback");
-    //   },
-    //   errorCallback: ()=>{
-    //     console.log("audio errorCallback");
-    //   }
-    // }
-
     if (option.isAnswer) {
       this.isAnswer = true;
       e
@@ -61,7 +65,11 @@ export class QuizPage {
         .classList
         .add("btn-correct");
       this.score++;
-      this.streamingMedia.playAudio("assets/audio/correct.m4a");      
+
+      this
+        .nativeAudio
+        .play('correct');
+
     } else {
       this.isAnswer = false;
       e
@@ -69,7 +77,10 @@ export class QuizPage {
         .parentNode
         .classList
         .add("btn-wrong");
-        this.streamingMedia.playAudio("assets/audio/wrong.m4a");
+
+      this
+        .nativeAudio
+        .play('wrong');
     }
     setTimeout(() => {
       this.disableButtons = true;
@@ -81,6 +92,10 @@ export class QuizPage {
         this.nextSlide();
       } else {
         this.showResultPage();
+
+        this
+          .nativeAudio
+          .play('new_badge');
       }
     }, 1000);
 
@@ -135,12 +150,12 @@ export class QuizPage {
       });
 
     //todo: insert score & badge into db
-
+// 
     modal.onDidDismiss(data => {
       if (data.action == 'remove') {
         this
-          // .navCtrl.push(TopicOnePage, {'topicOneQuizScore': data.score});
-        .navCtrl.pop();
+        .viewCtrl
+        .dismiss();
       }
     });
     modal.present();
