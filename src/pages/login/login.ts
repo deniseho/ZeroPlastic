@@ -9,7 +9,7 @@ export class LoginPage {
   loading : Loading;
   registerCredentials = {
     email: 'hoc2@tcd.ie',
-    password: 'pass001'
+    password: 'deniseho'
   };
 
   constructor(
@@ -38,11 +38,9 @@ export class LoginPage {
       .login(this.registerCredentials)
       .subscribe(allowed => {
         if (allowed) {
-          // this.userSetting.initStorage().then(()=>{
             this
             .navCtrl
             .setRoot(TopicMenu);
-          // });
         } else {
           this.showError("Access Denied");
         }

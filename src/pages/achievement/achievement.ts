@@ -8,19 +8,22 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 })
 
 export class AchievementPage {
-  achievement : any[];
+  currentUser : any;
+  totalScore: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth : AuthServiceProvider) {
-    // this.userScore = navParams.get('score');
-    
-    let info = this
+    this.currentUser = this
     .auth
-    .getUserInfo();
-    this.achievement = info['achievement'];
+    .getCurrentUser();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AchievementPage');
+    // this.totalScore = 
+    console.log(this.currentUser)
+    
+    // this.currentUser.achievements.forEach(element => {
+    //   console.log(element)
+    // });
   }
 
 }
