@@ -18,12 +18,8 @@ export class AchievementPage {
   }
 
   ionViewDidLoad() {
-    // this.totalScore = 
-    console.log(this.currentUser)
+    console.log(this.currentUser.achievements)
     
-    // this.currentUser.achievements.forEach(element => {
-    //   console.log(element)
-    // });
   }
 
 }
