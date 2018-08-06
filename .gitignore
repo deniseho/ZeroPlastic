@@ -4,4 +4,5 @@ platforms/
 www/
 .idea/
 .sourcemaps/
+.build/
 
