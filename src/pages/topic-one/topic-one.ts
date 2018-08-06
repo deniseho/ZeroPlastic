@@ -12,8 +12,9 @@ import {
 import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-
 import * as _ from 'lodash';
+import fullpage from 'fullpage.js';
+import * as $ from 'jquery';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -52,8 +53,13 @@ export class TopicOnePage {
   }
 
   ionViewDidLoad() {
-    // let mySubject = new Subject();
-    // mySubject.subscribe((data)=>{ console.log(data); }) mySubject.next('hello');
+    for (var i = 0; i < $('.fullpage').length; i++) {
+      new fullpage('.fullpage' + i, {
+        autoScrolling: true,
+        offsetSections: false,
+      });
+    }
+
   }
 
   selectTab(index) {

@@ -22,8 +22,16 @@
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <ion-slide>
-            <h1>Problem Plastic pollution</h1>
-            <!-- <button ion-button (click)="addScore()">Add Score</button> -->
+            <div class="fullpage fullpage0">
+                <div class="section" style="background: red">Some section</div>
+                <div class="section" style="background: blue">Some section</div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="fullpage fullpage1">
+                <div class="section" style="background: blue">Some section</div>
+                <div class="section" style="background: red">Some section</div>
+            </div>
         </ion-slide>
         <ion-slide>
             <h1>Cause</h1>
