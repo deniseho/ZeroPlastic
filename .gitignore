@@ -4,4 +4,16 @@ platforms/
 www/
 .idea/
 .sourcemaps/
+www/build/main.css
+www/build/main.css.map
+www/build/main.js
+www/build/main.js.map
+www/build/vendor.js
+www/build/vendor.js.map
+.sourcemaps/main.js.map
+package-lock.json
+package.json
+src/providers/auth-service/auth-service.ts
+src/providers/auth-service/userData.ts
+
 
