@@ -16,30 +16,35 @@ page-hello-ionic {
     .card-title{
         position: absolute;
         top:36%;
-        font-size: 2.0em;
+        font-size: 25px;
         width: 100%;
         font-weight: bold;
         color: #fff;
     }
 
     .menuList:nth-child(1){
-        background: #F57756 url("../assets/imgs/icn_plastic_pollution.png") no-repeat 95% 50%;
+        //background: #F57756 url("../assets/imgs/icn_plastic_pollution.png") no-repeat 95% 50%;
+        background: #74D7DA url("../assets/imgs/icn_plastic_pollution.png") no-repeat 95% 50%;
     }
     
     .menuList:nth-child(2){
-        background: #48C4D8 url("../assets/imgs/icn_plastics.png") no-repeat 95% 50%;
+        //background: #48C4D8 url("../assets/imgs/icn_plastics.png") no-repeat 95% 50%;
+        background: #51C0CA url("../assets/imgs/icn_plastics.png") no-repeat 95% 50%;
     }
 
     .menuList:nth-child(3){
-        background: #343499 url("../assets/imgs/icn_octopus.png") no-repeat 95% 50%;
+        //background: #343499 url("../assets/imgs/icn_octopus.png") no-repeat 95% 50%;
+        background: #3A8EA7 url("../assets/imgs/icn_octopus.png") no-repeat 95% 50%;
     }
 
     .menuList:nth-child(4){
-        background: #2CBFA6 url("../assets/imgs/icn_take_action.png") no-repeat 95% 50%;
+        //background: #2CBFA6 url("../assets/imgs/icn_take_action.png") no-repeat 95% 50%;
+        background: #175D84 url("../assets/imgs/icn_take_action.png") no-repeat 95% 50%;
     }
 
     .menuList:nth-child(5){
-        background: #FEAA48 url("../assets/imgs/icn_activities.png") no-repeat 95% 50%;
+        //background: #FEAA48 url("../assets/imgs/icn_activities.png") no-repeat 95% 50%;
+        background: #0D3867 url("../assets/imgs/icn_activities.png") no-repeat 95% 50%;
     }
 }
 

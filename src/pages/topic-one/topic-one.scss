@@ -10,24 +10,95 @@ page-topic-one {
        height: 1px;
        position: relative;
        top: -2px;
-       background-color: blue !important;
-
+       background-color: #3333CC !important;
 
    }
+
    .SwipedTabs-tabs ion-segment-button
    {
        border:none !important;
-       color:green!important;
+       color: #249E89!important;
        background-color:white!important;
 
    }
     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
    {
-       color:blue !important;
+       color:#3333CC !important;
    }
    .SwipedTabs-tabs
    {
        width: fit-content !important;
    }
 
+  .container-slides-content {
+    margin: auto;
+    width: 95%;
+  }
+
+  .slide-title-main {
+    color: #4747C2;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .slide-title2-main {
+    color: #4747C2;
+    margin-top: -15px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  //reusable
+
+  .line-separator-short {
+    height:1px;
+    border-bottom:2px solid #FEAA48;
+    width: 80px;
+    margin: auto;
+  }
+
+  .line-separator-long {
+    height:1px;
+    border-bottom:2px solid #FEAA48;
+    width: 90%;
+    margin: auto;
+  }
+
+  .slide-subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 22px;
+    line-height: 29px;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    margin-top: 25px;
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 10px 0 10px;
+    margin-top: -5px;
+  }
+
+  .arrow-up-style {
+    position: absolute;
+    top: 20px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .arrow-down-style {
+    position: absolute;
+    bottom: 20px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .icon_property {
+    margin-bottom: 25px;
+  }
 }
