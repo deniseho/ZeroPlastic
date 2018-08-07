@@ -29,9 +29,11 @@ export class TopicOnePage {
   constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
 
+    //check if the score exists
     let score = this
       .navParams
       .get('topicOneQuizScore');
+
     this.quizScore = score
       ? score
       : 0;
@@ -72,10 +74,10 @@ export class TopicOnePage {
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
   
-  startQuiz() {
+  startQuiz(num) {
     const modal = this
       .modalCtrl
-      .create(QuizPage);
+      .create(QuizPage, {"num": num});
     modal.present();
   }
 

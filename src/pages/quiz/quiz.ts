@@ -8,7 +8,7 @@ import {
   Slides
 } from 'ionic-angular';
 import {NativeAudio} from '@ionic-native/native-audio';
-import {questions} from '../quiz/questions';
+import {questionsCollection01, questionsCollection02} from '../quiz/questions';
 import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
 import {TopicOnePage} from '../topic-one/topic-one';
@@ -27,7 +27,16 @@ export class QuizPage {
   disableButtons : boolean;
 
   constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio) {
-    this.questions = questions;
+    let collectionNum = this
+      .navParams
+      .get("num");
+
+    if (collectionNum == "1") {
+      this.questions = questionsCollection01;
+    } else if (collectionNum == "2") {
+      this.questions = questionsCollection02;
+    }
+    
     this.isAnswer = false;
     this.btnStyle = "";
     this.score = 0;
@@ -43,16 +52,16 @@ export class QuizPage {
 
   ionViewDidLoad() {
     this
-    .nativeAudio
-    .preloadSimple('correct', 'assets/audio/correct.m4a');
+      .nativeAudio
+      .preloadSimple('correct', 'assets/audio/correct.m4a');
 
     this
-    .nativeAudio
-    .preloadSimple('wrong', 'assets/audio/wrong.m4a');
+      .nativeAudio
+      .preloadSimple('wrong', 'assets/audio/wrong.m4a');
 
     this
-    .nativeAudio
-    .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
+      .nativeAudio
+      .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
 
   }
 
@@ -150,12 +159,12 @@ export class QuizPage {
       });
 
     //todo: insert score & badge into db
-// 
+    //
     modal.onDidDismiss(data => {
       if (data.action == 'remove') {
         this
-        .viewCtrl
-        .dismiss();
+          .viewCtrl
+          .dismiss();
       }
     });
     modal.present();

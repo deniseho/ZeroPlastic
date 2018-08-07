@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 
 import { Platform, MenuController, Nav, NavController } from 'ionic-angular';
 
@@ -18,11 +18,13 @@ import { QuizPage } from '../pages/quiz/quiz';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
+import 'jquery'; // Import jQuery
+import 'fullpage.js'; // Import fullpage.js
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
@@ -30,6 +32,10 @@ export class MyApp {
   rootPage = LoginPage;
   
   pages: Array<{title: string, component: any}>;
+  
+  public ngOnInit() {
+    console.log('Initial App State');
+  }
 
   constructor(
     public platform: Platform,

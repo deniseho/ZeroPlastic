@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
+import {IonicPage, NavController, Slides, Content, NavParams, ModalController} from 'ionic-angular';
+import { QuizPage } from '../quiz/quiz';
 
 @Component({selector: 'page-topic-two', templateUrl: 'topic-two.html'})
 export class TopicTwoPage {
@@ -10,9 +11,23 @@ export class TopicTwoPage {
   SwipedTabsIndicator : any = null;
   tabElementWidth_px : number = 100;
   tabs : any = [];
+  quizScore : number;
+  quizButtonText : string;
 
-  constructor(public navCtrl : NavController) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+
+    //check if the score exists
+    let score = this
+      .navParams
+      .get('topicOneQuizScore');
+      
+    this.quizScore = score
+      ? score
+      : 0;
+    this.quizButtonText = score
+      ? 'Try again'
+      : 'Start the quiz';
   }
 
   ionViewDidEnter() {
@@ -44,4 +59,12 @@ export class TopicTwoPage {
     if (this.SwipedTabsIndicator) 
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
+
+    startQuiz(num) {
+      const modal = this
+        .modalCtrl
+        .create(QuizPage, {"num": num});
+      modal.present();
+    }
+  
   }

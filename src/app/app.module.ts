@@ -30,6 +30,8 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credentials';
+import { MnFullpageModule } from 'ngx-fullpage';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
+    MnFullpageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
