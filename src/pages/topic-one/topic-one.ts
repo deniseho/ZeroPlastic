@@ -44,9 +44,7 @@ export class TopicOnePage {
     this.SwipedTabsIndicator = document.getElementById("indicator");
   }
 
-  ionViewDidLoad() {
-
-  }
+  ionViewDidLoad() {}
 
   selectTab(index) {
     this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
@@ -80,4 +78,5 @@ export class TopicOnePage {
       .create(QuizPage);
     modal.present();
   }
+
 }

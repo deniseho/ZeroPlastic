@@ -34,6 +34,10 @@ page-topic-one {
         overflow: auto;
    }
 
+   .swiper-slide {
+    display: block;
+ }
+
    .slide-zoom{
     height: 100%;
    }
@@ -45,4 +49,5 @@ page-topic-one {
    ion-item{
         height: 95vh;
    }
+
 }
