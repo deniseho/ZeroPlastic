@@ -25,10 +25,13 @@ import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { RegisterPage } from '../pages/register/register';
 import { HttpClientModule } from '@angular/common/http';
-import { SqlStorageProvider } from '../providers/sql-storage/sql-storage';
-import { UserApiServiceProvider } from '../providers/user-api-service/user-api-service';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FIREBASE_CONFIG } from './firebase.credentials';
+import { MnFullpageModule } from 'ngx-fullpage';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,9 @@ import { HttpModule } from '@angular/http';
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    MnFullpageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -85,10 +91,7 @@ import { HttpModule } from '@angular/http';
     SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
-    SqlStorageProvider,
-    UserApiServiceProvider,
     NativeAudio,
-    UserApiServiceProvider
   ]
 })
 export class AppModule {}

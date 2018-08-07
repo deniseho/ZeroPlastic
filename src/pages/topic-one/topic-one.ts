@@ -12,8 +12,6 @@ import {
 import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import {UserApiServiceProvider} from '../../providers/user-api-service/user-api-service';
-
 import * as _ from 'lodash';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
@@ -31,9 +29,11 @@ export class TopicOnePage {
   constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
 
+    //check if the score exists
     let score = this
       .navParams
       .get('topicOneQuizScore');
+
     this.quizScore = score
       ? score
       : 0;
@@ -42,20 +42,11 @@ export class TopicOnePage {
       : 'Start the quiz';
   }
 
-  addScore() {
-    this
-      .event
-      .publish('topicOneQuizScore', Number(this.quizScore));
-  }
-
   ionViewDidEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
   }
 
-  ionViewDidLoad() {
-    // let mySubject = new Subject();
-    // mySubject.subscribe((data)=>{ console.log(data); }) mySubject.next('hello');
-  }
+  ionViewDidLoad() {}
 
   selectTab(index) {
     this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
@@ -83,10 +74,11 @@ export class TopicOnePage {
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
   
-  startQuiz() {
+  startQuiz(num) {
     const modal = this
       .modalCtrl
-      .create(QuizPage);
+      .create(QuizPage, {"num": num});
     modal.present();
   }
+
 }

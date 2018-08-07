@@ -25,6 +25,6 @@ module.exports = {
     copyJquery: {
         src: ['{{ROOT}}/node_modules/jquery/dist/jquery.js'],
         dest: '{{WWW}}/assets'
-      }
+      },
   }
   

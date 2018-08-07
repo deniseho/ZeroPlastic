@@ -13,6 +13,7 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 export class RegisterPage {
   createSuccess = false;
   registerCredentials = {
+    name: '',
     email: '',
     password: ''
   };

@@ -1,38 +1,26 @@
 import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
-import {HttpClient} from '@angular/common/http';
+import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {UserApiServiceProvider} from '../user-api-service/user-api-service';
+import {AngularFireDatabase} from 'angularfire2/database';
 import * as _ from 'lodash';
+import {User, Achievement} from './User';
 
-export class User {
-  name : string;
-  email : string;
-  password : string;
-  achievement : any[];
-  badge : string;
-
-  constructor(name : string, email : string, password : string, achievement : any[], badge : string) {
-    this.name = name;
-    this.email = email;
-    this.password = password;
-    this.achievement = achievement;
-    this.badge = badge;
-  }
-}
 
 @Injectable()
 export class AuthServiceProvider {
   currentUser : User;
   allUsers : any;
+  baseUrl: string = "https://plastic-ocean.firebaseio.com";
 
-  constructor(public http : HttpClient, private sqlite : SQLite, private userApi : UserApiServiceProvider) {
+  constructor(public http : Http, public db : AngularFireDatabase) {
     this
-      .userApi
       .getAllUsers()
       .then(data => {
         this.allUsers = data;
       });
+
+      console.log(new Achievement())
   }
 
   ionViewDidLoad() {}
@@ -45,9 +33,6 @@ export class AuthServiceProvider {
         this.currentUser = _.first(_.filter(this.allUsers, item => {
           return item.email === credentials.email;
         }));
-
-        console.log(this.currentUser)
-
         observer.next(true);
         observer.complete();
       });
@@ -58,16 +43,21 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      //todo: store the credentials to your backend
-      return Observable.create(observer => {
-        observer.next(true);
-        observer.complete();
-      });
-    }
+      let newUser = new User(credentials.name, credentials.email, credentials.password, new Achievement(), "Novice");
+
+      this
+        .db
+        .list('users')
+        .push(newUser);
+    };
+
+    return Observable.create(observer => {
+      observer.next(true);
+      observer.complete();
+    });
   }
 
-  getUserInfo() : User {return this.currentUser;}
-
+  
   logout() {
     return Observable.create(observer => {
       this.currentUser = null;
@@ -76,4 +66,15 @@ export class AuthServiceProvider {
     });
   }
 
+  getAllUsers() {
+    return new Promise(resolve => {
+      this
+        .http
+        .get(`${this.baseUrl}/users.json`)
+        .subscribe(res => resolve(res.json()));
+    });
+  }
+
+  getCurrentUser() : User {return this.currentUser;}
+  
 }

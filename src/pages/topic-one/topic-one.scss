@@ -101,4 +101,25 @@ page-topic-one {
   .icon_property {
     margin-bottom: 25px;
   }
+
+   ion-slide{
+        overflow: auto;
+   }
+
+   .swiper-slide {
+    display: block;
+ }
+
+   .slide-zoom{
+    height: 100%;
+   }
+
+   ion-header{
+       height: 106px;
+   }
+
+   ion-item{
+        height: 95vh;
+   }
+  
 }
