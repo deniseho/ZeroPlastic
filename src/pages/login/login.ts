@@ -33,6 +33,11 @@ export class LoginPage {
 
   login() {
     this.showLoading();
+  if(this.registerCredentials.email==''||this.registerCredentials.email==null||this.registerCredentials.email==undefined){
+      this.showError("Please enter your email.");
+    }else if(this.registerCredentials.password==''||this.registerCredentials.password==null||this.registerCredentials.password==undefined){
+      this.showError("Please enter your password.");
+    }else{
     this
       .auth
       .login(this.registerCredentials)
@@ -47,6 +52,7 @@ export class LoginPage {
       }, error => {
         this.showError(error);
       });
+    }
   }
 
   showLoading() {
