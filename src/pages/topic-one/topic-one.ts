@@ -13,8 +13,6 @@ import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
-import fullpage from 'fullpage.js';
-import * as $ from 'jquery';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -42,23 +40,11 @@ export class TopicOnePage {
       : 'Start the quiz';
   }
 
-  addScore() {
-    this
-      .event
-      .publish('topicOneQuizScore', Number(this.quizScore));
-  }
-
   ionViewDidEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
   }
 
   ionViewDidLoad() {
-    for (var i = 0; i < $('.fullpage').length; i++) {
-      new fullpage('.fullpage' + i, {
-        autoScrolling: true,
-        offsetSections: false,
-      });
-    }
 
   }
 

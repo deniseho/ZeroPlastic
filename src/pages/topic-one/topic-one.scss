@@ -30,8 +30,19 @@ page-topic-one {
        width: fit-content !important;
    }
 
-   .fullpage{
-       height: 100vh !important;
+   ion-slide{
+        overflow: auto;
    }
 
+   .slide-zoom{
+    height: 100%;
+   }
+
+   ion-header{
+       height: 106px;
+   }
+
+   ion-item{
+        height: 95vh;
+   }
 }
