@@ -8,7 +8,7 @@ import {
   Slides
 } from 'ionic-angular';
 import {NativeAudio} from '@ionic-native/native-audio';
-import {questionsCollection01, questionsCollection02} from '../quiz/questions';
+import {topic1, topic2} from '../quiz/questions';
 import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
 import {TopicOnePage} from '../topic-one/topic-one';
@@ -22,7 +22,7 @@ export class QuizPage {
 
   @ViewChild(Slides)quizSlides : Slides;
 
-  questions : any[];
+  topic : any[];
   isAnswer : boolean;
   btnStyle : string;
   quizScore : number;
@@ -40,9 +40,9 @@ export class QuizPage {
       .get("num");
 
     if (collectionNum == "1") {
-      this.questions = questionsCollection01;
+      this.topic = topic1;
     } else if (collectionNum == "2") {
-      this.questions = questionsCollection02;
+      this.topic = topic2;
     }
 
     this.btnStyle = "";
@@ -81,16 +81,12 @@ export class QuizPage {
         .classList
         .add("btn-correct");
 
-      
-      this.quizScore+=Number(option.points);
-
       this
         .nativeAudio
         .play('correct');
 
     } else {
-
-    //user answer question wrongly
+      //user answer question wrongly
       e
         .target
         .parentNode
@@ -101,6 +97,9 @@ export class QuizPage {
         .nativeAudio
         .play('wrong');
     }
+
+    this.quizScore += Number(option.points);
+    console.log(this.quizScore)
     setTimeout(() => {
       this.disableButtons = true;
     }, 300);
@@ -121,16 +120,10 @@ export class QuizPage {
 
   }
 
-  updateUser(){
+  updateUser() {
     this
-    .userApi
-    .updateUser(new User(
-      this.currentUser.name, 
-      this.currentUser.email, 
-      this.currentUser.password, 
-      this.currentUser.achievements, 
-      this.currentUser.badge, 
-    ));
+      .userApi
+      .updateUser(new User(this.currentUser.name, this.currentUser.email, this.currentUser.password, this.currentUser.achievements, this.currentUser.badge,));
   }
 
   nextSlide() {
@@ -173,11 +166,8 @@ export class QuizPage {
       .modalCtrl
       .create(QuizResultPage, {
         quizScore: this.quizScore,
-        // badge: this
-        //   .badges
-        //   .find((item, index, array) => {
-        //     return item.points == this.quizScore;
-        //   })
+        // badge: this   .badges   .find((item, index, array) => {     return
+        // item.points == this.quizScore;   })
       });
 
     //todo: insert score & badge into db

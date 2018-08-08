@@ -22,7 +22,7 @@ export class QuizResultPage {
     close() {
         this
             .viewCtrl
-            .dismiss({'action': 'remove', 'score': this.quizScore});
+            .dismiss({'action': 'remove', 'quizScore': this.quizScore});
     }
 
 }

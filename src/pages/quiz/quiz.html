@@ -13,7 +13,7 @@
 
 <ion-content padding>
   <ion-slides #quizSlides>
-    <ion-slide *ngFor="let question of questions">
+    <ion-slide *ngFor="let question of topic">
       <h3>{{question.question}}</h3>
       <ion-buttons *ngFor="let option of question.options">
         <button ion-button block large 

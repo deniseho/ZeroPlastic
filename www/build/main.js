@@ -220,10 +220,10 @@ var QuizPage = /** @class */ (function () {
             .navParams
             .get("num");
         if (collectionNum == "1") {
-            this.questions = __WEBPACK_IMPORTED_MODULE_3__quiz_questions__["questionsCollection01"];
+            this.topic = __WEBPACK_IMPORTED_MODULE_3__quiz_questions__["a" /* topic1 */];
         }
         else if (collectionNum == "2") {
-            this.questions = __WEBPACK_IMPORTED_MODULE_3__quiz_questions__["questionsCollection02"];
+            this.topic = __WEBPACK_IMPORTED_MODULE_3__quiz_questions__["b" /* topic2 */];
         }
         this.btnStyle = "";
         this.quizScore = 0;
@@ -255,7 +255,6 @@ var QuizPage = /** @class */ (function () {
                 .parentNode
                 .classList
                 .add("btn-correct");
-            this.quizScore += Number(option.points);
             this
                 .nativeAudio
                 .play('correct');
@@ -271,6 +270,8 @@ var QuizPage = /** @class */ (function () {
                 .nativeAudio
                 .play('wrong');
         }
+        this.quizScore += Number(option.points);
+        console.log(this.quizScore);
         setTimeout(function () {
             _this.disableButtons = true;
         }, 300);
@@ -349,7 +350,7 @@ var QuizPage = /** @class */ (function () {
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */]) === "function" && _a || Object)
     ], QuizPage.prototype, "quizSlides", void 0);
     QuizPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-quiz',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Quiz\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="showLeaveConfirm()">\n        <span ion-text color="primary">Cancel</span>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-slides #quizSlides>\n    <ion-slide *ngFor="let question of questions">\n      <h3>{{question.question}}</h3>\n      <ion-buttons *ngFor="let option of question.options">\n        <button ion-button block large \n          [ngClass]="[btnStyle]"\n          [disabled]="disableButtons"\n          (click)="checkAnswer($event, option)">\n          {{option.description}}\n        </button>\n      </ion-buttons>\n    </ion-slide>\n  </ion-slides>\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-quiz',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Quiz\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="showLeaveConfirm()">\n        <span ion-text color="primary">Cancel</span>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-slides #quizSlides>\n    <ion-slide *ngFor="let question of topic">\n      <h3>{{question.question}}</h3>\n      <ion-buttons *ngFor="let option of question.options">\n        <button ion-button block large \n          [ngClass]="[btnStyle]"\n          [disabled]="disableButtons"\n          (click)="checkAnswer($event, option)">\n          {{option.description}}\n        </button>\n      </ion-buttons>\n    </ion-slide>\n  </ion-slides>\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/ }),
         __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__["a" /* UserProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _j || Object])
     ], QuizPage);
     return QuizPage;
@@ -647,8 +648,8 @@ var QuizResultPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.viewCtrl = viewCtrl;
-        this.score = navParams.get('score');
-        this.badge = navParams.get('badge');
+        this.quizScore = navParams.get('quizScore');
+        // this.badge = navParams.get('badge');
     }
     QuizResultPage.prototype.ionViewDidLoad = function () {
         // document.getElementById("BadgeTitle").innerHTML = this.badge.title;
@@ -658,13 +659,14 @@ var QuizResultPage = /** @class */ (function () {
     QuizResultPage.prototype.close = function () {
         this
             .viewCtrl
-            .dismiss({ 'action': 'remove', 'score': this.score });
+            .dismiss({ 'action': 'remove', 'quizScore': this.quizScore });
     };
     QuizResultPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-quiz-result',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/quiz/result.html"*/'<!--template for overlay-->\n\n<ion-header>\n    <ion-toolbar>\n        <ion-title>\n            Result\n        </ion-title>\n        <ion-buttons start>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n    <h1>Your score: {{quizScore}}</h1>\n    <!-- <h1 *ngIf=\'badge\'>Badge: {{badge.title}}</h1>\n    <img *ngIf=\'badge\'[src]=\'badge.imgUrl\'> -->\n    <button ion-button (click)="close()">\n        <span ion-text>Confirm</span>\n    </button>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/quiz/result.html"*/ }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _c || Object])
     ], QuizResultPage);
     return QuizResultPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=result.js.map
@@ -1753,231 +1755,272 @@ var MyApp = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export topic1 */
-/* unused harmony export topic2 */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return topic1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return topic2; });
 var topic1 = [
     {
-        question: "questionsCollection01 question 01",
-        points: 5,
-        options: [
-            {
-                description: "correct",
-                isAnswer: true
-            }, {
-                description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
-                isAnswer: false
-            }
-        ]
-    },
-    {
-        question: "questionsCollection01 question 02",
-        points: 5,
+        question: "topic1 question 01",
         options: [
             {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
-                description: "correct",
-                isAnswer: true
+                description: "wrong",
+                points: 0,
+                isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }
         ]
-    },
-    {
-        question: "questionsCollection01 question 03",
+    }, {
+        question: "topic1 question 02",
         points: 5,
         options: [
             {
                 description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "correct",
+                points: 5,
                 isAnswer: true
             }, {
                 description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
+                points: 0,
                 isAnswer: false
             }
         ]
-    },
-    {
-        question: "questionsCollection01 question 04",
+    }, {
+        question: "topic1 question 03",
         points: 5,
         options: [
             {
                 description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "correct",
+                points: 5,
                 isAnswer: true
             }, {
                 description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "wrong",
+                points: 0,
                 isAnswer: false
             }
         ]
-    },
-    {
-        question: "questionsCollection01 question 05",
+    }, {
+        question: "topic1 question 04",
         points: 5,
         options: [
             {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
-                isAnswer: false
-            }, {
-                description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "correct",
+                points: 5,
+                isAnswer: true
+            }, {
+                description: "wrong",
+                points: 0,
+                isAnswer: false
+            }
+        ]
+    }, {
+        question: "topic1 question 05",
+        points: 5,
+        options: [
+            {
+                description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "wrong",
+                points: 0,
+                isAnswer: false
+            }, {
+                description: "correct",
+                points: 5,
                 isAnswer: true
             }
         ]
-    },
+    }
 ];
 var topic2 = [
     {
-        question: "questionsCollection02 question 01",
+        question: "topic2 question 01",
         points: 5,
         options: [
             {
                 description: "correct",
+                points: 5,
                 isAnswer: true
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }
         ]
-    },
-    {
-        question: "questionsCollection02 question 02",
+    }, {
+        question: "topic2 question 02",
         points: 5,
         options: [
             {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "correct",
+                points: 5,
                 isAnswer: true
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }
         ]
-    },
-    {
-        question: "questionsCollection02 question 03",
+    }, {
+        question: "topic2 question 03",
         points: 5,
         options: [
             {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "correct",
+                points: 5,
                 isAnswer: true
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }
         ]
-    },
-    {
-        question: "questionsCollection02 question 04",
+    }, {
+        question: "topic2 question 04",
         points: 5,
         options: [
             {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "correct",
+                points: 5,
                 isAnswer: true
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }
         ]
-    },
-    {
-        question: "questionsCollection02 question 05",
+    }, {
+        question: "topic2 question 05",
         points: 5,
         options: [
             {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "wrong",
+                points: 0,
                 isAnswer: false
             }, {
                 description: "correct",
+                points: 5,
                 isAnswer: true
             }
         ]
-    },
+    }
 ];
 //# sourceMappingURL=questions.js.map
 
