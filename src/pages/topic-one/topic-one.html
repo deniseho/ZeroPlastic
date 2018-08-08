@@ -22,6 +22,43 @@
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <ion-slide>
+        <!--About plastic problem1-->
+            <ion-icon class="arrow-up-style" name="arrow-dropup-circle"></ion-icon>
+            <div class="container-slides-content">
+                <h1 class="slide-title-main">About plastic</h1>
+                <h1 class="slide-title2-main">Issue</h1>
+                <div class="line-separator-short"></div>
+                <h4 class="slide-subtitle">322 million tons</h4>
+                <p>of plastic were produced in 2015, the same weight as 900 Empire state buildings.</p>
+            </div>
+            <ion-icon class="arrow-down-style" name="arrow-dropdown-circle"></ion-icon>
+            <!-- <button ion-button (click)="addScore()">Add Score</button> -->
+        <!--About plastic problem2-->
+            <!--<div class="container-slides-content">-->
+                <!--<img class="icon_property" src="assets/imgs/icn_garbage_truck.png">-->
+                <!--<div class="line-separator-short"></div>-->
+                <!--<h4 class="slide-subtitle">8 millions tons</h4>-->
+                <!--<p>of  this plastic enters our oceans each year, equivalent to emptying a garbage truck of plastic
+                into an ocean every minute. This figure is estimated to rise to 60 tons per minute by 2050.</p>-->
+            <!--</div>-->
+        <!--About plastic problem3-->
+            <!--<div class="container-slides-content">-->
+                <!--<img class="icon_property" src="assets/imgs/icn_temp.png">-->
+                <!--<div class="line-separator-short"></div>-->
+                <!--<h4 class="slide-subtitle">Never fully biodegrade</h4>-->
+                <!--<p>Plastic never fully biodegrade rather plastics photodegrade, which means that they break down
+                into smaller, and smaller pieces to the microscopic level. Any toxic additives contained within the
+                plastics are released into the ocean.</p>-->
+            <!--</div>-->
+        <!--About plastic problem4-->
+            <!--<div class="container-slides-content">-->
+                <!--<img class="icon_property" src="assets/imgs/icn_temp.png">-->
+                <!--<div class="line-separator-short"></div>-->
+                <!--<h4 class="slide-subtitle">97%</h4>-->
+                <!--<p> of the Earth’s water supply is contained in the ocean. Plastic waste is greatly endangering the world’s-->
+                    <!--water supply. Plastics dumped in landfills form dangerous chemicals, and when these chemicals seep-->
+                    <!--underground, they degrade the water quality.</p>-->
+            <!--</div>-->
             <ion-list>
                 <ion-item style="background: blue">
                     <button ion-button (click)="startQuiz(1)">{{quizButtonText}}</button>
@@ -33,15 +70,19 @@
                 <ion-item style="background: red">6</ion-item>
             </ion-list>
         </ion-slide>
+
         <ion-slide>
             <h1>Cause</h1>
         </ion-slide>
+
         <ion-slide>
             <h1>Effect</h1>
         </ion-slide>
+
         <ion-slide>
             <h1>Importance</h1>
         </ion-slide>
+
         <ion-slide>
             <h1>Quiz</h1>
             <!-- <h3>Score: {{quizScore}}</h3> -->

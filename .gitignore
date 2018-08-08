@@ -4,5 +4,6 @@ platforms/
 www/
 .idea/
 .sourcemaps/
+package-lock.json
 .build/
 
