@@ -20,7 +20,7 @@ export class AuthServiceProvider {
         this.allUsers = data;
       });
 
-      console.log(new Achievement())
+      console.log(this.currentUser)
   }
 
   ionViewDidLoad() {}

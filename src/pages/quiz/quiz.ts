@@ -12,21 +12,29 @@ import {questionsCollection01, questionsCollection02} from '../quiz/questions';
 import {QuizResultPage} from './result';
 import {badges} from '../quiz/badges';
 import {TopicOnePage} from '../topic-one/topic-one';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {UserProvider} from '../../providers/user-service/user-service';
+import {User, Achievement} from '../../providers/auth-service/User';
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'page-quiz', templateUrl: 'quiz.html'})
 export class QuizPage {
 
   @ViewChild(Slides)quizSlides : Slides;
-  // @Output()scoreEmitter = new EventEmitter();
 
   questions : any[];
   isAnswer : boolean;
   btnStyle : string;
-  score : number;
-  badges : any = [];
+  quizScore : number;
+  // badges : any = [];
   disableButtons : boolean;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio) {
+  currentUser : User;
+
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserProvider, private authApi : AuthServiceProvider) {
+
+    this.currentUser = authApi.getCurrentUser();
+
     let collectionNum = this
       .navParams
       .get("num");
@@ -36,11 +44,10 @@ export class QuizPage {
     } else if (collectionNum == "2") {
       this.questions = questionsCollection02;
     }
-    
-    this.isAnswer = false;
+
     this.btnStyle = "";
-    this.score = 0;
-    this.badges = badges;
+    this.quizScore = 0;
+    // this.badges = badges;
     this.disableButtons = false;
   }
 
@@ -66,21 +73,24 @@ export class QuizPage {
   }
 
   checkAnswer(e, option) {
+    //user answer question correctly
     if (option.isAnswer) {
-      this.isAnswer = true;
       e
         .target
         .parentNode
         .classList
         .add("btn-correct");
-      this.score++;
+
+      
+      this.quizScore+=Number(option.points);
 
       this
         .nativeAudio
         .play('correct');
 
     } else {
-      this.isAnswer = false;
+
+    //user answer question wrongly
       e
         .target
         .parentNode
@@ -101,13 +111,26 @@ export class QuizPage {
         this.nextSlide();
       } else {
         this.showResultPage();
-
         this
           .nativeAudio
           .play('new_badge');
+
+        this.updateUser();
       }
     }, 1000);
 
+  }
+
+  updateUser(){
+    this
+    .userApi
+    .updateUser(new User(
+      this.currentUser.name, 
+      this.currentUser.email, 
+      this.currentUser.password, 
+      this.currentUser.achievements, 
+      this.currentUser.badge, 
+    ));
   }
 
   nextSlide() {
@@ -138,7 +161,6 @@ export class QuizPage {
               this
                 .viewCtrl
                 .dismiss();
-              // this   .scoreEmitter   .emit(this.score);
             }
           }
         ]
@@ -150,16 +172,15 @@ export class QuizPage {
     const modal = this
       .modalCtrl
       .create(QuizResultPage, {
-        score: this.score,
-        badge: this
-          .badges
-          .find((item, index, array) => {
-            return item.points == this.score;
-          })
+        quizScore: this.quizScore,
+        // badge: this
+        //   .badges
+        //   .find((item, index, array) => {
+        //     return item.points == this.quizScore;
+        //   })
       });
 
     //todo: insert score & badge into db
-    //
     modal.onDidDismiss(data => {
       if (data.action == 'remove') {
         this
@@ -169,4 +190,5 @@ export class QuizPage {
     });
     modal.present();
   }
+
 }

@@ -32,6 +32,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { MnFullpageModule } from 'ngx-fullpage';
 import * as $ from 'jquery';
+import { UserProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import * as $ from 'jquery';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     NativeAudio,
+    UserProvider,
   ]
 })
 export class AppModule {}

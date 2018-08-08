@@ -1,6 +1,7 @@
 import {AnonymousSubscription} from "rxjs/Subscription";
 
 export class User {
+    $key : string;
     name : string;
     email : string;
     password : string;
@@ -16,52 +17,111 @@ export class User {
     }
 }
 
-export enum Badge {
-    Badge01 = 0,
-    Badge02 = 10,
-    Badge03 = 20,
-    Badge04 = 30,
-    Badge05 = 40
-}
-
 export class Achievement {
     topic1 : any;
+    topic2 : any;
+    topic3 : any;
     topic4 : any;
+    topic5 : any;
 
     constructor() {
-            this.topic1 = {
-                qustion1: {
-                    isAnswered: false,
-                    isCorrect: false,
-                    points: 5
-                },
-                qustion2: {
-                    isAnswered: false,
-                    isCorrect: false,
-                    points: 5
-                },
-                qustion3: {
-                    isAnswered: false,
-                    isCorrect: false,
-                    points: 5
-                },
-                qustion4: {
-                    isAnswered: false,
-                    isCorrect: false,
-                    points: 5
-                },
-                qustion5: {
-                    isAnswered: false,
-                    isCorrect: false,
-                    points: 5
-                }
+        this.topic1 = {
+            qustion1: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion2: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion3: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion4: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion5: {
+                isAnswered: false,
+                isCorrect: false
             }
+        },
+        
+        this.topic2 = {
+            qustion1: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion2: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion3: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion4: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion5: {
+                isAnswered: false,
+                isCorrect: false
+            }
+        },
 
-            this.topic4 =  {
-                game: {
-                    score: 0
-                }
+        this.topic3 = {
+            qustion1: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion2: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion3: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion4: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion5: {
+                isAnswered: false,
+                isCorrect: false
+            }
+        },
+
+        this.topic4 = {
+            game: {
+                score: 0
+            }
+        },
+
+        this.topic5 = {
+            qustion1: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion2: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion3: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion4: {
+                isAnswered: false,
+                isCorrect: false
+            },
+            qustion5: {
+                isAnswered: false,
+                isCorrect: false
             }
         }
+    }
 
 }

@@ -1,6 +1,7 @@
-export const questionsCollection01 : any[] = [
+export const topic1 : any[] = [
     {
         question: "questionsCollection01 question 01",
+        points: 5,
         options: [
             {
                 description: "correct",
@@ -22,6 +23,7 @@ export const questionsCollection01 : any[] = [
     },
     {
         question: "questionsCollection01 question 02",
+        points: 5,
         options: [
             {
                 description: "wrong",
@@ -43,6 +45,7 @@ export const questionsCollection01 : any[] = [
     },
     {
         question: "questionsCollection01 question 03",
+        points: 5,
         options: [
             {
                 description: "wrong",
@@ -64,6 +67,7 @@ export const questionsCollection01 : any[] = [
     },
     {
         question: "questionsCollection01 question 04",
+        points: 5,
         options: [
             {
                 description: "wrong",
@@ -85,6 +89,7 @@ export const questionsCollection01 : any[] = [
     },
     {
         question: "questionsCollection01 question 05",
+        points: 5,
         options: [
             {
                 description: "wrong",
@@ -106,9 +111,10 @@ export const questionsCollection01 : any[] = [
     },
 ]
 
-export const questionsCollection02 : any[] = [
+export const topic2 : any[] = [
     {
         question: "questionsCollection02 question 01",
+        points: 5,
         options: [
             {
                 description: "correct",
@@ -130,6 +136,7 @@ export const questionsCollection02 : any[] = [
     },
     {
         question: "questionsCollection02 question 02",
+        points: 5,
         options: [
             {
                 description: "wrong",
@@ -151,6 +158,7 @@ export const questionsCollection02 : any[] = [
     },
     {
         question: "questionsCollection02 question 03",
+        points: 5,
         options: [
             {
                 description: "wrong",
@@ -172,6 +180,7 @@ export const questionsCollection02 : any[] = [
     },
     {
         question: "questionsCollection02 question 04",
+        points: 5,
         options: [
             {
                 description: "wrong",
@@ -193,6 +202,7 @@ export const questionsCollection02 : any[] = [
     },
     {
         question: "questionsCollection02 question 05",
+        points: 5,
         options: [
             {
                 description: "wrong",

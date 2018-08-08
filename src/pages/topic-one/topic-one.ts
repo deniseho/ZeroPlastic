@@ -13,6 +13,7 @@ import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
+import {UserProvider} from '../../providers/user-service/user-service';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -26,10 +27,10 @@ export class TopicOnePage {
   quizScore : number;
   quizButtonText : string;
 
-  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
+  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider, private userApi : UserProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
 
-    //check if the score exists
+    //todo: check if the score exists from db
     let score = this
       .navParams
       .get('topicOneQuizScore');
@@ -40,6 +41,7 @@ export class TopicOnePage {
     this.quizButtonText = score
       ? 'Try again'
       : 'Start the quiz';
+
   }
 
   ionViewDidEnter() {

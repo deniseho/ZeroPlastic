@@ -5,12 +5,12 @@ import {QuizPage} from "./quiz";
 @Component({selector: 'page-quiz-result', templateUrl: 'result.html'})
 export class QuizResultPage {
 
-    badge : any;
-    score : number;
+    // badge : any;
+    quizScore : number;
 
     constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController,) {
-        this.score = navParams.get('score');
-        this.badge = navParams.get('badge');
+        this.quizScore = navParams.get('quizScore');
+        // this.badge = navParams.get('badge');
     }
 
     ionViewDidLoad() {
@@ -22,7 +22,7 @@ export class QuizResultPage {
     close() {
         this
             .viewCtrl
-            .dismiss({'action': 'remove', 'score': this.score});
+            .dismiss({'action': 'remove', 'score': this.quizScore});
     }
 
 }
