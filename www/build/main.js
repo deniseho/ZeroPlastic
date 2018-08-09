@@ -83,8 +83,8 @@ var TopicFourPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__quiz_quiz__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_service_user_service__ = __webpack_require__(925);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_service_user_service__ = __webpack_require__(166);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -157,18 +157,17 @@ var TopicOnePage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('SwipedTabsSlider'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */])
     ], TopicOnePage.prototype, "SwipedTabsSlider", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('scroll'),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */])
     ], TopicOnePage.prototype, "scroll", void 0);
     TopicOnePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-one',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/'<ion-header>\n    <!-- \n            <ion-navbar>\n              <ion-title>Topic One</ion-title>\n            </ion-navbar> -->\n    <custom-nav-bar></custom-nav-bar>\n    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">\n        <ion-segment class="SwipedTabs-tabs">\n            <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)" [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'\n                [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}">\n                {{tab}}\n            </ion-segment-button>\n        </ion-segment>\n\n        <!-- here is our dynamic line  "indicator"-->\n        <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}"></div>\n    </ion-content>\n</ion-header>\n\n<ion-content>\n\n    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"\n        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">\n        <ion-slide>\n            <ion-list>\n                <ion-item style="background: blue">\n                    <button ion-button (click)="startQuiz(1)">{{quizButtonText}}</button>\n                </ion-item>\n                <ion-item style="background: red">2</ion-item>\n                <ion-item style="background: blue">3</ion-item>\n                <ion-item style="background: red">4</ion-item>\n                <ion-item style="background: blue">5</ion-item>\n                <ion-item style="background: red">6</ion-item>\n            </ion-list>\n        </ion-slide>\n        <ion-slide>\n            <h1>Cause</h1>\n        </ion-slide>\n        <ion-slide>\n            <h1>Effect</h1>\n        </ion-slide>\n        <ion-slide>\n            <h1>Importance</h1>\n        </ion-slide>\n        <ion-slide>\n            <h1>Quiz</h1>\n            <!-- <h3>Score: {{quizScore}}</h3> -->\n        </ion-slide>\n    </ion-slides>\n\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/ }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_4__providers_user_service_user_service__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_user_service_user_service__["a" /* UserProvider */]) === "function" && _j || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-one',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/'<ion-header>\n    <!-- \n            <ion-navbar>\n              <ion-title>Topic One</ion-title>\n            </ion-navbar> -->\n    <custom-nav-bar></custom-nav-bar>\n    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">\n        <ion-segment class="SwipedTabs-tabs">\n            <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)" [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'\n                [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}">\n                {{tab}}\n            </ion-segment-button>\n        </ion-segment>\n\n        <!-- here is our dynamic line  "indicator"-->\n        <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}"></div>\n    </ion-content>\n</ion-header>\n\n<ion-content>\n\n    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"\n        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">\n        <ion-slide>\n        <!--About plastic problem1-->\n            <ion-icon class="arrow-up-style" name="arrow-dropup-circle"></ion-icon>\n            <div class="container-slides-content">\n                <h1 class="slide-title-main">About plastic</h1>\n                <h1 class="slide-title2-main">Issue</h1>\n                <div class="line-separator-short"></div>\n                <h4 class="slide-subtitle">322 million tons</h4>\n                <p>of plastic were produced in 2015, the same weight as 900 Empire state buildings.</p>\n            </div>\n            <ion-icon class="arrow-down-style" name="arrow-dropdown-circle"></ion-icon>\n            <!-- <button ion-button (click)="addScore()">Add Score</button> -->\n        <!--About plastic problem2-->\n            <!--<div class="container-slides-content">-->\n                <!--<img class="icon_property" src="assets/imgs/icn_garbage_truck.png">-->\n                <!--<div class="line-separator-short"></div>-->\n                <!--<h4 class="slide-subtitle">8 millions tons</h4>-->\n                <!--<p>of  this plastic enters our oceans each year, equivalent to emptying a garbage truck of plastic\n                into an ocean every minute. This figure is estimated to rise to 60 tons per minute by 2050.</p>-->\n            <!--</div>-->\n        <!--About plastic problem3-->\n            <!--<div class="container-slides-content">-->\n                <!--<img class="icon_property" src="assets/imgs/icn_temp.png">-->\n                <!--<div class="line-separator-short"></div>-->\n                <!--<h4 class="slide-subtitle">Never fully biodegrade</h4>-->\n                <!--<p>Plastic never fully biodegrade rather plastics photodegrade, which means that they break down\n                into smaller, and smaller pieces to the microscopic level. Any toxic additives contained within the\n                plastics are released into the ocean.</p>-->\n            <!--</div>-->\n        <!--About plastic problem4-->\n            <!--<div class="container-slides-content">-->\n                <!--<img class="icon_property" src="assets/imgs/icn_temp.png">-->\n                <!--<div class="line-separator-short"></div>-->\n                <!--<h4 class="slide-subtitle">97%</h4>-->\n                <!--<p> of the Earth’s water supply is contained in the ocean. Plastic waste is greatly endangering the world’s-->\n                    <!--water supply. Plastics dumped in landfills form dangerous chemicals, and when these chemicals seep-->\n                    <!--underground, they degrade the water quality.</p>-->\n            <!--</div>-->\n            <ion-list>\n                <ion-item style="background: blue">\n                    <button ion-button (click)="startQuiz(1)">{{quizButtonText}}</button>\n                </ion-item>\n                <ion-item style="background: red">2</ion-item>\n                <ion-item style="background: blue">3</ion-item>\n                <ion-item style="background: red">4</ion-item>\n                <ion-item style="background: blue">5</ion-item>\n                <ion-item style="background: red">6</ion-item>\n            </ion-list>\n        </ion-slide>\n\n        <ion-slide>\n            <h1>Cause</h1>\n        </ion-slide>\n\n        <ion-slide>\n            <h1>Effect</h1>\n        </ion-slide>\n\n        <ion-slide>\n            <h1>Importance</h1>\n        </ion-slide>\n\n        <ion-slide>\n            <h1>Quiz</h1>\n            <!-- <h3>Score: {{quizScore}}</h3> -->\n        </ion-slide>\n    </ion-slides>\n\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/ }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_user_service_user_service__["a" /* UserProvider */]])
     ], TopicOnePage);
     return TopicOnePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=topic-one.js.map
@@ -184,10 +183,9 @@ var TopicOnePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__quiz_questions__ = __webpack_require__(518);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__result__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__ = __webpack_require__(925);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_User__ = __webpack_require__(814);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__result__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -197,7 +195,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -215,6 +212,7 @@ var QuizPage = /** @class */ (function () {
         this.nativeAudio = nativeAudio;
         this.userApi = userApi;
         this.authApi = authApi;
+        this.topicAchievement = [0, 0, 0, 0, 0];
         this.currentUser = authApi.getCurrentUser();
         var collectionNum = this
             .navParams
@@ -246,8 +244,10 @@ var QuizPage = /** @class */ (function () {
             .nativeAudio
             .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
     };
-    QuizPage.prototype.checkAnswer = function (e, option) {
+    QuizPage.prototype.checkAnswer = function (e, i, option) {
         var _this = this;
+        this.topicAchievement[i] = option.points;
+        this.quizScore += Number(option.points);
         //user answer question correctly
         if (option.isAnswer) {
             e
@@ -270,8 +270,6 @@ var QuizPage = /** @class */ (function () {
                 .nativeAudio
                 .play('wrong');
         }
-        this.quizScore += Number(option.points);
-        console.log(this.quizScore);
         setTimeout(function () {
             _this.disableButtons = true;
         }, 300);
@@ -281,18 +279,15 @@ var QuizPage = /** @class */ (function () {
                 _this.nextSlide();
             }
             else {
+                _this
+                    .userApi
+                    .updateUserAchievement(_this.currentUser.email, _this.topic.collectionName, _this.topicAchievement);
                 _this.showResultPage();
                 _this
                     .nativeAudio
                     .play('new_badge');
-                _this.updateUser();
             }
         }, 1000);
-    };
-    QuizPage.prototype.updateUser = function () {
-        this
-            .userApi
-            .updateUser(new __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_User__["b" /* User */](this.currentUser.name, this.currentUser.email, this.currentUser.password, this.currentUser.achievements, this.currentUser.badge));
     };
     QuizPage.prototype.nextSlide = function () {
         this
@@ -350,8 +345,8 @@ var QuizPage = /** @class */ (function () {
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */]) === "function" && _a || Object)
     ], QuizPage.prototype, "quizSlides", void 0);
     QuizPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-quiz',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Quiz\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="showLeaveConfirm()">\n        <span ion-text color="primary">Cancel</span>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-slides #quizSlides>\n    <ion-slide *ngFor="let question of topic">\n      <h3>{{question.question}}</h3>\n      <ion-buttons *ngFor="let option of question.options">\n        <button ion-button block large \n          [ngClass]="[btnStyle]"\n          [disabled]="disableButtons"\n          (click)="checkAnswer($event, option)">\n          {{option.description}}\n        </button>\n      </ion-buttons>\n    </ion-slide>\n  </ion-slides>\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/ }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__["a" /* UserProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _j || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-quiz',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Quiz\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="showLeaveConfirm()">\n        <span ion-text color="primary">Cancel</span>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-slides #quizSlides>\n    <ion-slide *ngFor="let question of topic.questionList; index as i">\n      <h3>{{question.question}}</h3>\n      <ion-buttons *ngFor="let option of question.options">\n        <button ion-button block large \n          [ngClass]="[btnStyle]"\n          [disabled]="disableButtons"\n          (click)="checkAnswer($event, i, option)">\n          {{option.description}}\n        </button>\n      </ion-buttons>\n    </ion-slide>\n  </ion-slides>\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/quiz/quiz.html"*/ }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_user_service_user_service__["a" /* UserProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _j || Object])
     ], QuizPage);
     return QuizPage;
     var _a, _b, _c, _d, _e, _f, _g, _h, _j;
@@ -361,7 +356,85 @@ var QuizPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 184:
+/***/ 166:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__ = __webpack_require__(41);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the ScoreProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var UserProvider = /** @class */ (function () {
+    function UserProvider(db, auth) {
+        this.db = db;
+        this.auth = auth;
+        this.$userKey = '-LJQWTMmX4pGYa0zDFON';
+        this.userList = this.db.list('/users');
+        this.userAchievementList = this.db.list('/userAchievementList');
+    }
+    UserProvider.prototype.getUsers = function () {
+        return this.userList;
+    };
+    UserProvider.prototype.insertUser = function (user) {
+        this.userList.push({
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            badge: user.badge
+        });
+    };
+    UserProvider.prototype.updateUser = function (user) {
+        // console.log(user.$key)
+        this.userList.update(this.$userKey, {
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            badge: user.badge
+        });
+    };
+    UserProvider.prototype.updateUserAchievement = function (email, collectionName, topicAchievement) {
+        this.userAchievementList.push({
+            email: email,
+            topicAchievement: {
+                collectionName: collectionName,
+                achievement: topicAchievement
+            }
+        });
+    };
+    UserProvider.prototype.deleteUser = function ($key) {
+        this.userList.remove($key);
+    };
+    UserProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _b || Object])
+    ], UserProvider);
+    return UserProvider;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=user-service.js.map
+
+/***/ }),
+
+/***/ 185:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -451,7 +524,7 @@ var TopicTwoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 185:
+/***/ 186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -521,7 +594,7 @@ var TopicThreePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -591,7 +664,7 @@ var TopicFivePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 213:
+/***/ 214:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -604,11 +677,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 213;
+webpackEmptyAsyncContext.id = 214;
 
 /***/ }),
 
-/***/ 257:
+/***/ 258:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -621,11 +694,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 257;
+webpackEmptyAsyncContext.id = 258;
 
 /***/ }),
 
-/***/ 300:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -663,10 +736,9 @@ var QuizResultPage = /** @class */ (function () {
     };
     QuizResultPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-quiz-result',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/quiz/result.html"*/'<!--template for overlay-->\n\n<ion-header>\n    <ion-toolbar>\n        <ion-title>\n            Result\n        </ion-title>\n        <ion-buttons start>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n    <h1>Your score: {{quizScore}}</h1>\n    <!-- <h1 *ngIf=\'badge\'>Badge: {{badge.title}}</h1>\n    <img *ngIf=\'badge\'[src]=\'badge.imgUrl\'> -->\n    <button ion-button (click)="close()">\n        <span ion-text>Confirm</span>\n    </button>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/quiz/result.html"*/ }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]])
     ], QuizResultPage);
     return QuizResultPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=result.js.map
@@ -681,9 +753,9 @@ var QuizResultPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js__ = __webpack_require__(815);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js__ = __webpack_require__(814);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_items__ = __webpack_require__(916);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_items__ = __webpack_require__(915);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topic_four_topic_four__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -979,6 +1051,109 @@ var GamePage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 41:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(812);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__User__ = __webpack_require__(813);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var AuthServiceProvider = /** @class */ (function () {
+    function AuthServiceProvider(http, db) {
+        var _this = this;
+        this.http = http;
+        this.db = db;
+        this.baseUrl = "https://plastic-ocean.firebaseio.com";
+        this
+            .getAllUsers()
+            .then(function (data) {
+            _this.allUsers = data;
+        });
+        console.log(this.currentUser);
+    }
+    AuthServiceProvider.prototype.ionViewDidLoad = function () { };
+    AuthServiceProvider.prototype.login = function (credentials) {
+        var _this = this;
+        if (credentials.email === null || credentials.password === null) {
+            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw("Please insert credentials");
+        }
+        else {
+            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].create(function (observer) {
+                _this.currentUser = __WEBPACK_IMPORTED_MODULE_4_lodash__["first"](__WEBPACK_IMPORTED_MODULE_4_lodash__["filter"](_this.allUsers, function (item) {
+                    return item.email === credentials.email;
+                }));
+                observer.next(true);
+                observer.complete();
+            });
+        }
+    };
+    AuthServiceProvider.prototype.register = function (credentials) {
+        if (credentials.email === null || credentials.password === null) {
+            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw("Please insert credentials");
+        }
+        else {
+            var newUser = new __WEBPACK_IMPORTED_MODULE_5__User__["a" /* User */](credentials.name, credentials.email, credentials.password, "Novice");
+            this
+                .db
+                .list('users')
+                .push(newUser);
+        }
+        ;
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].create(function (observer) {
+            observer.next(true);
+            observer.complete();
+        });
+    };
+    AuthServiceProvider.prototype.logout = function () {
+        var _this = this;
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].create(function (observer) {
+            _this.currentUser = null;
+            observer.next(true);
+            observer.complete();
+        });
+    };
+    AuthServiceProvider.prototype.getAllUsers = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this
+                .http
+                .get(_this.baseUrl + "/users.json")
+                .subscribe(function (res) { return resolve(res.json()); });
+        });
+    };
+    AuthServiceProvider.prototype.getCurrentUser = function () { return this.currentUser; };
+    AuthServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]])
+    ], AuthServiceProvider);
+    return AuthServiceProvider;
+}());
+
+//# sourceMappingURL=auth-service.js.map
+
+/***/ }),
+
 /***/ 458:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -986,7 +1161,7 @@ var GamePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topic_menu_topic_menu__ = __webpack_require__(98);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1089,7 +1264,7 @@ var LoginPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1116,9 +1291,9 @@ var RegisterPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.createSuccess = false;
         this.registerCredentials = {
-            name: '',
-            email: '',
-            password: ''
+            name: 'Chia',
+            email: 'hoc2@tcd.ie',
+            password: 'deniseho'
         };
     }
     RegisterPage.prototype.ionViewDidLoad = function () {
@@ -1282,7 +1457,7 @@ var AccountMenuPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1325,7 +1500,7 @@ var ProfilePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AchievementPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1380,110 +1555,6 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 47:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(402);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(813);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__User__ = __webpack_require__(814);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var AuthServiceProvider = /** @class */ (function () {
-    function AuthServiceProvider(http, db) {
-        var _this = this;
-        this.http = http;
-        this.db = db;
-        this.baseUrl = "https://plastic-ocean.firebaseio.com";
-        this
-            .getAllUsers()
-            .then(function (data) {
-            _this.allUsers = data;
-        });
-        console.log(this.currentUser);
-    }
-    AuthServiceProvider.prototype.ionViewDidLoad = function () { };
-    AuthServiceProvider.prototype.login = function (credentials) {
-        var _this = this;
-        if (credentials.email === null || credentials.password === null) {
-            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw("Please insert credentials");
-        }
-        else {
-            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].create(function (observer) {
-                _this.currentUser = __WEBPACK_IMPORTED_MODULE_4_lodash__["first"](__WEBPACK_IMPORTED_MODULE_4_lodash__["filter"](_this.allUsers, function (item) {
-                    return item.email === credentials.email;
-                }));
-                observer.next(true);
-                observer.complete();
-            });
-        }
-    };
-    AuthServiceProvider.prototype.register = function (credentials) {
-        if (credentials.email === null || credentials.password === null) {
-            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw("Please insert credentials");
-        }
-        else {
-            var newUser = new __WEBPACK_IMPORTED_MODULE_5__User__["b" /* User */](credentials.name, credentials.email, credentials.password, new __WEBPACK_IMPORTED_MODULE_5__User__["a" /* Achievement */](), "Novice");
-            this
-                .db
-                .list('users')
-                .push(newUser);
-        }
-        ;
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].create(function (observer) {
-            observer.next(true);
-            observer.complete();
-        });
-    };
-    AuthServiceProvider.prototype.logout = function () {
-        var _this = this;
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].create(function (observer) {
-            _this.currentUser = null;
-            observer.next(true);
-            observer.complete();
-        });
-    };
-    AuthServiceProvider.prototype.getAllUsers = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this
-                .http
-                .get(_this.baseUrl + "/users.json")
-                .subscribe(function (res) { return resolve(res.json()); });
-        });
-    };
-    AuthServiceProvider.prototype.getCurrentUser = function () { return this.currentUser; };
-    AuthServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object])
-    ], AuthServiceProvider);
-    return AuthServiceProvider;
-    var _a, _b;
-}());
-
-//# sourceMappingURL=auth-service.js.map
-
-/***/ }),
-
 /***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1495,35 +1566,35 @@ var AuthServiceProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_sqlite__ = __webpack_require__(511);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(517);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_item_details_item_details__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(919);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(918);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(457);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_one_topic_one__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_topic_two_topic_two__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_topic_three_topic_three__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_topic_two_topic_two__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_topic_five_topic_five__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_topic_five_topic_five__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_forms__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_custom_nav_bar_custom_nav_bar__ = __webpack_require__(920);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_custom_nav_bar_custom_nav_bar__ = __webpack_require__(919);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_profile_profile__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_topic_menu_topic_menu__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_account_menu_account_menu__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_achievement_achievement__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_game_game__ = __webpack_require__(404);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_quiz_quiz__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_quiz_result__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_quiz_result__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_login_login__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_auth_service_auth_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_auth_service_auth_service__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_register_register__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_common_http__ = __webpack_require__(921);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_common_http__ = __webpack_require__(920);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_native_audio__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_http__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angularfire2__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2_database__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__firebase_credentials__ = __webpack_require__(922);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_ngx_fullpage__ = __webpack_require__(923);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2_database__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__firebase_credentials__ = __webpack_require__(921);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_ngx_fullpage__ = __webpack_require__(922);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_ngx_fullpage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32_ngx_fullpage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_user_service_user_service__ = __webpack_require__(925);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_user_service_user_service__ = __webpack_require__(166);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1651,15 +1722,15 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(457);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_topic_one_topic_one__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_topic_two_topic_two__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_three_topic_three__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_topic_two_topic_two__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery__ = __webpack_require__(917);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery__ = __webpack_require__(916);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js__ = __webpack_require__(918);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js__ = __webpack_require__(917);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_fullpage_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1757,387 +1828,379 @@ var MyApp = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return topic1; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return topic2; });
-var topic1 = [
-    {
-        question: "topic1 question 01",
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic1 question 02",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic1 question 03",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic1 question 04",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic1 question 05",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }
-        ]
-    }
-];
-var topic2 = [
-    {
-        question: "topic2 question 01",
-        points: 5,
-        options: [
-            {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic2 question 02",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic2 question 03",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic2 question 04",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }
-        ]
-    }, {
-        question: "topic2 question 05",
-        points: 5,
-        options: [
-            {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "wrong",
-                points: 0,
-                isAnswer: false
-            }, {
-                description: "correct",
-                points: 5,
-                isAnswer: true
-            }
-        ]
-    }
-];
+var topic1 = {
+    collectionName: "Topic1",
+    questionList: [
+        {
+            id: "tp1_q1",
+            question: "topic1 question 01",
+            options: [
+                {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp1_q2",
+            question: "topic1 question 02",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp1_q3",
+            question: "topic1 question 03",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp1_q4",
+            question: "topic1 question 04",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp1_q5",
+            question: "topic1 question 05",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }
+            ]
+        }
+    ]
+};
+var topic2 = {
+    collectionName: "Topic2",
+    questionList: [
+        {
+            id: "tp2_q1",
+            question: "topic2 question 01",
+            options: [
+                {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp2_q2",
+            question: "topic2 question 02",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp2_q3",
+            question: "topic2 question 03",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp2_q4",
+            question: "topic2 question 04",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }
+            ]
+        }, {
+            id: "tp2_q5",
+            question: "topic2 question 05",
+            options: [
+                {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "wrong",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "correct",
+                    points: 5,
+                    isAnswer: true
+                }
+            ]
+        }
+    ]
+};
 //# sourceMappingURL=questions.js.map
 
 /***/ }),
 
-/***/ 814:
+/***/ 813:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return User; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Achievement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
+/* unused harmony export Achievement */
 var User = /** @class */ (function () {
-    function User(name, email, password, achievements, badge) {
+    function User(name, email, password, badge) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.achievements = achievements;
         this.badge = badge;
     }
     return User;
 }());
 
 var Achievement = /** @class */ (function () {
-    function Achievement() {
-        this.topic1 = {
-            qustion1: {
-                isAnswered: false,
-                isCorrect: false
-            },
-            qustion2: {
-                isAnswered: false,
-                isCorrect: false
-            },
-            qustion3: {
-                isAnswered: false,
-                isCorrect: false
-            },
-            qustion4: {
-                isAnswered: false,
-                isCorrect: false
-            },
-            qustion5: {
-                isAnswered: false,
-                isCorrect: false
-            }
-        },
-            this.topic2 = {
-                qustion1: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion2: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion3: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion4: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion5: {
-                    isAnswered: false,
-                    isCorrect: false
-                }
-            },
-            this.topic3 = {
-                qustion1: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion2: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion3: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion4: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion5: {
-                    isAnswered: false,
-                    isCorrect: false
-                }
-            },
-            this.topic4 = {
-                game: {
+    function Achievement(email) {
+        this.email = email,
+            this.topic1 = [
+                {
+                    id: "tp1_q1",
+                    score: 0
+                }, {
+                    id: "tp1_q2",
+                    score: 0
+                }, {
+                    id: "tp1_q3",
+                    score: 0
+                }, {
+                    id: "tp1_q4",
+                    score: 0
+                }, {
+                    id: "tp1_q5",
                     score: 0
                 }
-            },
-            this.topic5 = {
-                qustion1: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion2: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion3: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion4: {
-                    isAnswered: false,
-                    isCorrect: false
-                },
-                qustion5: {
-                    isAnswered: false,
-                    isCorrect: false
-                }
-            };
+            ];
+        this.topic2 = [
+            {
+                id: "tp2_q1",
+                score: 0
+            }, {
+                id: "tp2_q2",
+                score: 0
+            }, {
+                id: "tp2_q3",
+                score: 0
+            }, {
+                id: "tp2_q4",
+                score: 0
+            }, {
+                id: "tp2_q5",
+                score: 0
+            }
+        ];
+        this.topic3 = [
+            {
+                id: "tp3_q1",
+                score: 0
+            }, {
+                id: "tp3_q2",
+                score: 0
+            }, {
+                id: "tp3_q3",
+                score: 0
+            }, {
+                id: "tp3_q4",
+                score: 0
+            }, {
+                id: "tp3_q5",
+                score: 0
+            }
+        ];
+        this.topic4 = [
+            {
+                id: "tp4_game",
+                score: 0
+            }
+        ];
+        this.topic5 = [
+            {
+                id: "tp5_q1",
+                score: 0
+            }, {
+                id: "tp5_q2",
+                score: 0
+            }, {
+                id: "tp5_q3",
+                score: 0
+            }, {
+                id: "tp5_q4",
+                score: 0
+            }, {
+                id: "tp5_q5",
+                score: 0
+            }
+        ];
     }
     return Achievement;
 }());
@@ -2146,7 +2209,7 @@ var Achievement = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 916:
+/***/ 915:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2185,7 +2248,7 @@ var items = [
 
 /***/ }),
 
-/***/ 919:
+/***/ 918:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2238,7 +2301,7 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 920:
+/***/ 919:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2299,7 +2362,7 @@ var CustomNavBarPage = /** @class */ (function () {
             .open();
     };
     CustomNavBarPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'custom-nav-bar',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/'<ion-toolbar color="lightest">\n  <ion-row>\n    <ion-col col-3>\n      <ion-buttons start>\n        <button ion-button menuToggle (click)="openMenu()">\n          <ion-icon name="menu" color="secondary-medium"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n    <ion-col col-6>\n      <div>\n        <img src="assets/imgs/logo_toolbar.png" alt="ZeroPlastic logo" (click)="gotoHomepage()">\n      </div>\n      <!--\n      <ion-buttons>\n        <button ion-button icon-only color="royal" (click)="gotoHomepage()">\n          <ion-title>OUR LOGO</ion-title>\n        </button>\n      </ion-buttons>\n      -->\n    </ion-col>\n    <ion-col col-3>\n      <ion-buttons end>\n        <button ion-button icon-only (click)="gotoAccountMenu()">\n          <ion-icon name="trophy" color="secondary-medium"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n  </ion-row>\n</ion-toolbar>\n'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'custom-nav-bar',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/'<ion-toolbar color="lightest">\n  <ion-row>\n    <ion-col col-3>\n      <ion-buttons start>\n        <button ion-button menuToggle (click)="openMenu()">\n          <ion-icon name="menu" color="blue-medium"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n    <ion-col col-6 class="logo_properties">\n      <div>\n        <img src="assets/imgs/logo_toolbar.png" alt="ZeroPlastic logo" (click)="gotoHomepage()">\n      </div>\n      <!--\n      <ion-buttons>\n        <button ion-button icon-only color="royal" (click)="gotoHomepage()">\n          <ion-title>OUR LOGO</ion-title>\n        </button>\n      </ion-buttons>\n      -->\n    </ion-col>\n    <ion-col col-3>\n      <ion-buttons end>\n        <button ion-button icon-only (click)="gotoAccountMenu()">\n          <ion-icon name="trophy" color="blue-medium"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n  </ion-row>\n</ion-toolbar>\n'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/ }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */],
@@ -2312,7 +2375,7 @@ var CustomNavBarPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 922:
+/***/ 921:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2329,76 +2392,6 @@ var FIREBASE_CONFIG = {
 
 /***/ }),
 
-/***/ 925:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__ = __webpack_require__(47);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/*
-  Generated class for the ScoreProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var UserProvider = /** @class */ (function () {
-    function UserProvider(db, auth) {
-        this.db = db;
-        this.auth = auth;
-        this.userList = this.db.list('/users');
-    }
-    UserProvider.prototype.getUsers = function () {
-        this.userList = this.db.list('/users');
-        return this.userList;
-    };
-    UserProvider.prototype.insertUser = function (user) {
-        this.userList.push({
-            name: user.name,
-            email: user.email,
-            password: user.password,
-            achievements: user.achievements,
-            badge: user.badge
-        });
-    };
-    UserProvider.prototype.updateUser = function (user) {
-        // console.log(user.$key)
-        this.userList.update('-LJAlk7W2xO9KkLsz6jh', {
-            name: user.name,
-            email: user.email,
-            password: user.password,
-            achievements: user.achievements,
-            badge: user.badge
-        });
-    };
-    UserProvider.prototype.deleteUser = function ($key) {
-        this.userList.remove($key);
-    };
-    UserProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _b || Object])
-    ], UserProvider);
-    return UserProvider;
-    var _a, _b;
-}());
-
-//# sourceMappingURL=user-service.js.map
-
-/***/ }),
-
 /***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2407,10 +2400,10 @@ var UserProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topic_one_topic_one__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topic_two_topic_two__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topic_three_topic_three__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topic_two_topic_two__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topic_five_topic_five__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topic_five_topic_five__ = __webpack_require__(203);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

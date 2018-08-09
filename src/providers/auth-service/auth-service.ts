@@ -43,7 +43,7 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      let newUser = new User(credentials.name, credentials.email, credentials.password, new Achievement(), "Novice");
+      let newUser = new User(credentials.name, credentials.email, credentials.password, "Novice");
 
       this
         .db

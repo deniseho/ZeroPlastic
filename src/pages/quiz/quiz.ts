@@ -16,19 +16,21 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {UserProvider} from '../../providers/user-service/user-service';
 import {User, Achievement} from '../../providers/auth-service/User';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import * as _ from 'lodash';
 
 @Component({selector: 'page-quiz', templateUrl: 'quiz.html'})
 export class QuizPage {
 
   @ViewChild(Slides)quizSlides : Slides;
 
-  topic : any[];
+  topic : any;
   isAnswer : boolean;
   btnStyle : string;
   quizScore : number;
   // badges : any = [];
   disableButtons : boolean;
 
+  topicAchievement : any = [0, 0, 0, 0, 0];
   currentUser : User;
 
   constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserProvider, private authApi : AuthServiceProvider) {
@@ -72,7 +74,10 @@ export class QuizPage {
 
   }
 
-  checkAnswer(e, option) {
+  checkAnswer(e, i, option) {
+    this.topicAchievement[i] = option.points;
+    this.quizScore += Number(option.points);
+
     //user answer question correctly
     if (option.isAnswer) {
       e
@@ -98,8 +103,6 @@ export class QuizPage {
         .play('wrong');
     }
 
-    this.quizScore += Number(option.points);
-    console.log(this.quizScore)
     setTimeout(() => {
       this.disableButtons = true;
     }, 300);
@@ -109,21 +112,18 @@ export class QuizPage {
         this.disableButtons = false;
         this.nextSlide();
       } else {
+        this
+        .userApi
+        .updateUserAchievement(this.currentUser.email, this.topic.collectionName, this.topicAchievement);
+  
         this.showResultPage();
         this
           .nativeAudio
           .play('new_badge');
 
-        this.updateUser();
       }
     }, 1000);
 
-  }
-
-  updateUser() {
-    this
-      .userApi
-      .updateUser(new User(this.currentUser.name, this.currentUser.email, this.currentUser.password, this.currentUser.achievements, this.currentUser.badge,));
   }
 
   nextSlide() {

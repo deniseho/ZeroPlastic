@@ -13,9 +13,9 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 export class RegisterPage {
   createSuccess = false;
   registerCredentials = {
-    name: '',
-    email: '',
-    password: ''
+    name: 'Chia',
+    email: 'hoc2@tcd.ie',
+    password: 'deniseho'
   };
 
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private alertCtrl : AlertController) {}

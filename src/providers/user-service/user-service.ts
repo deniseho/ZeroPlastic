@@ -15,13 +15,18 @@ import { User, Achievement } from '../auth-service/User';
 export class UserProvider {
 
   userList : AngularFireList < any >;
+  $userKey: string = '-LJQWTMmX4pGYa0zDFON'
+
+  userAchievementList:  AngularFireList < any >;
 
   constructor(private db : AngularFireDatabase, private auth : AuthServiceProvider) {
     this.userList = this.db.list('/users');
+    this.userAchievementList = this.db.list('/userAchievementList');
+    
   }
 
+
   getUsers() {
-    this.userList = this.db.list('/users');
     return this.userList;
   }
 
@@ -30,20 +35,28 @@ export class UserProvider {
       name: user.name,
       email: user.email,
       password: user.password,
-      achievements: user.achievements,
       badge: user.badge
     })
   }
   
   updateUser(user: User){
     // console.log(user.$key)
-    this.userList.update('-LJAlk7W2xO9KkLsz6jh',{
+    this.userList.update(this.$userKey,{
       name: user.name,
       email: user.email,
       password: user.password,
-      achievements: user.achievements,
       badge: user.badge
     })
+  }
+
+  updateUserAchievement(email, collectionName, topicAchievement){
+    this.userAchievementList.push({
+      email: email,
+      topicAchievement:{
+        collectionName: collectionName,
+        achievement: topicAchievement
+      }
+    })    
   }
 
   deleteUser($key: string){
