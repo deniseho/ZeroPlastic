@@ -1,23 +1,20 @@
 import {Component} from "@angular/core";
 import {NavController, ViewController, NavParams} from "ionic-angular";
 import {QuizPage} from "./quiz";
+import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 
 @Component({selector: 'page-quiz-result', templateUrl: 'result.html'})
 export class QuizResultPage {
 
     // badge : any;
     quizScore : number;
-
-    constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController,) {
+    totalScore : number;
+    constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, private authApi : AuthServiceProvider) {
         this.quizScore = navParams.get('quizScore');
-        // this.badge = navParams.get('badge');
+        this.totalScore = this.authApi.getCurrentUser().totalScore;
     }
 
-    ionViewDidLoad() {
-        // document.getElementById("BadgeTitle").innerHTML = this.badge.title;
-        // let badgeImg = document.getElementById("BadgeImg") as HTMLImageElement;
-        // badgeImg.src = this.badge.imgUrl;
-    }
+    ionViewDidLoad() {}
 
     close() {
         this

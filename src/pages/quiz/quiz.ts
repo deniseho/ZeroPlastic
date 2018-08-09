@@ -28,7 +28,6 @@ export class QuizPage {
   isAnswer : boolean;
   btnStyle : string;
   quizScore : number;
-  // badges : any = [];
   disableButtons : boolean;
 
   questionScore : any = [0, 0, 0, 0, 0];
@@ -52,7 +51,6 @@ export class QuizPage {
 
     this.btnStyle = "";
     this.quizScore = 0;
-    // this.badges = badges;
     this.disableButtons = false;
   }
 
