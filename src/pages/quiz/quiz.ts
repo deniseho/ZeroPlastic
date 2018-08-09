@@ -14,7 +14,7 @@ import {badges} from '../quiz/badges';
 import {TopicOnePage} from '../topic-one/topic-one';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {UserProvider} from '../../providers/user-service/user-service';
-import {User, Achievement} from '../../providers/auth-service/User';
+import {User} from '../../providers/auth-service/User';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
 
@@ -24,13 +24,14 @@ export class QuizPage {
   @ViewChild(Slides)quizSlides : Slides;
 
   topic : any;
+  topicTitle : string;
   isAnswer : boolean;
   btnStyle : string;
   quizScore : number;
   // badges : any = [];
   disableButtons : boolean;
 
-  topicAchievement : any = [0, 0, 0, 0, 0];
+  questionScore : any = [0, 0, 0, 0, 0];
   currentUser : User;
 
   constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserProvider, private authApi : AuthServiceProvider) {
@@ -43,8 +44,10 @@ export class QuizPage {
 
     if (collectionNum == "1") {
       this.topic = topic1;
+      this.topicTitle = "topic1";
     } else if (collectionNum == "2") {
       this.topic = topic2;
+      this.topicTitle = "topic2";
     }
 
     this.btnStyle = "";
@@ -75,7 +78,7 @@ export class QuizPage {
   }
 
   checkAnswer(e, i, option) {
-    this.topicAchievement[i] = option.points;
+    this.questionScore[i] = option.points;
     this.quizScore += Number(option.points);
 
     //user answer question correctly
@@ -114,7 +117,7 @@ export class QuizPage {
       } else {
         this
         .userApi
-        .updateUserAchievement(this.currentUser.email, this.topic.collectionName, this.topicAchievement);
+        .updateUserAchievement(this.currentUser, this.quizScore, this.questionScore, this.topicTitle);
   
         this.showResultPage();
         this

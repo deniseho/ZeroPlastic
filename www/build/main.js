@@ -212,16 +212,18 @@ var QuizPage = /** @class */ (function () {
         this.nativeAudio = nativeAudio;
         this.userApi = userApi;
         this.authApi = authApi;
-        this.topicAchievement = [0, 0, 0, 0, 0];
+        this.questionScore = [0, 0, 0, 0, 0];
         this.currentUser = authApi.getCurrentUser();
         var collectionNum = this
             .navParams
             .get("num");
         if (collectionNum == "1") {
             this.topic = __WEBPACK_IMPORTED_MODULE_3__quiz_questions__["a" /* topic1 */];
+            this.topicTitle = "topic1";
         }
         else if (collectionNum == "2") {
             this.topic = __WEBPACK_IMPORTED_MODULE_3__quiz_questions__["b" /* topic2 */];
+            this.topicTitle = "topic2";
         }
         this.btnStyle = "";
         this.quizScore = 0;
@@ -246,7 +248,7 @@ var QuizPage = /** @class */ (function () {
     };
     QuizPage.prototype.checkAnswer = function (e, i, option) {
         var _this = this;
-        this.topicAchievement[i] = option.points;
+        this.questionScore[i] = option.points;
         this.quizScore += Number(option.points);
         //user answer question correctly
         if (option.isAnswer) {
@@ -281,7 +283,7 @@ var QuizPage = /** @class */ (function () {
             else {
                 _this
                     .userApi
-                    .updateUserAchievement(_this.currentUser.email, _this.topic.collectionName, _this.topicAchievement);
+                    .updateUserAchievement(_this.currentUser, _this.quizScore, _this.questionScore, _this.topicTitle);
                 _this.showResultPage();
                 _this
                     .nativeAudio
@@ -386,9 +388,10 @@ var UserProvider = /** @class */ (function () {
     function UserProvider(db, auth) {
         this.db = db;
         this.auth = auth;
-        this.$userKey = '-LJQWTMmX4pGYa0zDFON';
+        this.$userKey = '-LJU-nVcB4Jp-UXcA6dE';
         this.userList = this.db.list('/users');
         this.userAchievementList = this.db.list('/userAchievementList');
+        this.totalScore = 0;
     }
     UserProvider.prototype.getUsers = function () {
         return this.userList;
@@ -402,25 +405,47 @@ var UserProvider = /** @class */ (function () {
         });
     };
     UserProvider.prototype.updateUser = function (user) {
-        // console.log(user.$key)
         this.userList.update(this.$userKey, {
             name: user.name,
             email: user.email,
             password: user.password,
-            badge: user.badge
+            badge: user.badge,
+            totalScore: user.totalScore,
+            topic1: user.topic1,
+            topic2: user.topic2,
+            topic3: user.topic3,
+            topic4: user.topic4,
+            topic5: user.topic5,
         });
     };
-    UserProvider.prototype.updateUserAchievement = function (email, collectionName, topicAchievement) {
-        this.userAchievementList.push({
-            email: email,
-            topicAchievement: {
-                collectionName: collectionName,
-                achievement: topicAchievement
+    UserProvider.prototype.updateUserAchievement = function (currentUser, quizScore, questionScore, topicTitle) {
+        var user = currentUser;
+        var preTotalScore = currentUser.totalScore;
+        var preTopicScores = currentUser[topicTitle];
+        var temp = 0;
+        console.log("preTopicScores");
+        console.log(preTopicScores);
+        console.log("questionScore");
+        console.log(questionScore);
+        for (var i = 0; i < questionScore.length; i++) {
+            if (preTopicScores[i] > questionScore[i]) {
+                temp += preTopicScores[i];
             }
-        });
-    };
-    UserProvider.prototype.deleteUser = function ($key) {
-        this.userList.remove($key);
+            else {
+                temp += questionScore[i];
+            }
+        }
+        console.log("temp");
+        console.log(temp);
+        if (temp > preTotalScore) {
+            user.totalScore = temp;
+        }
+        else {
+            user.totalScore = preTotalScore;
+        }
+        console.log("ser.totalScore");
+        console.log(user.totalScore);
+        this.updateUser(user);
     };
     UserProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
