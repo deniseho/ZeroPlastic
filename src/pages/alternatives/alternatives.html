@@ -1,0 +1,41 @@
+<ion-header>
+  <custom-nav-bar></custom-nav-bar>
+</ion-header>
+
+<ion-content>
+  <div class="alternativeMenu">
+    <div>
+      <ion-icon name="basket"></ion-icon>
+    </div>
+    <div>
+      <ion-icon name="beer"></ion-icon>
+    </div>
+    <div>
+      <ion-icon name="restaurant"></ion-icon>
+    </div>
+    <div>
+      <ion-icon name="football"></ion-icon>
+    </div>
+  </div>
+  
+  <div class="header-image" on-swipe-up="onSwipeUp()" parallax-header>
+    <img src="../../assets//imgs/plastic-bag.jpg">
+  </div>
+
+  <content-drawer class="main-content" [options]="drawerOptions">
+    <div class="content">
+      <ion-slides>
+        <ion-slide>
+          <h1>Alternative 1</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Alternative 2</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Alternative 3</h1>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </content-drawer>
+  
+</ion-content>

@@ -7,7 +7,8 @@ import {
   Content,
   ViewController,
   Events,
-  NavParams
+  NavParams,
+  Platform
 } from 'ionic-angular';
 import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
@@ -27,7 +28,7 @@ export class TopicOnePage {
   quizScore : number;
   quizButtonText : string;
 
-  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider, private userApi : UserProvider) {
+  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, public platform: Platform, private auth : AuthServiceProvider, private userApi : UserProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
 
     //todo: check if the score exists from db
