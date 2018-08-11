@@ -663,7 +663,7 @@ var AlternativesPage = /** @class */ (function () {
     };
     AlternativesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'<ion-header>\n  <custom-nav-bar></custom-nav-bar>\n</ion-header>\n\n<!-- <ion-content parallax-header>\n  <div class="alternativeMenu">\n    <div>\n      <ion-icon name="basket"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="beer"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="restaurant"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="football"></ion-icon>\n    </div>\n  </div>\n\n  <div class="header-image">\n    <img src="../../assets//imgs/plastic-bag.jpg">\n  </div>\n\n  <content-drawer class="main-content" [options]="drawerOptions">\n    <div class="content">\n      <ion-slides>\n        <ion-slide>\n          <h1>Alternative 1</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 2</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 3</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n      </ion-slides>\n    </div>\n  </content-drawer>\n\n</ion-content> -->\n\n\n\n<ion-content>\n  <div class="alternativeMenu">\n    <div>\n      <ion-icon name="basket"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="beer"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="restaurant"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="football"></ion-icon>\n    </div>\n  </div>\n\n  <ion-content text-center parallax-header>\n    <div class="img header-image">\n      <img src="../../assets//imgs/plastic-bag.jpg">\n    </div>\n      <div class="main-content">\n        <ion-slides>\n          <ion-slide>\n            <h1>Alternative 1</h1>\n            <div class="img">\n              <img src="../../assets//imgs/canvas-bag.jpg">\n            </div>\n          </ion-slide>\n          <ion-slide>\n            <h1>Alternative 2</h1>\n            <div class="img">\n              <img src="../../assets//imgs/canvas-bag.jpg">\n            </div>\n          </ion-slide>\n          <ion-slide>\n            <h1>Alternative 3</h1>\n            <div class="img">\n              <img src="../../assets//imgs/canvas-bag.jpg">\n            </div>\n          </ion-slide>\n        </ion-slides>\n        </div>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/,
+            selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'<ion-header>\n  <custom-nav-bar></custom-nav-bar>\n</ion-header>\n\n<!-- <ion-content parallax-header>\n  <div class="alternativeMenu">\n    <div>\n      <ion-icon name="basket"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="beer"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="restaurant"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="football"></ion-icon>\n    </div>\n  </div>\n\n  <div class="header-image">\n    <img src="../../assets//imgs/plastic-bag.jpg">\n  </div>\n\n  <content-drawer class="main-content" [options]="drawerOptions">\n    <div class="content">\n      <ion-slides>\n        <ion-slide>\n          <h1>Alternative 1</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 2</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 3</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n      </ion-slides>\n    </div>\n  </content-drawer>\n\n</ion-content> -->\n\n\n<ion-content text-center parallax-header>\n  <div class="alternativeMenu">\n    <div>\n      <ion-icon name="basket"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="beer"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="restaurant"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="football"></ion-icon>\n    </div>\n  </div>\n  <div class="img header-image">\n    <img src="../../assets//imgs/plastic-bag.jpg">\n  </div>\n  <div class="main-content">\n    <div class="altBoxArrow">\n      <ion-icon name="ios-arrow-down"></ion-icon>\n    </div>\n    <ion-slides>\n      <ion-slide>\n        <h1>Alternative 1</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 2</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 3</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
     ], AlternativesPage);
@@ -2529,13 +2529,22 @@ var ParallaxHeaderDirective = /** @class */ (function () {
         this.platform = platform;
     }
     ParallaxHeaderDirective.prototype.ngOnInit = function () {
-        var content = this.element.nativeElement.getElementsByClassName('scroll-content')[0];
+        var content = this
+            .element
+            .nativeElement
+            .getElementsByClassName('scroll-content')[0];
         this.header = content.getElementsByClassName('header-image')[0];
         var mainContent = content.getElementsByClassName('main-content')[0];
         this.headerHeight = this.header.clientHeight;
-        this.renderer.setElementStyle(this.header, 'webkitTransformOrigin', 'center bottom');
-        this.renderer.setElementStyle(this.header, 'background-size', 'cover');
-        this.renderer.setElementStyle(mainContent, 'position', 'absolute');
+        this
+            .renderer
+            .setElementStyle(this.header, 'webkitTransformOrigin', 'center bottom');
+        this
+            .renderer
+            .setElementStyle(this.header, 'background-size', 'cover');
+        this
+            .renderer
+            .setElementStyle(mainContent, 'position', 'absolute');
     };
     ParallaxHeaderDirective.prototype.onWindowResize = function (ev) {
         this.headerHeight = this.header.clientHeight;
@@ -2547,19 +2556,24 @@ var ParallaxHeaderDirective = /** @class */ (function () {
         });
     };
     ParallaxHeaderDirective.prototype.updateParallaxHeader = function (ev) {
-        console.log("ev.scrollTop: " + ev.scrollTop);
-        console.log("this.platform.height: " + this.platform.height());
-        console.log("this.headerHeight: " + this.headerHeight);
-        console.log("this.header: " + this.header);
         if (ev.scrollTop >= 0) {
             this.translateAmt = ev.scrollTop / 2;
             this.scaleAmt = 1;
+            var rotated = false;
+            var div = document.getElementsByName('ios-arrow-down')[0], deg = rotated
+                ? 0
+                : 180;
+            div.style.webkitTransform = 'rotate(' + deg + 'deg)';
+            div.style.transform = 'rotate(' + deg + 'deg)';
+            rotated = !rotated;
         }
         else {
             this.translateAmt = 0;
             this.scaleAmt = -ev.scrollTop / this.headerHeight + 1;
         }
-        this.renderer.setElementStyle(this.header, 'webkitTransform', 'translate3d(0,' + this.translateAmt + 'px,0) scale(' + this.scaleAmt + ',' + this.scaleAmt + ')');
+        this
+            .renderer
+            .setElementStyle(this.header, 'webkitTransform', 'translate3d(0,' + this.translateAmt + 'px,0) scale(' + this.scaleAmt + ',' + this.scaleAmt + ')');
     };
     ParallaxHeaderDirective = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({

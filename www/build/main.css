@@ -60530,7 +60530,7 @@ page-alternatives .alternativeMenu > div {
 }
 
 page-alternatives .img.header-image {
-  height: 80vh;
+  height: 60vh;
 }
 
 page-alternatives .img {
@@ -60541,6 +60541,13 @@ page-alternatives .main-content {
   width: 100%;
   height: 100vh;
   background-color: lightblue;
+}
+
+page-alternatives .altBoxArrow {
+  position: absolute;
+  width: 100%;
+  padding-top: 3em;
+  font-size: 25px;
 }
 
 custom-nav-bar .logo_properties {
