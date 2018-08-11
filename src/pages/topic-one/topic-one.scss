@@ -30,78 +30,6 @@ page-topic-one {
        width: fit-content !important;
    }
 
-  .container-slides-content {
-    margin: auto;
-    width: 95%;
-  }
-
-  .slide-title-main {
-    color: #4747C2;
-    font-size: 30px;
-    font-weight: normal;
-  }
-
-  .slide-title2-main {
-    color: #4747C2;
-    margin-top: -15px;
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 25px;
-  }
-
-  //reusable
-
-  .line-separator-short {
-    height:1px;
-    border-bottom:2px solid #FEAA48;
-    width: 80px;
-    margin: auto;
-  }
-
-  .line-separator-long {
-    height:1px;
-    border-bottom:2px solid #FEAA48;
-    width: 90%;
-    margin: auto;
-  }
-
-  .slide-subtitle {
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 22px;
-    line-height: 29px;
-    font-weight: bold;
-    padding: 0 10px 0 10px;
-    margin-top: 25px;
-  }
-
-  p {
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 16px;
-    line-height: 20px;
-    padding: 0 10px 0 10px;
-    margin-top: -5px;
-  }
-
-  .arrow-up-style {
-    position: absolute;
-    top: 20px;
-    font-size: 30px;
-    color: rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-
-  .arrow-down-style {
-    position: absolute;
-    bottom: 20px;
-    font-size: 30px;
-    color: rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-
-  .icon_property {
-    margin-bottom: 25px;
-  }
-
    ion-slide{
         overflow: auto;
    }
@@ -118,8 +46,161 @@ page-topic-one {
        height: 106px;
    }
 
-   ion-item{
-        height: 95vh;
-   }
-  
+   //ion-item{
+   //     height: 95vh;
+   //}
+
+  //Elenia-temp
+
+  .slide-title-main {
+    color: #4747C2;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .slide-title2-main {
+    color: #4747C2;
+    margin-top: -15px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .arrow-up-style {
+    position: fixed;
+    top: 20px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .arrow-down-style {
+    position: fixed;
+    bottom: 20px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .slide-subtitle-secondary {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 45px;
+    line-height: 29px;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    margin-top: 25px;
+  }
+
+  .slide-subtitle2-secondary {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    margin-top: 0;
+  }
+
+  .container-slides-content {
+    height: 95vh;
+    text-align: center;
+    padding: 10px;
+    display: table;
+  }
+
+  .vertical-center{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 15px 0 15px;
+  }
+
+  .line-separator-short {
+    height:1px;
+    border-bottom:2px solid #FEAA48;
+    width: 80px;
+    margin: auto;
+  }
+
+  .line-separator-long {
+    height:1px;
+    border-bottom:2px solid #FEAA48;
+    width: 90%;
+    margin: auto;
+  }
+
+  .subtitle-small {
+    margin: 20px 0 -15px 0;
+  }
+
+  .slide-subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    margin-top: 30px;
+  }
+
+  .slide-subtitle-line-before{
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 15px 0 15px;
+    margin-top: 0;
+  }
+
+  .p_line_before{
+    margin-top: 20px;
+  }
+
+  .icon_property {
+    //margin-bottom: 25px;
+  }
+
+  .infographics-image {
+    margin: -5px 0 5px 0;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .icon_secondary_property {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .icon_property {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .icon_property_coins {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0 -20px 0;
+  }
+
+  .sea-gradient-wrapper {
+    position: relative;
+
+  }
+
+  .sea-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .sea-bg-gradient {
+    background: linear-gradient(#E7F7F9, #82E0EF, #24337A);
+  }
+
 }

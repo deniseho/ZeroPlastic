@@ -27,7 +27,7 @@ export class TopicOnePage {
   quizButtonText : string;
 
   constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
-    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+    this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
 
     //check if the score exists
     let score = this
