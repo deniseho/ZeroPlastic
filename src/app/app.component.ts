@@ -28,8 +28,8 @@ export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  // rootPage = LoginPage;
-  rootPage = AlternativesPage;
+  rootPage = LoginPage;
+  // rootPage = AlternativesPage;
   
   pages: Array<{title: string, component: any, avatar: string}>;
   
