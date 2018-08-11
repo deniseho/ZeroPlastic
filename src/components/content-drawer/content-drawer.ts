@@ -36,7 +36,7 @@ export class ContentDrawerComponent {
       this.thresholdTop = this.options.thresholdFromTop;
     }
  
-    this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight+100) + 'px');
+    this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight+90) + 'px');
     this.renderer.setElementStyle(this.element.nativeElement, 'padding-top', this.handleHeight + 'px');
  
     let hammer = new window['Hammer'](this.element.nativeElement);
@@ -75,7 +75,7 @@ export class ContentDrawerComponent {
  
       this.domCtrl.write(() => {
         this.renderer.setElementStyle(this.element.nativeElement, 'transition', 'top 0.5s');
-        this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - this.handleHeight + 'px');
+        this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight+90) + 'px');
       });
  
     } else {

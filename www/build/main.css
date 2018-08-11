@@ -60513,34 +60513,34 @@ ion-navbar.toolbar {
   min-height: 46px;
 }
 
-page-alternatives content-drawer {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 100 !important;
-  -webkit-box-shadow: 0px -4px 22px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px -4px 22px -8px rgba(0, 0, 0, 0.75);
-  background-color: #34495e !important;
-}
-
-page-alternatives content-drawer .content {
-  padding: 20px;
-  background: lightblue;
-}
-
 page-alternatives .alternativeMenu {
   text-align: center;
-  position: fixed;
+  background: white;
+  z-index: 10 !important;
 }
 
 page-alternatives .alternativeMenu > div {
-  background: lightsteelblue;
   display: inline-block;
   text-align: center;
   padding: 20px 30px;
   width: 24%;
-  color: white;
+  color: lightsteelblue;
   font-size: 28px;
+  border: 1px solid lightsteelblue;
+}
+
+page-alternatives .img.header-image {
+  height: 80vh;
+}
+
+page-alternatives .img {
+  width: 100%;
+}
+
+page-alternatives .main-content {
+  width: 100%;
+  height: 100vh;
+  background-color: lightblue;
 }
 
 custom-nav-bar .logo_properties {
