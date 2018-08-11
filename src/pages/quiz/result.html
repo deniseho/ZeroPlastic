@@ -6,15 +6,15 @@
             Result
         </ion-title>
         <ion-buttons start>
-cancceñ
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <h1>Your score: {{score}}</h1>
-    <h1 *ngIf='badge'>Badge: {{badge.title}}</h1>
-    <img *ngIf='badge'[src]='badge.imgUrl'>
+    <h1>Quiz score: {{quizScore}}</h1>
+    <h1>Total score: {{totalScore}}</h1>
+    <!-- <h1 *ngIf='badge'>Badge: {{badge.title}}</h1>
+    <img *ngIf='badge'[src]='badge.imgUrl'> -->
     <button ion-button (click)="close()">
         <span ion-text>Confirm</span>
     </button>

@@ -4,14 +4,13 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase} from 'angularfire2/database';
 import * as _ from 'lodash';
-import {User, Achievement} from './User';
-
+import {User} from './User';
 
 @Injectable()
 export class AuthServiceProvider {
   currentUser : User;
   allUsers : any;
-  baseUrl: string = "https://plastic-ocean.firebaseio.com";
+  baseUrl : string = "https://plastic-ocean.firebaseio.com";
 
   constructor(public http : Http, public db : AngularFireDatabase) {
     this
@@ -20,7 +19,7 @@ export class AuthServiceProvider {
         this.allUsers = data;
       });
 
-      console.log(new Achievement())
+    console.log(this.currentUser)
   }
 
   ionViewDidLoad() {}
@@ -43,7 +42,17 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      let newUser = new User(credentials.name, credentials.email, credentials.password, new Achievement(), "Novice");
+      let newUser = new User(credentials.name, credentials.email, credentials.password, "Novice", 0, [
+        0, 0, 0, 0, 0
+      ], [
+        0, 0, 0, 0, 0
+      ], [
+        0, 0, 0, 0, 0
+      ], [
+        0, 0, 0, 0, 0
+      ], [
+        0, 0, 0, 0, 0
+      ],);
 
       this
         .db
@@ -57,7 +66,6 @@ export class AuthServiceProvider {
     });
   }
 
-  
   logout() {
     return Observable.create(observer => {
       this.currentUser = null;
@@ -76,5 +84,5 @@ export class AuthServiceProvider {
   }
 
   getCurrentUser() : User {return this.currentUser;}
-  
+
 }

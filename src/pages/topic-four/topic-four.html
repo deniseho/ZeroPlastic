@@ -23,6 +23,9 @@
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <ion-slide>
             <h1>Problem Take action</h1>
+            <div>
+                <button ion-button (click)="gotoAlternatives()">Alternatives</button>
+            </div>
         </ion-slide>
         <ion-slide>
             <h1>Cause</h1>

@@ -3,8 +3,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { SQLite } from '@ionic-native/sqlite';
 import { MyApp } from './app.component';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TopicOnePage } from '../pages/topic-one/topic-one';
@@ -32,14 +30,16 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { MnFullpageModule } from 'ngx-fullpage';
 import * as $ from 'jquery';
+import { UserProvider } from '../providers/user-service/user-service';
+import { AlternativesPage } from '../pages/alternatives/alternatives';
+import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
+import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 
 @NgModule({
   declarations: [
     MyApp,
     CustomNavBarPage,
     TopicMenu,
-    ItemDetailsPage,
-    ListPage,
     LoginPage,
     RegisterPage,
     TopicOnePage,
@@ -52,7 +52,10 @@ import * as $ from 'jquery';
     AchievementPage,
     GamePage,
     QuizPage,
-    QuizResultPage
+    QuizResultPage,
+    AlternativesPage,
+    ContentDrawerComponent,
+    ParallaxHeaderDirective
   ],
   imports: [
     BrowserModule,
@@ -69,8 +72,6 @@ import * as $ from 'jquery';
     MyApp,
     CustomNavBarPage,
     TopicMenu,
-    ItemDetailsPage,
-    ListPage,
     LoginPage,
     RegisterPage,
     TopicOnePage,
@@ -83,7 +84,8 @@ import * as $ from 'jquery';
     AchievementPage,
     GamePage,
     QuizPage,
-    QuizResultPage
+    QuizResultPage,
+    AlternativesPage
 ],
   providers: [
     StatusBar,
@@ -92,6 +94,7 @@ import * as $ from 'jquery';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     NativeAudio,
+    UserProvider,
   ]
 })
 export class AppModule {}

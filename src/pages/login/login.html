@@ -22,7 +22,7 @@
   </ion-row>
 
   <div>
-    <form (ngSubmit)="login()" #registerForm="ngForm">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
 
       <ion-row>
         <ion-col>
@@ -39,7 +39,7 @@
 
       <ion-row>
         <ion-col>
-          <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Login</button>
+          <button ion-button full type="submit" [disabled]="!loginForm.form.valid">Login</button>
           <button ion-button block clear type="button" (click)="createAccount()">Create New Account</button>
         </ion-col>
       </ion-row>

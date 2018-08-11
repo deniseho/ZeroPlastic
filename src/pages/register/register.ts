@@ -13,9 +13,9 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 export class RegisterPage {
   createSuccess = false;
   registerCredentials = {
-    name: '',
-    email: '',
-    password: ''
+    name: 'Chia',
+    email: 'hoc2@tcd.ie',
+    password: 'deniseho'
   };
 
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private alertCtrl : AlertController) {}
@@ -25,7 +25,14 @@ export class RegisterPage {
   }
 
   register() {
-    this
+    if(this.registerCredentials.name==''||this.registerCredentials.name==null||this.registerCredentials.name==undefined){
+      this.showPopup("Error", "Please enter your name.");
+    }else if(this.registerCredentials.email==''||this.registerCredentials.email==null||this.registerCredentials.email==undefined){
+      this.showPopup("Error", "Please enter your email.");
+    }else if(this.registerCredentials.password==''||this.registerCredentials.password==null||this.registerCredentials.password==undefined){
+      this.showPopup("Error", "Please enter your password.");
+    }else{
+      this
       .auth
       .register(this.registerCredentials)
       .subscribe(success => {
@@ -36,6 +43,7 @@ export class RegisterPage {
           this.showPopup("Error", "Problem creating account.");
         }
       })
+    }
   }
   showPopup(title : string, text : string) {
     let alert = this.alertCtrl.create({

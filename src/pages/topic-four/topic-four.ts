@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
 import { GamePage } from '../game/game';
+import { AlternativesPage } from '../alternatives/alternatives';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
@@ -48,5 +49,9 @@ export class TopicFourPage {
   
   gotoGamePage(){
     this.navCtrl.push(GamePage);
+  }
+
+  gotoAlternatives(){
+    this.navCtrl.push(AlternativesPage);
   }
 }

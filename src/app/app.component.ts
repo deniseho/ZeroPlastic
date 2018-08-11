@@ -3,7 +3,6 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { Platform, MenuController, Nav, NavController } from 'ionic-angular';
 
 import { TopicMenu } from '../pages/topic-menu/topic-menu';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,6 +16,7 @@ import { GamePage } from '../pages/game/game';
 import { QuizPage } from '../pages/quiz/quiz';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { AlternativesPage } from '../pages/alternatives/alternatives';
 
 import 'jquery'; // Import jQuery
 import 'fullpage.js'; // Import fullpage.js
@@ -28,8 +28,8 @@ export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  // rootPage = TopicMenu;
-  rootPage = LoginPage;
+  // rootPage = LoginPage;
+  rootPage = AlternativesPage;
   
   pages: Array<{title: string, component: any, avatar: string}>;
   
