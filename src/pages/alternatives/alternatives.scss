@@ -1,35 +1,19 @@
 page-alternatives {
-    // content-drawer {
-    //     width: 100%;
-    //     height: 100%;
-    //     position: absolute;
-    //     z-index: 100 !important;
-    //     box-shadow: 0px -4px 22px -8px rgba(0,0,0,0.75);
-    //     background-color: #34495e !important;
-    // }
-
-    // content-drawer .content {
-    //     padding: 20px;   
-    //     background: lightblue;
-    // }
-
     .alternativeMenu{
         text-align: center;
         background: white;
-        // position: fixed;
         z-index: 10 !important;
-        // transform: translateY(8px);
+        padding: 20px 0 !important;
     }
 
-    .alternativeMenu > div{
-        display: inline-block;
-        text-align: center;
-        padding: 20px 30px;
-        width: 24%;
-        color: lightsteelblue;
-        font-size: 28px;
-        border: 1px solid lightsteelblue;
+    .alternativeMenu > button{
+        padding: 20px 10px !important;
     }    
+
+    .alternativeMenu > button.active{
+        color: white;
+        background-color: #2CBFA6;
+    }
 
     .img.header-image{
         height: 60vh;
@@ -46,7 +30,7 @@ page-alternatives {
     .altBoxArrow{
         position: absolute;
         width: 100%;
-        padding-top: 3em;        
+        padding-top: 2.5em;        
         font-size: 25px;
     }
 }

@@ -54,20 +54,16 @@ export class ParallaxHeaderDirective {
   }
 
   updateParallaxHeader(ev) {
+    var div = document.getElementsByName('ios-arrow-down')[0];
+
     if (ev.scrollTop >= 0) {
       this.translateAmt = ev.scrollTop / 2;
       this.scaleAmt = 1;
-      
-      var rotated = false;
-      var div = document.getElementsByName('ios-arrow-down')[0],
-        deg = rotated
-          ? 0
-          : 180;
+      this.rotate(180, 0);
 
-      div.style.webkitTransform = 'rotate(' + deg + 'deg)';
-      div.style.transform = 'rotate(' + deg + 'deg)';
-
-      rotated = !rotated;
+      if (ev.scrollTop > 250) {
+        this.rotate(0, 180);
+      }
     } else {
       this.translateAmt = 0;
       this.scaleAmt = -ev.scrollTop / this.headerHeight + 1;
@@ -77,6 +73,20 @@ export class ParallaxHeaderDirective {
       .renderer
       .setElementStyle(this.header, 'webkitTransform', 'translate3d(0,' + this.translateAmt + 'px,0) scale(' + this.scaleAmt + ',' + this.scaleAmt + ')');
 
+  }
+
+  rotate(start, end) {
+    var div = document.getElementsByName('ios-arrow-down')[0];
+    var rotated = false,
+      deg = rotated
+        ? start
+        : end;
+
+    div.style.webkitTransform = 'rotate(' + deg + 'deg)';
+    div.style.transform = 'rotate(' + deg + 'deg)';
+    div.style.transition = 'linear 0.3s';
+
+    rotated = !rotated;
   }
 
 }

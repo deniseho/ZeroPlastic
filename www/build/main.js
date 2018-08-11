@@ -629,6 +629,8 @@ var TopicThreePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlternativesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__(916);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -640,13 +642,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the AlternativePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-// @IonicPage()
+
 var AlternativesPage = /** @class */ (function () {
     function AlternativesPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
@@ -659,15 +655,20 @@ var AlternativesPage = /** @class */ (function () {
         };
     }
     AlternativesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AlternativesPage');
+    };
+    AlternativesPage.prototype.selectAltItem = function (e) {
+        __WEBPACK_IMPORTED_MODULE_2_jquery__('.alternativeMenu > *').removeClass('active');
+        __WEBPACK_IMPORTED_MODULE_2_jquery__(e.target).addClass("active");
+        console.log(e.target.name);
     };
     AlternativesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'<ion-header>\n  <custom-nav-bar></custom-nav-bar>\n</ion-header>\n\n<!-- <ion-content parallax-header>\n  <div class="alternativeMenu">\n    <div>\n      <ion-icon name="basket"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="beer"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="restaurant"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="football"></ion-icon>\n    </div>\n  </div>\n\n  <div class="header-image">\n    <img src="../../assets//imgs/plastic-bag.jpg">\n  </div>\n\n  <content-drawer class="main-content" [options]="drawerOptions">\n    <div class="content">\n      <ion-slides>\n        <ion-slide>\n          <h1>Alternative 1</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 2</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 3</h1>\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </ion-slide>\n      </ion-slides>\n    </div>\n  </content-drawer>\n\n</ion-content> -->\n\n\n<ion-content text-center parallax-header>\n  <div class="alternativeMenu">\n    <div>\n      <ion-icon name="basket"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="beer"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="restaurant"></ion-icon>\n    </div>\n    <div>\n      <ion-icon name="football"></ion-icon>\n    </div>\n  </div>\n  <div class="img header-image">\n    <img src="../../assets//imgs/plastic-bag.jpg">\n  </div>\n  <div class="main-content">\n    <div class="altBoxArrow">\n      <ion-icon name="ios-arrow-down"></ion-icon>\n    </div>\n    <ion-slides>\n      <ion-slide>\n        <h1>Alternative 1</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 2</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 3</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/,
+            selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n<ion-content text-center parallax-header>\n  <div class="alternativeMenu" (click)="selectAltItem($event)">\n    <button ion-button outline icon-only name="basket" class="active">\n      <ion-icon name="basket"></ion-icon>\n    </button>\n    <button ion-button outline icon-only name="beer">\n      <ion-icon name="beer"></ion-icon>\n    </button>\n    <button ion-button outline icon-only name="restaurant">\n      <ion-icon name="restaurant"></ion-icon>\n    </button>\n    <button ion-button outline icon-only name="football">\n      <ion-icon name="football"></ion-icon>\n    </button>\n  </div>\n\n  <div class="img header-image">\n    <img src="../../assets//imgs/plastic-bag.jpg">\n  </div>\n  <div class="main-content">\n    <div class="altBoxArrow">\n      <ion-icon name="ios-arrow-down"></ion-icon>\n    </div>\n    <ion-slides>\n      <ion-slide>\n        <h1>Alternative 1</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 2</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 3</h1>\n        <div class="img">\n          <img src="../../assets//imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object])
     ], AlternativesPage);
     return AlternativesPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=alternatives.js.map
@@ -2529,22 +2530,13 @@ var ParallaxHeaderDirective = /** @class */ (function () {
         this.platform = platform;
     }
     ParallaxHeaderDirective.prototype.ngOnInit = function () {
-        var content = this
-            .element
-            .nativeElement
-            .getElementsByClassName('scroll-content')[0];
+        var content = this.element.nativeElement.getElementsByClassName('scroll-content')[0];
         this.header = content.getElementsByClassName('header-image')[0];
         var mainContent = content.getElementsByClassName('main-content')[0];
         this.headerHeight = this.header.clientHeight;
-        this
-            .renderer
-            .setElementStyle(this.header, 'webkitTransformOrigin', 'center bottom');
-        this
-            .renderer
-            .setElementStyle(this.header, 'background-size', 'cover');
-        this
-            .renderer
-            .setElementStyle(mainContent, 'position', 'absolute');
+        this.renderer.setElementStyle(this.header, 'webkitTransformOrigin', 'center bottom');
+        this.renderer.setElementStyle(this.header, 'background-size', 'cover');
+        this.renderer.setElementStyle(mainContent, 'position', 'absolute');
     };
     ParallaxHeaderDirective.prototype.onWindowResize = function (ev) {
         this.headerHeight = this.header.clientHeight;
@@ -2556,24 +2548,18 @@ var ParallaxHeaderDirective = /** @class */ (function () {
         });
     };
     ParallaxHeaderDirective.prototype.updateParallaxHeader = function (ev) {
+        console.log("ev.scrollTop: " + ev.scrollTop);
+        console.log("this.platform.height: " + this.platform.height());
+        console.log("this.headerHeight: " + this.headerHeight);
         if (ev.scrollTop >= 0) {
             this.translateAmt = ev.scrollTop / 2;
             this.scaleAmt = 1;
-            var rotated = false;
-            var div = document.getElementsByName('ios-arrow-down')[0], deg = rotated
-                ? 0
-                : 180;
-            div.style.webkitTransform = 'rotate(' + deg + 'deg)';
-            div.style.transform = 'rotate(' + deg + 'deg)';
-            rotated = !rotated;
         }
         else {
             this.translateAmt = 0;
             this.scaleAmt = -ev.scrollTop / this.headerHeight + 1;
         }
-        this
-            .renderer
-            .setElementStyle(this.header, 'webkitTransform', 'translate3d(0,' + this.translateAmt + 'px,0) scale(' + this.scaleAmt + ',' + this.scaleAmt + ')');
+        this.renderer.setElementStyle(this.header, 'webkitTransform', 'translate3d(0,' + this.translateAmt + 'px,0) scale(' + this.scaleAmt + ',' + this.scaleAmt + ')');
     };
     ParallaxHeaderDirective = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
@@ -2584,10 +2570,9 @@ var ParallaxHeaderDirective = /** @class */ (function () {
                 '(window:resize)': 'onWindowResize($event)'
             }
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]])
     ], ParallaxHeaderDirective);
     return ParallaxHeaderDirective;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=parallax-header.js.map

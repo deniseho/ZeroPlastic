@@ -60517,16 +60517,16 @@ page-alternatives .alternativeMenu {
   text-align: center;
   background: white;
   z-index: 10 !important;
+  padding: 20px 0 !important;
 }
 
-page-alternatives .alternativeMenu > div {
-  display: inline-block;
-  text-align: center;
-  padding: 20px 30px;
-  width: 24%;
-  color: lightsteelblue;
-  font-size: 28px;
-  border: 1px solid lightsteelblue;
+page-alternatives .alternativeMenu > button {
+  padding: 20px 10px !important;
+}
+
+page-alternatives .alternativeMenu > button.active {
+  color: white;
+  background-color: #2CBFA6;
 }
 
 page-alternatives .img.header-image {
@@ -60546,7 +60546,7 @@ page-alternatives .main-content {
 page-alternatives .altBoxArrow {
   position: absolute;
   width: 100%;
-  padding-top: 3em;
+  padding-top: 2.5em;
   font-size: 25px;
 }
 

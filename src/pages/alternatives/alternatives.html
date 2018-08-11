@@ -1,64 +1,23 @@
 <ion-header>
-  <custom-nav-bar></custom-nav-bar>
+  <ion-navbar></ion-navbar>
 </ion-header>
 
-<!-- <ion-content parallax-header>
-  <div class="alternativeMenu">
-    <div>
-      <ion-icon name="basket"></ion-icon>
-    </div>
-    <div>
-      <ion-icon name="beer"></ion-icon>
-    </div>
-    <div>
-      <ion-icon name="restaurant"></ion-icon>
-    </div>
-    <div>
-      <ion-icon name="football"></ion-icon>
-    </div>
-  </div>
-
-  <div class="header-image">
-    <img src="../../assets//imgs/plastic-bag.jpg">
-  </div>
-
-  <content-drawer class="main-content" [options]="drawerOptions">
-    <div class="content">
-      <ion-slides>
-        <ion-slide>
-          <h1>Alternative 1</h1>
-          <img src="../../assets//imgs/canvas-bag.jpg">
-        </ion-slide>
-        <ion-slide>
-          <h1>Alternative 2</h1>
-          <img src="../../assets//imgs/canvas-bag.jpg">
-        </ion-slide>
-        <ion-slide>
-          <h1>Alternative 3</h1>
-          <img src="../../assets//imgs/canvas-bag.jpg">
-        </ion-slide>
-      </ion-slides>
-    </div>
-  </content-drawer>
-
-</ion-content> -->
-
-
 <ion-content text-center parallax-header>
-  <div class="alternativeMenu">
-    <div>
+  <div class="alternativeMenu" (click)="selectAltItem($event)">
+    <button ion-button outline icon-only name="basket" class="active">
       <ion-icon name="basket"></ion-icon>
-    </div>
-    <div>
+    </button>
+    <button ion-button outline icon-only name="beer">
       <ion-icon name="beer"></ion-icon>
-    </div>
-    <div>
+    </button>
+    <button ion-button outline icon-only name="restaurant">
       <ion-icon name="restaurant"></ion-icon>
-    </div>
-    <div>
+    </button>
+    <button ion-button outline icon-only name="football">
       <ion-icon name="football"></ion-icon>
-    </div>
+    </button>
   </div>
+
   <div class="img header-image">
     <img src="../../assets//imgs/plastic-bag.jpg">
   </div>
