@@ -3,6 +3,7 @@
 </ion-header>
 
 <ion-content text-center parallax-header>
+
   <div class="alternativeMenu" (click)="selectAltItem($event)">
     <button ion-button outline icon-only name="basket" class="active">
       <ion-icon name="basket"></ion-icon>
@@ -19,13 +20,14 @@
   </div>
 
   <div class="img header-image">
-    <img src="../../assets//imgs/plastic-bag.jpg">
+    <img src="../../assets//imgs/{{selectedItemUrl}}">
   </div>
   <div class="main-content">
-    <div class="altBoxArrow">
+    <span color="secondary" text-center>Scroll down</span>
+    <div class="arrawDiv" (click)="arrawDivClick">
       <ion-icon name="ios-arrow-down"></ion-icon>
     </div>
-    <ion-slides>
+    <ion-slides pager>
       <ion-slide>
         <h1>Alternative 1</h1>
         <div class="img">
@@ -46,4 +48,5 @@
       </ion-slide>
     </ion-slides>
   </div>
+
 </ion-content>

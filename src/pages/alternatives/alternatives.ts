@@ -1,30 +1,34 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import * as $ from 'jquery';
 
-@Component({
-  selector: 'page-alternatives',
-  templateUrl: 'alternatives.html',
-})
+@Component({selector: 'page-alternatives', templateUrl: 'alternatives.html'})
 export class AlternativesPage {
-  drawerOptions: any;
+  drawerOptions : any;
+  selectedItemUrl : string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl : NavController, public navParams : NavParams) {
     this.drawerOptions = {
       handleHeight: 50,
       thresholdFromBottom: 200,
       thresholdFromTop: 200,
       bounceBack: true
-  };
+    };
+
+    this.selectedItemUrl = "plastic-bag.jpg";
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() {}
 
-  }
-
-  selectAltItem(e){
+  selectAltItem(e) {
     $('.alternativeMenu > *').removeClass('active');
     $(e.target).addClass("active");
-    console.log(e.target.name)
+    if(e.target.name=="basket"){
+      this.selectedItemUrl = "plastic-bag.jpg";
+    }else{
+      this.selectedItemUrl = "alt_bottle.jpg";
+    }
   }
+
+  arrawDivClick() {}
 }
