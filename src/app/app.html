@@ -1,29 +1,46 @@
 <ion-menu [content]="content" [swipeEnabled]="false">
 
   <ion-header>
-    <ion-toolbar>
-      <ion-title>MENU</ion-title>
-    </ion-toolbar>
+
   </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button ion-item icon-only (click)="gotoHomepage()">
-          <ion-icon name="home"></ion-icon>
-        </button>
+  <ion-content class="menu-gradient menu-bottom">
+    <!--<ion-list>-->
+      <!--<button ion-item icon-only (click)="gotoHomepage()">-->
+          <!--<ion-icon name="home"></ion-icon>-->
+        <!--</button>-->
+    <!--</ion-list>-->
+    <ion-list class="profile_section_wrapper">
+      <ion-item class="profile_section bg-color">
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/avatar_temp.png">
+        </ion-thumbnail>
+        <h2 class="points content-color">25 points</h2>
+        <p class="badges content-color">1/6 badges</p>
+        <img class="progress-bar" src="assets/imgs/progress_bar.png">
+      </ion-item>
     </ion-list>
+
     <ion-list>
-      <ion-list-header>Pages</ion-list-header>
-      <button ion-item *ngFor="let p of pages" (click)="gotoPage(p)">
-        {{p.title}}
+      <ion-list-header class="bg-color">Discover</ion-list-header>
+      <ion-item class="bg-color" ion-item *ngFor="let p of pages" (click)="gotoPage(p)">
+          <ion-avatar item-start>
+            <img class="menu-avatar" src={{p.avatar}}>
+          </ion-avatar>
+          <h2 class="content-color">{{p.title}}</h2>
+          <ion-icon item-end ios="ios=ios-arrow-forward" md="md-arrow-forward" color="gray"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <button class="log-out" ion-button color="secondary" round="" item-end icon-start (click)="logout()">
+        <ion-icon color="light" name="log-out"> </ion-icon>
+        Logout
       </button>
     </ion-list>
-    <ion-list>
-      <ion-list-header>Settings</ion-list-header>
-      <button ion-item (click)="logout()">
-        <ion-icon name="log-out"> Logout</ion-icon>
-      </button>
-    </ion-list>
+
+    <img src="assets/imgs/seaweed-2.png" class="seaweed-property">
+
   </ion-content>
 
 </ion-menu>

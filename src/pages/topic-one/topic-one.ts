@@ -28,8 +28,8 @@ export class TopicOnePage {
   quizScore : number;
   quizButtonText : string;
 
-  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, public platform: Platform, private auth : AuthServiceProvider, private userApi : UserProvider) {
-    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
+    this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
 
     //todo: check if the score exists from db
     let score = this

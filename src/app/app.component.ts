@@ -31,7 +31,7 @@ export class MyApp implements OnInit {
   // rootPage = LoginPage;
   rootPage = AlternativesPage;
   
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, avatar: string}>;
   
   public ngOnInit() {
     console.log('Initial App State');
@@ -48,11 +48,11 @@ export class MyApp implements OnInit {
 
     // set our app's pages
     this.pages = [
-      { title: 'Plastic Pollution', component: TopicOnePage },
-      { title: 'About Pollution', component: TopicTwoPage },
-      { title: 'Species Affected', component: TopicThreePage },
-      { title: 'Take Action', component: TopicFourPage },
-      { title: 'Activities', component: TopicFivePage },
+      { title: 'Plastic Pollution', component: TopicOnePage, avatar: 'assets/imgs/icn_plastic_pollution.png' },
+      { title: 'About Pollution', component: TopicTwoPage, avatar: 'assets/imgs/icn_plastics.png' },
+      { title: 'Species Affected', component: TopicThreePage, avatar: 'assets/imgs/icn_octopus.png' },
+      { title: 'Take Action', component: TopicFourPage, avatar: 'assets/imgs/icn_take_action.png' },
+      { title: 'Activities', component: TopicFivePage, avatar: 'assets/imgs/icn_activities.png' },
     ];
   }
 

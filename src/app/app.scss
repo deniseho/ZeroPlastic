@@ -14,3 +14,49 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.profile_section {
+  margin: 25px auto 40px auto;
+}
+
+.menu-gradient{
+  //background: linear-gradient(#E7F7F9, #74D7DA, #51C0CA, #3A8EA7, #175D84, #0D3867);
+  background: linear-gradient(#E7F7F9, #48C4D8, #3D57D0);
+}
+
+.seaweed-property{
+  position: absolute;
+  bottom: 0px;
+}
+
+.bg-color{
+  background-color: transparent;
+
+}
+
+.content-color, .log-out{
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.item, .item-inner {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.points {
+  padding-bottom: 10px;
+  font-weight: bold !important;
+}
+
+.progress-bar {
+  padding-bottom:6px;
+}
+
+ion-list-header {
+  border-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.log-out {
+  position: absolute;
+  left: 20px;
+  color: white !important;
+}
