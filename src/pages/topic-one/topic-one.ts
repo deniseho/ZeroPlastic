@@ -14,6 +14,7 @@ import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
+import * as $ from 'jquery';
 import {UserProvider} from '../../providers/user-service/user-service';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
