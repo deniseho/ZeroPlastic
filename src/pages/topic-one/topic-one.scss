@@ -24,6 +24,7 @@ page-topic-one {
     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
    {
        color:#3333CC !important;
+      //  border-bottom: 2px solid #3333CC !important;
    }
    .SwipedTabs-tabs
    {
@@ -197,10 +198,27 @@ page-topic-one {
     position: absolute;
     bottom: 0;
     left: 0;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+    // background-size: 50% 120px;
+    animation: move_wave 10s linear infinite;
+    
   }
 
   .sea-bg-gradient {
     background: linear-gradient(#E7F7F9, #82E0EF, #24337A);
   }
 
+  @keyframes move_wave {
+    0% {
+      transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+      transform: translateX(0) translateZ(0) scaleY(1.3)
+    }
+    100% {
+      transform: translateX(0) translateZ(0) scaleY(1)
+    }
+}
 }

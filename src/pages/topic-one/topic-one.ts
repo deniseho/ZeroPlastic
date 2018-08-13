@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, Renderer} from '@angular/core';
 import {
   IonicPage,
   NavController,
@@ -28,7 +28,7 @@ export class TopicOnePage {
   quizScore : number;
   quizButtonText : string;
 
-  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
+  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public renderer: Renderer, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
 
     //todo: check if the score exists from db
@@ -52,7 +52,8 @@ export class TopicOnePage {
   ionViewDidLoad() {}
 
   selectTab(index) {
-    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
+    // this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
+    this.renderer.setElementStyle(this.SwipedTabsIndicator, 'webkitTransform', 'translate3d(' + (100 * index) + '%,0,0)');
     this
       .scroll
       .scrollTo(index * this.tabElementWidth_px, 0, 500);
@@ -68,13 +69,15 @@ export class TopicOnePage {
 
     // this condition is to avoid passing to incorrect index
     if (this.SwipedTabsSlider.length() > this.SwipedTabsSlider.getActiveIndex()) {
-      this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)';
+      this.renderer.setElementStyle(this.SwipedTabsIndicator, 'webkitTransform', 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)');
+      // this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)';
     }
   }
 
   animateIndicator($event) {
     if (this.SwipedTabsIndicator) 
-      this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
+      this.renderer.setElementStyle(this.SwipedTabsIndicator, 'webkitTransform', 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)');
+      // this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
   
   startQuiz(num) {
