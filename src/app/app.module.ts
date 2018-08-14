@@ -33,6 +33,7 @@ import { AlternativesPage } from '../pages/alternatives/alternatives';
 import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 import { ToastServiceProvider } from '../providers/toast-service/toast-service';
+import { BadgesPipe } from '../pipes/badges/badges';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ToastServiceProvider } from '../providers/toast-service/toast-service';
     QuizResultPage,
     AlternativesPage,
     ContentDrawerComponent,
-    ParallaxHeaderDirective
+    ParallaxHeaderDirective,
+    BadgesPipe
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,7 @@ import { ToastServiceProvider } from '../providers/toast-service/toast-service';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    MnFullpageModule.forRoot()
+    MnFullpageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

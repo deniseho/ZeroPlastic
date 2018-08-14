@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import {badges} from '../quiz/badges';
 import {User} from '../../providers/auth-service/User';
 
 @Component({selector: 'page-achievement', templateUrl: 'achievement.html'})
@@ -17,15 +16,11 @@ export class AchievementPage {
 
   badgeRecord : number[];
 
-  badgeList : any[];
-
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider) {
     this.currentUser = this
       .auth
       .getCurrentUser();
 
-    this.badgeList = badges;
-    this.badgeRecord = [0, 0, 0, 0, 0];
   }
 
   ionViewDidLoad() {
