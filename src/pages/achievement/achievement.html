@@ -10,10 +10,8 @@
 <h3>Name: {{currentUser.name}}</h3>
 <h4>Email: {{currentUser.email}}</h4>
 <h4>Badge: </h4>
-<div>badge1-{{badge1?true:false}}</div>
-<div>badge2-{{badge2?true:false}}</div>
-<div>badge3-{{badge3?true:false}}</div>
-<div>badge4-{{badge4?true:false}}</div>
-<div>badge5-{{badge5?true:false}}</div>
+<p *ngFor="let item of badgeRecord">
+  {{item==1?'achieve':'not yet'}}
+</p>
 <h4>Total Score: {{currentUser.totalScore}}</h4>
 </ion-content>
