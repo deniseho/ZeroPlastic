@@ -19,18 +19,27 @@ export class GamePage {
   constructor(public navCtrl : NavController, public alertCtrl : AlertController, private nativeAudio : NativeAudio) {}
 
   playGame() {
-    let self = this;
-    self.gamePlay = !self.gamePlay;
-    if (self.gamePlay) {
-      self
-        .app
-        .ticker
-        .start();
+    this.gamePlay = true;
+    this
+      .app
+      .ticker
+      .start();
+  }
+
+  stopGame() {
+    this.gamePlay = false;
+    this
+      .app
+      .ticker
+      .stop();
+  }
+
+  toggleGame(){
+    this.gamePlay = !this.gamePlay;
+    if (this.gamePlay) {
+      this.playGame()
     } else {
-      self
-        .app
-        .ticker
-        .stop();
+      this.stopGame();
     }
   }
 
@@ -298,43 +307,64 @@ export class GamePage {
         .fromImage('assets/imgs/trash.svg');
 
       var bins = new PIXI.Sprite(texture);
-      bins.anchor.set(0.5, 0.7);
-      bins.scale.set(1.2);
-      bins.x = this.app.screen.width/2;
+      bins
+        .anchor
+        .set(0.5, 0.7);
+      bins
+        .scale
+        .set(1.2);
+      bins.x = this.app.screen.width / 2;
       bins.y = this.app.screen.height;
-      
+
       container.addChild(bins);
-      
+
       this
-      .app
-      .stage
-      .addChild(container);
+        .app
+        .stage
+        .addChild(container);
 
-      // let graphics = new PIXI.Graphics();
-      // graphics.lineStyle(1);
-      // graphics.beginFill(0xFF0000, 0.7);
-      // graphics.drawRect(0, self.app.screen.height - 100, self.app.screen.width / 2, 100);
-      // graphics.endFill();
-      // graphics.lineStyle(1);
-      // graphics.beginFill(0x33FF00, 0.7);
-      // graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 100, self.app.screen.width / 2, 100);
-      // graphics.endFill();
-
-      // self
-      //   .app
-      //   .stage
-      //   .addChild(graphics);
+      // let graphics = new PIXI.Graphics(); graphics.lineStyle(1);
+      // graphics.beginFill(0xFF0000, 0.7); graphics.drawRect(0,
+      // self.app.screen.height - 100, self.app.screen.width / 2, 100);
+      // graphics.endFill(); graphics.lineStyle(1); graphics.beginFill(0x33FF00, 0.7);
+      // graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 100,
+      // self.app.screen.width / 2, 100); graphics.endFill(); self   .app   .stage
+      // .addChild(graphics);
     }
     drawSeaBottom();
 
   }
 
+  exitGame() {
+
+    this.stopGame();
+    const prompt = this
+      .alertCtrl
+      .create({
+        title: 'Are you sure to exit?',
+        buttons: [
+          {
+            text: 'Continue the game',
+            handler: data => {
+              this.playGame();
+            }
+          }, {
+            text: 'Exit',
+            handler: data => {
+              this
+                .navCtrl
+                .push(TopicFourPage);
+            }
+          }
+        ],
+        enableBackdropDismiss: false
+      });
+    prompt.present();
+  }
+
+
   ionViewWillLeave() {
-    let self = this;
-    self
-      .app
-      .ticker
-      .stop();
+    this.stopGame();
   }
 
 }
