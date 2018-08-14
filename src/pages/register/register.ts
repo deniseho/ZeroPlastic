@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import {TopicMenu} from "../topic-menu/topic-menu";
+import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the RegisterPage page.
@@ -61,6 +63,16 @@ export class RegisterPage {
       ]
     });
     alert.present();
+  }
+
+  gotoHomepage() {
+      this
+          .navCtrl
+          .push(TopicMenu);
+  }
+
+  backToLogin() {
+    this.navCtrl.pop();
   }
 
 }

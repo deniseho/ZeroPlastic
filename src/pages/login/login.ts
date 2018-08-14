@@ -74,4 +74,9 @@ export class LoginPage {
     alert.present();
   }
 
+  gotoHomepage() {
+      this
+          .navCtrl
+          .push(TopicMenu);
+  }
 }
