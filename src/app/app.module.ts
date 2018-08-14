@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, ToastController } from 'ionic-angular';
 import { SQLite } from '@ionic-native/sqlite';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -12,9 +12,7 @@ import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
 import { FormsModule } from '@angular/forms';
 import { CustomNavBarPage } from '../pages/custom-nav-bar/custom-nav-bar';
-import { ProfilePage } from '../pages/profile/profile';
 import { TopicMenu } from '../pages/topic-menu/topic-menu';
-import { AccountMenuPage } from '../pages/account-menu/account-menu';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { GamePage } from '../pages/game/game';
 import { QuizPage } from '../pages/quiz/quiz';
@@ -34,6 +32,7 @@ import { UserProvider } from '../providers/user-service/user-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
 import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
+import { ToastServiceProvider } from '../providers/toast-service/toast-service';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,6 @@ import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-
     TopicThreePage,
     TopicFourPage,
     TopicFivePage,
-    AccountMenuPage,
-    ProfilePage,
     AchievementPage,
     GamePage,
     QuizPage,
@@ -79,8 +76,6 @@ import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-
     TopicThreePage,
     TopicFourPage,
     TopicFivePage,
-    AccountMenuPage,
-    ProfilePage,
     AchievementPage,
     GamePage,
     QuizPage,
@@ -95,6 +90,8 @@ import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-
     AuthServiceProvider,
     NativeAudio,
     UserProvider,
+    ToastController,
+    ToastServiceProvider
   ]
 })
 export class AppModule {}
