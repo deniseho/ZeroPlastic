@@ -7,7 +7,7 @@
   <h4>Email: {{currentUser.email}}</h4>
   <h4>Badge: </h4>
   <h4>Total Score: {{currentUser.totalScore}}</h4>
-  <div class="badge" *ngFor="let item of badgeRecord; index as i">
+  <div class="badgeRecord" *ngFor="let item of badgeRecord; index as i">
     <img src="{{item|badges: i}}">
   </div>
 </ion-content>
