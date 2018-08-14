@@ -6,8 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BadgesPipe implements PipeTransform {
 
   transform(achieved: number, index: number) {
-    console.log("index: " + index)
-    console.log(achieved)
     if(achieved==1){
       return badgeList[index].unlockImgUrl;
     }else{

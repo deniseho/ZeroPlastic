@@ -7,20 +7,12 @@ import {User} from '../../providers/auth-service/User';
 
 export class AchievementPage {
   currentUser : User;
-
-  badge1 : boolean;
-  badge2 : boolean;
-  badge3 : boolean;
-  badge4 : boolean;
-  badge5 : boolean;
-
   badgeRecord : number[];
 
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider) {
     this.currentUser = this
       .auth
       .getCurrentUser();
-
   }
 
   ionViewDidLoad() {
