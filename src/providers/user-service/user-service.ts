@@ -5,12 +5,6 @@ import {AuthServiceProvider} from '../auth-service/auth-service';
 import {FirebaseOperation} from 'angularfire2/database/interfaces';
 import { User } from '../auth-service/User';
 
-/*
-  Generated class for the ScoreProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UserProvider {
 
@@ -36,7 +30,6 @@ export class UserProvider {
       name: user.name,
       email: user.email,
       password: user.password,
-      badge: user.badge
     })
   }
   
@@ -45,7 +38,6 @@ export class UserProvider {
       name: user.name,
       email: user.email,
       password: user.password,
-      badge: user.badge,
       totalScore: user.totalScore,
       topic1: user.topic1,
       topic2: user.topic2,

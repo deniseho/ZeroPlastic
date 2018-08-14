@@ -18,8 +18,6 @@ export class AuthServiceProvider {
       .then(data => {
         this.allUsers = data;
       });
-
-    console.log(this.currentUser)
   }
 
   ionViewDidLoad() {}
@@ -42,7 +40,7 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      let newUser = new User(credentials.name, credentials.email, credentials.password, "Novice", 0, [
+      let newUser = new User(credentials.name, credentials.email, credentials.password, 0, [
         0, 0, 0, 0, 0
       ], [
         0, 0, 0, 0, 0
