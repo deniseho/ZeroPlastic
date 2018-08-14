@@ -5,26 +5,26 @@ export class User {
     name : string;
     email : string;
     password : string;
-    badge : string; 
     totalScore: number;
     topic1: number[];
     topic2: number[];
     topic3: number[];
     topic4: number[];
     topic5: number[]; 
+    loginTime: number;
 
-    constructor(name : string, email : string, password : string, badge : string,
+    constructor(name : string, email : string, password : string,
     totalScore: number, topic1: number[], topic2: number[], topic3: number[], topic4: number[], topic5: number[],) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.badge = badge;
         this.totalScore = totalScore;
         this.topic1 = topic1;
         this.topic2 = topic2;
         this.topic3 = topic3;
         this.topic4 = topic4;
         this.topic5 = topic5;
+        this.loginTime = new Date().getTime();
     }
 }
 

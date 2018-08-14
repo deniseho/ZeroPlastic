@@ -11,7 +11,6 @@ import { TopicTwoPage } from '../pages/topic-two/topic-two';
 import { TopicThreePage } from '../pages/topic-three/topic-three';
 import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
-import { ProfilePage } from '../pages/profile/profile';
 import { GamePage } from '../pages/game/game';
 import { QuizPage } from '../pages/quiz/quiz';
 import { LoginPage } from '../pages/login/login';

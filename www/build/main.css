@@ -70688,6 +70688,12 @@ ion-list-header {
   position: absolute;
   left: 20px;
   color: white !important;
+  z-index: 10;
+}
+
+page-achievement .badge {
+  width: 30%;
+  display: inline-block;
 }
 
 page-alternatives .alternativeMenu {
@@ -71024,14 +71030,68 @@ page-topic-one .sea-gradient-wrapper {
 }
 
 page-topic-one .sea-gradient {
+  width: 100vw;
   position: absolute;
   bottom: 0;
   left: 0;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  -webkit-animation: move_wave 12s linear infinite;
+  animation: move_wave 12s linear infinite;
+  z-index: -1;
 }
 
 page-topic-one .sea-bg-gradient {
   background: -webkit-gradient(linear, left top, left bottom, from(#E7F7F9), color-stop(#82E0EF), to(#24337A));
   background: linear-gradient(#E7F7F9, #82E0EF, #24337A);
+}
+
+@-webkit-keyframes move_wave {
+  0% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1);
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  30% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1.2);
+    transform: translateX(0) translateZ(0) scaleY(1.2);
+  }
+  50% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1.1);
+    transform: translateX(0) translateZ(0) scaleY(1.1);
+  }
+  80% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1.4);
+    transform: translateX(0) translateZ(0) scaleY(1.4);
+  }
+  100% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1);
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+}
+
+@keyframes move_wave {
+  0% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1);
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  30% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1.2);
+    transform: translateX(0) translateZ(0) scaleY(1.2);
+  }
+  50% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1.1);
+    transform: translateX(0) translateZ(0) scaleY(1.1);
+  }
+  80% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1.4);
+    transform: translateX(0) translateZ(0) scaleY(1.4);
+  }
+  100% {
+    -webkit-transform: translateX(0) translateZ(0) scaleY(1);
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
 }
 
 page-topic-three .SwipedTabs-indicatorSegment {

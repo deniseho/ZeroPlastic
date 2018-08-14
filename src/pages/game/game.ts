@@ -19,18 +19,27 @@ export class GamePage {
   constructor(public navCtrl : NavController, public alertCtrl : AlertController, private nativeAudio : NativeAudio) {}
 
   playGame() {
-    let self = this;
-    self.gamePlay = !self.gamePlay;
-    if (self.gamePlay) {
-      self
-        .app
-        .ticker
-        .start();
+    this.gamePlay = true;
+    this
+      .app
+      .ticker
+      .start();
+  }
+
+  stopGame() {
+    this.gamePlay = false;
+    this
+      .app
+      .ticker
+      .stop();
+  }
+
+  toggleGame(){
+    this.gamePlay = !this.gamePlay;
+    if (this.gamePlay) {
+      this.playGame()
     } else {
-      self
-        .app
-        .ticker
-        .stop();
+      this.stopGame();
     }
   }
 
@@ -48,7 +57,7 @@ export class GamePage {
       .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
 
     let self = this;
-    let bottomPadding = 75;
+    let bottomPadding = 95;
 
     self.app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});;
 
@@ -106,7 +115,6 @@ export class GamePage {
         .Sprite
         .fromImage(elemData.url);
 
-      // center the sprite's anchor point
       item
         .anchor
         .set(0.5);
@@ -217,7 +225,7 @@ export class GamePage {
           self
             .nativeAudio
             .play('correct');
-            
+
           self.gameScore++;
           container.removeChild(item);
 
@@ -289,32 +297,74 @@ export class GamePage {
     }
 
     var drawSeaBottom = () => {
-      let graphics = new PIXI.Graphics();
-      graphics.lineStyle(1);
-      graphics.beginFill(0xFF0000, 0.7);
-      graphics.drawRect(0, self.app.screen.height - 80, self.app.screen.width / 2, 80);
-      graphics.endFill();
-
-      graphics.lineStyle(1);
-      graphics.beginFill(0x33FF00, 0.7);
-      graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 80, self.app.screen.width / 2, 80);
-      graphics.endFill();
-
-      self
+      var container = new PIXI.Container();
+      this
         .app
         .stage
-        .addChild(graphics);
+        .addChild(container);
+      var texture = PIXI
+        .Texture
+        .fromImage('assets/imgs/trash.svg');
+
+      var bins = new PIXI.Sprite(texture);
+      bins
+        .anchor
+        .set(0.5, 0.7);
+      bins
+        .scale
+        .set(1.2);
+      bins.x = this.app.screen.width / 2;
+      bins.y = this.app.screen.height;
+
+      container.addChild(bins);
+
+      this
+        .app
+        .stage
+        .addChild(container);
+
+      // let graphics = new PIXI.Graphics(); graphics.lineStyle(1);
+      // graphics.beginFill(0xFF0000, 0.7); graphics.drawRect(0,
+      // self.app.screen.height - 100, self.app.screen.width / 2, 100);
+      // graphics.endFill(); graphics.lineStyle(1); graphics.beginFill(0x33FF00, 0.7);
+      // graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 100,
+      // self.app.screen.width / 2, 100); graphics.endFill(); self   .app   .stage
+      // .addChild(graphics);
     }
     drawSeaBottom();
 
   }
 
+  exitAlert() {
+
+    this.stopGame();
+    const prompt = this
+      .alertCtrl
+      .create({
+        title: 'Are you sure to exit?',
+        buttons: [
+          {
+            text: 'Continue the game',
+            handler: data => {
+              this.playGame();
+            }
+          }, {
+            text: 'Exit',
+            handler: data => {
+              this
+                .navCtrl
+                .push(TopicFourPage);
+            }
+          }
+        ],
+        enableBackdropDismiss: false
+      });
+    prompt.present();
+  }
+
+
   ionViewWillLeave() {
-    let self = this;
-    self
-      .app
-      .ticker
-      .stop();
+    this.stopGame();
   }
 
 }

@@ -1,25 +1,34 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import {User} from '../../providers/auth-service/User';
 
-@Component({
-  selector: 'page-achievement',
-  templateUrl: 'achievement.html',
-})
+@Component({selector: 'page-achievement', templateUrl: 'achievement.html'})
 
 export class AchievementPage {
-  currentUser : any;
-  totalScore: number;
+  currentUser : User;
+  badgeRecord : number[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth : AuthServiceProvider) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider) {
     this.currentUser = this
-    .auth
-    .getCurrentUser();
+      .auth
+      .getCurrentUser();
   }
 
   ionViewDidLoad() {
-    console.log(this.currentUser.achievements)
-    
+    let score = this.currentUser.totalScore;
+
+    if (score < 25) {
+      this.badgeRecord = [1, 0, 0, 0, 0];
+    } else if (score > 25 && score < 60) {
+      this.badgeRecord = [1, 1, 0, 0, 0];
+    } else if (score > 61 && score < 100) {
+      this.badgeRecord = [1, 1, 1, 0, 0];
+    } else if (score > 100 && score < 150) {
+      this.badgeRecord = [1, 1, 1, 1, 0];
+    } else if (score > 150) {
+      this.badgeRecord = [1, 1, 1, 1, 1];
+    }
   }
 
 }
