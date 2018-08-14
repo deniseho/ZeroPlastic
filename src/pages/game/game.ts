@@ -335,7 +335,7 @@ export class GamePage {
 
   }
 
-  exitGame() {
+  exitAlert() {
 
     this.stopGame();
     const prompt = this
