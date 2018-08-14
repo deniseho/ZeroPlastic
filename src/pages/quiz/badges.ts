@@ -1,24 +1,24 @@
 var badges : any[] = [
     {
-        title: "Trainee",
-        points: 5,
-        imgUrl: "assets/imgs/badge01.jpg"
+        title: "Novice",
+        minPoints: 0,
+        imgUrl: "assets/imgs/1st-LEVEL.png"
     }, {
         title: "Assistant",
-        points: 10,
-        imgUrl: "assets/imgs/badge01.jpg"
+        minPoints: 25,
+        imgUrl: "assets/imgs/2nd-LEVEL.png"
     }, {
-        title: "Junior",
-        points: 15,
-        imgUrl: "assets/imgs/badge01.jpg"
+        title: "Advanced",
+        minPoints: 60,
+        imgUrl: "assets/imgs/3rd-LEVEL.png"
     }, {
-        title: "Senior",
-        points: 20,
-        imgUrl: "assets/imgs/badge01.jpg"
+        title: "Expert",
+        minPoints: 100,
+        imgUrl: "assets/imgs/4th-LEVEL.png"
     }, {
-        title: "Consultant",
-        points: 25,
-        imgUrl: "assets/imgs/badge01.jpg"
+        title: "Master Environmentalist",
+        minPoints: 150,
+        imgUrl: "assets/imgs/5th-LEVEL.png"
     }
 ];
 
