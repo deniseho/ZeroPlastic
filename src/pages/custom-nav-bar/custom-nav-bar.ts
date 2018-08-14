@@ -3,14 +3,18 @@ import {NavController, NavParams, MenuController, Events} from 'ionic-angular';
 import {TopicMenu} from '../topic-menu/topic-menu';
 import {items} from '../game/items';
 import {AchievementPage} from '../achievement/achievement';
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'custom-nav-bar', templateUrl: 'custom-nav-bar.html'})
 
 export class CustomNavBarPage {
   totalScore : number = 0;
 
-  constructor(private event : Events, public navCtrl : NavController, public menuCtrl : MenuController, public navParams : NavParams) {
-
+  constructor(private event : Events, public navCtrl : NavController, public menuCtrl : MenuController, public navParams : NavParams, private auth : AuthServiceProvider) {
+    this.totalScore = this
+      .auth
+      .getCurrentUser()
+      .totalScore;
   }
 
   ionViewDidLoad() {}
