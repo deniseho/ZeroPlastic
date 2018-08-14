@@ -1,37 +1,19 @@
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {NavController, NavParams, MenuController, Events} from 'ionic-angular';
-import {AccountMenuPage} from '../account-menu/account-menu';
 import {TopicMenu} from '../topic-menu/topic-menu';
 import {items} from '../game/items';
-
-/**
- * Generated class for the CustomNavBarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {AchievementPage} from '../achievement/achievement';
 
 @Component({selector: 'custom-nav-bar', templateUrl: 'custom-nav-bar.html'})
 
 export class CustomNavBarPage {
-  totalScore: number = 0;
+  totalScore : number = 0;
 
-  constructor(private event: Events, 
-    public navCtrl : NavController, 
-    public menuCtrl : MenuController, 
-    public navParams : NavParams) {
-      // this.event.subscribe('topicOneQuizScore', (score)=>{
-      //   this.calculateScore(score);
-      // })
-    }
+  constructor(private event : Events, public navCtrl : NavController, public menuCtrl : MenuController, public navParams : NavParams) {
 
-  // calculateScore(score: number){
-  //   this.totalScore += score;
-  //   console.log(this.totalScore);
-  // }
-
-  ionViewDidLoad() {
   }
+
+  ionViewDidLoad() {}
 
   gotoHomepage() {
     this
@@ -39,10 +21,10 @@ export class CustomNavBarPage {
       .push(TopicMenu);
   }
 
-  gotoAccountMenu() {
+  gotoAchievement() {
     this
-    .navCtrl
-    .push(AccountMenuPage);
+      .navCtrl
+      .push(AchievementPage);
   }
 
   openMenu() {
