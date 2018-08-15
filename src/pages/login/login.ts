@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, Loading, AlertController, LoadingController, ToastController} from 'ionic-angular';
+import {NavController, NavParams, Loading, AlertController, LoadingController} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {RegisterPage} from '../register/register';
 import {TopicMenu} from '../topic-menu/topic-menu';
@@ -42,6 +42,7 @@ export class LoginPage {
             this
             .navCtrl
             .setRoot(TopicMenu);
+            
         } else {
           this.showError("Access Denied");
         }

@@ -16,7 +16,6 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 import {UserProvider} from '../../providers/user-service/user-service';
-import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -33,7 +32,7 @@ export class TopicOnePage {
   constructor(private event : Events, public navCtrl : NavController, 
     public navParams : NavParams, public modalCtrl : ModalController, 
     public renderer : Renderer, public viewCtrl : ViewController, 
-    private auth : AuthServiceProvider, private toast: ToastServiceProvider) {
+    private auth : AuthServiceProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
 
     //todo: check if the score exists from db
@@ -55,7 +54,6 @@ export class TopicOnePage {
   }
 
   ionViewDidLoad() {
-    this.toast.showToast('test');
   }
 
 

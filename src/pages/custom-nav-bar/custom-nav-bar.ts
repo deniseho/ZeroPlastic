@@ -8,12 +8,12 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 @Component({selector: 'custom-nav-bar', templateUrl: 'custom-nav-bar.html'})
 
 export class CustomNavBarPage {
-  totalScore : number = 0;
+  totalScore : number;
 
   constructor(private event : Events, public navCtrl : NavController, public menuCtrl : MenuController, public navParams : NavParams, private auth : AuthServiceProvider) {
     this.totalScore = this
       .auth
-      .getCurrentUser()
+      .currentUser
       .totalScore;
   }
 
