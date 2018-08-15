@@ -13,7 +13,7 @@ import {QuizResultPage} from './result';
 import {TopicOnePage} from '../topic-one/topic-one';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {UserProvider} from '../../providers/user-service/user-service';
-import {User} from '../../providers/auth-service/User';
+import { User } from '../../shared/User';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
 
@@ -32,9 +32,9 @@ export class QuizPage {
   questionScore : any = [0, 0, 0, 0, 0];
   currentUser : User;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserProvider, private authApi : AuthServiceProvider) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserProvider, private auth : AuthServiceProvider) {
 
-    this.currentUser = authApi.getCurrentUser();
+    this.currentUser = this.auth.currentUser;
 
     let collectionNum = this
       .navParams

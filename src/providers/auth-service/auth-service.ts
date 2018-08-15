@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase} from 'angularfire2/database';
 import * as _ from 'lodash';
-import {User} from './User';
+import { User } from '../../shared/User';
 
 @Injectable()
 export class AuthServiceProvider {
@@ -37,25 +37,17 @@ export class AuthServiceProvider {
   }
 
   register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
+    if (credentials.name === null || credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      let newUser = new User(credentials.name, credentials.email, credentials.password, 0, [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ],);
-
       this
         .db
         .list('users')
-        .push(newUser);
+        .push(new User({
+          name: credentials.name,
+          email: credentials.email,
+          password: credentials.password
+        }));
     };
 
     return Observable.create(observer => {
@@ -81,6 +73,11 @@ export class AuthServiceProvider {
     });
   }
 
-  getCurrentUser() : User {return this.currentUser;}
+  getCurrentUser() : User {
+    if(this.currentUser==undefined){
+    }else{
+      return this.currentUser;
+    }
+  }
 
 }

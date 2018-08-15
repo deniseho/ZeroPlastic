@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {AuthServiceProvider} from '../auth-service/auth-service';
 import {FirebaseOperation} from 'angularfire2/database/interfaces';
-import { User } from '../auth-service/User';
+import { User } from '../../shared/User';
 
 @Injectable()
 export class UserProvider {
@@ -21,9 +21,9 @@ export class UserProvider {
   }
 
 
-  getUsers() {
-    return this.userList;
-  }
+  // getUsers() {
+  //   return this.userList;
+  // }
 
   insertUser(user:User){
     this.userList.push({
@@ -34,17 +34,7 @@ export class UserProvider {
   }
   
   updateUser(user: User){
-    this.userList.update(this.$userKey,{
-      name: user.name,
-      email: user.email,
-      password: user.password,
-      totalScore: user.totalScore,
-      topic1: user.topic1,
-      topic2: user.topic2,
-      topic3: user.topic3,
-      topic4: user.topic4,
-      topic5: user.topic5,
-    })
+    this.userList.update(this.$userKey,user)
   }
 
   updateUserAchievement(currentUser,quizScore,questionScore, topicTitle){
