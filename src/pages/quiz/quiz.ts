@@ -10,7 +10,6 @@ import {
 import {NativeAudio} from '@ionic-native/native-audio';
 import {topic1, topic2} from '../quiz/questions';
 import {QuizResultPage} from './result';
-import {badges} from '../quiz/badges';
 import {TopicOnePage} from '../topic-one/topic-one';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {UserProvider} from '../../providers/user-service/user-service';
