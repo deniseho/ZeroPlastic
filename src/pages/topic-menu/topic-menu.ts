@@ -46,7 +46,7 @@ export class TopicMenu {
     }else{
       this
       .toast
-      .showToast("Welcome back!", "textToast");
+      .showToast(`Hi, ${this.currentUser.name}! Welcome back.`, "textToast");
     }
   }
 

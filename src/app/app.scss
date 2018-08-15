@@ -65,7 +65,7 @@ ion-list-header {
 //Custom Toasts
 .badgeToast { 
   .toast-message { 
-    background: color($colors, primary);
+    // background: color($colors, primary);
   } 
   .toast-message::before {
     background-image: url("../assets/imgs/1st-LEVEL.png");
@@ -79,6 +79,6 @@ ion-list-header {
 
 .textToast{
   .toast-message { 
-    background: color($colors, primary);
+    // background: color($colors, primary);
   } 
 }
