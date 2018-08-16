@@ -310,9 +310,7 @@ export class GamePage {
       bins
         .anchor
         .set(0.5, 0.7);
-      bins
-        .scale
-        .set(1.2);
+
       bins.x = this.app.screen.width / 2;
       bins.y = this.app.screen.height;
 
@@ -322,14 +320,6 @@ export class GamePage {
         .app
         .stage
         .addChild(container);
-
-      // let graphics = new PIXI.Graphics(); graphics.lineStyle(1);
-      // graphics.beginFill(0xFF0000, 0.7); graphics.drawRect(0,
-      // self.app.screen.height - 100, self.app.screen.width / 2, 100);
-      // graphics.endFill(); graphics.lineStyle(1); graphics.beginFill(0x33FF00, 0.7);
-      // graphics.drawRect(self.app.screen.width / 2, self.app.screen.height - 100,
-      // self.app.screen.width / 2, 100); graphics.endFill(); self   .app   .stage
-      // .addChild(graphics);
     }
     drawSeaBottom();
 
