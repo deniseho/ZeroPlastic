@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, Slides, Content, NavParams, ModalController} from 'ionic-angular';
-import { QuizPage } from '../quiz/quiz';
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
 
 @Component({selector: 'page-topic-two', templateUrl: 'topic-two.html'})
 export class TopicTwoPage {
@@ -63,7 +63,7 @@ export class TopicTwoPage {
     startQuiz(num) {
       const modal = this
         .modalCtrl
-        .create(QuizPage, {"num": num});
+        .create(TopicQuizComponent, {"num": num});
       modal.present();
     }
   

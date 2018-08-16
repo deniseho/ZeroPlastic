@@ -8,7 +8,7 @@ import {TopicFivePage} from '../topic-five/topic-five';
 import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { UserProvider } from '../../providers/user-service/user-service';
-import { User } from '../../shared/User';
+import { User } from '../../shared/user-model';
 
 @Component({selector: 'page-hello-ionic', templateUrl: 'topic-menu.html'})
 
@@ -20,7 +20,8 @@ export class TopicMenu {
     public navParams : NavParams, 
     private auth: AuthServiceProvider,
     private userApi: UserProvider,
-    private toast : ToastServiceProvider) {
+    private toast : ToastServiceProvider,
+  ) {
     
       this.pages = [
       { title: 'Plastic Pollution', component: TopicOnePage },
@@ -48,6 +49,7 @@ export class TopicMenu {
       .toast
       .showToast(`Hi, ${this.currentUser.name}! Welcome back.`, "textToast");
     }
+
   }
 
 

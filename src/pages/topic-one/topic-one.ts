@@ -10,12 +10,12 @@ import {
   NavParams,
   Platform
 } from 'ionic-angular';
-import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 import {UserProvider} from '../../providers/user-service/user-service';
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -97,7 +97,7 @@ export class TopicOnePage {
   startQuiz(num) {
     const modal = this
       .modalCtrl
-      .create(QuizPage, {"num": num});
+      .create(TopicQuizComponent, {"num": num});
     modal.present();
   }
 

@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {AuthServiceProvider} from '../auth-service/auth-service';
 import {FirebaseOperation} from 'angularfire2/database/interfaces';
-import { User } from '../../shared/User';
+import { User } from '../../shared/user-model';
 
 @Injectable()
 export class UserProvider {
@@ -13,17 +13,24 @@ export class UserProvider {
 
   userAchievementList:  AngularFireList < any >;
   totalScore: number;
+  
 
   constructor(private db : AngularFireDatabase, private auth : AuthServiceProvider) {
-    this.userList = this.db.list('/users');
     this.userAchievementList = this.db.list('/userAchievementList');
     this.totalScore = 0;
+    this.userList = this.db.list('/users');
   }
 
 
-  // getUsers() {
-  //   return this.userList;
-  // }
+  getUsers() {
+    return this.userList;
+  }
+
+  ionViewDidEnter() {
+
+  }
+
+
 
   insertUser(user:User){
     this.userList.push({

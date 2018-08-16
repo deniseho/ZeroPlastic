@@ -70691,10 +70691,6 @@ ion-list-header {
   z-index: 10;
 }
 
-.badgeToast .toast-message {
-  background: #2CBFA6;
-}
-
 .badgeToast .toast-message::before {
   background-image: url("../assets/imgs/1st-LEVEL.png");
   background-size: 100% 100%;
@@ -70702,10 +70698,6 @@ ion-list-header {
   width: 50px;
   height: 50px;
   content: "";
-}
-
-.textToast .toast-message {
-  background: #2CBFA6;
 }
 
 page-achievement .badgeRecord {
@@ -70789,14 +70781,6 @@ page-login .login-background {
 
 page-login ion-content {
   background-color: #D8F3F7 !important;
-}
-
-page-quiz .btn-correct {
-  background-color: #343499;
-}
-
-page-quiz .btn-wrong {
-  background-color: #f53d3d;
 }
 
 page-register ion-card-header {
