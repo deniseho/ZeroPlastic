@@ -14,7 +14,7 @@ export class TopicFourPage {
   tabs : any = [];
 
   constructor(public navCtrl : NavController) {
-    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Game"];
+    this.tabs = ["Take action", "Volunteer", "Recycle", "Alternatives", "Quiz"];
   }
 
   ionViewDidEnter() {
@@ -43,10 +43,10 @@ export class TopicFourPage {
   }
 
   animateIndicator($event) {
-    if (this.SwipedTabsIndicator) 
+    if (this.SwipedTabsIndicator)
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
-  
+
   gotoGamePage(){
     this.navCtrl.push(GamePage);
   }

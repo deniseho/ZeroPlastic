@@ -38,4 +38,9 @@ page-register {
     margin-bottom: 0 !important;
   }
 
+  ion-input {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    z-index: 0;
+  }
+
 }

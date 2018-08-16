@@ -1,8 +1,4 @@
 <ion-header>
-    <!-- 
-            <ion-navbar>
-              <ion-title>Topic Four</ion-title>
-            </ion-navbar> -->
     <custom-nav-bar></custom-nav-bar>
     <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">
         <ion-segment class="SwipedTabs-tabs">
@@ -22,24 +18,201 @@
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <ion-slide>
-            <h1>Problem Take action</h1>
-            <div>
-                <button ion-button (click)="gotoAlternatives()">Alternatives</button>
+            <div class="container-slides-content sea-gradient-wrapper">
+                <div class="vertical-center">
+                    <h1 class="slide-title-main">Take action now!</h1>
+                    <div class="line-separator-short"></div>
+                    <p style="padding-top: 10px">Swipe right and discover what you can do to help avoid plastic pollution. Be a hero environmentalist and save our ocean! </p>
+                    <!--<ion-icon class="arrow-right-style" name="ios-arrow-dropright-circle"></ion-icon>-->
+                </div>
+                <img class="sea-gradient" src="assets/imgs/bg_ocean.png">
             </div>
         </ion-slide>
+
+        <!--VOLUNTEER-->
         <ion-slide>
-            <h1>Cause</h1>
+            <!--Icons for scrolling-->
+            <ion-icon class="arrow-up-style" name="ios-arrow-dropup-circle-outline"></ion-icon>
+            <ion-icon class="arrow-down-style" name="ios-arrow-dropdown-circle-outline"></ion-icon>
+
+            <div>
+                <!--first section-->
+                <div class="container-slides-content sea-gradient-wrapper">
+                    <div class="vertical-center">
+                        <h1 class="slide-title-main">Volunteer</h1>
+                        <h1 class="slide-title2-main">Option 1</h1>
+                        <div class="line-separator-short"></div>
+                        <a href="http://www.tidytowns.ie/get-involved/find-your-local-committee/" target="_blank">
+                            <img src="assets/imgs/tidytowns.jpg" style="width: 150px">
+                        </a>
+                        <h4 class="slide-subtitle">Join a Volunteering group</h4>
+                        <p>You can search for a group in your own community, like TidyTowns, and join them. <a href="http://www.tidytowns.ie/get-involved/find-your-local-committee/" target="_blank"> Visit TidyTowns <ion-icon name="ios-exit-outline"></ion-icon></a> to find a group near you.</p>
+                    </div>
+                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
+                </div>
+                <!--second, third, fourth section-->
+                <div class="sea-bg-gradient">
+                    <!--Second-->
+                    <div class="container-slides-content">
+                        <div class="vertical-center">
+                            <img class="icon_property" src="../../assets/imgs/icn_volunteer.png">
+                            <h1 class="slide-title2-main" style="color: white">Option 2</h1>
+                            <div class="line-separator-long"></div>
+                            <h4 class="slide-subtitle" style="color: white">Start a volunteering group</h4>
+                            <p style="color: white">With everything you have learned using the ZeroPlastic app teach your family and community
+                                how important it is to avoid plastic pollution.</p>
+                            <p style="color: white">If you can, start a ZeroPlastic group and organize recycling events or beach clean-ups in
+                                your community. Start creating events from the button below!</p>
+                        </div>
+                    </div>
+                </div>
+                <!--EVENTS-->
+                <div class="events-container">
+                    <button ion-button full color="primary" item-end icon-start>
+                        <ion-icon name="add-circle"></ion-icon>
+                        Create event
+                    </button>
+                    <ion-list-header no-lines="" class="events-title">Events</ion-list-header>
+                    <ion-card class="card-container">
+                        <ion-row>
+                            <ion-col align-self-center class="date-wrapper" col-3>
+                                <div>
+                                    <h3 class="day">17</h3>
+                                    <h4 class="month">Sep</h4>
+                                    <h5 class="year">2018</h5>
+                                </div>
+                            </ion-col>
+                            <ion-col col-9 class="info-wrapper">
+                                <ion-row class="card-title" style="font-size: 14px"> Beach clean up </ion-row>
+                                <ion-row>
+                                    <ion-col col-12 class="location" item-end icon-start>
+                                        <ion-icon name="pin" small></ion-icon>Donabate Village, Balcarrick, Donabate, Co. Dublin
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row class="card-contact-time">
+                                    <ion-col class="time" col-5 item-end icon-start><ion-icon name="time" small></ion-icon>9:30 am</ion-col>
+                                    <ion-col class="contact" col-7 item-end icon-start><ion-icon name="call" small></ion-icon>(01) 896 2320</ion-col>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card>
+
+                    <ion-card class="card-container">
+                        <ion-row>
+                            <ion-col align-self-center class="date-wrapper" col-3>
+                                <div>
+                                    <h3 class="day">22</h3>
+                                    <h4 class="month">Sep</h4>
+                                    <h5 class="year">2018</h5>
+                                </div>
+                            </ion-col>
+                            <ion-col col-9 class="info-wrapper">
+                                <ion-row class="card-title" style="font-size: 14px"> Recycling workshop </ion-row>
+                                <ion-row>
+                                    <ion-col col-12 class="location" item-end icon-start>
+                                        <ion-icon name="pin" small></ion-icon>Donabate Village, Balcarrick, Donabate, Co. Dublin
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row class="card-contact-time">
+                                    <ion-col class="time" col-5 item-end icon-start><ion-icon name="time" small></ion-icon>06:00 pm</ion-col>
+                                    <ion-col class="contact" col-7 item-end icon-start><ion-icon name="call" small></ion-icon>(01) 896 2320</ion-col>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card>
+                </div>
+            </div>
         </ion-slide>
+
+        <!--RECYCLE-->
         <ion-slide>
-            <h1>Effect</h1>
+            <div>
+                <div class="container-slides-content sea-gradient-wrapper">
+                    <div class="vertical-center">
+                        <h1 class="slide-title-main">Recycle</h1>
+                        <h1 class="slide-title2-main">Resin Tags</h1>
+                        <div class="line-separator-short"></div>
+                        <!--<h4 class="slide-subtitle">Recycling Resin Tags</h4>-->
+                        <p style="margin-top: 20px">Before you dispose of your plastic items, check the
+                            number on the bottom- it tells you the type of
+                            plastic, letting you know its recyclability.</p>
+                    </div>
+                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
+                </div>
+
+                <div class="container-slides-content sea-bg-gradient">
+                    <ion-grid padding="">
+                        <h4 class="slide-subtitle">Resin tags information</h4>
+                        <p> Select a tag for more information</p>
+                        <ion-row>
+                            <ion-col col-6>
+                                <ion-card padding="">
+                                    <img class="tags-property" src="../../assets/imgs/tag_1.png">
+                                </ion-card>
+                            </ion-col>
+                            <ion-col col-6>
+                                <ion-card padding="">
+                                    <img class="tags-property" src="../../assets/imgs/tag_2.png">
+                                </ion-card>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <ion-card padding="">
+                                    <img class="tags-property" src="../../assets/imgs/tag_3.png">
+                                </ion-card>
+                            </ion-col>
+                            <ion-col col-6>
+                                <ion-card padding="">
+                                    <img class="tags-property" src="../../assets/imgs/tag_4.png">
+                                </ion-card>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <ion-card padding="">
+                                    <img class="tags-property" src="../../assets/imgs/tag_5.png">
+                                </ion-card>
+                            </ion-col>
+                            <ion-col col-6>
+                                <ion-card padding="">
+                                    <img class="tags-property" src="../../assets/imgs/tag_6.png">
+                                </ion-card>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+
+                    <div class="container-slides-content">
+                        <div class="vertical-center">
+                            <h1>Game</h1>
+                            <button ion-button (click)="gotoGamePage()">Start the game</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </ion-slide>
+
+        <!--ALTERNATIVES-->
         <ion-slide>
-            <h1>Importance</h1>
+            <h1>Alternatives</h1>
+            <button ion-button (click)="gotoAlternatives()">Alternatives</button>
         </ion-slide>
+
+        <!--QUIZ-->
+        <ion-slide>
+            <div class="container-slides-content">
+                <div class="vertical-center">
+                    <h1>QUIZ</h1>
+                </div>
+            </div>
+        </ion-slide>
+
+<!--        &lt;!&ndash;GAME&ndash;&gt;
         <ion-slide>
             <h1>Game</h1>
             <button ion-button (click)="gotoGamePage()">Start the game</button>
-        </ion-slide>
+        </ion-slide>-->
     </ion-slides>
 
 
