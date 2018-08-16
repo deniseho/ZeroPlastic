@@ -70700,6 +70700,14 @@ ion-list-header {
   content: "";
 }
 
+topic-quiz .btn-correct {
+  background-color: #343499;
+}
+
+topic-quiz .btn-wrong {
+  background-color: #f53d3d;
+}
+
 page-achievement .badgeRecord {
   width: 30%;
   display: inline-block;

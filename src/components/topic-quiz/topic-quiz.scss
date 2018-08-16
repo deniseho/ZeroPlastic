@@ -1,3 +1,9 @@
 topic-quiz {
-
+    .btn-correct {
+        background-color: map-get($colors, secondary);
+      }
+      
+    .btn-wrong {
+        background-color: map-get($colors, danger);
+    }
 }

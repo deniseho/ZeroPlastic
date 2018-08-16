@@ -88,7 +88,8 @@ var TopicFourPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_topic_quiz_topic_quiz__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_topic_quiz_topic_quiz__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_topic1_qustions__ = __webpack_require__(813);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -98,6 +99,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -163,10 +165,10 @@ var TopicOnePage = /** @class */ (function () {
         // this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' +
         // (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     };
-    TopicOnePage.prototype.startQuiz = function (num) {
+    TopicOnePage.prototype.startQuiz = function () {
         var modal = this
             .modalCtrl
-            .create(__WEBPACK_IMPORTED_MODULE_3__components_topic_quiz_topic_quiz__["a" /* TopicQuizComponent */], { "num": num });
+            .create(__WEBPACK_IMPORTED_MODULE_3__components_topic_quiz_topic_quiz__["a" /* TopicQuizComponent */], { "collection": __WEBPACK_IMPORTED_MODULE_4__shared_topic1_qustions__["a" /* topic1 */] });
         modal.present();
     };
     __decorate([
@@ -178,7 +180,7 @@ var TopicOnePage = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */])
     ], TopicOnePage.prototype, "scroll", void 0);
     TopicOnePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-one',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/'<ion-header>\n    <custom-nav-bar></custom-nav-bar>\n    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">\n        <ion-segment class="SwipedTabs-tabs">\n            <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)" [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'\n                [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}">\n                {{tab}}\n            </ion-segment-button>\n        </ion-segment>\n\n        <!-- here is our dynamic line  "indicator"-->\n        <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}"></div>\n    </ion-content>\n</ion-header>\n\n<ion-content>\n    <!--PROBLEM-->\n    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"\n        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">\n        <ion-slide>\n            <!-- Icons for scrolling\n            <ion-icon class="arrow-up-style" name="arrow-dropup-circle"></ion-icon>\n            <ion-icon class="arrow-down-style" name="arrow-dropdown-circle"></ion-icon>-->\n\n            <div>\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                    <!--About plastic problem1-->\n                        <h1 class="slide-title-main">About plastic</h1>\n                        <h1 class="slide-title2-main">Issue</h1>\n                        <div class="line-separator-short"></div>\n                        <h4 class="slide-subtitle-secondary">322</h4>\n                        <h3 class="slide-subtitle2-secondary">millions</h3>\n                        <img class="infographics-image" src="assets/imgs/icn_tons.png">\n                        <p>of plastic were produced in 2015, the same weight as 900 Empire state buildings.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n\n                <div class="sea-bg-gradient">\n                    <div class="container-slides-content">\n                        <!--About plastic problem2-->\n                        <div class="vertical-center">\n                            <h4 class="slide-subtitle-secondary">8</h4>\n                            <h3 class="slide-subtitle2-secondary">millions</h3>\n                            <img class="infographics-image" src="assets/imgs/icn_tons.png">\n                            <p>8 millions of  this plastic enters our oceans each year, equivalent to emptying a garbage truck of plastic\n                                into an ocean every minute. This figure is estimated to rise to 60 tons per minute by 2050.</p>\n                            <img class="icon_secondary_property" src="assets/imgs/icn_garbage_truck_3_small.png">\n                        </div>\n                    </div>\n\n                    <div class="container-slides-content">\n                        <!--About plastic problem3-->\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_degrading_bottle.png">\n                            <div class="line-separator-long"></div>\n                            <p class="subtitle-small">Plastic</p>\n                            <h4 class="slide-subtitle-line-before">never fully biodegrade</h4>\n                            <p>Plastics photodegrade, which means that they break down\n                                into smaller, and smaller pieces to the microscopic level. Any toxic additives contained within the\n                                plastics are released into the ocean.</p>\n                        </div>\n                    </div>\n\n                    <div class="container-slides-content">\n                        <!--About plastic problem4-->\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_ocean_percentage.png">\n                            <div class="line-separator-long"></div>\n                            <p class="p_line_before">97% of the Earth’s water supply is contained in the ocean. Plastic waste is greatly endangering the world’s\n                                water supply. Plastics dumped in landfills form dangerous chemicals, and when these chemicals seep\n                                underground, they degrade the water quality.</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </ion-slide>\n\n        <!--CAUSE-->\n        <ion-slide>\n            <!--About plastic cause1-->\n            <div>\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">About plastic</h1>\n                        <h1 class="slide-title2-main">Cause</h1>\n                        <div class="line-separator-short"></div>\n                        <img class="icon_property_coins" src="assets/imgs/icn_coins.png">\n                        <h4 class="slide-subtitle">Plastics are cheap and easy to manufacture</h4>\n                        <p>Plastics have been used to make countless utilities, including plastic\n                            water bottles, straws, food containers, lids, and packaging wrappers.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n\n                <div class="sea-bg-gradient">\n                    <!--About plastic cause2-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_trash_full.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Plastics are easily and haphazardly discarded</h4>\n                            <p>The use of plastic items such as bags, wrappers, bottles, straws and food containers is\n                                typically very short. Whenever plastics are thrown away, they continue to persist within\n                                the environment.</p>\n                        </div>\n                    </div>\n\n                    <!--About plastic cause3-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_fishing_net.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Plastic decomposes slowly</h4>\n                            <p>Plastics are slow to decompose due to their strong chemical bonds that make plastic items\n                                durable. The EPA has stated that “every bit of plastic ever made still exists”. A plastic\n                                bottle can take up to 400 years to decompose, while plastic fishing lines can take more than 600 years.</p>\n                        </div>\n                    </div>\n\n                    <!--About plastic cause4-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_fishing_ship.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">The shipping and fishing industry</h4>\n                            <p>are major contributors of plastic pollution. Plastic waste from ships, sea accidents, and nets\n                                used for fishing emit toxins into the water which severely affects marine creatures.</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ion-slide>\n\n        <!--EFFECT-->\n        <ion-slide>\n            <div>\n                <!--About plastic effect1-->\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">About plastic</h1>\n                        <h1 class="slide-title2-main">Effect</h1>\n                        <div class="line-separator-short"></div>\n                        <h4 class="slide-subtitle">Threatens the life of numerous sea creatures</h4>\n                        <p>These marine creatures ingest plastic mainly by mistaking it as food, and can also be endangered\n                            by plastics through becoming entangled in plastic products such as fishing nets, and can holders.\n                            44% of all seabird species, along with sea turtles, and cetaceans have been documented to have\n                            plastic debris in or around their bodies.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n                <div class="sea-bg-gradient">\n                    <!--About plastic effect2-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_human.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Affects humans</h4>\n                            <p>Plastic pollution in our oceans severely affects humans in numerous ways. Studies have shown\n                                that toxins in plastics can cause several health issues such as cancer, and immune system\n                                problems. Ingestion of plastic by fish and other marine creatures finds its way into peoples’\n                                bodies when they consume marine food.</p>\n                        </div>\n                    </div>\n\n                    <!--About plastic effect3-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_ecosystem.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Threat to our ecosystem</h4>\n                            <p>Plastic pollution poses a serious threat to our ecosystems. Plastics in our oceans can lead\n                                to the invasion of non-indigenous species, and organisms in marine colonies. </p>\n                        </div>\n                    </div>\n\n                    <!--About plastic effect4-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_garbage_patch.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Garbage patches</h4>\n                            <p>Plastic pollution has resulted in the creation of several floating garbage patches in our\n                                oceans called gyres. The Great Pacific Garbage patch located in the North Pacific Ocean off\n                                the coast of California is reported to be the largest ocean garbage patch in the world.</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ion-slide>\n\n        <!--SOLUTION-->\n        <ion-slide>\n            <!--About plastic solution1-->\n            <div class="container-slides-content sea-gradient-wrapper">\n                <div class="vertical-center">\n                    <h1 class="slide-title-main">About plastic</h1>\n                    <h1 class="slide-title2-main">Solution</h1>\n                    <div class="line-separator-short"></div>\n                    <h4 class="slide-subtitle">Reduce use of single-use plastics</h4>\n                    <p>As 60-90% of marine litter is plastic-based refusing  any single-use plastics, reducing our\n                        dependence on plastics, and  carrying  reusable versions of these products will greatly help to\n                        reduce the amount of new plastics in circulation.</p>\n                </div>\n                <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n            </div>\n\n            <div class="sea-bg-gradient">\n                <!--About plastic solution2-->\n                <div class="container-slides-content">\n                    <div class="vertical-center">\n                        <img class="icon_property" src="assets/imgs/icn_recycle.png">\n                        <div class="line-separator-long"></div>\n                        <h4 class="slide-subtitle">Recycle</h4>\n                        <p>Recycling helps keep single-use plastics out of the ocean, and reduces the amount of new plastics\n                            in circulation.</p>\n                    </div>\n                </div>\n\n                <!--About plastic solution3-->\n                <div class="container-slides-content">\n                    <div class="vertical-center">\n                        <img class="icon_property" src="assets/imgs/icn_no_microbread.png">\n                        <div class="line-separator-long"></div>\n                        <h4 class="slide-subtitle">Avoid using products containing microbeads</h4>\n                        <p>Microbeads have become a growing source of plastic pollution in recent years. You can avoid\n                            products containing microbeads by looking for polythelene and polypropylene on the ingredients\n                            label of cosmetic products, and toiletries such as face wash, and shower gel. </p>\n                    </div>\n                </div>\n\n                <!--About plastic solution4-->\n                <div class="container-slides-content">\n                    <div class="vertical-center">\n                        <img class="icon_property" src="assets/imgs/icn_non-profit.png">\n                        <div class="line-separator-long"></div>\n                        <h4 class="slide-subtitle">Support organisations adressing plastic pollution</h4>\n                        <p>Non-profit organisations dealing with the problem of ocean plastic include the Oceanic Society\n                            Plastic Soup Foundation, and Plastic Pollution Coalition.</p>\n                    </div>\n                </div>\n            </div>\n        </ion-slide>\n\n        <ion-slide>\n            <div class="container-slides-content">\n                <div class="vertical-center">\n                    <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>\n                    <p>Earn points and become a senior ecologist!</p>\n                    <p></p>\n                    <!-- <h3>Score: {{quizScore}}</h3> -->\n                    <button ion-button (click)="startQuiz(1)">{{quizButtonText}}</button>\n                </div>\n            </div>\n        </ion-slide>\n    </ion-slides>\n\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-one',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/'<ion-header>\n    <custom-nav-bar></custom-nav-bar>\n    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">\n        <ion-segment class="SwipedTabs-tabs">\n            <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)" [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'\n                [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}">\n                {{tab}}\n            </ion-segment-button>\n        </ion-segment>\n\n        <!-- here is our dynamic line  "indicator"-->\n        <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}"></div>\n    </ion-content>\n</ion-header>\n\n<ion-content>\n    <!--PROBLEM-->\n    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"\n        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">\n        <ion-slide>\n            <!-- Icons for scrolling\n            <ion-icon class="arrow-up-style" name="arrow-dropup-circle"></ion-icon>\n            <ion-icon class="arrow-down-style" name="arrow-dropdown-circle"></ion-icon>-->\n\n            <div>\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                    <!--About plastic problem1-->\n                        <h1 class="slide-title-main">About plastic</h1>\n                        <h1 class="slide-title2-main">Issue</h1>\n                        <div class="line-separator-short"></div>\n                        <h4 class="slide-subtitle-secondary">322</h4>\n                        <h3 class="slide-subtitle2-secondary">millions</h3>\n                        <img class="infographics-image" src="assets/imgs/icn_tons.png">\n                        <p>of plastic were produced in 2015, the same weight as 900 Empire state buildings.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n\n                <div class="sea-bg-gradient">\n                    <div class="container-slides-content">\n                        <!--About plastic problem2-->\n                        <div class="vertical-center">\n                            <h4 class="slide-subtitle-secondary">8</h4>\n                            <h3 class="slide-subtitle2-secondary">millions</h3>\n                            <img class="infographics-image" src="assets/imgs/icn_tons.png">\n                            <p>8 millions of  this plastic enters our oceans each year, equivalent to emptying a garbage truck of plastic\n                                into an ocean every minute. This figure is estimated to rise to 60 tons per minute by 2050.</p>\n                            <img class="icon_secondary_property" src="assets/imgs/icn_garbage_truck_3_small.png">\n                        </div>\n                    </div>\n\n                    <div class="container-slides-content">\n                        <!--About plastic problem3-->\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_degrading_bottle.png">\n                            <div class="line-separator-long"></div>\n                            <p class="subtitle-small">Plastic</p>\n                            <h4 class="slide-subtitle-line-before">never fully biodegrade</h4>\n                            <p>Plastics photodegrade, which means that they break down\n                                into smaller, and smaller pieces to the microscopic level. Any toxic additives contained within the\n                                plastics are released into the ocean.</p>\n                        </div>\n                    </div>\n\n                    <div class="container-slides-content">\n                        <!--About plastic problem4-->\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_ocean_percentage.png">\n                            <div class="line-separator-long"></div>\n                            <p class="p_line_before">97% of the Earth’s water supply is contained in the ocean. Plastic waste is greatly endangering the world’s\n                                water supply. Plastics dumped in landfills form dangerous chemicals, and when these chemicals seep\n                                underground, they degrade the water quality.</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </ion-slide>\n\n        <!--CAUSE-->\n        <ion-slide>\n            <!--About plastic cause1-->\n            <div>\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">About plastic</h1>\n                        <h1 class="slide-title2-main">Cause</h1>\n                        <div class="line-separator-short"></div>\n                        <img class="icon_property_coins" src="assets/imgs/icn_coins.png">\n                        <h4 class="slide-subtitle">Plastics are cheap and easy to manufacture</h4>\n                        <p>Plastics have been used to make countless utilities, including plastic\n                            water bottles, straws, food containers, lids, and packaging wrappers.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n\n                <div class="sea-bg-gradient">\n                    <!--About plastic cause2-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_trash_full.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Plastics are easily and haphazardly discarded</h4>\n                            <p>The use of plastic items such as bags, wrappers, bottles, straws and food containers is\n                                typically very short. Whenever plastics are thrown away, they continue to persist within\n                                the environment.</p>\n                        </div>\n                    </div>\n\n                    <!--About plastic cause3-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_fishing_net.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Plastic decomposes slowly</h4>\n                            <p>Plastics are slow to decompose due to their strong chemical bonds that make plastic items\n                                durable. The EPA has stated that “every bit of plastic ever made still exists”. A plastic\n                                bottle can take up to 400 years to decompose, while plastic fishing lines can take more than 600 years.</p>\n                        </div>\n                    </div>\n\n                    <!--About plastic cause4-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_fishing_ship.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">The shipping and fishing industry</h4>\n                            <p>are major contributors of plastic pollution. Plastic waste from ships, sea accidents, and nets\n                                used for fishing emit toxins into the water which severely affects marine creatures.</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ion-slide>\n\n        <!--EFFECT-->\n        <ion-slide>\n            <div>\n                <!--About plastic effect1-->\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">About plastic</h1>\n                        <h1 class="slide-title2-main">Effect</h1>\n                        <div class="line-separator-short"></div>\n                        <h4 class="slide-subtitle">Threatens the life of numerous sea creatures</h4>\n                        <p>These marine creatures ingest plastic mainly by mistaking it as food, and can also be endangered\n                            by plastics through becoming entangled in plastic products such as fishing nets, and can holders.\n                            44% of all seabird species, along with sea turtles, and cetaceans have been documented to have\n                            plastic debris in or around their bodies.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n                <div class="sea-bg-gradient">\n                    <!--About plastic effect2-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_human.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Affects humans</h4>\n                            <p>Plastic pollution in our oceans severely affects humans in numerous ways. Studies have shown\n                                that toxins in plastics can cause several health issues such as cancer, and immune system\n                                problems. Ingestion of plastic by fish and other marine creatures finds its way into peoples’\n                                bodies when they consume marine food.</p>\n                        </div>\n                    </div>\n\n                    <!--About plastic effect3-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_ecosystem.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Threat to our ecosystem</h4>\n                            <p>Plastic pollution poses a serious threat to our ecosystems. Plastics in our oceans can lead\n                                to the invasion of non-indigenous species, and organisms in marine colonies. </p>\n                        </div>\n                    </div>\n\n                    <!--About plastic effect4-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="assets/imgs/icn_garbage_patch.png">\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle">Garbage patches</h4>\n                            <p>Plastic pollution has resulted in the creation of several floating garbage patches in our\n                                oceans called gyres. The Great Pacific Garbage patch located in the North Pacific Ocean off\n                                the coast of California is reported to be the largest ocean garbage patch in the world.</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </ion-slide>\n\n        <!--SOLUTION-->\n        <ion-slide>\n            <!--About plastic solution1-->\n            <div class="container-slides-content sea-gradient-wrapper">\n                <div class="vertical-center">\n                    <h1 class="slide-title-main">About plastic</h1>\n                    <h1 class="slide-title2-main">Solution</h1>\n                    <div class="line-separator-short"></div>\n                    <h4 class="slide-subtitle">Reduce use of single-use plastics</h4>\n                    <p>As 60-90% of marine litter is plastic-based refusing  any single-use plastics, reducing our\n                        dependence on plastics, and  carrying  reusable versions of these products will greatly help to\n                        reduce the amount of new plastics in circulation.</p>\n                </div>\n                <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n            </div>\n\n            <div class="sea-bg-gradient">\n                <!--About plastic solution2-->\n                <div class="container-slides-content">\n                    <div class="vertical-center">\n                        <img class="icon_property" src="assets/imgs/icn_recycle.png">\n                        <div class="line-separator-long"></div>\n                        <h4 class="slide-subtitle">Recycle</h4>\n                        <p>Recycling helps keep single-use plastics out of the ocean, and reduces the amount of new plastics\n                            in circulation.</p>\n                    </div>\n                </div>\n\n                <!--About plastic solution3-->\n                <div class="container-slides-content">\n                    <div class="vertical-center">\n                        <img class="icon_property" src="assets/imgs/icn_no_microbread.png">\n                        <div class="line-separator-long"></div>\n                        <h4 class="slide-subtitle">Avoid using products containing microbeads</h4>\n                        <p>Microbeads have become a growing source of plastic pollution in recent years. You can avoid\n                            products containing microbeads by looking for polythelene and polypropylene on the ingredients\n                            label of cosmetic products, and toiletries such as face wash, and shower gel. </p>\n                    </div>\n                </div>\n\n                <!--About plastic solution4-->\n                <div class="container-slides-content">\n                    <div class="vertical-center">\n                        <img class="icon_property" src="assets/imgs/icn_non-profit.png">\n                        <div class="line-separator-long"></div>\n                        <h4 class="slide-subtitle">Support organisations adressing plastic pollution</h4>\n                        <p>Non-profit organisations dealing with the problem of ocean plastic include the Oceanic Society\n                            Plastic Soup Foundation, and Plastic Pollution Coalition.</p>\n                    </div>\n                </div>\n            </div>\n        </ion-slide>\n\n        <ion-slide>\n            <div class="container-slides-content">\n                <div class="vertical-center">\n                    <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>\n                    <p>Earn points and become a senior ecologist!</p>\n                    <p></p>\n                    <!-- <h3>Score: {{quizScore}}</h3> -->\n                    <button ion-button (click)="startQuiz()">{{quizButtonText}}</button>\n                </div>\n            </div>\n        </ion-slide>\n    </ion-slides>\n\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-one/topic-one.html"*/ }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */],
@@ -191,7 +193,176 @@ var TopicOnePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 183:
+/***/ 182:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TopicQuizComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_service_user_service__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__quiz_result_quiz_result__ = __webpack_require__(403);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var TopicQuizComponent = /** @class */ (function () {
+    function TopicQuizComponent(navCtrl, navParams, viewCtrl, modalCtrl, alertCtrl, nativeAudio, userApi, auth) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.modalCtrl = modalCtrl;
+        this.alertCtrl = alertCtrl;
+        this.nativeAudio = nativeAudio;
+        this.userApi = userApi;
+        this.auth = auth;
+        this.topic = navParams.get("collection");
+        this.currentUser = this.auth.currentUser;
+        this.quizScore = 0;
+        this.questionPoints = [0, 0, 0, 0, 0];
+        this.topicTitle = this.topic.collectionName;
+        this.btnStyle = "";
+        this.disableButtons = false;
+    }
+    TopicQuizComponent.prototype.ionViewDidEnter = function () {
+        this
+            .quizSlides
+            .lockSwipes(true);
+    };
+    TopicQuizComponent.prototype.ionViewDidLoad = function () {
+        this
+            .nativeAudio
+            .preloadSimple('correct', 'assets/audio/correct.m4a');
+        this
+            .nativeAudio
+            .preloadSimple('wrong', 'assets/audio/wrong.m4a');
+        this
+            .nativeAudio
+            .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
+    };
+    TopicQuizComponent.prototype.checkAnswer = function (e, i, option) {
+        var _this = this;
+        this.questionPoints[i] = option.points;
+        this.quizScore += Number(option.points);
+        //user answer question correctly
+        if (option.isAnswer) {
+            e
+                .target
+                .parentNode
+                .classList
+                .add("btn-correct");
+            this
+                .nativeAudio
+                .play('correct');
+        }
+        else {
+            //user answer question wrongly
+            e
+                .target
+                .parentNode
+                .classList
+                .add("btn-wrong");
+            this
+                .nativeAudio
+                .play('wrong');
+        }
+        setTimeout(function () {
+            _this.disableButtons = true;
+        }, 300);
+        setTimeout(function () {
+            if (_this.quizSlides.clickedIndex < _this.quizSlides.length() - 1) {
+                _this.disableButtons = false;
+                _this.nextSlide();
+            }
+            else {
+                _this
+                    .userApi
+                    .updateUserAchievement(_this.currentUser, _this.quizScore, _this.questionPoints, _this.topicTitle);
+                _this.showResultPage();
+                _this
+                    .nativeAudio
+                    .play('new_badge');
+            }
+        }, 1000);
+    };
+    TopicQuizComponent.prototype.nextSlide = function () {
+        this
+            .quizSlides
+            .lockSwipes(false);
+        this
+            .quizSlides
+            .slideNext();
+        this
+            .quizSlides
+            .lockSwipes(true);
+    };
+    TopicQuizComponent.prototype.showLeaveConfirm = function () {
+        var _this = this;
+        var confirm = this
+            .alertCtrl
+            .create({
+            title: 'Are you sure to leave?',
+            message: 'You will lose your current points!',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () { }
+                }, {
+                    text: 'Confirm',
+                    handler: function () {
+                        _this
+                            .viewCtrl
+                            .dismiss();
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    TopicQuizComponent.prototype.showResultPage = function () {
+        var _this = this;
+        var modal = this
+            .modalCtrl
+            .create(__WEBPACK_IMPORTED_MODULE_5__quiz_result_quiz_result__["a" /* QuizResultComponent */], { quizScore: this.quizScore });
+        //todo: insert score & badge into db
+        modal.onDidDismiss(function (data) {
+            if (data.action == 'remove') {
+                _this
+                    .viewCtrl
+                    .dismiss();
+            }
+        });
+        modal.present();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */])
+    ], TopicQuizComponent.prototype, "quizSlides", void 0);
+    TopicQuizComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'topic-quiz',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/topic-quiz/topic-quiz.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Quiz\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)="showLeaveConfirm()">\n          <span ion-text color="primary">Cancel</span>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <ion-slides #quizSlides>\n      <ion-slide *ngFor="let question of topic.questionList; index as i">\n        <h3>{{question.question}}</h3>\n        <ion-buttons *ngFor="let option of question.options">\n          <button ion-button block large \n            [ngClass]="[btnStyle]"\n            [disabled]="disableButtons"\n            (click)="checkAnswer($event, i, option)">\n            {{option.description}}\n          </button>\n        </ion-buttons>\n      </ion-slide>\n    </ion-slides>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/topic-quiz/topic-quiz.html"*/ }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */], __WEBPACK_IMPORTED_MODULE_3__providers_user_service_user_service__["a" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
+    ], TopicQuizComponent);
+    return TopicQuizComponent;
+}());
+
+//# sourceMappingURL=topic-quiz.js.map
+
+/***/ }),
+
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -215,74 +386,67 @@ var UserProvider = /** @class */ (function () {
     function UserProvider(db, auth) {
         this.db = db;
         this.auth = auth;
-        this.$userKey = '-LJU-nVcB4Jp-UXcA6dE';
-        this.userAchievementList = this.db.list('/userAchievementList');
+        this.$userKey = '-LK1lKdGyqIssZruGmac';
+        // this.userAchievementList = this.db.list('/userAchievementList');
         this.totalScore = 0;
-        this.userList = this.db.list('/users');
+        this.userList = this
+            .db
+            .list('/users');
     }
     UserProvider.prototype.getUsers = function () {
         return this.userList;
     };
-    UserProvider.prototype.ionViewDidEnter = function () {
-    };
+    UserProvider.prototype.ionViewDidEnter = function () { };
     UserProvider.prototype.insertUser = function (user) {
-        this.userList.push({
-            name: user.name,
-            email: user.email,
-            password: user.password,
-        });
+        this
+            .userList
+            .push({ name: user.name, email: user.email, password: user.password });
     };
     UserProvider.prototype.updateUser = function (user) {
-        this.userList.update(this.$userKey, user);
+        this
+            .userList
+            .update(this.$userKey, user);
     };
     UserProvider.prototype.updateUserAchievement = function (currentUser, quizScore, questionScore, topicTitle) {
         var user = currentUser;
         var preTotalScore = currentUser.totalScore;
-        var preTopicScores = currentUser[topicTitle];
-        var temp = 0;
-        console.log("preTopicScores");
-        console.log(preTopicScores);
-        console.log("questionScore");
-        console.log(questionScore);
+        var preQuestionScores = currentUser[topicTitle];
+        var quizTotal = 0;
+        var quizDiff = 0;
         for (var i = 0; i < questionScore.length; i++) {
-            if (preTopicScores[i] > questionScore[i]) {
-                temp += preTopicScores[i];
+            quizTotal += questionScore[i];
+            if (preQuestionScores[i] < questionScore[i]) {
+                quizDiff += questionScore[i];
             }
             else {
-                temp += questionScore[i];
+                quizDiff += 0;
             }
         }
-        console.log("temp");
-        console.log(temp);
-        if (temp > preTotalScore) {
-            user.totalScore = temp;
-        }
-        else {
-            user.totalScore = preTotalScore;
-        }
-        console.log("ser.totalScore");
-        console.log(user.totalScore);
+        user[topicTitle] = questionScore;
+        user.totalScore += quizDiff;
         this.updateUser(user);
     };
     UserProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__["a" /* AuthServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _b || Object])
     ], UserProvider);
     return UserProvider;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=user-service.js.map
 
 /***/ }),
 
-/***/ 184:
+/***/ 185:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TopicTwoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_topic_quiz_topic_quiz__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_topic_quiz_topic_quiz__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_topic2_qustions__ = __webpack_require__(814);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -292,6 +456,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -340,33 +505,32 @@ var TopicTwoPage = /** @class */ (function () {
         if (this.SwipedTabsIndicator)
             this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     };
-    TopicTwoPage.prototype.startQuiz = function (num) {
+    TopicTwoPage.prototype.startQuiz = function () {
         var modal = this
             .modalCtrl
-            .create(__WEBPACK_IMPORTED_MODULE_2__components_topic_quiz_topic_quiz__["a" /* TopicQuizComponent */], { "num": num });
+            .create(__WEBPACK_IMPORTED_MODULE_2__components_topic_quiz_topic_quiz__["a" /* TopicQuizComponent */], { "collection": __WEBPACK_IMPORTED_MODULE_3__shared_topic2_qustions__["a" /* topic2 */] });
         modal.present();
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('SwipedTabsSlider'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */])
     ], TopicTwoPage.prototype, "SwipedTabsSlider", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('scroll'),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */])
     ], TopicTwoPage.prototype, "scroll", void 0);
     TopicTwoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-two',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/'<ion-header>\n<!-- \n    <ion-navbar>\n      <ion-title>Topic Two</ion-title>\n    </ion-navbar> -->\n    <custom-nav-bar></custom-nav-bar>    \n  <ion-content  #scroll scrollX="true" scrollY="false" style="height: 50px;">\n    <ion-segment  class="SwipedTabs-tabs">\n      <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)"\n      [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'  [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" >\n        {{tab}}\n      </ion-segment-button>\n    </ion-segment>\n  \n    <!-- here is our dynamic line  "indicator"-->\n    <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" ></div>\n  </ion-content>\n  </ion-header>\n  \n  <ion-content >\n  \n    <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"\n                (ionSlideWillChange)="updateIndicatorPosition()"\n                (ionSlideDidChange)="updateIndicatorPosition()"\n                (pan)="updateIndicatorPosition()"\n                [pager]="false"\n          >\n      <ion-slide>\n        <h1>Problem About Plastics</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Cause</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Effect</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Importance</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Quiz</h1>\n        <button ion-button (click)="startQuiz(2)">{{quizButtonText}}</button>\n      </ion-slide>\n    </ion-slides>\n  \n  \n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/ }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]) === "function" && _e || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-two',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/'<ion-header>\n<!-- \n    <ion-navbar>\n      <ion-title>Topic Two</ion-title>\n    </ion-navbar> -->\n    <custom-nav-bar></custom-nav-bar>    \n  <ion-content  #scroll scrollX="true" scrollY="false" style="height: 50px;">\n    <ion-segment  class="SwipedTabs-tabs">\n      <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)"\n      [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'  [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" >\n        {{tab}}\n      </ion-segment-button>\n    </ion-segment>\n  \n    <!-- here is our dynamic line  "indicator"-->\n    <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}" ></div>\n  </ion-content>\n  </ion-header>\n  \n  <ion-content >\n  \n    <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"\n                (ionSlideWillChange)="updateIndicatorPosition()"\n                (ionSlideDidChange)="updateIndicatorPosition()"\n                (pan)="updateIndicatorPosition()"\n                [pager]="false"\n          >\n      <ion-slide>\n        <h1>Problem About Plastics</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Cause</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Effect</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Importance</h1>\n      </ion-slide>\n      <ion-slide>\n        <h1>Quiz</h1>\n        <button ion-button (click)="startQuiz()">{{quizButtonText}}</button>\n      </ion-slide>\n    </ion-slides>\n  \n  \n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/ }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
     ], TopicTwoPage);
     return TopicTwoPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=topic-two.js.map
 
 /***/ }),
 
-/***/ 185:
+/***/ 186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -436,7 +600,7 @@ var TopicThreePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -506,7 +670,7 @@ var TopicFivePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 213:
+/***/ 214:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -519,11 +683,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 213;
+webpackEmptyAsyncContext.id = 214;
 
 /***/ }),
 
-/***/ 257:
+/***/ 258:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -536,7 +700,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 257;
+webpackEmptyAsyncContext.id = 258;
 
 /***/ }),
 
@@ -545,7 +709,7 @@ webpackEmptyAsyncContext.id = 257;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
@@ -605,11 +769,7 @@ var AuthServiceProvider = /** @class */ (function () {
             this
                 .db
                 .list('users')
-                .push(new __WEBPACK_IMPORTED_MODULE_5__shared_user_model__["a" /* User */]({
-                name: credentials.name,
-                email: credentials.email,
-                password: credentials.password
-            }));
+                .push(new __WEBPACK_IMPORTED_MODULE_5__shared_user_model__["a" /* User */](credentials.name, credentials.email, credentials.password));
         }
         ;
         return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].create(function (observer) {
@@ -654,193 +814,6 @@ var AuthServiceProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 402:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TopicQuizComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_service_user_service__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__quiz_result_quiz_result__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_questions__ = __webpack_require__(813);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var TopicQuizComponent = /** @class */ (function () {
-    function TopicQuizComponent(navCtrl, navParams, viewCtrl, modalCtrl, alertCtrl, nativeAudio, userApi, auth) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.modalCtrl = modalCtrl;
-        this.alertCtrl = alertCtrl;
-        this.nativeAudio = nativeAudio;
-        this.userApi = userApi;
-        this.auth = auth;
-        this.questionScore = [0, 0, 0, 0, 0];
-        this.currentUser = this.auth.currentUser;
-        var collectionNum = this
-            .navParams
-            .get("num");
-        if (collectionNum == "1") {
-            this.topic = __WEBPACK_IMPORTED_MODULE_6__shared_questions__["a" /* topic1 */];
-            this.topicTitle = "topic1";
-        }
-        else if (collectionNum == "2") {
-            this.topic = __WEBPACK_IMPORTED_MODULE_6__shared_questions__["b" /* topic2 */];
-            this.topicTitle = "topic2";
-        }
-        this.btnStyle = "";
-        this.quizScore = 0;
-        this.disableButtons = false;
-    }
-    TopicQuizComponent.prototype.ionViewDidEnter = function () {
-        this
-            .quizSlides
-            .lockSwipes(true);
-    };
-    TopicQuizComponent.prototype.ionViewDidLoad = function () {
-        this
-            .nativeAudio
-            .preloadSimple('correct', 'assets/audio/correct.m4a');
-        this
-            .nativeAudio
-            .preloadSimple('wrong', 'assets/audio/wrong.m4a');
-        this
-            .nativeAudio
-            .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
-    };
-    TopicQuizComponent.prototype.checkAnswer = function (e, i, option) {
-        var _this = this;
-        this.questionScore[i] = option.points;
-        this.quizScore += Number(option.points);
-        //user answer question correctly
-        if (option.isAnswer) {
-            e
-                .target
-                .parentNode
-                .classList
-                .add("btn-correct");
-            this
-                .nativeAudio
-                .play('correct');
-        }
-        else {
-            //user answer question wrongly
-            e
-                .target
-                .parentNode
-                .classList
-                .add("btn-wrong");
-            this
-                .nativeAudio
-                .play('wrong');
-        }
-        setTimeout(function () {
-            _this.disableButtons = true;
-        }, 300);
-        setTimeout(function () {
-            if (_this.quizSlides.clickedIndex < _this.quizSlides.length() - 1) {
-                _this.disableButtons = false;
-                _this.nextSlide();
-            }
-            else {
-                _this
-                    .userApi
-                    .updateUserAchievement(_this.currentUser, _this.quizScore, _this.questionScore, _this.topicTitle);
-                _this.showResultPage();
-                _this
-                    .nativeAudio
-                    .play('new_badge');
-            }
-        }, 1000);
-    };
-    TopicQuizComponent.prototype.nextSlide = function () {
-        this
-            .quizSlides
-            .lockSwipes(false);
-        this
-            .quizSlides
-            .slideNext();
-        this
-            .quizSlides
-            .lockSwipes(true);
-    };
-    TopicQuizComponent.prototype.showLeaveConfirm = function () {
-        var _this = this;
-        var confirm = this
-            .alertCtrl
-            .create({
-            title: 'Are you sure to leave?',
-            message: 'You will lose your current points!',
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function () { }
-                }, {
-                    text: 'Confirm',
-                    handler: function () {
-                        _this
-                            .viewCtrl
-                            .dismiss();
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    TopicQuizComponent.prototype.showResultPage = function () {
-        var _this = this;
-        var modal = this
-            .modalCtrl
-            .create(__WEBPACK_IMPORTED_MODULE_5__quiz_result_quiz_result__["a" /* QuizResultComponent */], {
-            quizScore: this.quizScore,
-        });
-        //todo: insert score & badge into db
-        modal.onDidDismiss(function (data) {
-            if (data.action == 'remove') {
-                _this
-                    .viewCtrl
-                    .dismiss();
-            }
-        });
-        modal.present();
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */])
-    ], TopicQuizComponent.prototype, "quizSlides", void 0);
-    TopicQuizComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'topic-quiz',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/topic-quiz/topic-quiz.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Quiz\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)="showLeaveConfirm()">\n          <span ion-text color="primary">Cancel</span>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <ion-slides #quizSlides>\n      <ion-slide *ngFor="let question of topic.questionList; index as i">\n        <h3>{{question.question}}</h3>\n        <ion-buttons *ngFor="let option of question.options">\n          <button ion-button block large \n            [ngClass]="[btnStyle]"\n            [disabled]="disableButtons"\n            (click)="checkAnswer($event, i, option)">\n            {{option.description}}\n          </button>\n        </ion-buttons>\n      </ion-slide>\n    </ion-slides>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/topic-quiz/topic-quiz.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__["a" /* NativeAudio */], __WEBPACK_IMPORTED_MODULE_3__providers_user_service_user_service__["a" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
-    ], TopicQuizComponent);
-    return TopicQuizComponent;
-}());
-
-//# sourceMappingURL=topic-quiz.js.map
-
-/***/ }),
-
 /***/ 403:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -878,7 +851,7 @@ var QuizResultComponent = /** @class */ (function () {
     };
     QuizResultComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'quiz-result',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/quiz-result/quiz-result.html"*/'<!--template for overlay-->\n\n<ion-header>\n    <ion-toolbar>\n        <ion-title>\n            Result\n        </ion-title>\n        <ion-buttons start>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n    <h1>Quiz score: {{quizScore}}</h1>\n    <h1>Total score: {{totalScore}}</h1>\n    <!-- <h1 *ngIf=\'badge\'>Badge: {{badge.title}}</h1>\n    <img *ngIf=\'badge\'[src]=\'badge.imgUrl\'> -->\n    <button ion-button (click)="close()">\n        <span ion-text>Confirm</span>\n    </button>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/quiz-result/quiz-result.html"*/
+            selector: 'quiz-result',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/quiz-result/quiz-result.html"*/'<!--template for overlay-->\n\n<ion-header>\n    <ion-toolbar>\n        <ion-title>\n            Result\n        </ion-title>\n        <ion-buttons start>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n    <h1>Quiz score: {{quizScore}}</h1>\n    <h1>Total score: {{totalScore}}</h1>\n    <button ion-button (click)="close()">\n        <span ion-text>Confirm</span>\n    </button>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/quiz-result/quiz-result.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], QuizResultComponent);
@@ -896,10 +869,10 @@ var QuizResultComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GamePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js__ = __webpack_require__(814);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js__ = __webpack_require__(815);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_items__ = __webpack_require__(915);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_items__ = __webpack_require__(916);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topic_four_topic_four__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1647,33 +1620,33 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_one_topic_one__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_two_topic_two__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_three_topic_three__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_two_topic_two__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_topic_five_topic_five__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_topic_five_topic_five__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_forms__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_custom_nav_bar_custom_nav_bar__ = __webpack_require__(917);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_custom_nav_bar_custom_nav_bar__ = __webpack_require__(918);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_topic_menu_topic_menu__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_achievement_achievement__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_game_game__ = __webpack_require__(404);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_auth_service_auth_service__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_register_register__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_common_http__ = __webpack_require__(918);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_native_audio__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_http__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angularfire2__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_common_http__ = __webpack_require__(919);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_native_audio__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_http__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angularfire2__ = __webpack_require__(399);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angularfire2_database__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__firebase_credentials__ = __webpack_require__(919);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ngx_fullpage__ = __webpack_require__(920);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__firebase_credentials__ = __webpack_require__(920);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ngx_fullpage__ = __webpack_require__(921);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ngx_fullpage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26_ngx_fullpage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_user_service_user_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_user_service_user_service__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_alternatives_alternatives__ = __webpack_require__(456);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_content_drawer_content_drawer__ = __webpack_require__(922);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__directives_parallax_header_parallax_header__ = __webpack_require__(923);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_content_drawer_content_drawer__ = __webpack_require__(923);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__directives_parallax_header_parallax_header__ = __webpack_require__(924);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_toast_service_toast_service__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pipes_badges_badges__ = __webpack_require__(924);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_topic_quiz_topic_quiz__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pipes_badges_badges__ = __webpack_require__(925);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_topic_quiz_topic_quiz__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_quiz_result_quiz_result__ = __webpack_require__(403);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1802,15 +1775,15 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_topic_one_topic_one__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_topic_two_topic_two__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_three_topic_three__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_topic_two_topic_two__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery__ = __webpack_require__(457);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js__ = __webpack_require__(916);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js__ = __webpack_require__(917);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_fullpage_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1883,15 +1856,18 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/deniseho/plastic/src/app/app.html"*/'<ion-menu [content]="content" [swipeEnabled]="false">\n\n  <ion-header>\n\n  </ion-header>\n\n  <ion-content class="menu-gradient menu-bottom">\n    <!--<ion-list>-->\n      <!--<button ion-item icon-only (click)="gotoHomepage()">-->\n          <!--<ion-icon name="home"></ion-icon>-->\n        <!--</button>-->\n    <!--</ion-list>-->\n    <ion-list class="profile_section_wrapper">\n      <ion-item class="profile_section bg-color">\n        <ion-thumbnail item-start>\n          <img src="assets/imgs/avatar_temp.png">\n        </ion-thumbnail>\n        <h2 class="points content-color">25 points</h2>\n        <p class="badges content-color">1/6 badges</p>\n        <img class="progress-bar" src="assets/imgs/progress_bar.png">\n      </ion-item>\n    </ion-list>\n\n    <ion-list>\n      <ion-list-header class="bg-color">Discover</ion-list-header>\n      <ion-item class="bg-color" ion-item *ngFor="let p of pages" (click)="gotoPage(p)">\n          <ion-avatar item-start>\n            <img class="menu-avatar" src={{p.avatar}}>\n          </ion-avatar>\n          <h2 class="content-color">{{p.title}}</h2>\n          <ion-icon item-end ios="ios=ios-arrow-forward" md="md-arrow-forward" color="gray"></ion-icon>\n      </ion-item>\n    </ion-list>\n\n    <ion-list>\n      <button class="log-out" ion-button color="secondary" round="" item-end icon-start (click)="logout()">\n        <ion-icon color="light" name="log-out"> </ion-icon>\n        Logout\n      </button>\n    </ion-list>\n\n    <img src="assets/imgs/seaweed-2.png" class="seaweed-property">\n\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/deniseho/plastic/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -1906,13 +1882,13 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topic_one_topic_one__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topic_two_topic_two__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topic_three_topic_three__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topic_two_topic_two__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topic_five_topic_five__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topic_five_topic_five__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_toast_service_toast_service__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_user_service_user_service__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_user_service_user_service__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1992,9 +1968,9 @@ var TopicMenu = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
 var User = /** @class */ (function () {
     function User(name, email, password, totalScore, topic1, topic2, topic3, topic4, topic5, firstLogin) {
-        this.name = (name != null || name != undefined) ? name : "guest";
-        this.email = (email != null || email != undefined) ? email : "guest";
-        this.password = (password != null || password != undefined) ? password : "guest";
+        this.name = (name != null || name != undefined) ? name : "Chia";
+        this.email = (email != null || email != undefined) ? email : "hoc2@tcd.ie";
+        this.password = (password != null || password != undefined) ? password : "pass";
         this.totalScore = (totalScore != null || totalScore != undefined) ? totalScore : 0;
         this.topic1 = (topic1 != null || topic1 != undefined) ? topic1 : [0, 0, 0, 0, 0];
         this.topic2 = (topic2 != null || topic2 != undefined) ? topic2 : [0, 0, 0, 0, 0];
@@ -2016,12 +1992,10 @@ var User = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return topic1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return topic2; });
 var topic1 = {
-    collectionName: "Topic1",
+    collectionName: "topic1",
     questionList: [
         {
-            id: "tp1_q1",
             question: "topic1 question 01",
             options: [
                 {
@@ -2047,7 +2021,6 @@ var topic1 = {
                 }
             ]
         }, {
-            id: "tp1_q2",
             question: "topic1 question 02",
             options: [
                 {
@@ -2073,7 +2046,6 @@ var topic1 = {
                 }
             ]
         }, {
-            id: "tp1_q3",
             question: "topic1 question 03",
             options: [
                 {
@@ -2099,7 +2071,6 @@ var topic1 = {
                 }
             ]
         }, {
-            id: "tp1_q4",
             question: "topic1 question 04",
             options: [
                 {
@@ -2125,7 +2096,6 @@ var topic1 = {
                 }
             ]
         }, {
-            id: "tp1_q5",
             question: "topic1 question 05",
             options: [
                 {
@@ -2153,11 +2123,19 @@ var topic1 = {
         }
     ]
 };
+//# sourceMappingURL=topic1-qustions.js.map
+
+/***/ }),
+
+/***/ 814:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return topic2; });
 var topic2 = {
-    collectionName: "Topic2",
+    collectionName: "topic2",
     questionList: [
         {
-            id: "tp2_q1",
             question: "topic2 question 01",
             options: [
                 {
@@ -2183,7 +2161,6 @@ var topic2 = {
                 }
             ]
         }, {
-            id: "tp2_q2",
             question: "topic2 question 02",
             options: [
                 {
@@ -2209,7 +2186,6 @@ var topic2 = {
                 }
             ]
         }, {
-            id: "tp2_q3",
             question: "topic2 question 03",
             options: [
                 {
@@ -2235,7 +2211,6 @@ var topic2 = {
                 }
             ]
         }, {
-            id: "tp2_q4",
             question: "topic2 question 04",
             options: [
                 {
@@ -2261,7 +2236,6 @@ var topic2 = {
                 }
             ]
         }, {
-            id: "tp2_q5",
             question: "topic2 question 05",
             options: [
                 {
@@ -2289,11 +2263,11 @@ var topic2 = {
         }
     ]
 };
-//# sourceMappingURL=questions.js.map
+//# sourceMappingURL=topic2-qustions.js.map
 
 /***/ }),
 
-/***/ 915:
+/***/ 916:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2332,7 +2306,7 @@ var items = [
 
 /***/ }),
 
-/***/ 917:
+/***/ 918:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2395,7 +2369,7 @@ var CustomNavBarPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 919:
+/***/ 920:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2412,7 +2386,7 @@ var FIREBASE_CONFIG = {
 
 /***/ }),
 
-/***/ 922:
+/***/ 923:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2513,7 +2487,7 @@ var ContentDrawerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 923:
+/***/ 924:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2610,7 +2584,7 @@ var ParallaxHeaderDirective = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 924:
+/***/ 925:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

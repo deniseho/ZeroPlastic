@@ -45,11 +45,11 @@ export class AuthServiceProvider {
       this
         .db
         .list('users')
-        .push(new User({
-          name: credentials.name,
-          email: credentials.email,
-          password: credentials.password
-        }));
+        .push(new User(
+          credentials.name,
+          credentials.email,
+          credentials.password
+        ));
     };
 
     return Observable.create(observer => {

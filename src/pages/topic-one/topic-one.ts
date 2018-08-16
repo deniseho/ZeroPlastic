@@ -16,6 +16,7 @@ import * as _ from 'lodash';
 import * as $ from 'jquery';
 import {UserProvider} from '../../providers/user-service/user-service';
 import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
+import { topic1 } from '../../shared/topic1-qustions';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -94,10 +95,10 @@ export class TopicOnePage {
       // (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
   
-  startQuiz(num) {
+  startQuiz() {
     const modal = this
       .modalCtrl
-      .create(TopicQuizComponent, {"num": num});
+      .create(TopicQuizComponent, {"collection": topic1});
     modal.present();
   }
 

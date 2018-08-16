@@ -1,51 +1,44 @@
-import { Component, ViewChild } from '@angular/core';
-import { Slides, NavController, NavParams, ViewController, ModalController, AlertController } from 'ionic-angular';
-import { NativeAudio } from '@ionic-native/native-audio';
-import { UserProvider } from '../../providers/user-service/user-service';
-import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { QuizResultComponent } from '../quiz-result/quiz-result';
-import { topic1, topic2 } from '../../shared/questions';
-import { User } from '../../shared/user-model';
+import {Component, ViewChild} from '@angular/core';
+import {
+  Slides,
+  NavController,
+  NavParams,
+  ViewController,
+  ModalController,
+  AlertController
+} from 'ionic-angular';
+import {NativeAudio} from '@ionic-native/native-audio';
+import {UserProvider} from '../../providers/user-service/user-service';
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import {QuizResultComponent} from '../quiz-result/quiz-result';
+import {User} from '../../shared/user-model';
 
-@Component({
-  selector: 'topic-quiz',
-  templateUrl: 'topic-quiz.html'
-})
+@Component({selector: 'topic-quiz', templateUrl: 'topic-quiz.html'})
 export class TopicQuizComponent {
 
   @ViewChild(Slides)quizSlides : Slides;
 
   topic : any;
-  topicTitle : string;
   isAnswer : boolean;
   btnStyle : string;
-  quizScore : number;
   disableButtons : boolean;
 
-  questionScore : any = [0, 0, 0, 0, 0];
   currentUser : User;
+  quizScore : number;
+  questionPoints : number[];
+  topicTitle : string;
 
-  constructor(public navCtrl : NavController, 
-    public navParams : NavParams, public viewCtrl : ViewController, 
-    public modalCtrl : ModalController, public alertCtrl : AlertController, 
-    private nativeAudio : NativeAudio, private userApi : UserProvider, private auth : AuthServiceProvider) {
+
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserProvider, private auth : AuthServiceProvider) {
+
+    this.topic = navParams.get("collection");
 
     this.currentUser = this.auth.currentUser;
-
-    let collectionNum = this
-      .navParams
-      .get("num");
-
-    if (collectionNum == "1") {
-      this.topic = topic1;
-      this.topicTitle = "topic1";
-    } else if (collectionNum == "2") {
-      this.topic = topic2;
-      this.topicTitle = "topic2";
-    }
+    this.quizScore = 0;
+    this.questionPoints = [0, 0, 0, 0, 0];
+    this.topicTitle = this.topic.collectionName;
 
     this.btnStyle = "";
-    this.quizScore = 0;
     this.disableButtons = false;
   }
 
@@ -71,7 +64,7 @@ export class TopicQuizComponent {
   }
 
   checkAnswer(e, i, option) {
-    this.questionScore[i] = option.points;
+    this.questionPoints[i] = option.points;
     this.quizScore += Number(option.points);
 
     //user answer question correctly
@@ -109,9 +102,9 @@ export class TopicQuizComponent {
         this.nextSlide();
       } else {
         this
-        .userApi
-        .updateUserAchievement(this.currentUser, this.quizScore, this.questionScore, this.topicTitle);
-  
+          .userApi
+          .updateUserAchievement(this.currentUser, this.quizScore, this.questionPoints, this.topicTitle);
+
         this.showResultPage();
         this
           .nativeAudio
@@ -160,9 +153,7 @@ export class TopicQuizComponent {
   showResultPage() {
     const modal = this
       .modalCtrl
-      .create(QuizResultComponent, {
-        quizScore: this.quizScore,
-      });
+      .create(QuizResultComponent, {quizScore: this.quizScore});
 
     //todo: insert score & badge into db
     modal.onDidDismiss(data => {
