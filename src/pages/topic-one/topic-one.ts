@@ -10,13 +10,13 @@ import {
   NavParams,
   Platform
 } from 'ionic-angular';
-import {QuizPage} from '../quiz/quiz';
 import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 import {UserProvider} from '../../providers/user-service/user-service';
-import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
+import { topic1 } from '../../shared/topic1-qustions';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -33,7 +33,7 @@ export class TopicOnePage {
   constructor(private event : Events, public navCtrl : NavController, 
     public navParams : NavParams, public modalCtrl : ModalController, 
     public renderer : Renderer, public viewCtrl : ViewController, 
-    private auth : AuthServiceProvider, private toast: ToastServiceProvider) {
+    private auth : AuthServiceProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
 
     //todo: check if the score exists from db
@@ -55,7 +55,6 @@ export class TopicOnePage {
   }
 
   ionViewDidLoad() {
-    this.toast.showToast('test');
   }
 
 
@@ -96,10 +95,10 @@ export class TopicOnePage {
       // (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
   
-  startQuiz(num) {
+  startQuiz() {
     const modal = this
       .modalCtrl
-      .create(QuizPage, {"num": num});
+      .create(TopicQuizComponent, {"collection": topic1});
     modal.present();
   }
 

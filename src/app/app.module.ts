@@ -15,8 +15,6 @@ import { CustomNavBarPage } from '../pages/custom-nav-bar/custom-nav-bar';
 import { TopicMenu } from '../pages/topic-menu/topic-menu';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { GamePage } from '../pages/game/game';
-import { QuizPage } from '../pages/quiz/quiz';
-import { QuizResultPage } from '../pages/quiz/result';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { RegisterPage } from '../pages/register/register';
@@ -34,6 +32,8 @@ import { ContentDrawerComponent } from '../components/content-drawer/content-dra
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 import { ToastServiceProvider } from '../providers/toast-service/toast-service';
 import { BadgesPipe } from '../pipes/badges/badges';
+import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
+import { QuizResultComponent } from '../components/quiz-result/quiz-result';
 
 @NgModule({
   declarations: [
@@ -49,8 +49,8 @@ import { BadgesPipe } from '../pipes/badges/badges';
     TopicFivePage,
     AchievementPage,
     GamePage,
-    QuizPage,
-    QuizResultPage,
+    TopicQuizComponent,
+    QuizResultComponent,
     AlternativesPage,
     ContentDrawerComponent,
     ParallaxHeaderDirective,
@@ -80,8 +80,8 @@ import { BadgesPipe } from '../pipes/badges/badges';
     TopicFivePage,
     AchievementPage,
     GamePage,
-    QuizPage,
-    QuizResultPage,
+    TopicQuizComponent,
+    QuizResultComponent,
     AlternativesPage
 ],
   providers: [

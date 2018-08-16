@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase} from 'angularfire2/database';
 import * as _ from 'lodash';
-import {User} from './User';
+import { User } from '../../shared/user-model';
 
 @Injectable()
 export class AuthServiceProvider {
@@ -17,6 +17,7 @@ export class AuthServiceProvider {
       .getAllUsers()
       .then(data => {
         this.allUsers = data;
+        console.log(data)
       });
   }
 
@@ -32,30 +33,23 @@ export class AuthServiceProvider {
         }));
         observer.next(true);
         observer.complete();
+        
       });
     }
   }
 
   register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
+    if (credentials.name === null || credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      let newUser = new User(credentials.name, credentials.email, credentials.password, 0, [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ], [
-        0, 0, 0, 0, 0
-      ],);
-
       this
         .db
         .list('users')
-        .push(newUser);
+        .push(new User(
+          credentials.name,
+          credentials.email,
+          credentials.password
+        ));
     };
 
     return Observable.create(observer => {
@@ -77,10 +71,18 @@ export class AuthServiceProvider {
       this
         .http
         .get(`${this.baseUrl}/users.json`)
-        .subscribe(res => resolve(res.json()));
+        .subscribe(res => {
+          resolve(res.json())
+        }
+        );
     });
   }
 
-  getCurrentUser() : User {return this.currentUser;}
+  getCurrentUser() : User {
+    if(this.currentUser==undefined){
+    }else{
+      return this.currentUser;
+    }
+  }
 
 }

@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, Slides, Content, NavParams, ModalController} from 'ionic-angular';
-import { QuizPage } from '../quiz/quiz';
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
+import { topic2 } from '../../shared/topic2-qustions';
 
 @Component({selector: 'page-topic-two', templateUrl: 'topic-two.html'})
 export class TopicTwoPage {
@@ -60,10 +61,10 @@ export class TopicTwoPage {
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
 
-    startQuiz(num) {
+    startQuiz() {
       const modal = this
         .modalCtrl
-        .create(QuizPage, {"num": num});
+        .create(TopicQuizComponent, {"collection": topic2});
       modal.present();
     }
   

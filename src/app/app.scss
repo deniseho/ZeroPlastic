@@ -61,3 +61,24 @@ ion-list-header {
   color: white !important;
   z-index: 10;
 }
+
+//Custom Toasts
+.badgeToast { 
+  .toast-message { 
+    // background: color($colors, primary);
+  } 
+  .toast-message::before {
+    background-image: url("../assets/imgs/1st-LEVEL.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 50px; 
+    height: 50px;
+    content:"";
+  } 
+}
+
+.textToast{
+  .toast-message { 
+    // background: color($colors, primary);
+  } 
+}

@@ -1,0 +1,19 @@
+<!--template for overlay-->
+
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Result
+        </ion-title>
+        <ion-buttons start>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>Quiz score: {{quizScore}}</h1>
+    <h1>Total score: {{totalScore}}</h1>
+    <button ion-button (click)="close()">
+        <span ion-text>Confirm</span>
+    </button>
+</ion-content>

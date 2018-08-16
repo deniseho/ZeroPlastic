@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import {User} from '../../providers/auth-service/User';
+import { User } from '../../shared/user-model';
 
 @Component({selector: 'page-achievement', templateUrl: 'achievement.html'})
 

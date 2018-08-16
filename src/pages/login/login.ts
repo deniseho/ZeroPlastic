@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, Loading, AlertController, LoadingController, ToastController} from 'ionic-angular';
+import {NavController, NavParams, Loading, AlertController, LoadingController} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {RegisterPage} from '../register/register';
 import {TopicMenu} from '../topic-menu/topic-menu';
 
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
-  loading : Loading;
+  // loading  : Loading;
   registerCredentials = {
     email: 'hoc2@tcd.ie',
     password: 'deniseho'
@@ -28,7 +28,7 @@ export class LoginPage {
   }
 
   login() {
-    this.showLoading();
+    // this.showLoading();
   if(this.registerCredentials.email==''||this.registerCredentials.email==null||this.registerCredentials.email==undefined){
       this.showError("Please enter your email.");
     }else if(this.registerCredentials.password==''||this.registerCredentials.password==null||this.registerCredentials.password==undefined){
@@ -42,6 +42,7 @@ export class LoginPage {
             this
             .navCtrl
             .setRoot(TopicMenu);
+            
         } else {
           this.showError("Access Denied");
         }
@@ -51,19 +52,19 @@ export class LoginPage {
     }
   }
 
-  showLoading() {
-    this.loading = this
-      .loadingCtrl
-      .create({content: 'Please wait...', dismissOnPageChange: true});
-    this
-      .loading
-      .present();
-  }
+  // showLoading() {
+  //   this.loading = this
+  //     .loadingCtrl
+  //     .create({content: 'Please wait...', dismissOnPageChange: true});
+  //   this
+  //     .loading
+  //     .present();
+  // }
 
   showError(text : any) {
-    this
-      .loading
-      .dismiss();
+    // this
+    //   .loading
+    //   .dismiss();
     let alert = this
       .alertCtrl
       .create({title: 'Fail', subTitle: text, buttons: ['OK']});

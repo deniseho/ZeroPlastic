@@ -70691,7 +70691,24 @@ ion-list-header {
   z-index: 10;
 }
 
-page-achievement .badge {
+.badgeToast .toast-message::before {
+  background-image: url("../assets/imgs/1st-LEVEL.png");
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  content: "";
+}
+
+topic-quiz .btn-correct {
+  background-color: #343499;
+}
+
+topic-quiz .btn-wrong {
+  background-color: #f53d3d;
+}
+
+page-achievement .badgeRecord {
   width: 30%;
   display: inline-block;
 }
@@ -70745,12 +70762,72 @@ page-game ion-grid ion-row ion-col {
   text-align: center;
 }
 
-page-quiz .btn-correct {
-  background-color: #343499;
+page-login ion-card-header {
+  margin: 20px 0 15px 0;
+  font-size: 22px !important;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6) !important;
 }
 
-page-quiz .btn-wrong {
-  background-color: #f53d3d;
+page-login .avatar {
+  margin: auto;
+  padding-bottom: 10px;
+}
+
+page-login .skip-button {
+  margin-bottom: 10px;
+  float: right;
+}
+
+page-login .login-background {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: -5;
+}
+
+page-login ion-content {
+  background-color: #D8F3F7 !important;
+}
+
+page-register ion-card-header {
+  margin: 20px 0 15px 0;
+  font-size: 22px !important;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+page-register .avatar {
+  margin: auto;
+  padding-bottom: 10px;
+}
+
+page-register .skip-button {
+  margin-bottom: 10px;
+  float: right;
+}
+
+page-register .login-background {
+  position: absolute;
+  bottom: -25%;
+  left: 0px;
+  z-index: -5;
+}
+
+page-register ion-content {
+  background-color: #D8F3F7 !important;
+}
+
+page-register ion-list-header {
+  font-size: 12px !important;
+  color: #999 !important;
+  margin-bottom: 0 !important;
+}
+
+page-register ion-list-header ion-label {
+  margin-bottom: 0 !important;
 }
 
 page-topic-five .SwipedTabs-indicatorSegment {

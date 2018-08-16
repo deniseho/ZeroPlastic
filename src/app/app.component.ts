@@ -12,7 +12,6 @@ import { TopicThreePage } from '../pages/topic-three/topic-three';
 import { TopicFourPage } from '../pages/topic-four/topic-four';
 import { TopicFivePage } from '../pages/topic-five/topic-five';
 import { GamePage } from '../pages/game/game';
-import { QuizPage } from '../pages/quiz/quiz';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
