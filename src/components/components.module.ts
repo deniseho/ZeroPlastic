@@ -2,9 +2,12 @@ import {NgModule} from '@angular/core';
 import {ContentDrawerComponent} from './content-drawer/content-drawer';
 import { TopicQuizComponent } from './topic-quiz/topic-quiz';
 import { QuizResultComponent } from './quiz-result/quiz-result';
+import { MapInfoComponent } from './map-info/map-info';
 @NgModule({declarations: [ContentDrawerComponent,
     TopicQuizComponent,
-    QuizResultComponent], imports: [], exports: [ContentDrawerComponent,
+    QuizResultComponent,
+    MapInfoComponent], imports: [], exports: [ContentDrawerComponent,
     TopicQuizComponent,
-    QuizResultComponent]})
+    QuizResultComponent,
+    MapInfoComponent]})
 export class ComponentsModule {}

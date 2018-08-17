@@ -1,47 +1,29 @@
 <ion-header>
-<!-- 
+  <!-- 
     <ion-navbar>
       <ion-title>Topic Two</ion-title>
     </ion-navbar> -->
-    <custom-nav-bar></custom-nav-bar>    
-  <ion-content  #scroll scrollX="true" scrollY="false" style="height: 50px;">
-    <ion-segment  class="SwipedTabs-tabs">
-      <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
-      [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'  [ngStyle]="{'width.px': (this.tabElementWidth_px)}" >
-        {{tab}}
-      </ion-segment-button>
-    </ion-segment>
-  
-    <!-- here is our dynamic line  "indicator"-->
-    <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.px': (this.tabElementWidth_px)}" ></div>
-  </ion-content>
-  </ion-header>
-  
-  <ion-content >
-  
-    <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
-                (ionSlideWillChange)="updateIndicatorPosition()"
-                (ionSlideDidChange)="updateIndicatorPosition()"
-                (pan)="updateIndicatorPosition()"
-                [pager]="false"
-          >
-      <ion-slide>
-        <h1>Problem About Plastics</h1>
-      </ion-slide>
-      <ion-slide>
-        <h1>Cause</h1>
-      </ion-slide>
-      <ion-slide>
-        <h1>Effect</h1>
-      </ion-slide>
-      <ion-slide>
-        <h1>Importance</h1>
-      </ion-slide>
-      <ion-slide>
-        <h1>Quiz</h1>
-        <button ion-button (click)="startQuiz()">{{quizButtonText}}</button>
-      </ion-slide>
-    </ion-slides>
-  
-  
-  </ion-content>
+  <custom-nav-bar></custom-nav-bar>
+
+</ion-header>
+
+<ion-content scrollX="true" scrollY="false">
+  <h3 class="title">{{title}}</h3>
+    <div class="inner">
+  <div class="country China" on-tap="onTap($event, 'China')"></div>
+  <div class="country China" on-tap="onTap($event, 'China')"></div>
+  <div class="country China" on-tap="onTap($event, 'China')"></div>
+  <div class="country China" on-tap="onTap($event, 'China')"></div>
+  <div class="country Indonesia" on-tap="onTap($event, 'Indonesia')"></div>
+  <div class="country Philippines" on-tap="onTap($event, 'Philippines')"></div>
+  <div class="country Vietnam" on-tap="onTap($event, 'Vietnam')"></div>
+  <div class="country SriLanka" on-tap="onTap($event, 'Sri Lanka')"></div>
+  <div class="country Egypt" on-tap="onTap($event, 'Egypt')"></div>
+  <div class="country Thailand" on-tap="onTap($event, 'Thailand')"></div>
+  <div class="country Malaysia" on-tap="onTap($event, 'Malaysia')"></div>
+  <div class="country Nigeria" on-tap="onTap($event, 'Nigeria')"></div>
+  <div class="country Bangladesh" on-tap="onTap($event, 'Bangladesh')"></div>
+    <img src="assets/imgs/world_map.png" >
+  </div>
+  <div></div>
+</ion-content>

@@ -34,6 +34,7 @@ import { ToastServiceProvider } from '../providers/toast-service/toast-service';
 import { BadgesPipe } from '../pipes/badges/badges';
 import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
 import { QuizResultComponent } from '../components/quiz-result/quiz-result';
+import { MapInfoComponent } from '../components/map-info/map-info';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { QuizResultComponent } from '../components/quiz-result/quiz-result';
     AlternativesPage,
     ContentDrawerComponent,
     ParallaxHeaderDirective,
-    BadgesPipe
+    BadgesPipe,
+    MapInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ import { QuizResultComponent } from '../components/quiz-result/quiz-result';
     GamePage,
     TopicQuizComponent,
     QuizResultComponent,
-    AlternativesPage
+    AlternativesPage,
+    MapInfoComponent    
 ],
   providers: [
     StatusBar,

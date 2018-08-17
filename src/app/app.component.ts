@@ -15,6 +15,7 @@ import { GamePage } from '../pages/game/game';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
+import { User } from '../shared/user-model';
 
 import 'jquery'; // Import jQuery
 import 'fullpage.js'; // Import fullpage.js
@@ -25,14 +26,12 @@ import 'fullpage.js'; // Import fullpage.js
 export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
-  rootPage = LoginPage;
-  // rootPage = AlternativesPage;
-  
+  rootPage = LoginPage; 
+  // rootPage = TopicTwoPage; 
+  currentUser: User;  
   pages: Array<{title: string, component: any, avatar: string}>;
   
   public ngOnInit() {
-    console.log('Initial App State');
   }
 
   constructor(
@@ -43,6 +42,7 @@ export class MyApp implements OnInit {
     private auth: AuthServiceProvider,
   ) {
     this.initializeApp();
+    this.currentUser = this.auth.getCurrentUser();
 
     // set our app's pages
     this.pages = [
@@ -56,8 +56,6 @@ export class MyApp implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     }); 
