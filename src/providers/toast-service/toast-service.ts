@@ -20,7 +20,7 @@ export class ToastServiceProvider {
       .toastCtrl
       .create({
         message: message, 
-        duration: 2000, 
+        duration: 1500, 
         position: 'middle',
         cssClass: cssClass});
 
