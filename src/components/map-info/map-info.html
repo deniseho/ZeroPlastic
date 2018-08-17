@@ -10,7 +10,7 @@
   
   <ion-content padding>
 
-    <h4>{{countryInfo}}</h4>
+    <h4 [innerHTML]="countryInfo"></h4>
     <button ion-button (click)="close()">
       <span ion-text>Back to the map</span>
     </button>
