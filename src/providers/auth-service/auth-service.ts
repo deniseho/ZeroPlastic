@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase} from 'angularfire2/database';
 import * as _ from 'lodash';
-import { User } from '../../shared/user-model';
+import {User} from '../../shared/user-model';
 
 @Injectable()
 export class AuthServiceProvider {
@@ -17,8 +17,8 @@ export class AuthServiceProvider {
       .getAllUsers()
       .then(data => {
         this.allUsers = data;
-        console.log(data)
       });
+      console.log(this.currentUser)
   }
 
   ionViewDidLoad() {}
@@ -33,7 +33,7 @@ export class AuthServiceProvider {
         }));
         observer.next(true);
         observer.complete();
-        
+
       });
     }
   }
@@ -45,11 +45,7 @@ export class AuthServiceProvider {
       this
         .db
         .list('users')
-        .push(new User(
-          credentials.name,
-          credentials.email,
-          credentials.password
-        ));
+        .push(new User(credentials.name, credentials.email, credentials.password));
     };
 
     return Observable.create(observer => {
@@ -73,14 +69,12 @@ export class AuthServiceProvider {
         .get(`${this.baseUrl}/users.json`)
         .subscribe(res => {
           resolve(res.json())
-        }
-        );
+        });
     });
   }
 
   getCurrentUser() : User {
-    if(this.currentUser==undefined){
-    }else{
+    if(this.currentUser == undefined) {} else {
       return this.currentUser;
     }
   }

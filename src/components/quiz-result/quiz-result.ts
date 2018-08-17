@@ -13,7 +13,6 @@ export class QuizResultComponent {
     quizScore : number;
     totalScore : number;
     constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
-        this.quizScore = navParams.get('quizScore');
         this.totalScore = this.auth.getCurrentUser().totalScore;
     }
 
@@ -22,7 +21,7 @@ export class QuizResultComponent {
     close() {
         this
             .viewCtrl
-            .dismiss({'action': 'remove', 'quizScore': this.quizScore});
+            .dismiss({'action': 'remove'});
     }
 
 }
