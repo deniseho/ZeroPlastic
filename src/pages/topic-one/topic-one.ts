@@ -34,7 +34,7 @@ export class TopicOnePage {
     public navParams : NavParams, public modalCtrl : ModalController, 
     public renderer : Renderer, public viewCtrl : ViewController, 
     private auth : AuthServiceProvider) {
-    this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
+    this.tabs = ["Issue", "Cause", "Effect", "Solution", "Quiz"];
 
     //todo: check if the score exists from db
     let score = this

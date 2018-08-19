@@ -46,8 +46,8 @@ export class MyApp implements OnInit {
 
     // set our app's pages
     this.pages = [
-      { title: 'Plastic Pollution', component: TopicOnePage, avatar: 'assets/imgs/icn_plastic_pollution.png' },
-      { title: 'About Pollution', component: TopicTwoPage, avatar: 'assets/imgs/icn_plastics.png' },
+      { title: 'About Plastic', component: TopicOnePage, avatar: 'assets/imgs/icn_plastic_pollution.png' },
+      { title: 'Top 10 countries', component: TopicTwoPage, avatar: 'assets/imgs/icn_plastics.png' },
       { title: 'Species Affected', component: TopicThreePage, avatar: 'assets/imgs/icn_octopus.png' },
       { title: 'Take Action', component: TopicFourPage, avatar: 'assets/imgs/icn_take_action.png' },
       { title: 'Activities', component: TopicFivePage, avatar: 'assets/imgs/icn_activities.png' },

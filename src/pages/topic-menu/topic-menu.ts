@@ -24,8 +24,8 @@ export class TopicMenu {
   ) {
     
       this.pages = [
-      { title: 'Plastic Pollution', component: TopicOnePage },
-      { title: 'About Pollution', component: TopicTwoPage },
+      { title: 'About Plastic', component: TopicOnePage },
+      { title: 'Top 10 countries', component: TopicTwoPage },
       { title: 'Species Affected', component: TopicThreePage },
       { title: 'Take Action', component: TopicFourPage },
       { title: 'Activities', component: TopicFivePage },

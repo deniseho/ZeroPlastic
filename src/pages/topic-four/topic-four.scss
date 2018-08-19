@@ -72,7 +72,7 @@ page-topic-four {
 
   .container-slides-content {
     width: 100%;
-    height: 85vh;
+    height: 83vh;
     text-align: center;
     padding: 10px;
     display: table;
@@ -171,24 +171,42 @@ page-topic-four {
     }
   }
 
+  .events-container {
+    padding-bottom: 20px;
+    background: #E0EDF6;
+  }
+
   .events-title {
     font-size: 22px;
     text-align: left;
-    margin-bottom: 0 !important;
   }
 
   ion-list-header {
     background-color: transparent !important;
-    color: #6666CC !important;
+    color: #3C3CAF !important;
   }
 
-  .date-wrapper {
-    padding: 10px;
+  .date-wrapper-1 {
+    height: 123px;
+    background-image: url("../../assets/imgs/pic-beach-cleanup.png");
+    display: table;
+  }
+
+  .date-wrapper-2 {
+    height: 123px;
+    background-image: url("../../assets/imgs/pic-recycle.png");
+    display: table;
+  }
+
+  .date-bg {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    display: table-cell;
+    vertical-align: middle;
   }
 
   .day, .month, .year {
     font-weight: bold;
-    color: #6666CC;
+    color: #3C3CAF;
   }
 
   .day {
@@ -216,16 +234,12 @@ page-topic-four {
 
   .time, .contact, .card-title, .location {
     text-align: left;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0,0,0,0.6);
     font-size: 14px;
   }
 
   .location {
     padding-bottom: 8px;
-  }
-
-  ion-card {
-    margin-bottom: 30px;
   }
 
   .slide-title-main {
@@ -242,10 +256,12 @@ page-topic-four {
     margin-bottom: 20px;
   }
 
-  .events-container {
-    padding-bottom: 20px;
+  .game-container {
+    width: 100%;
+    text-align: center;
+    padding: 30px 10px 30px 10px;
+
   }
 
-//  Recycle
 
 }

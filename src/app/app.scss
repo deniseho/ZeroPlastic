@@ -31,11 +31,11 @@
 
 .bg-color{
   background-color: transparent;
-
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
-.content-color, .log-out{
-  color: rgba(0, 0, 0, 0.7) !important;
+.content-color, .log-out, .points, .badges{
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .item, .item-inner {
@@ -44,15 +44,14 @@
 
 .points {
   padding-bottom: 10px;
+}
+
+.badges, .points {
   font-weight: bold !important;
 }
 
 .progress-bar {
   padding-bottom:6px;
-}
-
-ion-list-header {
-  border-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .log-out {

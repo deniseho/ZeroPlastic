@@ -5,7 +5,8 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="display-height">
+  <h1 class="slide-title-main">Discover</h1>
   <ion-card class="menuList" *ngFor="let p of pages" (click)="gotoPage(p.component)">
     <div class="card-title">{{p.title}}</div>
   </ion-card>
