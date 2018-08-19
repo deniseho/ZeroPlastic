@@ -11,21 +11,22 @@ export class ContentDrawerComponent {
  
   handleHeight: number = 50;
   bounceBack: boolean = true;
-  thresholdTop: number = 200;
-  thresholdBottom: number = 200;
+  thresholdTop: number = 100;
+  thresholdBottom: number = 100;
  
   constructor(public element: ElementRef, public renderer: Renderer, public domCtrl: DomController, public platform: Platform) {
- 
   }
- 
+  
   ngAfterViewInit() {
- 
+    this.renderer.setElementClass(this.element.nativeElement, "map-drawer", true);
+    document.getElementsByClassName("map-drawer")[0].setAttribute("data-content", "Scroll up to see legend");
+
     if(this.options.handleHeight){
       this.handleHeight = this.options.handleHeight;
     }
  
     if(this.options.bounceBack){
-      this.bounceBack = this.options.bounceBack;
+      this.bounceBack = this.options.bounceBack; 
     }
  
     if(this.options.thresholdFromBottom){
@@ -36,7 +37,7 @@ export class ContentDrawerComponent {
       this.thresholdTop = this.options.thresholdFromTop;
     }
  
-    this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight+90) + 'px');
+    this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight) + 'px');
     this.renderer.setElementStyle(this.element.nativeElement, 'padding-top', this.handleHeight + 'px');
  
     let hammer = new window['Hammer'](this.element.nativeElement);
@@ -61,7 +62,9 @@ export class ContentDrawerComponent {
       let bottomDiff = (this.platform.height() - this.thresholdBottom) - newTop;     
  
       topDiff >= bottomDiff ? bounceToBottom = true : bounceToTop = true;
- 
+     
+      document.getElementsByClassName("map-drawer")[0].setAttribute("data-content", 
+      topDiff >= bottomDiff ? "Scroll up" :"Scroll down");
     }
  
     if((newTop < this.thresholdTop && ev.additionalEvent === "panup") || bounceToTop){
@@ -75,7 +78,7 @@ export class ContentDrawerComponent {
  
       this.domCtrl.write(() => {
         this.renderer.setElementStyle(this.element.nativeElement, 'transition', 'top 0.5s');
-        this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight+90) + 'px');
+        this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight) + 'px');
       });
  
     } else {

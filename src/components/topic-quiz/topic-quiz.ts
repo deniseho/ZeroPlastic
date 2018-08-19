@@ -10,7 +10,7 @@ import {
 import {NativeAudio} from '@ionic-native/native-audio';
 import {UserProvider} from '../../providers/user-service/user-service';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import {QuizResultComponent} from '../quiz-result/quiz-result';
+import {QuizResultComponent} from '../quiz-result-modal/quiz-result-modal';
 import {User} from '../../shared/user-model';
 
 @Component({selector: 'topic-quiz', templateUrl: 'topic-quiz.html'})

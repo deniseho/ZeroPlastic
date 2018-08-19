@@ -33,8 +33,8 @@ import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-
 import { ToastServiceProvider } from '../providers/toast-service/toast-service';
 import { BadgesPipe } from '../pipes/badges/badges';
 import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
-import { QuizResultComponent } from '../components/quiz-result/quiz-result';
-import { MapInfoComponent } from '../components/map-info/map-info';
+import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result-modal';
+import { MapInfoComponent } from '../components/map-modal/map-modal';
 
 @NgModule({
   declarations: [
