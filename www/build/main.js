@@ -7,8 +7,8 @@ webpackJsonp([0],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TopicFourPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__game_game__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__alternatives_alternatives__ = __webpack_require__(457);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__game_game__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__alternatives_alternatives__ = __webpack_require__(203);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -70,7 +70,7 @@ var TopicFourPage = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */])
     ], TopicFourPage.prototype, "scroll", void 0);
     TopicFourPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-four',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-four/topic-four.html"*/'<ion-header>\n    <custom-nav-bar></custom-nav-bar>\n    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">\n        <ion-segment class="SwipedTabs-tabs">\n            <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)" [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'\n                [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}">\n                {{tab}}\n            </ion-segment-button>\n        </ion-segment>\n\n        <!-- here is our dynamic line  "indicator"-->\n        <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}"></div>\n    </ion-content>\n</ion-header>\n\n<ion-content>\n\n    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"\n        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">\n        <ion-slide>\n            <div class="container-slides-content sea-gradient-wrapper">\n                <div class="vertical-center">\n                    <h1 class="slide-title-main">Take action now!</h1>\n                    <div class="line-separator-short"></div>\n                    <p style="padding-top: 10px">Swipe right and discover what you can do to help avoid plastic pollution. Be a hero environmentalist and save our ocean! </p>\n                    <!--<ion-icon class="arrow-right-style" name="ios-arrow-dropright-circle"></ion-icon>-->\n                </div>\n                <img class="sea-gradient" src="assets/imgs/bg_ocean.png">\n            </div>\n        </ion-slide>\n\n        <!--VOLUNTEER-->\n        <ion-slide>\n            <!--Icons for scrolling-->\n            <ion-icon class="arrow-up-style" name="ios-arrow-dropup-circle-outline"></ion-icon>\n            <ion-icon class="arrow-down-style" name="ios-arrow-dropdown-circle-outline"></ion-icon>\n\n            <div>\n                <!--first section-->\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">Volunteer</h1>\n                        <h1 class="slide-title2-main">Option 1</h1>\n                        <div class="line-separator-short"></div>\n                        <a href="http://www.tidytowns.ie/get-involved/find-your-local-committee/" target="_blank">\n                            <img src="assets/imgs/tidytowns.jpg" style="width: 150px">\n                        </a>\n                        <h4 class="slide-subtitle">Join a Volunteering group</h4>\n                        <p>You can search for a group in your own community, like TidyTowns, and join them. <a href="http://www.tidytowns.ie/get-involved/find-your-local-committee/" target="_blank"> Visit TidyTowns <ion-icon name="ios-exit-outline"></ion-icon></a> to find a group near you.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n                <!--second, third, fourth section-->\n                <div class="sea-bg-gradient">\n                    <!--Second-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="../../assets/imgs/icn_volunteer.png">\n                            <h1 class="slide-title2-main" style="color: white">Option 2</h1>\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle" style="color: white">Start a volunteering group</h4>\n                            <p style="color: white">With everything you have learned using the ZeroPlastic app teach your family and community\n                                how important it is to avoid plastic pollution.</p>\n                            <p style="color: white">If you can, start a ZeroPlastic group and organize recycling events or beach clean-ups in\n                                your community. Start creating events from the button below!</p>\n                        </div>\n                    </div>\n                </div>\n                <!--EVENTS-->\n                <div class="events-container">\n                    <button ion-button full color="primary" item-end icon-start>\n                        <ion-icon name="add-circle"></ion-icon>\n                        Create event\n                    </button>\n                    <ion-list-header no-lines="" class="events-title">Events</ion-list-header>\n                    <ion-card class="card-container">\n                        <ion-row>\n                            <ion-col align-self-center class="date-wrapper" col-3>\n                                <div>\n                                    <h3 class="day">17</h3>\n                                    <h4 class="month">Sep</h4>\n                                    <h5 class="year">2018</h5>\n                                </div>\n                            </ion-col>\n                            <ion-col col-9 class="info-wrapper">\n                                <ion-row class="card-title" style="font-size: 14px"> Beach clean up </ion-row>\n                                <ion-row>\n                                    <ion-col col-12 class="location" item-end icon-start>\n                                        <ion-icon name="pin" small></ion-icon>Donabate Village, Balcarrick, Donabate, Co. Dublin\n                                    </ion-col>\n                                </ion-row>\n                                <ion-row class="card-contact-time">\n                                    <ion-col class="time" col-5 item-end icon-start><ion-icon name="time" small></ion-icon>9:30 am</ion-col>\n                                    <ion-col class="contact" col-7 item-end icon-start><ion-icon name="call" small></ion-icon>(01) 896 2320</ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </ion-row>\n                    </ion-card>\n\n                    <ion-card class="card-container">\n                        <ion-row>\n                            <ion-col align-self-center class="date-wrapper" col-3>\n                                <div>\n                                    <h3 class="day">22</h3>\n                                    <h4 class="month">Sep</h4>\n                                    <h5 class="year">2018</h5>\n                                </div>\n                            </ion-col>\n                            <ion-col col-9 class="info-wrapper">\n                                <ion-row class="card-title" style="font-size: 14px"> Recycling workshop </ion-row>\n                                <ion-row>\n                                    <ion-col col-12 class="location" item-end icon-start>\n                                        <ion-icon name="pin" small></ion-icon>Donabate Village, Balcarrick, Donabate, Co. Dublin\n                                    </ion-col>\n                                </ion-row>\n                                <ion-row class="card-contact-time">\n                                    <ion-col class="time" col-5 item-end icon-start><ion-icon name="time" small></ion-icon>06:00 pm</ion-col>\n                                    <ion-col class="contact" col-7 item-end icon-start><ion-icon name="call" small></ion-icon>(01) 896 2320</ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </ion-row>\n                    </ion-card>\n                </div>\n            </div>\n        </ion-slide>\n\n        <!--RECYCLE-->\n        <ion-slide>\n            <div>\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">Recycle</h1>\n                        <h1 class="slide-title2-main">Resin Tags</h1>\n                        <div class="line-separator-short"></div>\n                        <!--<h4 class="slide-subtitle">Recycling Resin Tags</h4>-->\n                        <p style="margin-top: 20px">Before you dispose of your plastic items, check the\n                            number on the bottom- it tells you the type of\n                            plastic, letting you know its recyclability.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n\n                <div class="container-slides-content sea-bg-gradient">\n                    <ion-grid padding="">\n                        <h4 class="slide-subtitle">Resin tags information</h4>\n                        <p> Select a tag for more information</p>\n                        <ion-row>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_1.png">\n                                </ion-card>\n                            </ion-col>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_2.png">\n                                </ion-card>\n                            </ion-col>\n                        </ion-row>\n                        <ion-row>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_3.png">\n                                </ion-card>\n                            </ion-col>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_4.png">\n                                </ion-card>\n                            </ion-col>\n                        </ion-row>\n                        <ion-row>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_5.png">\n                                </ion-card>\n                            </ion-col>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_6.png">\n                                </ion-card>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <h1>Game</h1>\n                            <button ion-button (click)="gotoGamePage()">Start the game</button>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </ion-slide>\n\n        <!--ALTERNATIVES-->\n        <ion-slide>\n            <h1>Alternatives</h1>\n            <button ion-button (click)="gotoAlternatives()">Alternatives</button>\n        </ion-slide>\n\n        <!--QUIZ-->\n        <ion-slide>\n            <div class="container-slides-content">\n                <div class="vertical-center">\n                    <h1>QUIZ</h1>\n                </div>\n            </div>\n        </ion-slide>\n\n<!--        &lt;!&ndash;GAME&ndash;&gt;\n        <ion-slide>\n            <h1>Game</h1>\n            <button ion-button (click)="gotoGamePage()">Start the game</button>\n        </ion-slide>-->\n    </ion-slides>\n\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-four/topic-four.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-four',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-four/topic-four.html"*/'<ion-header>\n    <custom-nav-bar></custom-nav-bar>\n    <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">\n        <ion-segment class="SwipedTabs-tabs">\n            <ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)" [ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\'\n                [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}">\n                {{tab}}\n            </ion-segment-button>\n        </ion-segment>\n\n        <!-- here is our dynamic line  "indicator"-->\n        <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.px\': (this.tabElementWidth_px)}"></div>\n    </ion-content>\n</ion-header>\n\n<ion-content>\n\n    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"\n        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">\n        <ion-slide>\n            <div class="container-slides-content sea-gradient-wrapper">\n                <div class="vertical-center">\n                    <h1 class="slide-title-main">Take action now!</h1>\n                    <div class="line-separator-short"></div>\n                    <p style="padding-top: 10px">Swipe right and discover what you can do to help avoid plastic pollution. Be a hero environmentalist and save our ocean! </p>\n                    <!--<ion-icon class="arrow-right-style" name="ios-arrow-dropright-circle"></ion-icon>-->\n                </div>\n                <img class="sea-gradient" src="assets/imgs/bg_ocean.png">\n            </div>\n        </ion-slide>\n\n        <!--VOLUNTEER-->\n        <ion-slide>\n            <!--Icons for scrolling-->\n            <ion-icon class="arrow-up-style" name="ios-arrow-dropup-circle-outline"></ion-icon>\n            <ion-icon class="arrow-down-style" name="ios-arrow-dropdown-circle-outline"></ion-icon>\n\n            <div>\n                <!--first section-->\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">Volunteer</h1>\n                        <h1 class="slide-title2-main">Option 1</h1>\n                        <div class="line-separator-short"></div>\n                        <a href="http://www.tidytowns.ie/get-involved/find-your-local-committee/" target="_blank">\n                            <img src="assets/imgs/tidytowns.jpg" style="width: 150px">\n                        </a>\n                        <h4 class="slide-subtitle">Join a Volunteering group</h4>\n                        <p>You can search for a group in your own community, like TidyTowns, and join them. <a href="http://www.tidytowns.ie/get-involved/find-your-local-committee/" target="_blank"> Visit TidyTowns <ion-icon name="ios-exit-outline"></ion-icon></a> to find a group near you.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n                <!--second, third, fourth section-->\n                <div class="sea-bg-gradient">\n                    <!--Second-->\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <img class="icon_property" src="../../assets/imgs/icn_volunteer.png">\n                            <h1 class="slide-title2-main" style="color: white">Option 2</h1>\n                            <div class="line-separator-long"></div>\n                            <h4 class="slide-subtitle" style="color: white">Start a volunteering group</h4>\n                            <p style="color: white">With everything you have learned using the ZeroPlastic app teach your family and community\n                                how important it is to avoid plastic pollution.</p>\n                            <p style="color: white">If you can, start a ZeroPlastic group and organize recycling events or beach clean-ups in\n                                your community. Start creating events from the button below!</p>\n                        </div>\n                    </div>\n                </div>\n                <!--EVENTS-->\n                <div class="events-container">\n                    <button ion-button full color="primary" item-end icon-start>\n                        <ion-icon name="add-circle"></ion-icon>\n                        Create event\n                    </button>\n                    <ion-list-header no-lines="" class="events-title">Events</ion-list-header>\n                    <ion-card class="card-container">\n                        <ion-row>\n                            <ion-col align-self-center class="date-wrapper" col-3>\n                                <div>\n                                    <h3 class="day">17</h3>\n                                    <h4 class="month">Sep</h4>\n                                    <h5 class="year">2018</h5>\n                                </div>\n                            </ion-col>\n                            <ion-col col-9 class="info-wrapper">\n                                <ion-row class="card-title" style="font-size: 14px"> Beach clean up </ion-row>\n                                <ion-row>\n                                    <ion-col col-12 class="location" item-end icon-start>\n                                        <ion-icon name="pin" small></ion-icon>Donabate Village, Balcarrick, Donabate, Co. Dublin\n                                    </ion-col>\n                                </ion-row>\n                                <ion-row class="card-contact-time">\n                                    <ion-col class="time" col-5 item-end icon-start><ion-icon name="time" small></ion-icon>9:30 am</ion-col>\n                                    <ion-col class="contact" col-7 item-end icon-start><ion-icon name="call" small></ion-icon>(01) 896 2320</ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </ion-row>\n                    </ion-card>\n\n                    <ion-card class="card-container">\n                        <ion-row>\n                            <ion-col align-self-center class="date-wrapper" col-3>\n                                <div>\n                                    <h3 class="day">22</h3>\n                                    <h4 class="month">Sep</h4>\n                                    <h5 class="year">2018</h5>\n                                </div>\n                            </ion-col>\n                            <ion-col col-9 class="info-wrapper">\n                                <ion-row class="card-title" style="font-size: 14px"> Recycling workshop </ion-row>\n                                <ion-row>\n                                    <ion-col col-12 class="location" item-end icon-start>\n                                        <ion-icon name="pin" small></ion-icon>Donabate Village, Balcarrick, Donabate, Co. Dublin\n                                    </ion-col>\n                                </ion-row>\n                                <ion-row class="card-contact-time">\n                                    <ion-col class="time" col-5 item-end icon-start><ion-icon name="time" small></ion-icon>06:00 pm</ion-col>\n                                    <ion-col class="contact" col-7 item-end icon-start><ion-icon name="call" small></ion-icon>(01) 896 2320</ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </ion-row>\n                    </ion-card>\n                </div>\n            </div>\n        </ion-slide>\n\n        <!--RECYCLE-->\n        <ion-slide>\n            <div>\n                <div class="container-slides-content sea-gradient-wrapper">\n                    <div class="vertical-center">\n                        <h1 class="slide-title-main">Recycle</h1>\n                        <h1 class="slide-title2-main">Resin Tags</h1>\n                        <div class="line-separator-short"></div>\n                        <!--<h4 class="slide-subtitle">Recycling Resin Tags</h4>-->\n                        <p style="margin-top: 20px">Before you dispose of your plastic items, check the\n                            number on the bottom- it tells you the type of\n                            plastic, letting you know its recyclability.</p>\n                    </div>\n                    <img class="sea-gradient" src="assets/imgs/sea_gradient.png">\n                </div>\n\n                <div class="container-slides-content sea-bg-gradient">\n                    <ion-grid padding="">\n                        <h4 class="slide-subtitle">Resin tags information</h4>\n                        <p> Select a tag for more information</p>\n                        <ion-row>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_1.png">\n                                </ion-card>\n                            </ion-col>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_2.png">\n                                </ion-card>\n                            </ion-col>\n                        </ion-row>\n                        <ion-row>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_3.png">\n                                </ion-card>\n                            </ion-col>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_4.png">\n                                </ion-card>\n                            </ion-col>\n                        </ion-row>\n                        <ion-row>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_5.png">\n                                </ion-card>\n                            </ion-col>\n                            <ion-col col-6>\n                                <ion-card padding="">\n                                    <img class="tags-property" src="../../assets/imgs/tag_6.png">\n                                </ion-card>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n\n                    <div class="container-slides-content">\n                        <div class="vertical-center">\n                            <h1>Game</h1>\n                            <button ion-button (click)="gotoGamePage()">Start the game</button>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </ion-slide>\n\n        <!--ALTERNATIVES-->\n        <ion-slide>\n            <!-- <h1>Alternatives</h1>\n            <button ion-button (click)="gotoAlternatives()">Alternatives</button> -->\n            <page-alternatives></page-alternatives>\n        </ion-slide>\n\n        <!--QUIZ-->\n        <ion-slide>\n            <div class="container-slides-content">\n                <div class="vertical-center">\n                    <h1>QUIZ</h1>\n                </div>\n            </div>\n        </ion-slide>\n\n<!--        &lt;!&ndash;GAME&ndash;&gt;\n        <ion-slide>\n            <h1>Game</h1>\n            <button ion-button (click)="gotoGamePage()">Start the game</button>\n        </ion-slide>-->\n    </ion-slides>\n\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-four/topic-four.html"*/ }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]])
     ], TopicFourPage);
     return TopicFourPage;
@@ -89,7 +89,7 @@ var TopicFourPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_topic_quiz_topic_quiz__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_topic1_qustions__ = __webpack_require__(814);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_topic1_qustions__ = __webpack_require__(815);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -203,7 +203,7 @@ var TopicOnePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_user_service_user_service__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__quiz_result_quiz_result__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__quiz_result_modal_quiz_result_modal__ = __webpack_require__(404);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -336,7 +336,7 @@ var TopicQuizComponent = /** @class */ (function () {
         var _this = this;
         var modal = this
             .modalCtrl
-            .create(__WEBPACK_IMPORTED_MODULE_5__quiz_result_quiz_result__["a" /* QuizResultComponent */], { quizScore: this.quizScore });
+            .create(__WEBPACK_IMPORTED_MODULE_5__quiz_result_modal_quiz_result_modal__["a" /* QuizResultComponent */], { quizScore: this.quizScore });
         //todo: insert score & badge into db
         modal.onDidDismiss(function (data) {
             if (data.action == 'remove') {
@@ -445,9 +445,9 @@ var UserProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_topic_quiz_topic_quiz__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_topic2_qustions__ = __webpack_require__(815);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_country_info__ = __webpack_require__(816);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_map_info_map_info__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_topic2_qustions__ = __webpack_require__(816);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_country_info__ = __webpack_require__(817);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_map_modal_map_modal__ = __webpack_require__(405);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -470,15 +470,21 @@ var TopicTwoPage = /** @class */ (function () {
         this.modalCtrl = modalCtrl;
         this.title = __WEBPACK_IMPORTED_MODULE_4__shared_country_info__["a" /* country */].title;
         this.countryList = __WEBPACK_IMPORTED_MODULE_4__shared_country_info__["a" /* country */].countryList;
+        this.drawerOptions = {
+            handleHeight: 50,
+            thresholdFromBottom: 100,
+            thresholdFromTop: 100,
+            bounceBack: false
+        };
     }
     TopicTwoPage.prototype.ionViewDidEnter = function () {
     };
     TopicTwoPage.prototype.onTap = function ($event, value) {
-        var x = $event.srcEvent.offsetX;
-        var y = $event.srcEvent.offsetY;
+        // let x = $event.srcEvent.offsetX;
+        // let y = $event.srcEvent.offsetY;
         var modal = this
             .modalCtrl
-            .create(__WEBPACK_IMPORTED_MODULE_5__components_map_info_map_info__["a" /* MapInfoComponent */], { "country": this.countryList[value] });
+            .create(__WEBPACK_IMPORTED_MODULE_5__components_map_modal_map_modal__["a" /* MapInfoComponent */], { "country": this.countryList[value] });
         modal.present();
     };
     TopicTwoPage.prototype.startQuiz = function () {
@@ -488,7 +494,7 @@ var TopicTwoPage = /** @class */ (function () {
         modal.present();
     };
     TopicTwoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-two',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/'<ion-header>\n  <!-- \n    <ion-navbar>\n      <ion-title>Topic Two</ion-title>\n    </ion-navbar> -->\n  <custom-nav-bar></custom-nav-bar>\n\n</ion-header>\n\n<ion-content scrollX="true" scrollY="false">\n  <h3 class="title"  [innerHTML]="title">}</h3>\n    <div class="inner">\n  <div class="country China" on-tap="onTap($event, \'China\')"></div>\n  <div class="country China" on-tap="onTap($event, \'China\')"></div>\n  <div class="country China" on-tap="onTap($event, \'China\')"></div>\n  <div class="country China" on-tap="onTap($event, \'China\')"></div>\n  <div class="country Indonesia" on-tap="onTap($event, \'Indonesia\')"></div>\n  <div class="country Philippines" on-tap="onTap($event, \'Philippines\')"></div>\n  <div class="country Vietnam" on-tap="onTap($event, \'Vietnam\')"></div>\n  <div class="country SriLanka" on-tap="onTap($event, \'Sri Lanka\')"></div>\n  <div class="country Egypt" on-tap="onTap($event, \'Egypt\')"></div>\n  <div class="country Thailand" on-tap="onTap($event, \'Thailand\')"></div>\n  <div class="country Malaysia" on-tap="onTap($event, \'Malaysia\')"></div>\n  <div class="country Nigeria" on-tap="onTap($event, \'Nigeria\')"></div>\n  <div class="country Bangladesh" on-tap="onTap($event, \'Bangladesh\')"></div>\n    <img src="assets/imgs/world_map.png" >\n  </div>\n  <div></div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-topic-two',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/'<ion-header>\n  <!-- \n    <ion-navbar>\n      <ion-title>Topic Two</ion-title>\n    </ion-navbar> -->\n  <custom-nav-bar></custom-nav-bar>\n\n</ion-header>\n\n<ion-content scrollX="true" scrollY="false">\n  <h3 class="title" [innerHTML]="title"></h3>\n  <div class="inner">\n    <div class="country China" on-tap="onTap($event, \'China\')"></div>\n    <div class="country China" on-tap="onTap($event, \'China\')"></div>\n    <div class="country China" on-tap="onTap($event, \'China\')"></div>\n    <div class="country China" on-tap="onTap($event, \'China\')"></div>\n    <div class="country Indonesia" on-tap="onTap($event, \'Indonesia\')"></div>\n    <div class="country Philippines" on-tap="onTap($event, \'Philippines\')"></div>\n    <div class="country Vietnam" on-tap="onTap($event, \'Vietnam\')"></div>\n    <div class="country SriLanka" on-tap="onTap($event, \'Sri Lanka\')"></div>\n    <div class="country Egypt" on-tap="onTap($event, \'Egypt\')"></div>\n    <div class="country Thailand" on-tap="onTap($event, \'Thailand\')"></div>\n    <div class="country Malaysia" on-tap="onTap($event, \'Malaysia\')"></div>\n    <div class="country Nigeria" on-tap="onTap($event, \'Nigeria\')"></div>\n    <div class="country Bangladesh" on-tap="onTap($event, \'Bangladesh\')"></div>\n    <img src="assets/imgs/world_map.png">\n\n    \n<!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n	 viewBox="0 0 1190.6 841.9" style="enable-background:new 0 0 1190.6 841.9;" xml:space="preserve">\n<style type="text/css">\n	.st0{font-family:\'MyriadPro-Regular\';}\n	.st1{font-size:18px;}\n</style>\n<image style="overflow:visible;" width="816" height="1056" xlink:href="assets/imgs/C0B8A0DE7654F74E.png"  transform="matrix(0.5 0 0 0.5 391 156.89)">\n</image>\n<image style="overflow:visible;" width="1080" height="607" xlink:href="assets/imgs/C0B8A0DE7654F752.png"  transform="matrix(1 0 0 1 324 27.89)">\n</image>\n<image style="overflow:visible;" width="1080" height="607" xlink:href="assets/imgs/C0B8A0DE7654F755.png"  transform="matrix(1 0 0 1 354 4.89)">\n</image>\n<text transform="matrix(1 0 0 1 645 315.89)" class="st0 st1">6</text>\n<text transform="matrix(1 0 0 1 495 439.89)" class="st0 st1">9</text>\n</svg> -->\n\n  </div>\n</ion-content>\n\n<content-drawer [options]="drawerOptions">\n  <div class="content">\n   <img src="assets/imgs/legend.png">\n  </div>\n</content-drawer>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/topic-two/topic-two.html"*/ }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
     ], TopicTwoPage);
     return TopicTwoPage;
@@ -572,6 +578,137 @@ var TopicThreePage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlternativesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js__ = __webpack_require__(407);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_pixi_js__);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AlternativesPage = /** @class */ (function (_super) {
+    __extends(AlternativesPage, _super);
+    function AlternativesPage(navCtrl, navParams) {
+        var _this = _super.call(this, 300, 400, { legacy: true }) || this;
+        _this.navCtrl = navCtrl;
+        _this.navParams = navParams;
+        return _this;
+    }
+    AlternativesPage.prototype.ionViewDidLoad = function () {
+        var app = new __WEBPACK_IMPORTED_MODULE_3_pixi_js__["Application"](300, 400, { transparent: true, antialias: true });
+        this
+            .content
+            .nativeElement
+            .appendChild(app.view);
+        var stage = app.stage;
+        //prepare circle texture, that will be our brush
+        var brush = new __WEBPACK_IMPORTED_MODULE_3_pixi_js__["Graphics"]();
+        brush.beginFill(0xffffff);
+        brush.drawCircle(0, 0, 50);
+        brush.endFill();
+        __WEBPACK_IMPORTED_MODULE_3_pixi_js__["loader"]
+            .add("t1", "../assets/imgs/Bags/bag.png");
+        __WEBPACK_IMPORTED_MODULE_3_pixi_js__["loader"]
+            .add("t2", "../assets/imgs/Toothbrush/toothbrush.jpg");
+        __WEBPACK_IMPORTED_MODULE_3_pixi_js__["loader"]
+            .load(setup);
+        function setup(loader, resources) {
+            var background = new __WEBPACK_IMPORTED_MODULE_3_pixi_js__["Sprite"](resources["t1"].texture);
+            stage.addChild(background);
+            background.width = app.screen.width;
+            background.height = app.screen.height;
+            var imageToReveal = new __WEBPACK_IMPORTED_MODULE_3_pixi_js__["Sprite"](resources["t2"].texture);
+            stage.addChild(imageToReveal);
+            imageToReveal.width = app.screen.width;
+            imageToReveal.height = app.screen.height;
+            var renderTexture = __WEBPACK_IMPORTED_MODULE_3_pixi_js__["RenderTexture"]
+                .create(app.screen.width, app.screen.height);
+            var renderTextureSprite = new __WEBPACK_IMPORTED_MODULE_3_pixi_js__["Sprite"](renderTexture);
+            stage.addChild(renderTextureSprite);
+            imageToReveal.mask = renderTextureSprite;
+            app.stage.interactive = true;
+            app
+                .stage
+                .on('pointerdown', pointerDown);
+            app
+                .stage
+                .on('pointerup', pointerUp);
+            app
+                .stage
+                .on('pointermove', pointerMove);
+            var dragging = false;
+            function pointerMove(event) {
+                if (dragging) {
+                    brush
+                        .position
+                        .copy(event.data.global);
+                    app
+                        .renderer
+                        .render(brush, renderTexture, false, null, false);
+                }
+            }
+            function pointerDown(event) {
+                dragging = true;
+                pointerMove(event);
+            }
+            function pointerUp(event) {
+                dragging = false;
+            }
+        }
+    };
+    AlternativesPage.prototype.selectAltItem = function (e) {
+        __WEBPACK_IMPORTED_MODULE_2_jquery__('.alternativeMenu > *').removeClass('active');
+        __WEBPACK_IMPORTED_MODULE_2_jquery__(e.target).addClass("active");
+        if (e.target.name == "basket") {
+            this.selectedItemUrl = "plastic-bag.jpg";
+        }
+        else {
+            this.selectedItemUrl = "alt_bottle.jpg";
+        }
+    };
+    AlternativesPage.prototype.arrawDivClick = function () { };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('content'),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
+    ], AlternativesPage.prototype, "content", void 0);
+    AlternativesPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n\n <ion-content text-center parallax-header>\n    <div class="alternativeMenu" (click)="selectAltItem($event)">\n      <button ion-button outline icon-only name="basket" class="active">\n        <ion-icon name="basket"></ion-icon>\n      </button>\n      <button ion-button outline icon-only name="beer">\n        <ion-icon name="beer"></ion-icon>\n      </button>\n      <button ion-button outline icon-only name="restaurant">\n        <ion-icon name="restaurant"></ion-icon>\n      </button>\n      <button ion-button outline icon-only name="football">\n        <ion-icon name="football"></ion-icon>\n      </button>\n    </div>\n\n    <div class="img header-image" #content>\n      <!-- <img src="assets/imgs/{{selectedItemUrl}}"> -->\n    </div>\n\n    <div class="main-content">\n      <span color="secondary" text-center>Scroll down</span>\n      <div class="arrawDiv" (click)="arrawDivClick">\n        <ion-icon name="ios-arrow-down"></ion-icon>\n      </div>\n      <ion-slides pager>\n        <ion-slide>\n          <h1>Alternative 1</h1>\n          <div class="img">\n            <img src="assets/imgs/canvas-bag.jpg">\n          </div>\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 2</h1>\n          <div class="img">\n            <img src="assets/imgs/canvas-bag.jpg">\n          </div>\n        </ion-slide>\n        <ion-slide>\n          <h1>Alternative 3</h1>\n          <div class="img">\n            <img src="assets/imgs/canvas-bag.jpg">\n          </div>\n        </ion-slide>\n      </ion-slides>\n    </div>\n</ion-content> '/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/ }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _c || Object])
+    ], AlternativesPage);
+    return AlternativesPage;
+    var _a, _b, _c;
+}(__WEBPACK_IMPORTED_MODULE_3_pixi_js__["Application"]));
+
+//# sourceMappingURL=alternatives.js.map
+
+/***/ }),
+
+/***/ 204:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TopicFivePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
@@ -638,7 +775,7 @@ var TopicFivePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 214:
+/***/ 215:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -651,11 +788,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 214;
+webpackEmptyAsyncContext.id = 215;
 
 /***/ }),
 
-/***/ 258:
+/***/ 259:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -668,7 +805,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 258;
+webpackEmptyAsyncContext.id = 259;
 
 /***/ }),
 
@@ -677,14 +814,14 @@ webpackEmptyAsyncContext.id = 258;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(812);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(813);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_user_model__ = __webpack_require__(813);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_user_model__ = __webpack_require__(814);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -781,7 +918,7 @@ var AuthServiceProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 403:
+/***/ 404:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -817,18 +954,18 @@ var QuizResultComponent = /** @class */ (function () {
     };
     QuizResultComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'quiz-result',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/quiz-result/quiz-result.html"*/'<!--template for overlay-->\n\n<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Result\n    </ion-title>\n    <ion-buttons start>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>Quiz score: {{quizScore}}</h1>\n  <h1>Total score: {{totalScore}}</h1>\n  <button ion-button (click)="close()">\n    <span ion-text>Confirm</span>\n  </button>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/quiz-result/quiz-result.html"*/
+            selector: 'quiz-result-modal',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/quiz-result-modal/quiz-result-modal.html"*/'<!--template for overlay-->\n\n<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Result\n    </ion-title>\n    <ion-buttons start>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>Quiz score: {{quizScore}}</h1>\n  <h1>Total score: {{totalScore}}</h1>\n  <button ion-button (click)="close()">\n    <span ion-text>Confirm</span>\n  </button>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/quiz-result-modal/quiz-result-modal.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], QuizResultComponent);
     return QuizResultComponent;
 }());
 
-//# sourceMappingURL=quiz-result.js.map
+//# sourceMappingURL=quiz-result-modal.js.map
 
 /***/ }),
 
-/***/ 404:
+/***/ 405:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -862,17 +999,17 @@ var MapInfoComponent = /** @class */ (function () {
             .dismiss();
     };
     MapInfoComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'map-info',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/map-info/map-info.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Information\n      </ion-title>\n      <ion-buttons start>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding>\n\n    <p [innerHTML]="countryInfo"></p>\n    <button ion-button (click)="close()">\n      <span ion-text>Back to the map</span>\n    </button>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/map-info/map-info.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'map-modal',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/map-modal/map-modal.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Information\n      </ion-title>\n      <ion-buttons start>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding>\n\n    <p [innerHTML]="countryInfo"></p>\n    <button ion-button (click)="close()">\n      <span ion-text>Back to the map</span>\n    </button>\n  </ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/map-modal/map-modal.html"*/ }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
     ], MapInfoComponent);
     return MapInfoComponent;
 }());
 
-//# sourceMappingURL=map-info.js.map
+//# sourceMappingURL=map-modal.js.map
 
 /***/ }),
 
-/***/ 405:
+/***/ 406:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -880,7 +1017,7 @@ var MapInfoComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_audio__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js__ = __webpack_require__(817);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js__ = __webpack_require__(407);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_pixi_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__game_items__ = __webpack_require__(918);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topic_four_topic_four__ = __webpack_require__(108);
@@ -1212,63 +1349,7 @@ var GamePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 457:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlternativesPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AlternativesPage = /** @class */ (function () {
-    function AlternativesPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.drawerOptions = {
-            handleHeight: 50,
-            thresholdFromBottom: 200,
-            thresholdFromTop: 200,
-            bounceBack: true
-        };
-        this.selectedItemUrl = "plastic-bag.jpg";
-    }
-    AlternativesPage.prototype.ionViewDidLoad = function () { };
-    AlternativesPage.prototype.selectAltItem = function (e) {
-        __WEBPACK_IMPORTED_MODULE_2_jquery__('.alternativeMenu > *').removeClass('active');
-        __WEBPACK_IMPORTED_MODULE_2_jquery__(e.target).addClass("active");
-        if (e.target.name == "basket") {
-            this.selectedItemUrl = "plastic-bag.jpg";
-        }
-        else {
-            this.selectedItemUrl = "alt_bottle.jpg";
-        }
-    };
-    AlternativesPage.prototype.arrawDivClick = function () { };
-    AlternativesPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n<ion-content text-center parallax-header>\n\n  <div class="alternativeMenu" (click)="selectAltItem($event)">\n    <button ion-button outline icon-only name="basket" class="active">\n      <ion-icon name="basket"></ion-icon>\n    </button>\n    <button ion-button outline icon-only name="beer">\n      <ion-icon name="beer"></ion-icon>\n    </button>\n    <button ion-button outline icon-only name="restaurant">\n      <ion-icon name="restaurant"></ion-icon>\n    </button>\n    <button ion-button outline icon-only name="football">\n      <ion-icon name="football"></ion-icon>\n    </button>\n  </div>\n\n  <div class="img header-image">\n    <img src="assets/imgs/{{selectedItemUrl}}">\n  </div>\n  <div class="main-content">\n    <span color="secondary" text-center>Scroll down</span>\n    <div class="arrawDiv" (click)="arrawDivClick">\n      <ion-icon name="ios-arrow-down"></ion-icon>\n    </div>\n    <ion-slides pager>\n      <ion-slide>\n        <h1>Alternative 1</h1>\n        <div class="img">\n          <img src="assets/imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 2</h1>\n        <div class="img">\n          <img src="assets/imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n      <ion-slide>\n        <h1>Alternative 3</h1>\n        <div class="img">\n          <img src="assets/imgs/canvas-bag.jpg">\n        </div>\n      </ion-slide>\n    </ion-slides>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/ }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], AlternativesPage);
-    return AlternativesPage;
-}());
-
-//# sourceMappingURL=alternatives.js.map
-
-/***/ }),
-
-/***/ 459:
+/***/ 460:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1319,7 +1400,7 @@ var ToastServiceProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 462:
+/***/ 463:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1327,7 +1408,7 @@ var ToastServiceProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topic_menu_topic_menu__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1426,7 +1507,7 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 463:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1532,7 +1613,7 @@ var RegisterPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 464:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1590,14 +1671,14 @@ var AchievementPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 470:
+/***/ 471:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(476);
 
 
 
@@ -1607,7 +1688,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 475:
+/***/ 476:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1615,40 +1696,40 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_sqlite__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(518);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_sqlite__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(519);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_one_topic_one__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_two_topic_two__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_topic_five_topic_five__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_topic_five_topic_five__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_forms__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_custom_nav_bar_custom_nav_bar__ = __webpack_require__(920);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_topic_menu_topic_menu__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_achievement_achievement__ = __webpack_require__(464);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_game_game__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_achievement_achievement__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_game_game__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_register_register__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_register_register__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_common_http__ = __webpack_require__(921);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_native_audio__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_http__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angularfire2__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_http__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angularfire2__ = __webpack_require__(400);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angularfire2_database__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__firebase_credentials__ = __webpack_require__(922);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ngx_fullpage__ = __webpack_require__(923);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ngx_fullpage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26_ngx_fullpage__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_user_service_user_service__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_alternatives_alternatives__ = __webpack_require__(457);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_alternatives_alternatives__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_content_drawer_content_drawer__ = __webpack_require__(925);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__directives_parallax_header_parallax_header__ = __webpack_require__(926);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_toast_service_toast_service__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_toast_service_toast_service__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pipes_badges_badges__ = __webpack_require__(927);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_topic_quiz_topic_quiz__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_quiz_result_quiz_result__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_map_info_map_info__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_quiz_result_modal_quiz_result_modal__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_map_modal_map_modal__ = __webpack_require__(405);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1710,12 +1791,12 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_achievement_achievement__["a" /* AchievementPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_game_game__["a" /* GamePage */],
                 __WEBPACK_IMPORTED_MODULE_33__components_topic_quiz_topic_quiz__["a" /* TopicQuizComponent */],
-                __WEBPACK_IMPORTED_MODULE_34__components_quiz_result_quiz_result__["a" /* QuizResultComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__components_quiz_result_modal_quiz_result_modal__["a" /* QuizResultComponent */],
                 __WEBPACK_IMPORTED_MODULE_28__pages_alternatives_alternatives__["a" /* AlternativesPage */],
                 __WEBPACK_IMPORTED_MODULE_29__components_content_drawer_content_drawer__["a" /* ContentDrawerComponent */],
                 __WEBPACK_IMPORTED_MODULE_30__directives_parallax_header_parallax_header__["a" /* ParallaxHeaderDirective */],
                 __WEBPACK_IMPORTED_MODULE_32__pipes_badges_badges__["a" /* BadgesPipe */],
-                __WEBPACK_IMPORTED_MODULE_35__components_map_info_map_info__["a" /* MapInfoComponent */]
+                __WEBPACK_IMPORTED_MODULE_35__components_map_modal_map_modal__["a" /* MapInfoComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1744,9 +1825,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_achievement_achievement__["a" /* AchievementPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_game_game__["a" /* GamePage */],
                 __WEBPACK_IMPORTED_MODULE_33__components_topic_quiz_topic_quiz__["a" /* TopicQuizComponent */],
-                __WEBPACK_IMPORTED_MODULE_34__components_quiz_result_quiz_result__["a" /* QuizResultComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__components_quiz_result_modal_quiz_result_modal__["a" /* QuizResultComponent */],
                 __WEBPACK_IMPORTED_MODULE_28__pages_alternatives_alternatives__["a" /* AlternativesPage */],
-                __WEBPACK_IMPORTED_MODULE_35__components_map_info_map_info__["a" /* MapInfoComponent */]
+                __WEBPACK_IMPORTED_MODULE_35__components_map_modal_map_modal__["a" /* MapInfoComponent */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
@@ -1768,7 +1849,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 518:
+/***/ 519:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1776,19 +1857,20 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_topic_menu_topic_menu__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_topic_one_topic_one__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_topic_two_topic_two__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js__ = __webpack_require__(919);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_fullpage_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_alternatives_alternatives__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_jquery__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_fullpage_js__ = __webpack_require__(919);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_fullpage_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_fullpage_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1810,6 +1892,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
  // Import jQuery
  // Import fullpage.js
 var MyApp = /** @class */ (function () {
@@ -1819,7 +1902,8 @@ var MyApp = /** @class */ (function () {
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
         this.auth = auth;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_10__pages_login_login__["a" /* LoginPage */];
+        // rootPage = LoginPage; 
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_12__pages_alternatives_alternatives__["a" /* AlternativesPage */];
         this.initializeApp();
         this.currentUser = this.auth.getCurrentUser();
         // set our app's pages
@@ -1886,8 +1970,8 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topic_two_topic_two__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topic_three_topic_three__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topic_four_topic_four__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topic_five_topic_five__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_toast_service_toast_service__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topic_five_topic_five__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_toast_service_toast_service__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_user_service_user_service__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1962,7 +2046,7 @@ var TopicMenu = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 813:
+/***/ 814:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1988,7 +2072,7 @@ var User = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 814:
+/***/ 815:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2128,7 +2212,7 @@ var topic1 = {
 
 /***/ }),
 
-/***/ 815:
+/***/ 816:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2268,7 +2352,7 @@ var topic2 = {
 
 /***/ }),
 
-/***/ 816:
+/***/ 817:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2276,16 +2360,16 @@ var topic2 = {
 var country = {
     title: "Top Ten Producers of Plastic Waste in the world",
     countryList: {
-        "China": "<h1>NO. 1</h1> China is responsible for nearly 30% of the plastic waste in our world’s oceans",
-        "Indonesia": "<h1>NO. 2</h1> Indonesia contributes roughly 200,000 tonnes of waste to our world’s oceans",
-        "Philippines": "<h1>NO. 3</h1> The passig river in the Philippines dumps the equivalent of 10,600 elephants of plastic into the pacific ocean every year",
-        "Vietnam": "<h1>NO. 4</h1> 18,000 tonnes of plastic waste are generated in Vietnam on a daily basis",
-        "Sri Lanka": "<h1>NO. 5</h1> While Sri Lanka implemented a ban on single-use plastics in January 2018, the country comes fifth in the world for plastic polluters",
-        "Egypt": "<h1>NO. 6</h1> Egypt produces 16 million tonnes of rubbish per year, with 55% of its plastics recycled",
-        "Thailand": "<h1>NO. 7</h1> In Thailand almost 500 marine life forms die each year, mainly caused by man-made marine debris",
-        "Malaysia": "<h1>NO. 8</h1> Malaysia is the 8th worst country worldwide for plastic waste, Only 15% of Malaysian people recycle",
-        "Nigeria": "<h1>NO. 9</h1> Nigeria’s largest city Lagos generates approximately 600,000 metric tonnes of plastic waste per year, of which 100,000 tonnes finds its way into the ocean",
-        "Bangladesh": "<h1>NO. 10</h1> The use of plastics in Bangladesh has grown to 1200,000 metric tonnes in 2018,compared to just 15,000 metric tonnes in 1990",
+        "China": "<h1>NO.1 China</h1> China is responsible for nearly 30% of the plastic waste in our world’s oceans",
+        "Indonesia": "<h1>NO.2 Indonesia</h1> Indonesia contributes roughly 200,000 tonnes of waste to our world’s oceans",
+        "Philippines": "<h1>NO.3 Philippines</h1> The passig river in the Philippines dumps the equivalent of 10,600 elephants of plastic into the pacific ocean every year",
+        "Vietnam": "<h1>NO.4 Vietnam</h1> 18,000 tonnes of plastic waste are generated in Vietnam on a daily basis",
+        "Sri Lanka": "<h1>NO.5 Sri Lanka</h1> While Sri Lanka implemented a ban on single-use plastics in January 2018, the country comes fifth in the world for plastic polluters",
+        "Egypt": "<h1>NO.6 Egypt</h1> Egypt produces 16 million tonnes of rubbish per year, with 55% of its plastics recycled",
+        "Thailand": "<h1>NO.7 Thailand</h1> In Thailand almost 500 marine life forms die each year, mainly caused by man-made marine debris",
+        "Malaysia": "<h1>NO.8 Malaysia</h1> Malaysia is the 8th worst country worldwide for plastic waste, Only 15% of Malaysian people recycle",
+        "Nigeria": "<h1>NO.9 Nigeria’s</h1> Nigeria’s largest city Lagos generates approximately 600,000 metric tonnes of plastic waste per year, of which 100,000 tonnes finds its way into the ocean",
+        "Bangladesh": "<h1>NO.10 Bangladesh</h1> The use of plastics in Bangladesh has grown to 1200,000 metric tonnes in 2018,compared to just 15,000 metric tonnes in 1990",
     }
 };
 //# sourceMappingURL=country-info.js.map
@@ -2339,7 +2423,7 @@ var items = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topic_menu_topic_menu__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__achievement_achievement__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__achievement_achievement__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2384,7 +2468,7 @@ var CustomNavBarPage = /** @class */ (function () {
             .open();
     };
     CustomNavBarPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'custom-nav-bar',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/'<ion-toolbar color="lightest">\n  <ion-row>\n    <ion-col col-3>\n      <ion-buttons start>\n        <button ion-button menuToggle (click)="openMenu()">\n          <ion-icon name="menu" color="secondary-lightest"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n    <ion-col col-6 class="logo_properties">\n      <div>\n        <img src="assets/imgs/logo_toolbar.png" alt="ZeroPlastic logo" (click)="gotoHomepage()">\n      </div>\n    </ion-col>\n    <ion-col col-3>\n      <ion-buttons end>\n        <button ion-button icon-only (click)="gotoAchievement()">\n          <ion-badge item-end>{{totalScore}}</ion-badge>\n          <ion-icon name="trophy" color="secondary-lightest"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n  </ion-row>\n</ion-toolbar>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'custom-nav-bar',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/'<ion-toolbar color="lightest">\n  <ion-row>\n    <ion-col col-3>\n      <ion-buttons start>\n        <button ion-button menuToggle (click)="openMenu()">\n          <ion-icon name="menu" color="secondary-lightest"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n    <ion-col col-6 class="logo_properties">\n      <div>\n        <img src="assets/imgs/logo_toolbar.png" alt="ZeroPlastic logo" (click)="gotoHomepage()">\n      </div>\n    </ion-col>\n    <ion-col col-3>\n      <ion-buttons end>\n        <button ion-button icon-only (click)="gotoAchievement()">\n          <ion-badge item-end>{{totalScore | async}}</ion-badge>\n          <ion-icon name="trophy" color="secondary-lightest"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-col>\n  </ion-row>\n</ion-toolbar>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/custom-nav-bar/custom-nav-bar.html"*/ }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], CustomNavBarPage);
     return CustomNavBarPage;
@@ -2437,11 +2521,13 @@ var ContentDrawerComponent = /** @class */ (function () {
         this.platform = platform;
         this.handleHeight = 50;
         this.bounceBack = true;
-        this.thresholdTop = 200;
-        this.thresholdBottom = 200;
+        this.thresholdTop = 100;
+        this.thresholdBottom = 100;
     }
     ContentDrawerComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
+        this.renderer.setElementClass(this.element.nativeElement, "map-drawer", true);
+        document.getElementsByClassName("map-drawer")[0].setAttribute("data-content", "Scroll up to see legend");
         if (this.options.handleHeight) {
             this.handleHeight = this.options.handleHeight;
         }
@@ -2454,7 +2540,7 @@ var ContentDrawerComponent = /** @class */ (function () {
         if (this.options.thresholdFromTop) {
             this.thresholdTop = this.options.thresholdFromTop;
         }
-        this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight + 90) + 'px');
+        this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - (this.handleHeight) + 'px');
         this.renderer.setElementStyle(this.element.nativeElement, 'padding-top', this.handleHeight + 'px');
         var hammer = new window['Hammer'](this.element.nativeElement);
         hammer.get('pan').set({ direction: window['Hammer'].DIRECTION_VERTICAL });
@@ -2471,6 +2557,7 @@ var ContentDrawerComponent = /** @class */ (function () {
             var topDiff = newTop - this.thresholdTop;
             var bottomDiff = (this.platform.height() - this.thresholdBottom) - newTop;
             topDiff >= bottomDiff ? bounceToBottom = true : bounceToTop = true;
+            document.getElementsByClassName("map-drawer")[0].setAttribute("data-content", topDiff >= bottomDiff ? "Scroll up" : "Scroll down");
         }
         if ((newTop < this.thresholdTop && ev.additionalEvent === "panup") || bounceToTop) {
             this.domCtrl.write(function () {
@@ -2481,7 +2568,7 @@ var ContentDrawerComponent = /** @class */ (function () {
         else if (((this.platform.height() - newTop) < this.thresholdBottom && ev.additionalEvent === "pandown") || bounceToBottom) {
             this.domCtrl.write(function () {
                 _this.renderer.setElementStyle(_this.element.nativeElement, 'transition', 'top 0.5s');
-                _this.renderer.setElementStyle(_this.element.nativeElement, 'top', _this.platform.height() - (_this.handleHeight + 90) + 'px');
+                _this.renderer.setElementStyle(_this.element.nativeElement, 'top', _this.platform.height() - (_this.handleHeight) + 'px');
             });
         }
         else {
@@ -2673,5 +2760,5 @@ var badgeList = [
 
 /***/ })
 
-},[470]);
+},[471]);
 //# sourceMappingURL=main.js.map

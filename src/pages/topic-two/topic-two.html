@@ -8,22 +8,45 @@
 </ion-header>
 
 <ion-content scrollX="true" scrollY="false">
-  <h3 class="title"  [innerHTML]="title">}</h3>
-    <div class="inner">
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country Indonesia" on-tap="onTap($event, 'Indonesia')"></div>
-  <div class="country Philippines" on-tap="onTap($event, 'Philippines')"></div>
-  <div class="country Vietnam" on-tap="onTap($event, 'Vietnam')"></div>
-  <div class="country SriLanka" on-tap="onTap($event, 'Sri Lanka')"></div>
-  <div class="country Egypt" on-tap="onTap($event, 'Egypt')"></div>
-  <div class="country Thailand" on-tap="onTap($event, 'Thailand')"></div>
-  <div class="country Malaysia" on-tap="onTap($event, 'Malaysia')"></div>
-  <div class="country Nigeria" on-tap="onTap($event, 'Nigeria')"></div>
-  <div class="country Bangladesh" on-tap="onTap($event, 'Bangladesh')"></div>
-    <img src="assets/imgs/world_map.png" >
+  <h3 class="title" [innerHTML]="title"></h3>
+  <div class="inner">
+    <div class="country China" on-tap="onTap($event, 'China')"></div>
+    <div class="country China" on-tap="onTap($event, 'China')"></div>
+    <div class="country China" on-tap="onTap($event, 'China')"></div>
+    <div class="country China" on-tap="onTap($event, 'China')"></div>
+    <div class="country Indonesia" on-tap="onTap($event, 'Indonesia')"></div>
+    <div class="country Philippines" on-tap="onTap($event, 'Philippines')"></div>
+    <div class="country Vietnam" on-tap="onTap($event, 'Vietnam')"></div>
+    <div class="country SriLanka" on-tap="onTap($event, 'Sri Lanka')"></div>
+    <div class="country Egypt" on-tap="onTap($event, 'Egypt')"></div>
+    <div class="country Thailand" on-tap="onTap($event, 'Thailand')"></div>
+    <div class="country Malaysia" on-tap="onTap($event, 'Malaysia')"></div>
+    <div class="country Nigeria" on-tap="onTap($event, 'Nigeria')"></div>
+    <div class="country Bangladesh" on-tap="onTap($event, 'Bangladesh')"></div>
+    <img src="assets/imgs/world_map.png">
+
+    
+<!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1190.6 841.9" style="enable-background:new 0 0 1190.6 841.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{font-family:'MyriadPro-Regular';}
+	.st1{font-size:18px;}
+</style>
+<image style="overflow:visible;" width="816" height="1056" xlink:href="assets/imgs/C0B8A0DE7654F74E.png"  transform="matrix(0.5 0 0 0.5 391 156.89)">
+</image>
+<image style="overflow:visible;" width="1080" height="607" xlink:href="assets/imgs/C0B8A0DE7654F752.png"  transform="matrix(1 0 0 1 324 27.89)">
+</image>
+<image style="overflow:visible;" width="1080" height="607" xlink:href="assets/imgs/C0B8A0DE7654F755.png"  transform="matrix(1 0 0 1 354 4.89)">
+</image>
+<text transform="matrix(1 0 0 1 645 315.89)" class="st0 st1">6</text>
+<text transform="matrix(1 0 0 1 495 439.89)" class="st0 st1">9</text>
+</svg> -->
+
   </div>
-  <div></div>
 </ion-content>
+
+<content-drawer [options]="drawerOptions">
+  <div class="content">
+   <img src="assets/imgs/legend.png">
+  </div>
+</content-drawer>

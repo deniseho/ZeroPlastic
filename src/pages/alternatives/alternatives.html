@@ -2,51 +2,51 @@
   <ion-navbar></ion-navbar>
 </ion-header>
 
-<ion-content text-center parallax-header>
 
-  <div class="alternativeMenu" (click)="selectAltItem($event)">
-    <button ion-button outline icon-only name="basket" class="active">
-      <ion-icon name="basket"></ion-icon>
-    </button>
-    <button ion-button outline icon-only name="beer">
-      <ion-icon name="beer"></ion-icon>
-    </button>
-    <button ion-button outline icon-only name="restaurant">
-      <ion-icon name="restaurant"></ion-icon>
-    </button>
-    <button ion-button outline icon-only name="football">
-      <ion-icon name="football"></ion-icon>
-    </button>
-  </div>
-
-  <div class="img header-image">
-    <img src="assets/imgs/{{selectedItemUrl}}">
-  </div>
-  <div class="main-content">
-    <span color="secondary" text-center>Scroll down</span>
-    <div class="arrawDiv" (click)="arrawDivClick">
-      <ion-icon name="ios-arrow-down"></ion-icon>
+ <ion-content text-center parallax-header>
+    <div class="alternativeMenu" (click)="selectAltItem($event)">
+      <button ion-button outline icon-only name="basket" class="active">
+        <ion-icon name="basket"></ion-icon>
+      </button>
+      <button ion-button outline icon-only name="beer">
+        <ion-icon name="beer"></ion-icon>
+      </button>
+      <button ion-button outline icon-only name="restaurant">
+        <ion-icon name="restaurant"></ion-icon>
+      </button>
+      <button ion-button outline icon-only name="football">
+        <ion-icon name="football"></ion-icon>
+      </button>
     </div>
-    <ion-slides pager>
-      <ion-slide>
-        <h1>Alternative 1</h1>
-        <div class="img">
-          <img src="assets/imgs/canvas-bag.jpg">
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <h1>Alternative 2</h1>
-        <div class="img">
-          <img src="assets/imgs/canvas-bag.jpg">
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <h1>Alternative 3</h1>
-        <div class="img">
-          <img src="assets/imgs/canvas-bag.jpg">
-        </div>
-      </ion-slide>
-    </ion-slides>
-  </div>
 
-</ion-content>
+    <div class="img header-image" #content>
+      <!-- <img src="assets/imgs/{{selectedItemUrl}}"> -->
+    </div>
+
+    <div class="main-content">
+      <span color="secondary" text-center>Scroll down</span>
+      <div class="arrawDiv" (click)="arrawDivClick">
+        <ion-icon name="ios-arrow-down"></ion-icon>
+      </div>
+      <ion-slides pager>
+        <ion-slide>
+          <h1>Alternative 1</h1>
+          <div class="img">
+            <img src="assets/imgs/canvas-bag.jpg">
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <h1>Alternative 2</h1>
+          <div class="img">
+            <img src="assets/imgs/canvas-bag.jpg">
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <h1>Alternative 3</h1>
+          <div class="img">
+            <img src="assets/imgs/canvas-bag.jpg">
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+</ion-content> 
