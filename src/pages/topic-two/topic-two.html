@@ -1,29 +1,74 @@
 <ion-header>
-  <!-- 
-    <ion-navbar>
-      <ion-title>Topic Two</ion-title>
-    </ion-navbar> -->
-  <custom-nav-bar></custom-nav-bar>
-
+    <custom-nav-bar></custom-nav-bar>
 </ion-header>
 
 <ion-content scrollX="true" scrollY="false">
-  <h3 class="title">{{title}}</h3>
+    <h3 class="title">{{title}}</h3>
+    <!--This divs make each country tapable and are linked to an event in ?-->
     <div class="inner">
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country China" on-tap="onTap($event, 'China')"></div>
-  <div class="country Indonesia" on-tap="onTap($event, 'Indonesia')"></div>
-  <div class="country Philippines" on-tap="onTap($event, 'Philippines')"></div>
-  <div class="country Vietnam" on-tap="onTap($event, 'Vietnam')"></div>
-  <div class="country SriLanka" on-tap="onTap($event, 'Sri Lanka')"></div>
-  <div class="country Egypt" on-tap="onTap($event, 'Egypt')"></div>
-  <div class="country Thailand" on-tap="onTap($event, 'Thailand')"></div>
-  <div class="country Malaysia" on-tap="onTap($event, 'Malaysia')"></div>
-  <div class="country Nigeria" on-tap="onTap($event, 'Nigeria')"></div>
-  <div class="country Bangladesh" on-tap="onTap($event, 'Bangladesh')"></div>
-    <img src="assets/imgs/world_map.png" >
-  </div>
-  <div></div>
+        <div class="country China" on-tap="onTap($event, 'China')">
+            <div class="circle-btn">
+                <p class="btn-text"># 1</p>
+            </div>
+        </div>
+        <div class="country China" on-tap="onTap($event, 'China')"></div>
+        <div class="country China" on-tap="onTap($event, 'China')"></div>
+        <div class="country China" on-tap="onTap($event, 'China')"></div>
+
+        <div class="country Indonesia" on-tap="onTap($event, 'Indonesia')">
+            <div class="circle-btn">
+                <p class="btn-text"># 2</p>
+            </div>
+        </div>
+
+        <div class="country Philippines" on-tap="onTap($event, 'Philippines')">
+            <div class="circle-btn">
+                <p class="btn-text"># 3</p>
+            </div>
+        </div>
+
+        <div class="country Vietnam" on-tap="onTap($event, 'Vietnam')">
+            <div class="circle-btn">
+                <p class="btn-text"># 4</p>
+            </div>
+        </div>
+
+        <div class="country SriLanka" on-tap="onTap($event, 'Sri Lanka')">
+            <div class="circle-btn">
+                <p class="btn-text"># 5</p>
+            </div>
+        </div>
+
+        <div class="country Egypt" on-tap="onTap($event, 'Egypt')">
+            <div class="circle-btn">
+                <p class="btn-text"># 6</p>
+            </div>
+        </div>
+
+        <div class="country Thailand" on-tap="onTap($event, 'Thailand')">
+            <div class="circle-btn">
+                <p class="btn-text"># 7</p>
+            </div>
+        </div>
+
+        <div class="country Malaysia" on-tap="onTap($event, 'Malaysia')">
+            <div class="circle-btn">
+                <p class="btn-text"># 8</p>
+            </div>
+        </div>
+
+        <div class="country Nigeria" on-tap="onTap($event, 'Nigeria')">
+            <div class="circle-btn">
+                <p class="btn-text"># 9</p>
+            </div>
+        </div>
+
+        <div class="country Bangladesh" on-tap="onTap($event, 'Bangladesh')">
+            <div class="circle-btn">
+                <p class="btn-text"># 10</p>
+            </div>
+        </div>
+        <img src="assets/imgs/world_map.png">
+    </div>
+    <div></div>
 </ion-content>
