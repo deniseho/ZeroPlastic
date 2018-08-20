@@ -21,11 +21,11 @@ export class AlternativesPage extends PIXI.Application {
   constructor(public navCtrl : NavController, public navParams : NavParams) {
     super(300, 400, {legacy: true});
     this.alternativesList = alternativesList;
+    this.item = "plasticBags";
+    this.selectItem();
   }
 
   ionViewDidLoad() {
-    this.item = "plasticBags";
-    this.selectItem();
     // this.createScratchPad();
   }
 

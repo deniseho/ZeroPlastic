@@ -617,11 +617,11 @@ var AlternativesPage = /** @class */ (function (_super) {
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
         _this.alternativesList = __WEBPACK_IMPORTED_MODULE_3__shared_alternatives_info__["a" /* alternativesList */];
+        _this.item = "plasticBags";
+        _this.selectItem();
         return _this;
     }
     AlternativesPage.prototype.ionViewDidLoad = function () {
-        this.item = "plasticBags";
-        this.selectItem();
         // this.createScratchPad();
     };
     AlternativesPage.prototype.selectItem = function () {
@@ -705,13 +705,14 @@ var AlternativesPage = /** @class */ (function (_super) {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('content'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
     ], AlternativesPage.prototype, "content", void 0);
     AlternativesPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'<ion-header>\n</ion-header>\n\n<ion-content parallax-header>\n\n  <ion-segment [(ngModel)]="item" color="primary" (ionChange)="segmentChanged($event)">\n    <ion-segment-button value="plasticBags">\n      plasticBags\n    </ion-segment-button>\n    <ion-segment-button value="waterBottles">\n      waterBottles\n    </ion-segment-button>\n    <ion-segment-button value="straws">\n      straws\n    </ion-segment-button>\n    <ion-segment-button value="utensils">\n      utensils\n    </ion-segment-button>\n    <ion-segment-button value="toothbrush">\n      toothbrush\n    </ion-segment-button>\n  </ion-segment>\n\n  <div class="img header-image" #content text-center>\n      <img src={{plasticImage}}>\n  </div>\n\n  <div class="main-content" text-center>\n    <span color="secondary">Scroll down</span>\n    <div class="arrawDiv" (click)="arrawDivClick">\n      <ion-icon name="ios-arrow-down"></ion-icon>\n    </div>\n    <ion-slides pager>\n      <ion-slide *ngFor="let item of alternatives">\n        <h1>Alternative 1</h1>\n        <div class="img">\n          <img src={{item}}>\n        </div>\n      </ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/ }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-alternatives',template:/*ion-inline-start:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/'\n<ion-content parallax-header>\n\n  <ion-segment [(ngModel)]="item" color="primary" (ionChange)="segmentChanged($event)">\n    <ion-segment-button value="plasticBags">\n      plasticBags\n    </ion-segment-button>\n    <ion-segment-button value="waterBottles">\n      waterBottles\n    </ion-segment-button>\n    <ion-segment-button value="straws">\n      straws\n    </ion-segment-button>\n    <ion-segment-button value="utensils">\n      utensils\n    </ion-segment-button>\n    <ion-segment-button value="toothbrush">\n      toothbrush\n    </ion-segment-button>\n  </ion-segment>\n\n  <div class="img header-image" #content text-center>\n      <img src={{plasticImage}}>\n  </div>\n\n  <div class="main-content" text-center>\n    <span color="secondary">Scroll down</span>\n    <div class="arrawDiv" (click)="arrawDivClick">\n      <ion-icon name="ios-arrow-down"></ion-icon>\n    </div>\n    <ion-slides pager>\n      <ion-slide *ngFor="let item of alternatives">\n        <h1>Alternative 1</h1>\n        <div class="img">\n          <img src={{item}}>\n        </div>\n      </ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/pages/alternatives/alternatives.html"*/ }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _c || Object])
     ], AlternativesPage);
     return AlternativesPage;
+    var _a, _b, _c;
 }(__WEBPACK_IMPORTED_MODULE_2_pixi_js__["Application"]));
 
 //# sourceMappingURL=alternatives.js.map
@@ -1879,11 +1880,10 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_topic_five_topic_five__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_alternatives_alternatives__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_jquery__ = __webpack_require__(919);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_fullpage_js__ = __webpack_require__(920);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_fullpage_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_fullpage_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery__ = __webpack_require__(919);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js__ = __webpack_require__(920);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_fullpage_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_fullpage_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1905,7 +1905,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
  // Import jQuery
  // Import fullpage.js
 var MyApp = /** @class */ (function () {
@@ -1915,8 +1914,7 @@ var MyApp = /** @class */ (function () {
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
         this.auth = auth;
-        // rootPage = LoginPage; 
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_12__pages_alternatives_alternatives__["a" /* AlternativesPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_10__pages_login_login__["a" /* LoginPage */];
         this.initializeApp();
         this.currentUser = this.auth.getCurrentUser();
         // set our app's pages
@@ -1954,18 +1952,15 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/deniseho/plastic/src/app/app.html"*/'<ion-menu [content]="content" [swipeEnabled]="false">\n\n  <ion-header>\n\n  </ion-header>\n\n  <ion-content class="menu-gradient menu-bottom">\n    <!--<ion-list>-->\n      <!--<button ion-item icon-only (click)="gotoHomepage()">-->\n          <!--<ion-icon name="home"></ion-icon>-->\n        <!--</button>-->\n    <!--</ion-list>-->\n    <ion-list class="profile_section_wrapper">\n      <ion-item class="profile_section bg-color">\n        <ion-thumbnail item-start>\n          <img src="assets/imgs/avatar_temp.png">\n        </ion-thumbnail>\n        <h2 class="points content-color">25 points</h2>\n        <p class="badges content-color">1/6 badges</p>\n        <img class="progress-bar" src="assets/imgs/progress_bar.png">\n      </ion-item>\n    </ion-list>\n\n    <ion-list>\n      <ion-list-header class="bg-color">Discover</ion-list-header>\n      <ion-item class="bg-color" ion-item *ngFor="let p of pages" (click)="gotoPage(p)">\n          <ion-avatar item-start>\n            <img class="menu-avatar" src={{p.avatar}}>\n          </ion-avatar>\n          <h2 class="content-color">{{p.title}}</h2>\n          <ion-icon item-end name="ios-arrow-forward" color="gray"></ion-icon>\n      </ion-item>\n    </ion-list>\n\n    <ion-list>\n      <button class="log-out" ion-button color="secondary" round="" item-end icon-start (click)="logout()">\n        <ion-icon color="light" name="log-out"> </ion-icon>\n        Logout\n      </button>\n    </ion-list>\n\n    <img src="assets/imgs/seaweed-2.png" class="seaweed-property">\n\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/deniseho/plastic/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _f || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=app.component.js.map

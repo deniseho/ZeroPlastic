@@ -70756,7 +70756,7 @@ page-alternatives .img {
 
 page-alternatives .main-content {
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   background-color: white;
   border-top: 1px solid #ccc;
 }
@@ -70766,6 +70766,10 @@ page-alternatives .arrawDiv {
   width: 100%;
   padding-top: 2.5em;
   font-size: 25px;
+}
+
+page-alternatives .slide-zoom {
+  overflow: hidden;
 }
 
 custom-nav-bar .logo_properties {
