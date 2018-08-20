@@ -2,31 +2,29 @@
     <custom-nav-bar></custom-nav-bar>
     <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">
         <ion-segment class="SwipedTabs-tabs">
-            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
-                                [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'
-                                [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
+            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'
+                [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
                 {{tab}}
             </ion-segment-button>
         </ion-segment>
 
         <!-- here is our dynamic line  "indicator"-->
-        <div id='indicator' class="SwipedTabs-indicatorSegment"
-             [ngStyle]="{'width.px': (this.tabElementWidth_px)}"></div>
+        <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.px': (this.tabElementWidth_px)}"></div>
     </ion-content>
 </ion-header>
 
 <ion-content>
 
-    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)"
-                (ionSlideWillChange)="updateIndicatorPosition()"
-                (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
+        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <ion-slide>
             <div class="container-slides-content sea-gradient-wrapper">
                 <div class="vertical-center">
                     <h1 class="slide-title-main">Take action</h1>
                     <div class="line-separator-short"></div>
-                    <p style="padding-top: 10px"><b>Swipe left</b> and discover what you can do to help avoid plastic
-                        pollution. Be a hero environmentalist and save our ocean! </p>
+                    <p style="padding-top: 10px">
+                        <b>Swipe left</b> and discover what you can do to help avoid plastic pollution. Be a hero environmentalist
+                        and save our ocean! </p>
                     <img class="icon_property" src="../../assets/imgs/icn-swipe-left.png">
                     <!--<ion-icon class="arrow-right-style" name="ios-arrow-dropright-circle"></ion-icon>-->
                 </div>
@@ -51,13 +49,14 @@
                             <img src="assets/imgs/tidytowns.jpg" style="width: 150px">
                         </a>
                         <h4 class="slide-subtitle" style="margin-bottom: -15px; margin-top: 10px">Option 1</h4>
-                        <h4 class="slide-subtitle" style="font-weight: normal; padding-top: 0px">Join a Volunteering
-                            group</h4>
-                        <p>You can search for a group in your own community, like TidyTowns, and join them. <a
-                                href="http://www.tidytowns.ie/get-involved/find-your-local-committee/" target="_blank">
-                            Visit TidyTowns
-                            <ion-icon name="ios-exit-outline"></ion-icon>
-                        </a> to find a group near you.
+                        <h4 class="slide-subtitle" style="font-weight: normal; padding-top: 0px">Join a Volunteering group
+                        </h4>
+                        <p>You can search for a group in your own community, like TidyTowns, and join them.
+                            <a href="http://www.tidytowns.ie/get-involved/find-your-local-committee/"
+                                target="_blank">
+                                Visit TidyTowns
+                                <ion-icon name="ios-exit-outline"></ion-icon>
+                            </a> to find a group near you.
                         </p>
                     </div>
                     <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
@@ -69,14 +68,12 @@
                             <img class="icon_property" src="../../assets/imgs/icn_volunteer.png">
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle" style="color: white; margin-bottom: -15px">Option 2</h4>
-                            <h4 class="slide-subtitle" style="color: white; font-weight: normal">Start a volunteering
-                                group</h4>
-                            <p style="color: white">With everything you have learned using the ZeroPlastic app teach
-                                your family and community
-                                how important it is to avoid plastic pollution.</p>
-                            <p style="color: white">If you can, start a ZeroPlastic group and organize recycling events
-                                or beach clean-ups in
-                                your community. Start creating events from the button below!</p>
+                            <h4 class="slide-subtitle" style="color: white; font-weight: normal">Start a volunteering group
+                            </h4>
+                            <p style="color: white">With everything you have learned using the ZeroPlastic app teach your family and community how
+                                important it is to avoid plastic pollution.</p>
+                            <p style="color: white">If you can, start a ZeroPlastic group and organize recycling events or beach clean-ups in your
+                                community. Start creating events from the button below!</p>
                         </div>
                     </div>
                 </div>
@@ -164,8 +161,7 @@
                         <h1 class="slide-title2-main">Recycle</h1>
                         <div class="line-separator-short"></div>
                         <h4 class="slide-subtitle">Resin Tags</h4>
-                        <p style="margin-top: 20px">Before you dispose of your plastic items, check the
-                            number on the bottom- it tells you the type of
+                        <p style="margin-top: 20px">Before you dispose of your plastic items, check the number on the bottom- it tells you the type of
                             plastic, letting you know its recyclability.</p>
                     </div>
                     <img class="sea-gradient" style="margin-bottom: -16px" src="assets/imgs/sea_gradient.png">
@@ -229,7 +225,7 @@
         <!--ALTERNATIVES-->
         <ion-slide>
             <!--This section had conflicts-->
-           <!-- <h1 class="slide-title-main">Take action</h1>
+            <!-- <h1 class="slide-title-main">Take action</h1>
             <h1 class="slide-title2-main">Use Alternatives to plastic</h1>
             <button ion-button (click)="gotoAlternatives()">Alternatives</button>-->
             <!-- <h1>Alternatives</h1>
@@ -239,18 +235,17 @@
 
         <!--QUIZ-->
         <ion-slide>
-            <ion-slide>
-                <div class="container-slides-content">
-                    <div class="vertical-center">
-                        <img style="width: 120px" src="../../assets/imgs/icn_temp.png">
-                        <h1 class="slide-title-main">About plastic</h1>
-                        <h1 class="slide-title2-main">Quiz</h1>
-                        <div class="line-separator-short"></div>
-                        <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>
-                        <p>Earn points and become a senior ecologist!</p>
-                    </div>
+            <div class="container-slides-content">
+                <div class="vertical-center">
+                    <img style="width: 120px" src="assets/imgs/icn_temp.png">
+                    <h1 class="slide-title-main">About plastic</h1>
+                    <h1 class="slide-title2-main">Quiz</h1>
+                    <div class="line-separator-short"></div>
+                    <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>
+                    <p>Earn points and become a senior ecologist!</p>
+                    <button ion-button (click)="startQuiz()">Start the quiz</button>
                 </div>
-            </ion-slide>
+            </div>
         </ion-slide>
     </ion-slides>
 
