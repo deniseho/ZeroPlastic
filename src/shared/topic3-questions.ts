@@ -1,8 +1,8 @@
-export const topic1 : any = {
-    collectionName: "topic1",
+export const topic3 : any = {
+    collectionName: "topic3",
     questionList: [
         {
-            question: "topic1 question 01",
+            question: "topic3 question 01",
             options: [
                 {
                     description: "correct",
@@ -27,7 +27,7 @@ export const topic1 : any = {
                 }
             ]
         }, {
-            question: "topic1 question 02",
+            question: "topic3 question 02",
             options: [
                 {
                     description: "wrong",
@@ -52,7 +52,7 @@ export const topic1 : any = {
                 }
             ]
         }, {
-            question: "topic1 question 03",
+            question: "topic3 question 03",
             options: [
                 {
                     description: "wrong",
@@ -77,7 +77,7 @@ export const topic1 : any = {
                 }
             ]
         }, {
-            question: "topic1 question 04",
+            question: "topic3 question 04",
             options: [
                 {
                     description: "wrong",
@@ -102,7 +102,7 @@ export const topic1 : any = {
                 }
             ]
         }, {
-            question: "topic1 question 05",
+            question: "topic3 question 05",
             options: [
                 {
                     description: "wrong",
