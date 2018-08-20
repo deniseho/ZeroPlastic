@@ -9,7 +9,10 @@ page-topic-two {
     }
     .title{
         padding: 20px 40px;
-        position: absolute;
+        //Add fixed position so the title appear even when user does scroll
+        position: fixed;
+        left: 0;
+        top: 6%;
     }
     .country{
         z-index: 100;
@@ -105,5 +108,21 @@ page-topic-two {
         -webkit-transform: translate3d(919px, 428px, 0);
         transform: translate3d(634px, 248px, 0);
         // background: rgba(91, 100, 223, 0.5); 
+    }
+
+    .circle-btn {
+        width: 35px;
+        height: 35px;
+        background: #2CBFA6 !important;
+        border-radius: 100% !important;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    .btn-text {
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        line-height: 35px;
     }
 }

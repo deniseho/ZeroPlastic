@@ -32,7 +32,24 @@ export class TopicOnePage {
     public navParams : NavParams, public modalCtrl : ModalController, 
     public renderer : Renderer, public viewCtrl : ViewController, 
     private auth : AuthServiceProvider) {
+<<<<<<< HEAD
     this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
+=======
+    this.tabs = ["Issue", "Cause", "Effect", "Solution", "Quiz"];
+
+    //todo: check if the score exists from db
+    let score = this
+      .navParams
+      .get('topicOneQuizScore');
+
+    this.quizScore = score
+      ? score
+      : 0;
+    this.quizButtonText = score
+      ? 'Try again'
+      : 'Start the quiz';
+
+>>>>>>> 7c25069c8b98cd90c6df01c9cafe78973daae4a2
   }
 
   ionViewDidEnter() {
