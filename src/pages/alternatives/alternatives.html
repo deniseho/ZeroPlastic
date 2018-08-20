@@ -1,8 +1,8 @@
 <ion-header>
 </ion-header>
 
-<ion-content>
-  <!-- Segment in content -->
+<ion-content parallax-header>
+
   <ion-segment [(ngModel)]="item" color="primary" (ionChange)="segmentChanged($event)">
     <ion-segment-button value="plasticBags">
       plasticBags
@@ -10,14 +10,33 @@
     <ion-segment-button value="waterBottles">
       waterBottles
     </ion-segment-button>
+    <ion-segment-button value="straws">
+      straws
+    </ion-segment-button>
+    <ion-segment-button value="utensils">
+      utensils
+    </ion-segment-button>
+    <ion-segment-button value="toothbrush">
+      toothbrush
+    </ion-segment-button>
   </ion-segment>
-  <div>
-    {{plasticImage}}
+
+  <div class="img header-image" #content text-center>
+      <img src={{plasticImage}}>
   </div>
-  <div>
-    {{plasticText}}
-  </div>
-  <div *ngFor="let item of alternatives">
-    {{item}}
+
+  <div class="main-content" text-center>
+    <span color="secondary">Scroll down</span>
+    <div class="arrawDiv" (click)="arrawDivClick">
+      <ion-icon name="ios-arrow-down"></ion-icon>
+    </div>
+    <ion-slides pager>
+      <ion-slide *ngFor="let item of alternatives">
+        <h1>Alternative 1</h1>
+        <div class="img">
+          <img src={{item}}>
+        </div>
+      </ion-slide>
+    </ion-slides>
   </div>
 </ion-content>

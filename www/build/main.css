@@ -70732,7 +70732,6 @@ page-achievement .badgeRecord {
 }
 
 page-alternatives .alternativeMenu {
-  text-align: center;
   background: white;
   z-index: 10 !important;
   padding: 20px 0 !important;
