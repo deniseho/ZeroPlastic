@@ -1,7 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
+import {IonicPage, NavController, Slides, Content, ModalController} from 'ionic-angular';
 import { GamePage } from '../game/game';
 import { AlternativesPage } from '../alternatives/alternatives';
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
+import { topic4 } from '../../shared/topic4-questions';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
@@ -13,7 +15,7 @@ export class TopicFourPage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
 
-  constructor(public navCtrl : NavController) {
+  constructor(public navCtrl : NavController, public modalCtrl : ModalController) {
     this.tabs = ["Take action", "Volunteer", "Recycle", "Alternatives", "Quiz"];
   }
 
@@ -53,5 +55,12 @@ export class TopicFourPage {
 
   gotoAlternatives(){
     this.navCtrl.push(AlternativesPage);
+  }
+
+  startQuiz() {
+    const modal = this
+      .modalCtrl
+      .create(TopicQuizComponent, {"collection": topic4});
+    modal.present();
   }
 }
