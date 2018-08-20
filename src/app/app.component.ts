@@ -25,11 +25,8 @@ import 'fullpage.js'; // Import fullpage.js
 })
 export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
-
   rootPage = LoginPage;
-  // rootPage = AlternativesPage;
-
-  currentUser: User;  
+  currentUser: User;
   pages: Array<{title: string, component: any, avatar: string}>;
   
   public ngOnInit() {

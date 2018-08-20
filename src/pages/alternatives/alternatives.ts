@@ -2,21 +2,54 @@ import {Component, ViewChild, ElementRef} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import * as $ from 'jquery';
 import * as PIXI from "pixi.js";
+import {alternativesList} from '../../shared/alternatives-info';
+import * as _ from 'lodash';
 
 @Component({selector: 'page-alternatives', templateUrl: 'alternatives.html'})
+
 export class AlternativesPage extends PIXI.Application {
-  drawerOptions : any;
-  selectedItemUrl : string;
-  app : any;
-  stage : any;
+  alternativesList : any;
+  
+  item : any;
+  selectedItem : any;
+
+  plasticImage : string;
+  plasticText : string;
+  alternatives : string[];
 
   @ViewChild('content')content : ElementRef;
   constructor(public navCtrl : NavController, public navParams : NavParams) {
     super(300, 400, {legacy: true});
-
+    this.alternativesList = alternativesList;
+    this.item = "plasticBags";
+    this.selectItem();
   }
 
   ionViewDidLoad() {
+    // this.createScratchPad();
+  }
+
+  selectItem() {
+    this.selectedItem = _.filter(this.alternativesList, item => {
+      return item.item == this.item;
+    })[0];
+    this.plasticImage = this.selectedItem.plasticImage;
+    this.plasticText = this.selectedItem.plasticText;
+    this.alternatives = this.selectedItem.alternatives;
+  }
+
+  segmentChanged(e) {
+    this.item = e._value;
+    this.selectItem();
+    // this.createScratchPad();
+  }
+
+  arrawDivClick() {}
+
+  createScratchPad() {
+    PIXI.loader.destroy;
+    PIXI.loader.reset();
+    
     var app = new PIXI.Application(300, 400, {transparent: true, antialias: true});
 
     this
@@ -32,24 +65,24 @@ export class AlternativesPage extends PIXI.Application {
 
     PIXI
       .loader
-      .add("t1", "../assets/imgs/Bags/bag.png");
+      .add("plasticImage", this.plasticImage);
     PIXI
       .loader
-      .add("t2", "../assets/imgs/Toothbrush/toothbrush.jpg");
+      .add("plasticText", this.plasticText);
     PIXI
       .loader
       .load(setup);
 
     function setup(loader, resources) {
-      var background = new PIXI.Sprite(resources["t1"].texture)
-      stage.addChild(background);
-      background.width = app.screen.width;
-      background.height = app.screen.height;
+      var plasticImage = new PIXI.Sprite(resources["plasticImage"].texture)
+      stage.addChild(plasticImage);
+      plasticImage.width = app.screen.width;
+      plasticImage.height = app.screen.height;
 
-      var imageToReveal = new PIXI.Sprite(resources["t2"].texture)
-      stage.addChild(imageToReveal);
-      imageToReveal.width = app.screen.width;
-      imageToReveal.height = app.screen.height;
+      var plasticText = new PIXI.Sprite(resources["plasticText"].texture)
+      stage.addChild(plasticText);
+      plasticText.width = app.screen.width;
+      plasticText.height = app.screen.height;
 
       var renderTexture = PIXI
         .RenderTexture
@@ -57,7 +90,7 @@ export class AlternativesPage extends PIXI.Application {
 
       var renderTextureSprite = new PIXI.Sprite(renderTexture);
       stage.addChild(renderTextureSprite);
-      imageToReveal.mask = renderTextureSprite;
+      plasticText.mask = renderTextureSprite;
 
       app.stage.interactive = true;
       app
@@ -93,17 +126,6 @@ export class AlternativesPage extends PIXI.Application {
       }
 
     }
-  }
 
-  selectAltItem(e) {
-    $('.alternativeMenu > *').removeClass('active');
-    $(e.target).addClass("active");
-    if (e.target.name == "basket") {
-      this.selectedItemUrl = "plastic-bag.jpg";
-    } else {
-      this.selectedItemUrl = "alt_bottle.jpg";
-    }
   }
-
-  arrawDivClick() {}
 }

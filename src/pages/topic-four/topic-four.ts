@@ -4,6 +4,8 @@ import { GamePage } from '../game/game';
 import { AlternativesPage } from '../alternatives/alternatives';
 import { tags } from "../../shared/tags-info";
 import { TagsModalComponent } from "../../components/tags-modal/tags-modal";
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
+import { topic4 } from '../../shared/topic4-questions';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
@@ -73,4 +75,10 @@ export class TopicFourPage {
     modal.present();
   }
 
+  startQuiz() {
+    const modal = this
+      .modalCtrl
+      .create(TopicQuizComponent, {"collection": topic4});
+    modal.present();
+  }
 }

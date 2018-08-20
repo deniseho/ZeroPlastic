@@ -1,5 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
+import {IonicPage, NavController, Slides, Content, ModalController} from 'ionic-angular';
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
+import { topic3 } from '../../shared/topic3-questions';
 
 @Component({selector: 'page-topic-three', templateUrl: 'topic-three.html'})
 export class TopicThreePage {
@@ -11,7 +13,7 @@ export class TopicThreePage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
 
-  constructor(public navCtrl : NavController) {
+  constructor(public navCtrl : NavController,  public modalCtrl : ModalController ) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
   }
 
@@ -44,4 +46,11 @@ export class TopicThreePage {
     if (this.SwipedTabsIndicator) 
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     }
+  
+  startQuiz() {
+    const modal = this
+      .modalCtrl
+      .create(TopicQuizComponent, {"collection": topic3});
+    modal.present();
   }
+}

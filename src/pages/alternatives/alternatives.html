@@ -1,52 +1,40 @@
-<ion-header>
-  <ion-navbar></ion-navbar>
-</ion-header>
 
+<ion-content parallax-header>
 
- <ion-content text-center parallax-header>
-    <div class="alternativeMenu" (click)="selectAltItem($event)">
-      <button ion-button outline icon-only name="basket" class="active">
-        <ion-icon name="basket"></ion-icon>
-      </button>
-      <button ion-button outline icon-only name="beer">
-        <ion-icon name="beer"></ion-icon>
-      </button>
-      <button ion-button outline icon-only name="restaurant">
-        <ion-icon name="restaurant"></ion-icon>
-      </button>
-      <button ion-button outline icon-only name="football">
-        <ion-icon name="football"></ion-icon>
-      </button>
+  <ion-segment [(ngModel)]="item" color="primary" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="plasticBags">
+      plasticBags
+    </ion-segment-button>
+    <ion-segment-button value="waterBottles">
+      waterBottles
+    </ion-segment-button>
+    <ion-segment-button value="straws">
+      straws
+    </ion-segment-button>
+    <ion-segment-button value="utensils">
+      utensils
+    </ion-segment-button>
+    <ion-segment-button value="toothbrush">
+      toothbrush
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="img header-image" #content text-center>
+      <img src={{plasticImage}}>
+  </div>
+
+  <div class="main-content" text-center>
+    <span color="secondary">Scroll down</span>
+    <div class="arrawDiv" (click)="arrawDivClick">
+      <ion-icon name="ios-arrow-down"></ion-icon>
     </div>
-
-    <div class="img header-image" #content>
-      <!-- <img src="assets/imgs/{{selectedItemUrl}}"> -->
-    </div>
-
-    <div class="main-content">
-      <span color="secondary" text-center>Scroll down</span>
-      <div class="arrawDiv" (click)="arrawDivClick">
-        <ion-icon name="ios-arrow-down"></ion-icon>
-      </div>
-      <ion-slides pager>
-        <ion-slide>
-          <h1>Alternative 1</h1>
-          <div class="img">
-            <img src="assets/imgs/canvas-bag.jpg">
-          </div>
-        </ion-slide>
-        <ion-slide>
-          <h1>Alternative 2</h1>
-          <div class="img">
-            <img src="assets/imgs/canvas-bag.jpg">
-          </div>
-        </ion-slide>
-        <ion-slide>
-          <h1>Alternative 3</h1>
-          <div class="img">
-            <img src="assets/imgs/canvas-bag.jpg">
-          </div>
-        </ion-slide>
-      </ion-slides>
-    </div>
-</ion-content> 
+    <ion-slides pager>
+      <ion-slide *ngFor="let item of alternatives">
+        <h1>Alternative 1</h1>
+        <div class="img">
+          <img src={{item}}>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

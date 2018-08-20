@@ -16,7 +16,7 @@ import * as _ from 'lodash';
 import * as $ from 'jquery';
 import {UserProvider} from '../../providers/user-service/user-service';
 import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
-import { topic1 } from '../../shared/topic1-qustions';
+import { topic1 } from '../../shared/topic1-questions';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -27,27 +27,12 @@ export class TopicOnePage {
   SwipedTabsIndicator : any = null;
   tabElementWidth_px : number = 100;
   tabs : any = [];
-  quizScore : number;
-  quizButtonText : string;
 
   constructor(private event : Events, public navCtrl : NavController, 
     public navParams : NavParams, public modalCtrl : ModalController, 
     public renderer : Renderer, public viewCtrl : ViewController, 
     private auth : AuthServiceProvider) {
-    this.tabs = ["Issue", "Cause", "Effect", "Solution", "Quiz"];
-
-    //todo: check if the score exists from db
-    let score = this
-      .navParams
-      .get('topicOneQuizScore');
-
-    this.quizScore = score
-      ? score
-      : 0;
-    this.quizButtonText = score
-      ? 'Try again'
-      : 'Start the quiz';
-
+    this.tabs = ["Problem", "Cause", "Effect", "Solution", "Quiz"];
   }
 
   ionViewDidEnter() {
@@ -56,8 +41,6 @@ export class TopicOnePage {
 
   ionViewDidLoad() {
   }
-
-
 
   selectTab(index) {
     // this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 *

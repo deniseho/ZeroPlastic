@@ -1,13 +1,12 @@
 page-alternatives {
     .alternativeMenu{
-        text-align: center;
         background: white;
         z-index: 10 !important;
         padding: 20px 0 !important;
     }
 
     .alternativeMenu > button{
-        padding: 20px 10px !important;
+        padding: 20px 8px !important;
     }    
 
     .alternativeMenu > button.active{
@@ -23,7 +22,7 @@ page-alternatives {
     }
     .main-content {
         width: 100%;        
-        height: 100vh;
+        height: 85vh;
         background-color: white;
         border-top: 1px solid #ccc;
     }
@@ -33,5 +32,9 @@ page-alternatives {
         width: 100%;
         padding-top: 2.5em;        
         font-size: 25px;
+    }
+
+    .slide-zoom {
+        overflow: hidden;
     }
 }

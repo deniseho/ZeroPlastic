@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, Slides, Content, NavParams, ModalController} from 'ionic-angular';
 import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
-import { topic2 } from '../../shared/topic2-qustions';
+import { topic2 } from '../../shared/topic2-questions';
 import { country } from '../../shared/country-info';
 import { MapInfoComponent } from '../../components/map-modal/map-modal';
 
