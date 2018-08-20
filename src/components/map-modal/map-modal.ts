@@ -5,7 +5,11 @@ import {NavController, NavParams, ViewController, ModalController} from 'ionic-a
 export class MapInfoComponent {
   countryInfo : string;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController) {
+  constructor(
+      public navCtrl : NavController,
+      public navParams : NavParams,
+      public viewCtrl : ViewController,
+      public modalCtrl : ModalController) {
     this.countryInfo = navParams.get("country");
 
   }

@@ -26,8 +26,8 @@ import 'fullpage.js'; // Import fullpage.js
 export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
 
-  // rootPage = LoginPage; 
-  rootPage = AlternativesPage; 
+  rootPage = LoginPage;
+  // rootPage = AlternativesPage;
 
   currentUser: User;  
   pages: Array<{title: string, component: any, avatar: string}>;

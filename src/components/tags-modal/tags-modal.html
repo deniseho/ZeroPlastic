@@ -1,0 +1,52 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tags information
+    </ion-title>
+    <ion-buttons start>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-header no-border="">
+  <ion-toolbar class="modal-toolbar" color="lightest">
+    <ion-buttons end="">
+      <button ion-button (click)="close()" icon-only="">
+        <ion-icon name="close" large=""></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="content-wrapper">
+    <img class="icon-property" src="{{tagIcon}}">
+    <div class="divider-short"></div>
+    <h4 class="label" [innerHTML]="tagTypePlasticTitle"></h4>
+    <p class="value" [innerHTML]="tagTitle"></p>
+    <div class="divider-long"></div>
+    <h4 class="label" [innerHTML]="tagRecyclabilityTitle"></h4>
+    <p class="value" [innerHTML]="tagRecyclable"></p>
+    <p class="value" [innerHTML]="tagRecyclableDescription"></p>
+    <div class="divider-long"></div>
+    <h4 class="label" [innerHTML]="tagFoundIn"></h4>
+    <p class="value" [innerHTML]="tagPlastic"></p>
+    <div class="item-plastic-wrapper">
+      <ion-row>
+        <ion-col col-4>
+          <img class="plastic-items" src="../../assets/imgs/icn_water_bottle.png">
+        </ion-col>
+        <ion-col col-4>
+          <img class="plastic-items" src="../../assets/imgs/icn_water_bottle.png">
+        </ion-col>
+        <ion-col col-4>
+          <img class="plastic-items" src="../../assets/imgs/icn_water_bottle.png">
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <!--<button ion-button (click)="close()">
+    <span ion-text>Back</span>
+  </button>-->
+</ion-content>

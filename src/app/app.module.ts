@@ -35,6 +35,7 @@ import { BadgesPipe } from '../pipes/badges/badges';
 import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
 import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result-modal';
 import { MapInfoComponent } from '../components/map-modal/map-modal';
+import { TagsModalComponent } from "../components/tags-modal/tags-modal";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MapInfoComponent } from '../components/map-modal/map-modal';
     ContentDrawerComponent,
     ParallaxHeaderDirective,
     BadgesPipe,
-    MapInfoComponent
+    MapInfoComponent,
+    TagsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { MapInfoComponent } from '../components/map-modal/map-modal';
     TopicQuizComponent,
     QuizResultComponent,
     AlternativesPage,
-    MapInfoComponent    
+    MapInfoComponent,
+    TagsModalComponent
 ],
   providers: [
     StatusBar,

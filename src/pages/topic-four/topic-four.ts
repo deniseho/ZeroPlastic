@@ -1,10 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
+import {IonicPage, NavController, Slides, Content, NavParams, ModalController} from 'ionic-angular';
 import { GamePage } from '../game/game';
 import { AlternativesPage } from '../alternatives/alternatives';
+import { tags } from "../../shared/tags-info";
+import { TagsModalComponent } from "../../components/tags-modal/tags-modal";
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
+  tagsList: any[];
 
   @ViewChild('SwipedTabsSlider')SwipedTabsSlider : Slides;
   @ViewChild('scroll')scroll : Content;
@@ -13,8 +16,9 @@ export class TopicFourPage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
 
-  constructor(public navCtrl : NavController) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController) {
     this.tabs = ["Take action", "Volunteer", "Recycle", "Alternatives", "Quiz"];
+    this.tagsList = tags;
   }
 
   ionViewDidEnter() {
@@ -54,4 +58,19 @@ export class TopicFourPage {
   gotoAlternatives(){
     this.navCtrl.push(AlternativesPage);
   }
+
+  onTap($event, value): void {
+    const modal = this.modalCtrl.create(TagsModalComponent, {
+        "tagTitle": this.tagsList[value]["title"],
+        "tagFoundIn" : this.tagsList[value]["foundIn"],
+        "tagPlastic" : this.tagsList[value]["plastic"],
+        "tagRecyclabilityTitle" : this.tagsList[value]["recyclabilityTitle"],
+        "tagRecyclable" : this.tagsList[value]["recyclable"],
+        "tagIcon" : this.tagsList[value]["icon"],
+        "tagTypePlasticTitle" : this.tagsList[value]["typePlasticTitle"],
+        "tagRecyclableDescription" : this.tagsList[value]["recyclableDescription"]
+    });
+    modal.present();
+  }
+
 }
