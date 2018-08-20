@@ -70661,10 +70661,11 @@ ion-navbar.toolbar {
 
 .bg-color {
   background-color: transparent;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
-.content-color, .log-out {
-  color: rgba(0, 0, 0, 0.7) !important;
+.content-color, .log-out, .points, .badges {
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .item, .item-inner {
@@ -70673,15 +70674,14 @@ ion-navbar.toolbar {
 
 .points {
   padding-bottom: 10px;
+}
+
+.badges, .points {
   font-weight: bold !important;
 }
 
 .progress-bar {
   padding-bottom: 6px;
-}
-
-ion-list-header {
-  border-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .log-out {
@@ -70956,7 +70956,7 @@ page-topic-four .arrow-right-style {
 
 page-topic-four .container-slides-content {
   width: 100%;
-  height: 85vh;
+  height: 83vh;
   text-align: center;
   padding: 10px;
   display: table;
@@ -71085,24 +71085,42 @@ page-topic-four .sea-gradient {
   }
 }
 
+page-topic-four .events-container {
+  padding-bottom: 20px;
+  background: #E0EDF6;
+}
+
 page-topic-four .events-title {
   font-size: 22px;
   text-align: left;
-  margin-bottom: 0 !important;
 }
 
 page-topic-four ion-list-header {
   background-color: transparent !important;
-  color: #6666CC !important;
+  color: #3C3CAF !important;
 }
 
-page-topic-four .date-wrapper {
-  padding: 10px;
+page-topic-four .date-wrapper-1 {
+  height: 123px;
+  background-image: url("../../assets/imgs/pic-beach-cleanup.png");
+  display: table;
+}
+
+page-topic-four .date-wrapper-2 {
+  height: 123px;
+  background-image: url("../../assets/imgs/pic-recycle.png");
+  display: table;
+}
+
+page-topic-four .date-bg {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 page-topic-four .day, page-topic-four .month, page-topic-four .year {
   font-weight: bold;
-  color: #6666CC;
+  color: #3C3CAF;
 }
 
 page-topic-four .day {
@@ -71130,16 +71148,12 @@ page-topic-four .card-title {
 
 page-topic-four .time, page-topic-four .contact, page-topic-four .card-title, page-topic-four .location {
   text-align: left;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 14px;
 }
 
 page-topic-four .location {
   padding-bottom: 8px;
-}
-
-page-topic-four ion-card {
-  margin-bottom: 30px;
 }
 
 page-topic-four .slide-title-main {
@@ -71156,13 +71170,14 @@ page-topic-four .slide-title2-main {
   margin-bottom: 20px;
 }
 
-page-topic-four .events-container {
-  padding-bottom: 20px;
+page-topic-four .game-container {
+  width: 100%;
+  text-align: center;
+  padding: 30px 10px 30px 10px;
 }
 
 page-hello-ionic .menuList {
-  width: 95%;
-  height: 20%;
+  height: 16%;
   cursor: pointer;
   margin: 10px 10px 0 10px;
   border-radius: 4px;
@@ -71177,30 +71192,43 @@ page-hello-ionic ion-card {
 page-hello-ionic .card-title {
   position: absolute;
   top: 36%;
-  font-size: 25px;
+  font-size: 22px;
   width: 100%;
   font-weight: 500;
   color: #fff;
 }
 
-page-hello-ionic .menuList:nth-child(1) {
+page-hello-ionic .menuList:nth-child(2) {
   background: #74D7DA url("../assets/imgs/icn_plastic_pollution.png") no-repeat 95% 50%;
 }
 
-page-hello-ionic .menuList:nth-child(2) {
+page-hello-ionic .menuList:nth-child(3) {
   background: #51C0CA url("../assets/imgs/icn_plastics.png") no-repeat 95% 50%;
 }
 
-page-hello-ionic .menuList:nth-child(3) {
+page-hello-ionic .menuList:nth-child(4) {
   background: #3A8EA7 url("../assets/imgs/icn_octopus.png") no-repeat 95% 50%;
 }
 
-page-hello-ionic .menuList:nth-child(4) {
+page-hello-ionic .menuList:nth-child(5) {
   background: #175D84 url("../assets/imgs/icn_take_action.png") no-repeat 95% 50%;
 }
 
-page-hello-ionic .menuList:nth-child(5) {
+page-hello-ionic .menuList:nth-child(6) {
   background: #0D3867 url("../assets/imgs/icn_activities.png") no-repeat 95% 50%;
+}
+
+page-hello-ionic ion-content {
+  height: 98vh !important;
+  padding: 10px;
+}
+
+page-hello-ionic .slide-title-main {
+  color: #4747C2;
+  font-size: 28px;
+  font-weight: normal;
+  text-align: left;
+  padding-left: 10px;
 }
 
 page-topic-one .SwipedTabs-indicatorSegment {
@@ -71295,7 +71323,7 @@ page-topic-one .slide-subtitle2-secondary {
 }
 
 page-topic-one .container-slides-content {
-  height: 95vh;
+  height: 83vh;
   text-align: center;
   padding: 10px;
   display: table;
@@ -71326,7 +71354,7 @@ page-topic-one .subtitle-small {
 }
 
 page-topic-one .slide-subtitle {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 22px;
   line-height: 22px;
   font-weight: bold;
@@ -71335,7 +71363,7 @@ page-topic-one .slide-subtitle {
 }
 
 page-topic-one .slide-subtitle-line-before {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 22px;
   line-height: 22px;
   font-weight: bold;
@@ -71343,7 +71371,7 @@ page-topic-one .slide-subtitle-line-before {
 }
 
 page-topic-one p {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 16px;
   line-height: 20px;
   padding: 0 15px 0 15px;
@@ -71463,7 +71491,9 @@ page-topic-two .inner {
 
 page-topic-two .title {
   padding: 20px 40px;
-  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 6%;
 }
 
 page-topic-two .country {
@@ -71560,4 +71590,21 @@ page-topic-two .Bangladesh {
   height: 5vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(634px, 248px, 0);
+}
+
+page-topic-two .circle-btn {
+  width: 35px;
+  height: 35px;
+  background: #2CBFA6 !important;
+  border-radius: 100% !important;
+  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.14) !important;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.14) !important;
+}
+
+page-topic-two .btn-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  line-height: 35px;
 }
