@@ -1,22 +1,37 @@
-
 <ion-content parallax-header>
 
   <ion-segment class="plastic-buttons" [(ngModel)]="item" color="primary" (ionChange)="segmentChanged($event)">
-    <button value="plasticBags" ion-button="" outline="">
-      <img src="../../assets/imgs/icn-bag.svg">
+    <ion-segment-button value="plasticBags">
+      <img src="assets/imgs/icn-bag.svg">
+    </ion-segment-button>
+    <ion-segment-button value="waterBottles">
+      <img src="assets/imgs/icn-bottle.svg">
+
+    </ion-segment-button>
+    <ion-segment-button value="straws">
+      <img src="assets/imgs/icn-straw.svg">
+    </ion-segment-button>
+    <ion-segment-button value="utensils">
+      <img class="tootbrush" src="assets/imgs/icn-cutlery.svg">
+    </ion-segment-button>
+    <ion-segment-button value="toothbrush">
+      <img src="assets/imgs/icn-toothbrush.svg">
+    </ion-segment-button>
+    <!-- <button value="plasticBags" ion-button="" outline="">
+      <img src="assets/imgs/icn-bag.svg">
     </button>
     <button value="waterBottles" ion-button="" outline="">
-      <img src="../../assets/imgs/icn-bottle.svg">
+      <img src="assets/imgs/icn-bottle.svg">
     </button>
     <button value="straws" ion-button="" outline="">
-      <img src="../../assets/imgs/icn-straw.svg" >
+      <img src="assets/imgs/icn-straw.svg" >
     </button>
     <button value="utensils" ion-button="" outline="">
-      <img class="tootbrush" src="../../assets/imgs/icn-cutlery.svg">
+      <img class="tootbrush" src="assets/imgs/icn-cutlery.svg">
     </button>
     <button value="toothbrush" ion-button="" outline="">
-      <img src="../../assets/imgs/icn-toothbrush.svg">
-    </button>
+      <img src="assets/imgs/icn-toothbrush.svg">
+    </button> -->
   </ion-segment>
 
   <div class="image-wrapper header-image" #content text-center>
