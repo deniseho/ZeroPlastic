@@ -21,7 +21,7 @@ export class AchievementPage {
 
     if (score < 25) {
       this.badgeRecord = [1, 0, 0, 0, 0];
-    } else if (score > 25 && score < 60) {
+    } else if (score >= 25 && score < 60) {
       this.badgeRecord = [1, 1, 0, 0, 0];
     } else if (score >= 60 && score < 100) {
       this.badgeRecord = [1, 1, 1, 0, 0];
