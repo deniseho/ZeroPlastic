@@ -13,20 +13,21 @@ export class AchievementPage {
     this.currentUser = this
       .auth
       .currentUser;
-  }
-
-  ionViewDidLoad() {
-    let score = this.currentUser.totalScore;
+    }
+    
+    ionViewDidLoad() {
+      let score = this.currentUser.totalScore;
+      console.log(score)
 
     if (score < 25) {
       this.badgeRecord = [1, 0, 0, 0, 0];
     } else if (score > 25 && score < 60) {
       this.badgeRecord = [1, 1, 0, 0, 0];
-    } else if (score > 61 && score < 100) {
+    } else if (score >= 60 && score < 100) {
       this.badgeRecord = [1, 1, 1, 0, 0];
-    } else if (score > 100 && score < 150) {
+    } else if (score >= 100 && score < 150) {
       this.badgeRecord = [1, 1, 1, 1, 0];
-    } else if (score > 150) {
+    } else if (score >= 150) {
       this.badgeRecord = [1, 1, 1, 1, 1];
     }
   }
