@@ -70718,6 +70718,71 @@ content-drawer {
   color: white;
 }
 
+tags-modal .content-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+tags-modal .icon-property {
+  width: 35%;
+  max-width: 35%;
+}
+
+tags-modal .title, tags-modal .label, tags-modal .value {
+  text-align: center;
+}
+
+tags-modal .divider-short, tags-modal .divider-long {
+  height: 1px;
+  border-bottom: 1px solid #FEAA48;
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+tags-modal .divider-short {
+  width: 80px;
+}
+
+tags-modal .divider-long {
+  width: 100%;
+}
+
+tags-modal .title {
+  color: #4747C2;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+tags-modal .label, tags-modal .value {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+tags-modal .label {
+  font-size: 22px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+tags-modal .value {
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+tags-modal .item-plastic-wrapper {
+  margin: auto;
+  width: 70%;
+  padding-top: 10px;
+}
+
+tags-modal .plastic-items {
+  width: 35% !important;
+  max-width: 35% !important;
+}
+
 topic-quiz .btn-correct {
   background-color: #343499;
 }
@@ -70989,7 +71054,7 @@ page-topic-four .line-separator-long {
 }
 
 page-topic-four .slide-subtitle, page-topic-four h3, page-topic-four p {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 page-topic-four .slide-subtitle {

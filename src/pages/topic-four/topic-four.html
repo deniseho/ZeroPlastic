@@ -80,69 +80,37 @@
 
                 <!--EVENTS-->
                 <div class="events-container" padding="">
-                    <button ion-button full color="primary" item-end icon-start>
+                    <button ion-button full color="primary" item-end icon-start (click)="createEvent()">
                         <ion-icon name="add-circle"></ion-icon>
                         Create event
                     </button>
 
                     <ion-list-header no-padding="" no-lines="" class="events-title">Events</ion-list-header>
-                    <!--event 1-->
-                    <ion-card>
+                    <ion-card *ngFor="let event of events">
                         <ion-row>
                             <ion-col align-self-center class="date-wrapper-1" col-3>
                                 <div class="date-bg">
-                                    <h3 class="day">17</h3>
-                                    <h4 class="month">Sep</h4>
-                                    <h5 class="year">2018</h5>
+                                    <h3 class="day">{{event.day}}</h3>
+                                    <h4 class="month">{{event.month}}</h4>
+                                    <h5 class="year">{{event.year}}</h5>
                                 </div>
                             </ion-col>
                             <ion-col col-9 class="info-wrapper">
-                                <ion-row class="card-title" style="font-size: 14px"> Beach clean up</ion-row>
+                                <ion-row class="card-title" style="font-size: 14px">{{event.title}}</ion-row>
                                 <ion-row>
                                     <ion-col col-12 class="location" item-end icon-start>
                                         <ion-icon name="pin" small></ion-icon>
-                                        Donabate Village, Balcarrick, Donabate, Co. Dublin
+                                        {{event.location}}
                                     </ion-col>
                                 </ion-row>
                                 <ion-row class="card-contact-time">
                                     <ion-col class="time" col-5 item-end icon-start>
                                         <ion-icon name="time" small></ion-icon>
-                                        9:30am
+                                        {{event.time}}
                                     </ion-col>
                                     <ion-col class="contact" col-7 item-end icon-start>
                                         <ion-icon name="call" small></ion-icon>
-                                        (01) 896 2320
-                                    </ion-col>
-                                </ion-row>
-                            </ion-col>
-                        </ion-row>
-                    </ion-card>
-                    <!--event 2-->
-                    <ion-card>
-                        <ion-row>
-                            <ion-col align-self-center class="date-wrapper-2" col-3>
-                                <div class="date-bg">
-                                    <h3 class="day">22</h3>
-                                    <h4 class="month">Sep</h4>
-                                    <h5 class="year">2018</h5>
-                                </div>
-                            </ion-col>
-                            <ion-col col-9 class="info-wrapper">
-                                <ion-row class="card-title" style="font-size: 14px"> Recycling workshop</ion-row>
-                                <ion-row>
-                                    <ion-col col-12 class="location" item-end icon-start>
-                                        <ion-icon name="pin" small></ion-icon>
-                                        Donabate Village, Balcarrick, Donabate, Co. Dublin
-                                    </ion-col>
-                                </ion-row>
-                                <ion-row class="card-contact-time">
-                                    <ion-col class="time" col-5 item-end icon-start>
-                                        <ion-icon name="time" small></ion-icon>
-                                        6:00pm
-                                    </ion-col>
-                                    <ion-col class="contact" col-7 item-end icon-start>
-                                        <ion-icon name="call" small></ion-icon>
-                                        (01)896 2320
+                                        {{event.contact}}
                                     </ion-col>
                                 </ion-row>
                             </ion-col>

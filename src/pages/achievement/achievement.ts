@@ -12,7 +12,7 @@ export class AchievementPage {
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider) {
     this.currentUser = this
       .auth
-      .getCurrentUser();
+      .currentUser;
   }
 
   ionViewDidLoad() {
