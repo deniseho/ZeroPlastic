@@ -57,7 +57,6 @@ export const alternativesList : any = [
                 text: ""
             }
         ],
-        alternativesText: "3"
     }, {
         item: "utensils",
         plasticImage: "assets/imgs/Utensils/utensils.png",
@@ -71,7 +70,6 @@ export const alternativesList : any = [
                 text: ""
             }
         ],
-        alternativesText: "4"
     }, {
         item: "toothbrush",
         plasticImage: "assets/imgs/Toothbrush/toothbrush.jpg",
@@ -81,6 +79,5 @@ export const alternativesList : any = [
                 image: "assets/imgs/Toothbrush/toothbrush1.png",
                 text: ""
             }],
-        alternativesText: "5"
     }
 ]
