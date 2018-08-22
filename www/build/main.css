@@ -71550,7 +71550,7 @@ page-topic-two .scroll-content {
 
 page-topic-two .inner {
   width: 280vw;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: 30px;
 }
 
@@ -71559,6 +71559,14 @@ page-topic-two .title {
   position: fixed;
   left: 0;
   top: 6%;
+}
+
+page-topic-two .worldMap {
+  height: 76vh;
+}
+
+page-topic-two .worldMap img {
+  height: 100%;
 }
 
 page-topic-two .country {
@@ -71571,6 +71579,7 @@ page-topic-two .China:nth-child(1) {
   height: 15vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(572px, 131px, 0);
+  background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .China:nth-child(2) {
@@ -71578,6 +71587,7 @@ page-topic-two .China:nth-child(2) {
   height: 8vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(586px, 80px, 0);
+  background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .China:nth-child(3) {
@@ -71585,6 +71595,7 @@ page-topic-two .China:nth-child(3) {
   height: 7vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(696px, 227px, 0);
+  background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .China:nth-child(4) {
@@ -71592,6 +71603,7 @@ page-topic-two .China:nth-child(4) {
   height: 18vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(782px, 30px, 0);
+  background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .Indonesia {
@@ -71599,6 +71611,7 @@ page-topic-two .Indonesia {
   height: 9vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(689px, 409px, 0);
+  background: rgba(0, 238, 255, 0.5);
 }
 
 page-topic-two .Philippines {
@@ -71606,6 +71619,7 @@ page-topic-two .Philippines {
   height: 13vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(850px, 325px, 0);
+  background: rgba(94, 255, 0, 0.5);
 }
 
 page-topic-two .Vietnam {
@@ -71613,6 +71627,7 @@ page-topic-two .Vietnam {
   height: 13vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(739px, 276px, 0);
+  background: rgba(206, 66, 73, 0.5);
 }
 
 page-topic-two .SriLanka {
@@ -71620,6 +71635,7 @@ page-topic-two .SriLanka {
   height: 4vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(565px, 374px, 0);
+  background: rgba(178, 66, 206, 0.5);
 }
 
 page-topic-two .Egypt {
@@ -71627,6 +71643,7 @@ page-topic-two .Egypt {
   height: 11vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(94px, 315px, 0);
+  background: rgba(91, 100, 223, 0.5);
 }
 
 page-topic-two .Thailand {
@@ -71634,6 +71651,7 @@ page-topic-two .Thailand {
   height: 8vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(694px, 299px, 0);
+  background: rgba(255, 251, 0, 0.5);
 }
 
 page-topic-two .Malaysia {
@@ -71641,6 +71659,7 @@ page-topic-two .Malaysia {
   height: 6vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(717px, 370px, 0);
+  background: rgba(255, 136, 0, 0.5);
 }
 
 page-topic-two .Nigeria {
@@ -71648,6 +71667,7 @@ page-topic-two .Nigeria {
   height: 9vh;
   -webkit-transform: translate3d(8px, 480px, 0);
   transform: translate3d(8px, 480px, 0);
+  background: rgba(255, 251, 0, 0.5);
 }
 
 page-topic-two .Bangladesh {
@@ -71655,6 +71675,7 @@ page-topic-two .Bangladesh {
   height: 5vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(634px, 248px, 0);
+  background: rgba(91, 100, 223, 0.5);
 }
 
 page-topic-two .circle-btn {

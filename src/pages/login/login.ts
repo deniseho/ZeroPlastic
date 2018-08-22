@@ -3,6 +3,7 @@ import {NavController, NavParams, Loading, AlertController, LoadingController} f
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {RegisterPage} from '../register/register';
 import {TopicMenu} from '../topic-menu/topic-menu';
+import { User } from '../../shared/user-model';
 
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
@@ -12,15 +13,15 @@ export class LoginPage {
     password: 'deniseho'
   };
 
+
   constructor(
     public navCtrl : NavController, 
     public navParams : NavParams, 
     private auth : AuthServiceProvider, 
     private alertCtrl : AlertController, 
     private loadingCtrl : LoadingController) {
-      // console.log(new Date().toISOString())
-    console.log()
       
+
     }
 
   createAccount() {

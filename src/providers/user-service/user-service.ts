@@ -9,24 +9,24 @@ import {User} from '../../shared/user-model';
 export class UserProvider {
 
   userList : AngularFireList < any >;
+  loginUser : User = new User();
   $userKey : string = '-LK1lKdGyqIssZruGmac';
 
-  // userAchievementList:  AngularFireList < any >;
   totalScore : number;
 
   constructor(private db : AngularFireDatabase, private auth : AuthServiceProvider) {
-    // this.userAchievementList = this.db.list('/userAchievementList');
     this.totalScore = 0;
-    this.userList = this
-      .db
-      .list('/users');
-  }
-
-  getUsers() {
-    return this.userList;
   }
 
   ionViewDidEnter() {}
+  
+  getUsers() {
+    this.userList = this
+      .db
+      .list('/users');
+    return this.userList;
+  }
+
 
   insertUser(user : User) {
     this

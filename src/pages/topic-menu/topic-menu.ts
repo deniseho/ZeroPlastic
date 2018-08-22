@@ -15,14 +15,15 @@ import { User } from '../../shared/user-model';
 export class TopicMenu {
   pages: Array<{title: string, component: any}>;
   currentUser: User;
-  
+  userList:User[];
+
   constructor(public navCtrl : NavController, 
     public navParams : NavParams, 
     private auth: AuthServiceProvider,
     private userApi: UserProvider,
     private toast : ToastServiceProvider,
   ) {
-    
+      this.userList = [];
       this.pages = [
       { title: 'About Plastic', component: TopicOnePage },
       { title: 'Top 10 countries', component: TopicTwoPage },
@@ -31,10 +32,31 @@ export class TopicMenu {
       { title: 'Activities', component: TopicFivePage },
     ];
 
-    this.currentUser = this.auth.currentUser;
+    this.currentUser = this.auth.getCurrentUser();
+
+    var x = this.userApi.getUsers();
+    x.snapshotChanges().subscribe(item => {
+      item.forEach(element => {
+        var y = element.payload.toJSON();
+        y["$key"] = element.key;
+        console.log("y")
+        console.log(y)
+        console.log("item")
+        console.log(item)
+        this.userList.push(y as User);
+        console.log("this.userList")
+        console.log(this.userList)
+      });
+    });
+
+
   }
 
   ionViewDidLoad() {
+    this.userApi.loginUser = Object.assign({}, this.currentUser);
+console.log("this.userApi.loginUser")
+console.log(this.userApi.loginUser)
+    
     //0 = first time login
     //1= not first time login
     if(this.currentUser.firstLogin==0){

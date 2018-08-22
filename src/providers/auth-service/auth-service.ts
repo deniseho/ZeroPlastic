@@ -74,7 +74,9 @@ export class AuthServiceProvider {
   }
 
   getCurrentUser() : User {
-    if(this.currentUser == undefined) {} else {
+    if(this.currentUser == undefined) {
+      return new User();
+    } else {
       return this.currentUser;
     }
   }
