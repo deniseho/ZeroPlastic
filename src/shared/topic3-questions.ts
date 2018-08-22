@@ -2,126 +2,110 @@ export const topic3 : any = {
     collectionName: "topic3",
     questionList: [
         {
-            question: "topic3 question 01",
+            question: "How many animals are dying each year due to ocean debris?",
             options: [
                 {
-                    description: "correct",
+                    description: "100 million",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "20 million",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "1,000",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
+                    description: "30,000",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic3 question 02",
+            question: "What is/are the main ways animals become hurt and injured by plastics?",
             options: [
                 {
-                    description: "wrong",
+                    description: "Suffocation",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Starvation",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Drowning",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "correct",
+                    description: "Infection",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "All the Above",
+                    points: 5,
+                    isAnswer: true
+                }
+            ]
+        }, {
+            question: "What percentage of whales and dolphins have been recorded ingesting plastics?",
+            options: [
+                {
+                    description: "20%",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "56%",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "12%",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "97%",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic3 question 03",
+            question: "What is the percentage of albatross seabirds that have plastic in their stomach at some point in their    lives ?",
             options: [
                 {
-                    description: "wrong",
+                    description: "44%",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "correct",
+                    description: "2%",
+                    points: 0,
+                    isAnswer: false
+                }, {
+                    description: "98%",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
+                    description: "10%",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic3 question 04",
+            question: "Based on the whale video, how many pounds of plastic end up in our oceans each year?",
             options: [
                 {
-                    description: "wrong",
+                    description: "20 million pounds of plastic",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "1 billion pounds of plastic",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "100 million pounds of plastic",
                     points: 0,
                     isAnswer: false
-                }, {
-                    description: "correct",
-                    points: 5,
-                    isAnswer: true
-                }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }
-            ]
-        }, {
-            question: "topic3 question 05",
-            options: [
-                {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "correct",
+                },  {
+                    description: "18 billion pounds of plastic",
                     points: 5,
                     isAnswer: true
                 }
