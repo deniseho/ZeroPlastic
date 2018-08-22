@@ -16,6 +16,9 @@ export class AlternativesPage extends PIXI.Application {
   plasticImage : string;
   plasticText : string;
   alternatives : string[];
+  alternativesText1 : string;
+  alternativesText2 : string;
+
 
   @ViewChild('content')content : ElementRef;
   constructor(public navCtrl : NavController, public navParams : NavParams) {
@@ -36,6 +39,8 @@ export class AlternativesPage extends PIXI.Application {
     this.plasticImage = this.selectedItem.plasticImage;
     this.plasticText = this.selectedItem.plasticText;
     this.alternatives = this.selectedItem.alternatives;
+    this.alternativesText1 = this.selectedItem.alternativesText1;
+    this.alternativesText2 = this.selectedItem.alternativesText2;
   }
 
   segmentChanged(e) {

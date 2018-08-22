@@ -1,38 +1,48 @@
 
 <ion-content parallax-header>
 
-  <ion-segment [(ngModel)]="item" color="primary" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="plasticBags">
-      plasticBags
-    </ion-segment-button>
-    <ion-segment-button value="waterBottles">
-      waterBottles
-    </ion-segment-button>
-    <ion-segment-button value="straws">
-      straws
-    </ion-segment-button>
-    <ion-segment-button value="utensils">
-      utensils
-    </ion-segment-button>
-    <ion-segment-button value="toothbrush">
-      toothbrush
-    </ion-segment-button>
+  <ion-segment class="plastic-buttons" [(ngModel)]="item" color="primary" (ionChange)="segmentChanged($event)">
+    <button value="plasticBags" ion-button="" outline="">
+      <img src="../../assets/imgs/icn-bag.svg">
+    </button>
+    <button value="waterBottles" ion-button="" outline="">
+      <img src="../../assets/imgs/icn-bottle.svg">
+    </button>
+    <button value="straws" ion-button="" outline="">
+      <img src="../../assets/imgs/icn-straw.svg" >
+    </button>
+    <button value="utensils" ion-button="" outline="">
+      <img class="tootbrush" src="../../assets/imgs/icn-cutlery.svg">
+    </button>
+    <button value="toothbrush" ion-button="" outline="">
+      <img src="../../assets/imgs/icn-toothbrush.svg">
+    </button>
   </ion-segment>
 
-  <div class="img header-image" #content text-center>
-      <img src={{plasticImage}}>
+  <div class="image-wrapper" #content text-center>
+    <div class="section-title">
+      <h1 class="slide-title-main">Take action</h1>
+      <h1 class="slide-title2-main">Use alternatives</h1>
+    </div>
+    <img class="img" src={{plasticImage}}>
+    <p class="image-content">{{plasticText}}</p>
   </div>
 
   <div class="main-content" text-center>
-    <span color="secondary">Scroll down</span>
-    <div class="arrawDiv" (click)="arrawDivClick">
-      <ion-icon name="ios-arrow-down"></ion-icon>
+    <div class="drawer">
+      <p class="scroll-content" color="secondary">Scroll down</p>
+      <div class="arrawDiv" (click)="arrawDivClick">
+        <ion-icon name="ios-arrow-down"></ion-icon>
+      </div>
     </div>
-    <ion-slides pager>
+
+    <ion-slides class="alternatives-container" pager>
       <ion-slide *ngFor="let item of alternatives">
-        <h1>Alternative 1</h1>
-        <div class="img">
-          <img src={{item}}>
+        <!--<h1>Alternative 1</h1>-->
+        <div class="image-wrapper">
+          <img src={{item}} class="img">
+          <p class="image-content"> {{alternativesText1}}</p>
+          <p class="image-content"> {{alternativesText2}}</p>
         </div>
       </ion-slide>
     </ion-slides>

@@ -23,101 +23,89 @@ export const topic1 : any = {
                 }
             ]
         }, {
-            question: "topic1 question 02",
+            question: "How many number of marine species are endangered by the floating plastic on the surface of our oceans? ",
             options: [
                 {
-                    description: "wrong",
+                    description: "10 species",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "300 species",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "correct",
+                    description: "700 species",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "1,200 species",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic1 question 03",
+            question: "How many years does it take a plastic bottle to degrade?",
             options: [
                 {
-                    description: "wrong",
+                    description: "10 years",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "correct",
+                    description: "400 years",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "50 years",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
+                    description: "100 years",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic1 question 04",
+            question: "What is a gyre?",
             options: [
                 {
-                    description: "wrong",
+                    description: "The name of the biggest fish ever found in the ocean",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Large schools of fish who are becoming sick due to microplastics",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "correct",
+                    description: "Very large garbage patches in our oceans that are in large part created due to our consumption of plastic",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "Areas of the ocean which free from plastics",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic1 question 05",
+            question: "What is a solution that you can take to help improve the plastic problem?",
             options: [
                 {
-                    description: "wrong",
+                    description: "Reduce use of single use plastics ",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Recycle",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Avoid using plastics containing microbeads",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Support organizations that deal with plastic pollution",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "correct",
+                    description: "All the above ",
                     points: 5,
                     isAnswer: true
                 }

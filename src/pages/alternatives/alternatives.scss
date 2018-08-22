@@ -1,5 +1,5 @@
 page-alternatives {
-    .alternativeMenu{
+/*    .alternativeMenu{
         background: white;
         z-index: 10 !important;
         padding: 20px 0 !important;
@@ -7,34 +7,102 @@ page-alternatives {
 
     .alternativeMenu > button{
         padding: 20px 8px !important;
-    }    
+    }
 
     .alternativeMenu > button.active{
         color: white;
         background-color: #2CBFA6;
+    }*/
+
+    .image-wrapper{
+        position: relative;
+        height: 62vh;
+        z-index: -3;
     }
 
-    .img.header-image{
-        height: 60vh;
-    }
     .img{
-        width: 100%;
+        width: 50%;
+        margin: auto;
     }
+
+    .image-content {
+        font-size: 14px;
+        width: 95% !important;
+        text-align: center;
+        margin: auto;
+        padding-top: 10px;
+    }
+
     .main-content {
         width: 100%;        
-        height: 85vh;
-        background-color: white;
-        border-top: 1px solid #ccc;
+        height: 70vh;
+        background-color: transparent;
+    }
+
+    .drawer {
+        width: 100px;
+        margin: auto;
+        background-color: #F1FBF9;
+        border-top: 1px solid #F1FBF9;
+        border-right: 1px solid #F1FBF9;
+        border-left: 1px solid #F1FBF9;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+        z-index: 1 !important;
     }
 
     .arrawDiv{
-        position: absolute;
+        //position: absolute;
         width: 100%;
-        padding-top: 2.5em;        
+        //padding-top: 2.5em;
+        //margin-top: 5px;
         font-size: 25px;
+        margin-top: 22px;
+        color: #4747C2;
+    }
+
+    .scroll-content {
+        font-size: 14px;
+        margin-top: 8px;
+        color: #4747C2;
     }
 
     .slide-zoom {
         overflow: hidden;
+    }
+
+    .plastic-buttons {
+        margin-top: 5px;
+    }
+
+    .tootbrush {
+        width: 21px;
+    }
+
+    .alternatives-container {
+        position: relative;
+        //border-top: 1px solid #2CBFA6;
+        background-color: #F1FBF9;
+        box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+        z-index: -1 !important;
+    }
+
+    .slide-title-main {
+        color: #4747C2;
+        font-size: 30px;
+        font-weight: normal;
+    }
+
+    .slide-title2-main {
+        color: #4747C2;
+        margin-top: -15px;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 5px !important;
+    }
+
+    .section-title {
+        margin: auto;
     }
 }
