@@ -36,6 +36,8 @@ import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
 import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result-modal';
 import { MapInfoComponent } from '../components/map-modal/map-modal';
 import { TagsModalComponent } from "../components/tags-modal/tags-modal";
+import { EventModalComponent } from '../components/event-modal/event-modal';
+import { DatePicker } from '@ionic-native/date-picker';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { TagsModalComponent } from "../components/tags-modal/tags-modal";
     ParallaxHeaderDirective,
     BadgesPipe,
     MapInfoComponent,
-    TagsModalComponent
+    TagsModalComponent,
+    EventModalComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ import { TagsModalComponent } from "../components/tags-modal/tags-modal";
     QuizResultComponent,
     AlternativesPage,
     MapInfoComponent,
-    TagsModalComponent
+    TagsModalComponent,
+    EventModalComponent
 ],
   providers: [
     StatusBar,
@@ -99,7 +103,8 @@ import { TagsModalComponent } from "../components/tags-modal/tags-modal";
     NativeAudio,
     UserProvider,
     ToastController,
-    ToastServiceProvider
+    ToastServiceProvider,
+    DatePicker
   ]
 })
 export class AppModule {}

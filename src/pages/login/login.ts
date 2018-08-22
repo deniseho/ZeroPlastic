@@ -18,7 +18,9 @@ export class LoginPage {
     private auth : AuthServiceProvider, 
     private alertCtrl : AlertController, 
     private loadingCtrl : LoadingController) {
-      console.log(new Date().toISOString())
+      // console.log(new Date().toISOString())
+    console.log()
+      
     }
 
   createAccount() {

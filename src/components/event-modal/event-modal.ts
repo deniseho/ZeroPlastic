@@ -1,22 +1,50 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Days, Months, Years} from '../../shared/date';
+import {ViewController} from 'ionic-angular';
 
-/**
- * Generated class for the EventModalComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
-@Component({
-  selector: 'event-modal',
-  templateUrl: 'event-modal.html'
-})
+@Component({selector: 'event-modal', templateUrl: 'event-modal.html'})
 export class EventModalComponent {
+  showError: boolean;
 
-  text: string;
+  days = Days;
+  months = Months;
+  years = Years;
 
-  constructor() {
-    console.log('Hello EventModalComponent Component');
-    this.text = 'Hello World';
+  event = {
+    date: {
+      day: new Date().getDate(),
+      month: this.months[new Date().getMonth()],
+      year: new Date().getFullYear()
+    },
+    title: "",
+    location: "",
+    time: "",
+    contact: ""
   }
 
+  constructor(public viewCtrl : ViewController) {
+    this.showError = false;
+  }
+
+  submitEventForm() {
+    if (this.event.title != "" && this.event.location != "" && this.event.time != "" && this.event.contact != "") {
+      this.showError = false;
+      this
+        .viewCtrl
+        .dismiss({"event": this.event});
+    }else{
+      this.showError = true;
+    }
+  }
+
+  close() {
+    this
+      .viewCtrl
+      .dismiss();
+  }
+
+}
+
+export class Event {
+  constructor() {}
 }

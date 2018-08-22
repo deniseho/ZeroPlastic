@@ -13,6 +13,8 @@ import {tags} from "../../shared/tags-info";
 import {TagsModalComponent} from "../../components/tags-modal/tags-modal";
 import {TopicQuizComponent} from '../../components/topic-quiz/topic-quiz';
 import {topic4} from '../../shared/topic4-questions';
+import {EventModalComponent} from '../../components/event-modal/event-modal';
+import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
@@ -25,8 +27,10 @@ export class TopicFourPage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
   events : any[];
+  newEvent : any;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, 
+    public modalCtrl : ModalController, private toast: ToastServiceProvider) {
     this.tabs = ["Take action", "Volunteer", "Recycle", "Alternatives", "Quiz"];
     this.tagsList = tags;
     this.events = [
@@ -51,7 +55,7 @@ export class TopicFourPage {
         time: "6:00pm",
         contact: "(01) 896 2320"
       }
-    ]
+    ];
   }
 
   ionViewDidEnter() {
@@ -120,6 +124,15 @@ export class TopicFourPage {
   }
 
   createEvent() {
+    const modal = this
+      .modalCtrl
+      .create(EventModalComponent);
 
+    modal.onDidDismiss(data => {
+      this.events.push(data.event);
+      this.toast.showToast("A new event is created!", "");
+    });
+    
+    modal.present();
   }
 }
