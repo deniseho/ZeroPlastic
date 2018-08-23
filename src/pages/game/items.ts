@@ -80,7 +80,7 @@ var items : any[] = [
         speed: 3.5,
     },
     {
-        url: 'assets/imgs/for_knife.png',
+        url: 'assets/imgs/fork_knife.png',
         tag: "tag6",        
         recycable: false,
         speed: 3.5,
