@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import * as _ from 'lodash';
 import {User} from '../../shared/user-model';
-import { UserServiceProvider } from '../user-service/user-service';
+import {UserServiceProvider} from '../user-service/user-service';
 
 @Injectable()
 export class AuthServiceProvider {
@@ -17,13 +17,8 @@ export class AuthServiceProvider {
   userList : User[];
   $userKey : string;
 
-
   constructor(public http : Http, public db : AngularFireDatabase) {
-    // this
-    //   .getAllUsers()
-    //   .then(data => {
-    //     this.allUsers = data;
-    //   });
+    // this   .getAllUsers()   .then(data => {     this.allUsers = data;   });
     this.getAllUsers();
   }
 
@@ -37,8 +32,8 @@ export class AuthServiceProvider {
         this.currentUser = _.first(_.filter(this.userList, item => {
           return item.email === credentials.email;
         }));
-    console.log("this.currentUser")
-    console.log(this.currentUser)
+        console.log("this.currentUser")
+        console.log(this.currentUser)
 
         this.$userKey = this.currentUser.$key;
         console.log("this.$userKey")
@@ -74,7 +69,6 @@ export class AuthServiceProvider {
     });
   }
 
-    
   getDBUsers() {
     this.dbUserList = this
       .db
@@ -82,29 +76,30 @@ export class AuthServiceProvider {
     return this.dbUserList;
   }
 
-  getAllUsers(){
-    this.getDBUsers()
-    .snapshotChanges()
-    .subscribe(item => {
-      this.userList = [];
-      item.forEach(element => {
+  getAllUsers() {
+    this
+      .getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        this.userList = [];
+        item.forEach(element => {
           var y = element
             .payload
             .toJSON();
           y["$key"] = element.key;
 
-        this
-          .userList
-          .push(y as User);
+          this
+            .userList
+            .push(y as User);
+        });
       });
-    });
   }
 
-
-  getCurrentUser() {
-  return this
-  .db
-  .list('/users/' + this.$userKey);
+  getDBCurrentUser() {
+    return this
+      .db
+      .list('/users/' + this.$userKey);
     // return Object.assign({}, this.currentUser);
   }
+
 }

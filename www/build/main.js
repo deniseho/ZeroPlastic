@@ -2922,7 +2922,7 @@ var CustomNavBarPage = /** @class */ (function () {
         this.userApi = userApi;
         this
             .auth
-            .getCurrentUser()
+            .getDBCurrentUser()
             .snapshotChanges()
             .subscribe(function (item) {
             _this.totalScore = __WEBPACK_IMPORTED_MODULE_6_lodash__["first"](__WEBPACK_IMPORTED_MODULE_6_lodash__["filter"](item, function (elem) {

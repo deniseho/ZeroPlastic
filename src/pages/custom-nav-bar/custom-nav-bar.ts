@@ -19,7 +19,7 @@ export class CustomNavBarPage {
 
     this
       .auth
-      .getCurrentUser()
+      .getDBCurrentUser()
       .snapshotChanges()
       .subscribe(item => {
         this.totalScore = _
