@@ -70700,6 +70700,10 @@ ion-navbar.toolbar {
   content: "";
 }
 
+.button-inner {
+  text-transform: none;
+}
+
 content-drawer {
   width: 100%;
   height: 100%;
@@ -70796,45 +70800,110 @@ page-achievement .badgeRecord {
   display: inline-block;
 }
 
-page-alternatives .alternativeMenu {
-  background: white;
-  z-index: 10 !important;
-  padding: 20px 0 !important;
+page-alternatives {
+  /*    .alternativeMenu{
+        background: white;
+        z-index: 10 !important;
+        padding: 20px 0 !important;
+    }
+
+    .alternativeMenu > button{
+        padding: 20px 8px !important;
+    }
+
+    .alternativeMenu > button.active{
+        color: white;
+        background-color: #2CBFA6;
+    }*/
 }
 
-page-alternatives .alternativeMenu > button {
-  padding: 20px 8px !important;
-}
-
-page-alternatives .alternativeMenu > button.active {
-  color: white;
-  background-color: #2CBFA6;
-}
-
-page-alternatives .img.header-image {
-  height: 60vh;
+page-alternatives .image-wrapper {
+  position: relative;
+  height: 62vh;
+  z-index: -3;
 }
 
 page-alternatives .img {
-  width: 100%;
+  width: 50%;
+  margin: auto;
+}
+
+page-alternatives .image-content {
+  font-size: 14px;
+  width: 95% !important;
+  text-align: center;
+  margin: auto;
+  padding-top: 10px;
 }
 
 page-alternatives .main-content {
   width: 100%;
-  height: 85vh;
-  background-color: white;
-  border-top: 1px solid #ccc;
+  height: 70vh;
+  background-color: transparent;
+}
+
+page-alternatives .drawer {
+  width: 100px;
+  margin: auto;
+  background-color: #F1FBF9;
+  border-top: 1px solid #F1FBF9;
+  border-right: 1px solid #F1FBF9;
+  border-left: 1px solid #F1FBF9;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+  z-index: 1 !important;
 }
 
 page-alternatives .arrawDiv {
-  position: absolute;
   width: 100%;
-  padding-top: 2.5em;
   font-size: 25px;
+  margin-top: 22px;
+  color: #4747C2;
+}
+
+page-alternatives .scroll-content {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #4747C2;
 }
 
 page-alternatives .slide-zoom {
   overflow: hidden;
+}
+
+page-alternatives .plastic-buttons {
+  margin-top: 5px;
+}
+
+page-alternatives .tootbrush {
+  width: 21px;
+}
+
+page-alternatives .alternatives-container {
+  position: relative;
+  background-color: #F1FBF9;
+  -webkit-box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+}
+
+page-alternatives .slide-title-main {
+  color: #4747C2;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+page-alternatives .slide-title2-main {
+  color: #4747C2;
+  margin-top: -15px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px !important;
+}
+
+page-alternatives .section-title {
+  margin: auto;
 }
 
 custom-nav-bar .logo_properties {
@@ -71570,77 +71639,59 @@ page-topic-two .worldMap img {
 }
 
 page-topic-two .country {
-  z-index: 100;
+  z-index: -1;
   position: absolute;
 }
 
 page-topic-two .China:nth-child(1) {
-  width: 40vh;
-  height: 15vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(572px, 131px, 0);
   background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .China:nth-child(2) {
-  width: 15vh;
-  height: 8vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(586px, 80px, 0);
   background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .China:nth-child(3) {
-  width: 21vh;
-  height: 7vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(696px, 227px, 0);
   background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .China:nth-child(4) {
-  width: 21vh;
-  height: 18vh;
   -webkit-transform: translate3d(608px, 136px, 0);
   transform: translate3d(782px, 30px, 0);
   background: rgba(255, 0, 0, 0.5);
 }
 
 page-topic-two .Indonesia {
-  width: 45vh;
-  height: 9vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(689px, 409px, 0);
   background: rgba(0, 238, 255, 0.5);
 }
 
 page-topic-two .Philippines {
-  width: 6vh;
-  height: 13vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(850px, 325px, 0);
   background: rgba(94, 255, 0, 0.5);
 }
 
 page-topic-two .Vietnam {
-  width: 4vh;
-  height: 13vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(739px, 276px, 0);
   background: rgba(206, 66, 73, 0.5);
 }
 
 page-topic-two .SriLanka {
-  width: 2vh;
-  height: 4vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(565px, 374px, 0);
   background: rgba(178, 66, 206, 0.5);
 }
 
 page-topic-two .Egypt {
-  width: 11vh;
-  height: 11vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(94px, 315px, 0);
   background: rgba(91, 100, 223, 0.5);
@@ -71655,24 +71706,18 @@ page-topic-two .Thailand {
 }
 
 page-topic-two .Malaysia {
-  width: 18.5vh;
-  height: 6vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(717px, 370px, 0);
   background: rgba(255, 136, 0, 0.5);
 }
 
 page-topic-two .Nigeria {
-  width: 11.2vh;
-  height: 9vh;
   -webkit-transform: translate3d(8px, 480px, 0);
   transform: translate3d(8px, 480px, 0);
   background: rgba(255, 251, 0, 0.5);
 }
 
 page-topic-two .Bangladesh {
-  width: 3.8vh;
-  height: 5vh;
   -webkit-transform: translate3d(919px, 428px, 0);
   transform: translate3d(634px, 248px, 0);
   background: rgba(91, 100, 223, 0.5);

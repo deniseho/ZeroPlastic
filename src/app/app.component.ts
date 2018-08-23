@@ -15,7 +15,6 @@ import { GamePage } from '../pages/game/game';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
-import { User } from '../shared/user-model';
 
 import 'jquery'; // Import jQuery
 import 'fullpage.js'; // Import fullpage.js
@@ -26,7 +25,6 @@ import 'fullpage.js'; // Import fullpage.js
 export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
   rootPage = LoginPage;
-  currentUser: User;
   pages: Array<{title: string, component: any, avatar: string}>;
   
   public ngOnInit() {
@@ -40,7 +38,6 @@ export class MyApp implements OnInit {
     private auth: AuthServiceProvider,
   ) {
     this.initializeApp();
-    this.currentUser = this.auth.getCurrentUser();
 
     // set our app's pages
     this.pages = [

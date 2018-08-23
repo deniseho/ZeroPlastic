@@ -8,7 +8,7 @@ import {
   AlertController
 } from 'ionic-angular';
 import {NativeAudio} from '@ionic-native/native-audio';
-import {UserProvider} from '../../providers/user-service/user-service';
+import {UserServiceProvider} from '../../providers/user-service/user-service';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {QuizResultComponent} from '../quiz-result-modal/quiz-result-modal';
 import {User} from '../../shared/user-model';
@@ -29,7 +29,7 @@ export class TopicQuizComponent {
   topicTitle : string;
 
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserProvider, private auth : AuthServiceProvider) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserServiceProvider, private auth : AuthServiceProvider) {
 
     this.topic = navParams.get("collection");
 

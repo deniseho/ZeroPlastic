@@ -14,7 +14,7 @@ import {Subject} from 'rxjs/Subject';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
-import {UserProvider} from '../../providers/user-service/user-service';
+import {UserServiceProvider} from '../../providers/user-service/user-service';
 import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
 import { topic1 } from '../../shared/topic1-questions';
 
