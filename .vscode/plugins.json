@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-x-toast"]}
+{"plugins":["cordova-plugin-x-toast","cordova-plugin-datepicker"]}

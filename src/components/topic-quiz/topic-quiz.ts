@@ -34,6 +34,7 @@ export class TopicQuizComponent {
     this.topic = navParams.get("collection");
 
     this.currentUser = this.auth.currentUser;
+    console.log(this.currentUser)
     this.quizScore = 0;
     this.questionPoints = [0, 0, 0, 0, 0];
     this.topicTitle = this.topic.collectionName;
@@ -102,7 +103,7 @@ export class TopicQuizComponent {
         this.nextSlide();
       } else {
         this
-          .userApi
+          .auth
           .updateUserAchievement(this.currentUser, this.quizScore, this.questionPoints, this.topicTitle);
 
         this.showResultPage();

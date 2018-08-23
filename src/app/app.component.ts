@@ -15,21 +15,19 @@ import { GamePage } from '../pages/game/game';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
-
+import * as _ from 'lodash';
 import 'jquery'; // Import jQuery
-import 'fullpage.js'; // Import fullpage.js
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp implements OnInit {
+export class MyApp{
   @ViewChild(Nav) nav: Nav;
   rootPage = LoginPage;
+  users : any;
+  
   pages: Array<{title: string, component: any, avatar: string}>;
   
-  public ngOnInit() {
-  }
-
   constructor(
     public platform: Platform,
     public menu: MenuController,
@@ -38,6 +36,8 @@ export class MyApp implements OnInit {
     private auth: AuthServiceProvider,
   ) {
     this.initializeApp();
+    console.log("this.auth.getAllUsers()");
+    console.log(this.auth.getAllUsers());
 
     // set our app's pages
     this.pages = [

@@ -71639,7 +71639,6 @@ page-topic-two .worldMap img {
 }
 
 page-topic-two .country {
-  z-index: -1;
   position: absolute;
 }
 

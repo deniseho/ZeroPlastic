@@ -13,7 +13,7 @@ export class QuizResultComponent {
     quizScore : number;
     totalScore : number;
     constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
-        this.totalScore = this.auth.getCurrentUser().totalScore;
+        // this.totalScore = this.auth.getCurrentUser().totalScore;
         this.quizScore = this.navParams.get("quizScore");
     }
 

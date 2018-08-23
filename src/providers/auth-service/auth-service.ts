@@ -18,7 +18,6 @@ export class AuthServiceProvider {
   $userKey : string;
 
   constructor(public http : Http, public db : AngularFireDatabase) {
-    // this   .getAllUsers()   .then(data => {     this.allUsers = data;   });
     this.getAllUsers();
   }
 
@@ -102,4 +101,34 @@ export class AuthServiceProvider {
     // return Object.assign({}, this.currentUser);
   }
 
+  updateUser(user : User) {
+    this
+      .dbUserList
+      .update(this.$userKey, user)
+  }
+
+  updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
+  
+    let user = currentUser;
+
+    let preTotalScore = currentUser.totalScore;
+    let preQuestionScores = currentUser[topicTitle];
+    
+    let quizTotal = 0;
+    let quizDiff = 0;
+
+    for (let i = 0; i < questionScore.length; i++) {
+      quizTotal += questionScore[i];
+      if (preQuestionScores[i] < questionScore[i]) {
+        quizDiff += questionScore[i];
+      } else {
+        quizDiff += 0;
+      }
+    }
+    
+    user[topicTitle] = questionScore;
+    user.totalScore += quizDiff;
+
+    this.updateUser(user);
+  }
 }
