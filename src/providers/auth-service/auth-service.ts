@@ -101,10 +101,28 @@ export class AuthServiceProvider {
     // return Object.assign({}, this.currentUser);
   }
 
+  insertUser(user : User) {
+    this
+      .dbUserList
+      .push({name: user.name, email: user.email, password: user.password})
+  }
+
   updateUser(user : User) {
     this
       .dbUserList
-      .update(this.$userKey, user)
+      .update(user.$key, {
+        name: user.name,
+        email: user.email,
+        password: user.password,
+        totalScore: user.totalScore,
+        topic1: user.topic1,
+        topic2: user.topic2,
+        topic3: user.topic3,
+        topic4: user.topic4,
+        topic5: user.topic5,
+        firstLogin: user.firstLogin,
+        loginTime: user.loginTime
+      })
   }
 
   updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
