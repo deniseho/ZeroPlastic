@@ -15,8 +15,7 @@ export class AuthServiceProvider {
 
   dbUserList : AngularFireList < any >;
   userList : User[];
-  loginUser : User = new User();
-  $userKey : string = '-LK1lKdGyqIssZruGmac';
+  $userKey : string;
 
 
   constructor(public http : Http, public db : AngularFireDatabase) {
@@ -25,7 +24,6 @@ export class AuthServiceProvider {
     //   .then(data => {
     //     this.allUsers = data;
     //   });
-    this.userList = [];
     this.getAllUsers();
   }
 
@@ -39,6 +37,12 @@ export class AuthServiceProvider {
         this.currentUser = _.first(_.filter(this.userList, item => {
           return item.email === credentials.email;
         }));
+    console.log("this.currentUser")
+    console.log(this.currentUser)
+
+        this.$userKey = this.currentUser.$key;
+        console.log("this.$userKey")
+        console.log(this.$userKey)
         observer.next(true);
         observer.complete();
 
@@ -70,19 +74,6 @@ export class AuthServiceProvider {
     });
   }
 
-  // getAllUsers() {
-  //   return new Promise(resolve => {
-  //     this
-  //       .http
-  //       .get(`${this.baseUrl}/users.json`)
-  //       .subscribe(res => {
-  //         resolve(res.json());
-  //         console.log("res.json()")
-  //         console.log(res.json())
-  //       });
-  //   });
-  // }
-
     
   getDBUsers() {
     this.dbUserList = this
@@ -93,34 +84,27 @@ export class AuthServiceProvider {
 
   getAllUsers(){
     this.getDBUsers()
-      .snapshotChanges()
-      .subscribe(item => {
-        item.forEach(element => {
-
+    .snapshotChanges()
+    .subscribe(item => {
+      this.userList = [];
+      item.forEach(element => {
           var y = element
             .payload
             .toJSON();
           y["$key"] = element.key;
 
-        console.log("y")
-        console.log(y)
-
         this
           .userList
           .push(y as User);
-        console.log("this.userList")
-        console.log(this.userList)
       });
     });
   }
 
 
-  getCurrentUser() : User {
-    if(this.currentUser == undefined) {
-      return new User();
-    } else {
-      return this.currentUser;
-    }
+  getCurrentUser() {
+  return this
+  .db
+  .list('/users/' + this.$userKey);
+    // return Object.assign({}, this.currentUser);
   }
-
 }

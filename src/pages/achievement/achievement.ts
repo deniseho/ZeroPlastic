@@ -10,9 +10,10 @@ export class AchievementPage {
   badgeRecord : number[];
 
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider) {
-    this.currentUser = this
-      .auth
-      .currentUser;
+    // this.currentUser = this
+    //   .auth
+    //   .currentUser;
+
     }
     
     ionViewDidLoad() {

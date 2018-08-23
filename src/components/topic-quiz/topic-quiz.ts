@@ -33,7 +33,7 @@ export class TopicQuizComponent {
 
     this.topic = navParams.get("collection");
 
-    this.currentUser = this.auth.getCurrentUser();
+    this.currentUser = this.auth.currentUser;
     this.quizScore = 0;
     this.questionPoints = [0, 0, 0, 0, 0];
     this.topicTitle = this.topic.collectionName;

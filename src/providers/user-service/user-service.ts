@@ -38,15 +38,9 @@ export class UserServiceProvider {
             .payload
             .toJSON();
           y["$key"] = element.key;
-
-        console.log("y")
-        console.log(y)
-
         this
           .userList
           .push(y as User);
-        console.log("this.userList")
-        console.log(this.userList)
       });
     });
   }
