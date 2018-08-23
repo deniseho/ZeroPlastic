@@ -25,7 +25,7 @@
                     <p style="padding-top: 10px">
                         <b>Swipe left</b> and discover what you can do to help avoid plastic pollution. Be a hero environmentalist
                         and save our ocean! </p>
-                    <img class="icon_property" src="../../assets/imgs/icn-swipe-left.png">
+                    <img class="icon_property" src="assets/imgs/icn-swipe-left.png">
                     <!--<ion-icon class="arrow-right-style" name="ios-arrow-dropright-circle"></ion-icon>-->
                 </div>
                 <img class="sea-gradient" src="assets/imgs/bg_ocean.png">
@@ -65,7 +65,7 @@
                     <!--Create your own group-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="../../assets/imgs/icn_volunteer.png">
+                            <img class="icon_property" src="assets/imgs/icn_volunteer.png">
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle" style="color: white; margin-bottom: -15px">Option 2</h4>
                             <h4 class="slide-subtitle" style="color: white; font-weight: normal">Start a volunteering group
@@ -142,49 +142,53 @@
                         <ion-row>
                             <ion-col col-6>
                                 <ion-card padding="" on-tap="onTap($event, 'Tag1')">
-                                    <img class="tags-property" src="../../assets/imgs/tag_1.png">
+                                    <img class="tags-property" src="assets/imgs/tag_1.png">
                                 </ion-card>
                             </ion-col>
                             <ion-col col-6>
                                 <ion-card padding="" on-tap="onTap($event, 'Tag2')">
-                                    <img class="tags-property" src="../../assets/imgs/tag_2.png">
+                                    <img class="tags-property" src="assets/imgs/tag_2.png">
                                 </ion-card>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col col-6>
                                 <ion-card padding="" on-tap="onTap($event, 'Tag3')">
-                                    <img class="tags-property" src="../../assets/imgs/tag_3.png">
+                                    <img class="tags-property" src="assets/imgs/tag_3.png">
                                 </ion-card>
                             </ion-col>
                             <ion-col col-6>
                                 <ion-card padding="" on-tap="onTap($event, 'Tag4')">
-                                    <img class="tags-property" src="../../assets/imgs/tag_4.png">
+                                    <img class="tags-property" src="assets/imgs/tag_4.png">
                                 </ion-card>
                             </ion-col>
                         </ion-row>
                         <ion-row>
                             <ion-col col-6>
                                 <ion-card padding="" on-tap="onTap($event, 'Tag5')">
-                                    <img class="tags-property" src="../../assets/imgs/tag_5.png">
+                                    <img class="tags-property" src="assets/imgs/tag_5.png">
                                 </ion-card>
                             </ion-col>
                             <ion-col col-6>
                                 <ion-card padding="" on-tap="onTap($event, 'Tag6')">
-                                    <img class="tags-property" src="../../assets/imgs/tag_6.png">
+                                    <img class="tags-property" src="assets/imgs/tag_6.png">
                                 </ion-card>
                             </ion-col>
                         </ion-row>
                     </ion-grid>
                 </div>
-
+                <!--GAME-->
                 <div class="game-container">
-                    <h4 class="slide-subtitle" style="margin-top: 0px">Now test your knowledge with this game!</h4>
-                    <p>Place the plastics in the correct trash bin and earn points</p>
-                    <button ion-button (click)="gotoGamePage()" color="secondary" icon-start item-end>
-                        <ion-icon name="md-game-controller-b"></ion-icon>
-                        Start playing
-                    </button>
+                    <div class="container-btn-content-game">
+                        <div class="game-content-wrapper">
+                            <h4 class="slide-subtitle text-shadow" style="margin-top: 0px">Now test your knowledge with this game!</h4>
+                            <p class="text-shadow">Place the plastics in the correct trash bin and earn points</p>
+                        </div>
+                        <button ion-button (click)="gotoGamePage()" color="secondary" icon-start item-end>
+                            <ion-icon name="md-game-controller-b"></ion-icon>
+                            Start playing
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -192,12 +196,6 @@
 
         <!--ALTERNATIVES-->
         <ion-slide>
-            <!--This section had conflicts-->
-            <!-- <h1 class="slide-title-main">Take action</h1>
-            <h1 class="slide-title2-main">Use Alternatives to plastic</h1>
-            <button ion-button (click)="gotoAlternatives()">Alternatives</button>-->
-            <!-- <h1>Alternatives</h1>
-            <button ion-button (click)="gotoAlternatives()">Alternatives</button> -->
             <page-alternatives></page-alternatives>
         </ion-slide>
 

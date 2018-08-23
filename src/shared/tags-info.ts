@@ -1,6 +1,6 @@
 export const tags: any = {
     Tag1: {
-        icon: "../../assets/imgs/tag_1.png",
+        icon: "assets/imgs/tag_1.png",
         typePlasticTitle: "Type of plastic:",
         title: "PETE",
         foundIn: "Found in:",
@@ -10,7 +10,7 @@ export const tags: any = {
         recyclableDescription: "(through most curbside recycling programs)"
     },
     Tag2: {
-        icon: "../../assets/imgs/tag_2.png",
+        icon: "assets/imgs/tag_2.png",
         typePlasticTitle: "Type of plastic:",
         title: "HDPE",
         foundIn: "Found in:",
@@ -20,7 +20,7 @@ export const tags: any = {
         recyclableDescription: "(through most curbside recycling programs)"
     },
     Tag3: {
-        icon: "../../assets/imgs/tag_3.png",
+        icon: "assets/imgs/tag_3.png",
         typePlasticTitle: "Type of plastic:",
         title: "PVC",
         foundIn: "Found in:",
@@ -30,7 +30,7 @@ export const tags: any = {
         recyclableDescription: "(difficult to recycle, and are not accepted through most curbside recycling programs)"
     },
     Tag4: {
-        icon: "../../assets/imgs/tag_4.png",
+        icon: "assets/imgs/tag_4.png",
         typePlasticTitle: "Type of plastic:",
         title: "LDPE",
         foundIn: "Found in:",
@@ -40,7 +40,7 @@ export const tags: any = {
         recyclableDescription: "(through most curbside recycling programs)"
     },
     Tag5: {
-        icon: "../../assets/imgs/tag_5.png",
+        icon: "assets/imgs/tag_5.png",
         typePlasticTitle: "Type of plastic:",
         title: "PP",
         foundIn: "Found in:",
@@ -50,7 +50,7 @@ export const tags: any = {
         recyclableDescription: "(through most curbside recycling programs)"
     },
     Tag6: {
-        icon: "../../assets/imgs/tag_6.png",
+        icon: "assets/imgs/tag_6.png",
         typePlasticTitle: "Type of plastic:",
         title: "Different",
         foundIn: "Found in:",

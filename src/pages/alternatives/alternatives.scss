@@ -42,14 +42,14 @@ page-alternatives {
     .drawer {
         width: 100px;
         margin: auto;
-        background-color: #F1FBF9;
-        border-top: 1px solid #F1FBF9;
-        border-right: 1px solid #F1FBF9;
-        border-left: 1px solid #F1FBF9;
+        background-color: #343499;
+        border-top: 1px solid #343499;
+        border-right: 1px solid #343499;
+        border-left: 1px solid #343499;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
-        z-index: 1 !important;
+        //z-index: 1 !important;
     }
 
     .arrawDiv{
@@ -59,13 +59,13 @@ page-alternatives {
         //margin-top: 5px;
         font-size: 25px;
         margin-top: 22px;
-        color: #4747C2;
+        color: #F1FBF9;
     }
 
     .scroll-content {
         font-size: 14px;
         margin-top: 8px;
-        color: #4747C2;
+        color: #F1FBF9;
     }
 
     .slide-zoom {
@@ -85,7 +85,7 @@ page-alternatives {
         //border-top: 1px solid #2CBFA6;
         background-color: #F1FBF9;
         box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
-        z-index: -1 !important;
+        //z-index: -1 !important;
     }
 
     .slide-title-main {

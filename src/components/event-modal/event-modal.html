@@ -8,8 +8,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form (ngSubmit)="submitEventForm()">
+<ion-content padding="">
+  <form (ngSubmit)="submitEventForm()" class="content-wrapper">
     <ion-item>
       <ion-label>Date</ion-label>
       <ion-select [(ngModel)]="event.date.day" interface="popover" name="day">
@@ -23,7 +23,7 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Title</ion-label>
+      <ion-label>Event name</ion-label>
       <ion-input type="text" [(ngModel)]="event.title" name="title" required></ion-input>
     </ion-item>
     <ion-item>
@@ -40,6 +40,5 @@
     </ion-item>
     <button ion-button type="submit" block>Create event</button>
     <ion-label *ngIf="showError" color="danger">Oops! Some information is missing.</ion-label>
-
   </form>
 </ion-content>

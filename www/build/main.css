@@ -70718,6 +70718,10 @@ content-drawer {
   color: white;
 }
 
+event-modal .content-wrapper {
+  width: 100%;
+}
+
 tags-modal .content-wrapper {
   width: 100%;
   text-align: center;
@@ -70796,45 +70800,109 @@ page-achievement .badgeRecord {
   display: inline-block;
 }
 
-page-alternatives .alternativeMenu {
-  background: white;
-  z-index: 10 !important;
-  padding: 20px 0 !important;
+page-alternatives {
+  /*    .alternativeMenu{
+        background: white;
+        z-index: 10 !important;
+        padding: 20px 0 !important;
+    }
+
+    .alternativeMenu > button{
+        padding: 20px 8px !important;
+    }
+
+    .alternativeMenu > button.active{
+        color: white;
+        background-color: #2CBFA6;
+    }*/
 }
 
-page-alternatives .alternativeMenu > button {
-  padding: 20px 8px !important;
-}
-
-page-alternatives .alternativeMenu > button.active {
-  color: white;
-  background-color: #2CBFA6;
-}
-
-page-alternatives .img.header-image {
-  height: 60vh;
+page-alternatives .image-wrapper {
+  position: relative;
+  height: 62vh;
+  z-index: -3;
 }
 
 page-alternatives .img {
-  width: 100%;
+  width: 50%;
+  margin: auto;
+}
+
+page-alternatives .image-content {
+  font-size: 14px;
+  width: 95% !important;
+  text-align: center;
+  margin: auto;
+  padding-top: 10px;
 }
 
 page-alternatives .main-content {
   width: 100%;
-  height: 85vh;
-  background-color: white;
-  border-top: 1px solid #ccc;
+  height: 70vh;
+  background-color: transparent;
+}
+
+page-alternatives .drawer {
+  width: 100px;
+  margin: auto;
+  background-color: #343499;
+  border-top: 1px solid #343499;
+  border-right: 1px solid #343499;
+  border-left: 1px solid #343499;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
 }
 
 page-alternatives .arrawDiv {
-  position: absolute;
   width: 100%;
-  padding-top: 2.5em;
   font-size: 25px;
+  margin-top: 22px;
+  color: #F1FBF9;
+}
+
+page-alternatives .scroll-content {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #F1FBF9;
 }
 
 page-alternatives .slide-zoom {
   overflow: hidden;
+}
+
+page-alternatives .plastic-buttons {
+  margin-top: 5px;
+}
+
+page-alternatives .tootbrush {
+  width: 21px;
+}
+
+page-alternatives .alternatives-container {
+  position: relative;
+  background-color: #F1FBF9;
+  -webkit-box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+}
+
+page-alternatives .slide-title-main {
+  color: #4747C2;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+page-alternatives .slide-title2-main {
+  color: #4747C2;
+  margin-top: -15px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px !important;
+}
+
+page-alternatives .section-title {
+  margin: auto;
 }
 
 custom-nav-bar .logo_properties {
@@ -70845,6 +70913,68 @@ custom-nav-bar .logo_properties {
 
 page-game ion-grid ion-row ion-col {
   text-align: center;
+}
+
+page-game ion-grid .pause-btn {
+  width: 80%;
+}
+
+page-game ion-grid .game-bg {
+  background: url("../../assets/imgs/game-bg.png") no-repeat;
+}
+
+page-game ion-grid .score {
+  background: rgba(205, 255, 13, 0.5);
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  position: relative;
+  top: -10px;
+  width: 90%;
+  margin: auto;
+}
+
+page-game ion-grid .col-score {
+  margin-right: 0px !important;
+}
+
+page-game ion-grid .tries {
+  background: rgba(52, 52, 153, 0.5);
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  position: relative;
+  top: -10px;
+  width: 100%;
+  margin: auto;
+}
+
+page-game ion-grid .col-tries {
+  margin-left: 0px !important;
+}
+
+page-game ion-grid .score p, page-game ion-grid .score h4, page-game ion-grid .tries p, page-game ion-grid .tries h4 {
+  color: white;
+}
+
+page-game ion-grid .score p, page-game ion-grid .tries p {
+  font-size: 14px;
+  margin-bottom: -5px;
+}
+
+page-game ion-grid .score h4, page-game ion-grid .tries h4 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+page-game ion-grid .score h4 {
+  font-size: 20px;
+}
+
+page-game ion-grid .tries h4 {
+  font-size: 18px;
 }
 
 page-login ion-card-header {
@@ -71152,7 +71282,7 @@ page-topic-four .sea-gradient {
 
 page-topic-four .events-container {
   padding-bottom: 20px;
-  background: #E0EDF6;
+  background: #F1FBF9;
 }
 
 page-topic-four .events-title {
@@ -71236,9 +71366,37 @@ page-topic-four .slide-title2-main {
 }
 
 page-topic-four .game-container {
+  margin-top: 0px;
   width: 100%;
+  height: 53vh;
   text-align: center;
   padding: 30px 10px 30px 10px;
+  background: url("../../assets/imgs/game-intro-bg.png") no-repeat;
+  display: table;
+}
+
+page-topic-four .container-btn-content-game {
+  margin: 0px;
+  padding: 0px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+page-topic-four .text-shadow {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0px;
+}
+
+page-topic-four .game-content-wrapper {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+page-topic-four .game-content-wrapper h4 {
+  margin-bottom: 5px;
 }
 
 page-hello-ionic .menuList {

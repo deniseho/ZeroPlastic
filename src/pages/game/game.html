@@ -3,23 +3,34 @@
 </ion-header> -->
 
 <ion-content>
-  <div #content ion-fixed>
+  <div class="game-bg" #content ion-fixed>
     <ion-grid ion-fixed>
       <ion-row>
-        <ion-col col-4>
-          <h4>Score: {{gameScore}}</h4>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button color="light" outline (click)="toggleGame()">
+        <ion-col col-2>
+          <button ion-button color="light" outline round="" (click)="toggleGame()" class="pause-btn">
             <ion-icon name="{{gamePlay?'pause':'play'}}"></ion-icon>
           </button>
-          <button ion-button color="light" outline (click)="exitAlert()">
-            <ion-icon name="log-out"></ion-icon>
-          </button>
+        </ion-col>
+
+        <ion-col col-1=""></ion-col>
+
+        <ion-col col-4>
+          <div class="score">
+            <p>Score:</p>
+            <h4>{{gameScore}}</h4>
+          </div>
 
         </ion-col>
-        <ion-col col-4>
-          <h4>Life: {{gameLife}}</h4>
+        <ion-col col-3 >
+          <div class="tries">
+            <p>Tries left:</p>
+            <h4> {{gameLife}}</h4>
+          </div>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button color="light" clear="" (click)="exitAlert()">
+            <ion-icon name="close" style="font-size: 25px;"></ion-icon>
+          </button>
         </ion-col>
       </ion-row>
     </ion-grid>
