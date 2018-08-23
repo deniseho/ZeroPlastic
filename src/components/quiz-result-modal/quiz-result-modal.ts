@@ -7,13 +7,10 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
   templateUrl: 'quiz-result-modal.html'
 })
 export class QuizResultComponent {
-
-
-    // badge : any;
     quizScore : number;
     totalScore : number;
     constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
-        // this.totalScore = this.auth.getCurrentUser().totalScore;
+        this.totalScore = this.auth.currentUser.totalScore;
         this.quizScore = this.navParams.get("quizScore");
     }
 
