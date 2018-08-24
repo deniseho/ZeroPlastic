@@ -45,7 +45,7 @@ export class EventModalComponent {
   close() {
     this
       .viewCtrl
-      .dismiss();
+      .dismiss({"action":"cancel"});
   }
 
 }
