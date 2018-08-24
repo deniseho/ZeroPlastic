@@ -75,7 +75,7 @@ page-topic-one {
     position: fixed;
     bottom: 20px;
     font-size: 30px;
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.4);
     text-align: center;
   }
 
@@ -98,7 +98,7 @@ page-topic-one {
   }
 
   .container-slides-content {
-    height: 83vh;
+    height: 81vh;
     text-align: center;
     padding: 10px;
     display: table;
@@ -173,6 +173,12 @@ page-topic-one {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
+  }
+
+  .swipe-icon {
+    width: 20%;
+    max-width: 20%;
+    opacity:0.6;
   }
 
   .icon_property_coins {

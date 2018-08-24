@@ -59,7 +59,7 @@ export class GamePage {
     let self = this;
     let bottomPadding = 95;
 
-    self.app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});;
+    self.app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x1099bb});
 
     this
       .content
@@ -78,11 +78,11 @@ export class GamePage {
       const alert = self
         .alertCtrl
         .create({
-          title: 'Start the game!',
-          subTitle: 'Description',
+          title: 'Recycle!',
+          subTitle: 'Drag each plastic element to the correct bin',
           buttons: [
             {
-              text: 'OK',
+              text: 'Start',
               handler: data => {
                 fall();
               }
@@ -241,7 +241,7 @@ export class GamePage {
       const prompt = self
         .alertCtrl
         .create({
-          title: 'Game Over.',
+          title: 'Game Over',
           message: "Your score: " + self.gameScore,
           buttons: [
             {
@@ -252,7 +252,7 @@ export class GamePage {
                   .push(GamePage);
               }
             }, {
-              text: 'Back to the topic',
+              text: 'Exit',
               handler: data => {
                 self
                   .navCtrl
@@ -331,7 +331,7 @@ export class GamePage {
     const prompt = this
       .alertCtrl
       .create({
-        title: 'Are you sure to exit?',
+        title: 'Are you sure you want to exit?',
         buttons: [
           {
             text: 'Continue the game',

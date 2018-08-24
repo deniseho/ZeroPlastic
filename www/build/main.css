@@ -70722,6 +70722,40 @@ content-drawer {
   color: white;
 }
 
+event-modal .content-wrapper {
+  width: 100%;
+}
+
+event-modal .event-btn {
+  margin-top: 30px;
+}
+
+event-modal .event-header {
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+event-modal img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+event-modal .img-wrapper {
+  width: 100%;
+}
+
+event-modal ion-item {
+  padding-right: 16px !important;
+}
+
 tags-modal .content-wrapper {
   width: 100%;
   text-align: center;
@@ -70845,28 +70879,27 @@ page-alternatives .main-content {
 page-alternatives .drawer {
   width: 100px;
   margin: auto;
-  background-color: #F1FBF9;
-  border-top: 1px solid #F1FBF9;
-  border-right: 1px solid #F1FBF9;
-  border-left: 1px solid #F1FBF9;
+  background-color: #343499;
+  border-top: 1px solid #343499;
+  border-right: 1px solid #343499;
+  border-left: 1px solid #343499;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   -webkit-box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
-  z-index: 1 !important;
 }
 
 page-alternatives .arrawDiv {
   width: 100%;
   font-size: 25px;
   margin-top: 22px;
-  color: #4747C2;
+  color: #F1FBF9;
 }
 
 page-alternatives .scroll-content {
   font-size: 14px;
   margin-top: 8px;
-  color: #4747C2;
+  color: #F1FBF9;
 }
 
 page-alternatives .slide-zoom {
@@ -70914,6 +70947,68 @@ custom-nav-bar .logo_properties {
 
 page-game ion-grid ion-row ion-col {
   text-align: center;
+}
+
+page-game ion-grid .pause-btn {
+  width: 80%;
+}
+
+page-game ion-grid .game-bg {
+  background: url("../../assets/imgs/game-bg.png") no-repeat;
+}
+
+page-game ion-grid .score {
+  background: rgba(205, 255, 13, 0.5);
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  position: relative;
+  top: -10px;
+  width: 90%;
+  margin: auto;
+}
+
+page-game ion-grid .col-score {
+  margin-right: 0px !important;
+}
+
+page-game ion-grid .tries {
+  background: rgba(52, 52, 153, 0.5);
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  position: relative;
+  top: -10px;
+  width: 100%;
+  margin: auto;
+}
+
+page-game ion-grid .col-tries {
+  margin-left: 0px !important;
+}
+
+page-game ion-grid .score p, page-game ion-grid .score h4, page-game ion-grid .tries p, page-game ion-grid .tries h4 {
+  color: white;
+}
+
+page-game ion-grid .score p, page-game ion-grid .tries p {
+  font-size: 14px;
+  margin-bottom: -5px;
+}
+
+page-game ion-grid .score h4, page-game ion-grid .tries h4 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+page-game ion-grid .score h4 {
+  font-size: 20px;
+}
+
+page-game ion-grid .tries h4 {
+  font-size: 18px;
 }
 
 page-login ion-card-header {
@@ -71108,6 +71203,13 @@ page-topic-four .icon_property {
   margin-bottom: 20px;
 }
 
+page-topic-four .icon-intro-property {
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  width: 20%;
+}
+
 page-topic-four .line-separator-short {
   height: 1px;
   border-bottom: 2px solid #FEAA48;
@@ -71221,7 +71323,7 @@ page-topic-four .sea-gradient {
 
 page-topic-four .events-container {
   padding-bottom: 20px;
-  background: #E0EDF6;
+  background: #F1FBF9;
 }
 
 page-topic-four .events-title {
@@ -71305,9 +71407,37 @@ page-topic-four .slide-title2-main {
 }
 
 page-topic-four .game-container {
+  margin-top: 0px;
   width: 100%;
+  height: 53vh;
   text-align: center;
   padding: 30px 10px 30px 10px;
+  background: url("../../assets/imgs/game-intro-bg.png") no-repeat;
+  display: table;
+}
+
+page-topic-four .container-btn-content-game {
+  margin: 0px;
+  padding: 0px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+page-topic-four .text-shadow {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0px;
+}
+
+page-topic-four .game-content-wrapper {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+page-topic-four .game-content-wrapper h4 {
+  margin-bottom: 5px;
 }
 
 page-hello-ionic .menuList {
@@ -71624,10 +71754,13 @@ page-topic-two .inner {
 }
 
 page-topic-two .title {
-  padding: 20px 40px;
+  padding: 20px 20px;
   position: fixed;
-  left: 0;
   top: 6%;
+  text-align: center;
+  color: #4747C2;
+  font-size: 25px;
+  font-weight: normal;
 }
 
 page-topic-two .worldMap {
@@ -71737,4 +71870,11 @@ page-topic-two .btn-text {
   color: white;
   text-align: center;
   line-height: 35px;
+}
+
+page-topic-two .icon_property {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 20%;
 }

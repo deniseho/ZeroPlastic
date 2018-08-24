@@ -72,7 +72,7 @@ export const alternativesList : any = [
         ],
     }, {
         item: "toothbrush",
-        plasticImage: "assets/imgs/Toothbrush/toothbrush.jpg",
+        plasticImage: "assets/imgs/Toothbrush/toothbrush2.png",
         plasticText: "assets/imgs/bunny.png",
         alternatives: [
             {

@@ -8,5 +8,73 @@ page-game {
 
         ion-row.bins{
         }
+
+        .pause-btn {
+            width: 80%;
+        }
+
+        .game-bg {
+            background: url("../../assets/imgs/game-bg.png") no-repeat;
+        }
+
+        .score {
+            background: rgba(205, 255, 13, 0.5);
+            border-bottom-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+            padding-top: 1px;
+            padding-bottom: 5px;
+            position: relative;
+            top: -10px;
+            width: 90%;
+            margin: auto;
+
+        }
+
+        .col-score {
+            margin-right: 0px !important;
+        }
+
+        .tries {
+            background: rgba(52, 52, 153, 0.5);
+            border-bottom-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            position: relative;
+            top: -10px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .col-tries {
+            margin-left: 0px !important;
+        }
+
+        .score p, .score h4, .tries p, .tries h4 {
+            color: white;
+        }
+
+        .score p, .tries p {
+            font-size: 14px;
+            margin-bottom: -5px;
+        }
+
+
+        .score h4, .tries h4{
+            margin-top: 10px;
+            //padding-top: 0px;
+            font-weight: bold;
+        }
+
+        .score h4 {
+            font-size: 20px;
+        }
+
+        .tries h4 {
+            font-size: 18px;
+        }
+
+
+
     }
 }

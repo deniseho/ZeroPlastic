@@ -42,6 +42,14 @@ page-hello-ionic {
     background: #0D3867 url("../assets/imgs/icn_activities.png") no-repeat 95% 50%;
   }
 
+  .menuList:hover {
+    background-color: #343499 !important;
+    -ms-transform: scale(1.03); /* IE 9 */
+    -webkit-transform: scale(1.03); /* Safari */
+    transform: scale(1.03); /* Standard syntax */
+    //opacity: 0.6;
+  }
+
   ion-content {
     height: 98vh !important;
     padding: 10px;

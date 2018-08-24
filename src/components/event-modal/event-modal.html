@@ -8,15 +8,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form (ngSubmit)="submitEventForm()">
+<ion-content padding="">
+  <div class="img-wrapper">
+    <img src="../../assets/imgs/icn_temp.png" class="icon_property">
+  </div>
+
+  <form (ngSubmit)="submitEventForm()" class="content-wrapper">
+    <p class="event-header">Create your event below and share it with the ZeroPlastic Community</p>
     <ion-item>
       <ion-label>Date</ion-label>
       <ion-datetime displayFormat="MMM/D/YYYY" pickerFormat="MMM/D/YYYY" 
       name="datepicker" [(ngModel)]="datePickerVal"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-label>Title</ion-label>
+      <ion-label>Event name</ion-label>
       <ion-input type="text" [(ngModel)]="event.title" name="title" required></ion-input>
     </ion-item>
     <ion-item>
@@ -24,15 +29,15 @@
       <ion-input type="text" [(ngModel)]="event.location" name="location" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>time</ion-label>
+      <ion-label>Time</ion-label>
       <ion-input type="text" [(ngModel)]="event.time" name="time" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>contact</ion-label>
+      <ion-label>Contact</ion-label>
       <ion-input type="text" [(ngModel)]="event.contact" name="contact" required></ion-input>
     </ion-item>
-    <button ion-button type="submit" block>Create event</button>
-    <ion-label *ngIf="showError" color="danger">Oops! Some information is missing.</ion-label>
 
+    <button ion-button type="submit" block class="event-btn">Create event</button>
+    <ion-label *ngIf="showError" color="danger">Oops! Some information is missing.</ion-label>
   </form>
 </ion-content>
