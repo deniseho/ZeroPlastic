@@ -129,8 +129,10 @@ export class TopicFourPage {
       .create(EventModalComponent);
 
     modal.onDidDismiss(data => {
-      this.events.push(data.event);
-      this.toast.showToast("A new event is created!", "");
+      if(data.action != 'cancel'){
+        this.events.push(data.event);
+        this.toast.showToast("A new event is created!", "");
+      }
     });
     
     modal.present();
