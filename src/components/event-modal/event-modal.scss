@@ -2,4 +2,35 @@ event-modal {
   .content-wrapper {
     width: 100%;
   }
+
+  .event-btn {
+    margin-top: 30px;
+  }
+
+  .event-header {
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+
+  .img-wrapper {
+    width: 100%;
+  }
+
+  ion-item {
+    padding-right: 16px !important;
+  }
+
 }

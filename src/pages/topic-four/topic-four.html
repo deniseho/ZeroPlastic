@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content>
-
+    <!--INTRO-->
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <ion-slide>
@@ -25,7 +25,7 @@
                     <p style="padding-top: 10px">
                         <b>Swipe left</b> and discover what you can do to help avoid plastic pollution. Be a hero environmentalist
                         and save our ocean! </p>
-                    <img class="icon_property" src="assets/imgs/icn-swipe-left.png">
+                    <img class="icon-intro-property" src="assets/imgs/swipe-left.svg">
                     <!--<ion-icon class="arrow-right-style" name="ios-arrow-dropright-circle"></ion-icon>-->
                 </div>
                 <img class="sea-gradient" src="assets/imgs/bg_ocean.png">

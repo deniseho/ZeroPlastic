@@ -8,11 +8,15 @@ page-topic-two {
         margin-left: 30px;
     }
     .title{
-        padding: 20px 40px;
+        padding: 20px 20px;
         //Add fixed position so the title appear even when user does scroll
         position: fixed;
-        left: 0;
         top: 6%;
+        text-align: center;
+        color: #4747C2;
+        font-size: 25px;
+        font-weight: normal;
+
     }
     .worldMap{
         height:76vh;
@@ -130,4 +134,16 @@ page-topic-two {
         text-align: center;
         line-height: 35px;
     }
+
+    .icon_property {
+        position: absolute;
+        top: 20%;
+        left: 40%;
+        width: 20%;
+        //margin: auto;
+
+    }
+
+
+
 }
