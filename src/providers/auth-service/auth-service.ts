@@ -14,21 +14,21 @@ export class AuthServiceProvider {
   baseUrl : string = "https://plastic-ocean.firebaseio.com";
 
   dbUserList : AngularFireList < any >;
-  userList : User[];
+  usersList : User[];
   $userKey : string;
 
   constructor(public http : Http, public db : AngularFireDatabase) {
-    this.getAllUsers();
   }
-
+  
   ionViewDidLoad() {}
-
+  
   login(credentials) {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
+      this.getAllUsers();
       return Observable.create(observer => {
-        this.currentUser = _.first(_.filter(this.userList, item => {
+        this.currentUser = _.first(_.filter(this.usersList, item => {
           return item.email === credentials.email;
         }));
         console.log("this.currentUser")
@@ -80,7 +80,7 @@ export class AuthServiceProvider {
       .getDBUsers()
       .snapshotChanges()
       .subscribe(item => {
-        this.userList = [];
+        this.usersList = [];
         item.forEach(element => {
           var y = element
             .payload
@@ -88,8 +88,9 @@ export class AuthServiceProvider {
           y["$key"] = element.key;
 
           this
-            .userList
+            .usersList
             .push(y as User);
+            
         });
       });
   }
@@ -115,6 +116,7 @@ export class AuthServiceProvider {
         email: user.email,
         password: user.password,
         totalScore: user.totalScore,
+        badges: user.badges,
         topic1: user.topic1,
         topic2: user.topic2,
         topic3: user.topic3,
