@@ -1,20 +1,18 @@
 import {Component} from '@angular/core';
-import {Days, Months, Years} from '../../shared/date';
-import {ViewController} from 'ionic-angular';
+// import {Days, Months, Years} from '../../shared/date';
+import {ViewController, DateTime} from 'ionic-angular';
 
 @Component({selector: 'event-modal', templateUrl: 'event-modal.html'})
 export class EventModalComponent {
-  showError: boolean;
 
-  days = Days;
-  months = Months;
-  years = Years;
+  showError: boolean;
+  datePickerVal: string;
 
   event = {
     date: {
-      day: new Date().getDate(),
-      month: this.months[new Date().getMonth()],
-      year: new Date().getFullYear()
+      day: "",
+      month: "",
+      year: ""
     },
     title: "",
     location: "",
@@ -27,8 +25,16 @@ export class EventModalComponent {
   }
 
   submitEventForm() {
-    if (this.event.title != "" && this.event.location != "" && this.event.time != "" && this.event.contact != "") {
+    if (this.datePickerVal != "" && this.event.title != "" && this.event.location != "" && this.event.time != "" && this.event.contact != "") {
+      
       this.showError = false;
+
+      this.event.date = {
+        day: this.datePickerVal.split("-")[2],
+        month: this.datePickerVal.split("-")[1],
+        year: this.datePickerVal.split("-")[0],
+      }
+
       this
         .viewCtrl
         .dismiss({"event": this.event});

@@ -12,15 +12,7 @@
   <form (ngSubmit)="submitEventForm()">
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-select [(ngModel)]="event.date.day" interface="popover" name="day">
-        <ion-option *ngFor="let day of days" [value]="day">{{day}}</ion-option>
-      </ion-select>
-      <ion-select [(ngModel)]="event.date.month" interface="popover" name="month">
-        <ion-option *ngFor="let month of months" [value]="month">{{month}}</ion-option>
-      </ion-select>
-      <ion-select [(ngModel)]="event.date.year" interface="popover" name="year">
-        <ion-option *ngFor="let year of years" [value]="year">{{year}}</ion-option>
-      </ion-select>
+      <ion-datetime displayFormat="M/D/YYYY" pickerFormat="M/D/YYYY" name="datepicker" [(ngModel)]="datePickerVal"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Title</ion-label>
