@@ -4,17 +4,31 @@ import {TopicMenu} from '../topic-menu/topic-menu';
 import {items} from '../game/items';
 import {AchievementPage} from '../achievement/achievement';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import {UserServiceProvider} from '../../providers/user-service/user-service';
+import {User} from '../../shared/user-model';
+import * as _ from 'lodash';
+import {AUTO_STYLE} from '@angular/core/src/animation/dsl';
 
 @Component({selector: 'custom-nav-bar', templateUrl: 'custom-nav-bar.html'})
 
 export class CustomNavBarPage {
-  totalScore : number;
+  totalScore : any;
+  userList : User[];
 
-  constructor(private event : Events, public navCtrl : NavController, public menuCtrl : MenuController, public navParams : NavParams, private auth : AuthServiceProvider) {
-    this.totalScore = this
+  constructor(private event : Events, public navCtrl : NavController, public menuCtrl : MenuController, public navParams : NavParams, private auth : AuthServiceProvider, private userApi : UserServiceProvider) {
+
+    this
       .auth
-      .currentUser
-      .totalScore;
+      .getDBCurrentUser()
+      .snapshotChanges()
+      .subscribe(item => {
+        this.totalScore = _
+          .first(_.filter(item, elem => {
+          return elem.key == "totalScore";
+        }))
+          .payload
+          .toJSON();
+      });
   }
 
   ionViewDidLoad() {}

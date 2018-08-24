@@ -2,23 +2,23 @@ import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
 import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import * as _ from 'lodash';
 import {User} from '../../shared/user-model';
+import {UserServiceProvider} from '../user-service/user-service';
 
 @Injectable()
 export class AuthServiceProvider {
   currentUser : User;
-  allUsers : any;
+  // allUsers : any;
   baseUrl : string = "https://plastic-ocean.firebaseio.com";
 
+  dbUserList : AngularFireList < any >;
+  userList : User[];
+  $userKey : string;
+
   constructor(public http : Http, public db : AngularFireDatabase) {
-    this
-      .getAllUsers()
-      .then(data => {
-        this.allUsers = data;
-      });
-      console.log(this.currentUser)
+    this.getAllUsers();
   }
 
   ionViewDidLoad() {}
@@ -28,9 +28,15 @@ export class AuthServiceProvider {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
-        this.currentUser = _.first(_.filter(this.allUsers, item => {
+        this.currentUser = _.first(_.filter(this.userList, item => {
           return item.email === credentials.email;
         }));
+        console.log("this.currentUser")
+        console.log(this.currentUser)
+
+        this.$userKey = this.currentUser.$key;
+        console.log("this.$userKey")
+        console.log(this.$userKey)
         observer.next(true);
         observer.complete();
 
@@ -62,23 +68,85 @@ export class AuthServiceProvider {
     });
   }
 
+  getDBUsers() {
+    this.dbUserList = this
+      .db
+      .list('/users');
+    return this.dbUserList;
+  }
+
   getAllUsers() {
-    return new Promise(resolve => {
-      this
-        .http
-        .get(`${this.baseUrl}/users.json`)
-        .subscribe(res => {
-          resolve(res.json())
+    this
+      .getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        this.userList = [];
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+
+          this
+            .userList
+            .push(y as User);
         });
-    });
+      });
   }
 
-  getCurrentUser() : User {
-    if(this.currentUser == undefined) {
-      return new User();
-    } else {
-      return this.currentUser;
+  getDBCurrentUser() {
+    return this
+      .db
+      .list('/users/' + this.$userKey);
+    // return Object.assign({}, this.currentUser);
+  }
+
+  insertUser(user : User) {
+    this
+      .dbUserList
+      .push({name: user.name, email: user.email, password: user.password})
+  }
+
+  updateUser(user : User) {
+    this
+      .dbUserList
+      .update(user.$key, {
+        name: user.name,
+        email: user.email,
+        password: user.password,
+        totalScore: user.totalScore,
+        topic1: user.topic1,
+        topic2: user.topic2,
+        topic3: user.topic3,
+        topic4: user.topic4,
+        topic5: user.topic5,
+        firstLogin: user.firstLogin,
+        loginTime: user.loginTime
+      })
+  }
+
+  updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
+  
+    let user = currentUser;
+
+    let preTotalScore = currentUser.totalScore;
+    let preQuestionScores = currentUser[topicTitle];
+    
+    let quizTotal = 0;
+    let quizDiff = 0;
+
+    for (let i = 0; i < questionScore.length; i++) {
+      quizTotal += questionScore[i];
+      if (preQuestionScores[i] < questionScore[i]) {
+        quizDiff += questionScore[i];
+      } else {
+        quizDiff += 0;
+      }
     }
-  }
+    
+    user[topicTitle] = questionScore;
+    user.totalScore += quizDiff;
 
+    this.updateUser(user);
+  }
 }

@@ -6,9 +6,10 @@ import {FirebaseOperation} from 'angularfire2/database/interfaces';
 import {User} from '../../shared/user-model';
 
 @Injectable()
-export class UserProvider {
+export class UserServiceProvider {
 
-  userList : AngularFireList < any >;
+  dbUserList : AngularFireList < any >;
+  userList : User[];
   loginUser : User = new User();
   $userKey : string = '-LK1lKdGyqIssZruGmac';
 
@@ -20,23 +21,43 @@ export class UserProvider {
 
   ionViewDidEnter() {}
   
-  getUsers() {
-    this.userList = this
+  getDBUsers() {
+    this.dbUserList = this
       .db
       .list('/users');
-    return this.userList;
+    return this.dbUserList;
   }
 
+  getAllUsers(){
+    this.getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        item.forEach(element => {
+
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+        this
+          .userList
+          .push(y as User);
+      });
+    });
+  }
+
+  // getCurrentUser(){
+  //   return Object.assign({}, this.loginUser );
+  // }
 
   insertUser(user : User) {
     this
-      .userList
+      .dbUserList
       .push({name: user.name, email: user.email, password: user.password})
   }
 
   updateUser(user : User) {
     this
-      .userList
+      .dbUserList
       .update(this.$userKey, user)
   }
 

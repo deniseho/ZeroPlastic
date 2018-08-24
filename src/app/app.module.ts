@@ -26,7 +26,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { MnFullpageModule } from 'ngx-fullpage';
 import * as $ from 'jquery';
-import { UserProvider } from '../providers/user-service/user-service';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
 import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
@@ -101,7 +101,7 @@ import { DatePicker } from '@ionic-native/date-picker';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     NativeAudio,
-    UserProvider,
+    UserServiceProvider,
     ToastController,
     ToastServiceProvider,
     DatePicker

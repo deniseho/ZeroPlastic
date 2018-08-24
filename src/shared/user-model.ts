@@ -14,9 +14,9 @@ export class User {
 
     constructor(name? : any, email? : any, password? : any,
     totalScore?: number, topic1?: number[], topic2?: number[], topic3?: number[], topic4?: number[], topic5?: number[], firstLogin?:number) {
-        this.name = (name!=null||name!=undefined)?name:"Chia";
-        this.email = (email!=null||email!=undefined)?email:"hoc2@tcd.ie";
-        this.password = (password!=null||password!=undefined)?password:"pass";
+        this.name = (name!=null||name!=undefined)?name:"guest";
+        this.email = (email!=null||email!=undefined)?email:"guest";
+        this.password = (password!=null||password!=undefined)?password:"guest";
         this.totalScore = (totalScore!=null||totalScore!=undefined)?totalScore:0;
         this.topic1 = (topic1!=null||topic1!=undefined)?topic1:[0,0,0,0,0];
         this.topic2 = (topic2!=null||topic2!=undefined)?topic2:[0,0,0,0,0];
