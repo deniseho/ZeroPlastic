@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-// import {Days, Months, Years} from '../../shared/date';
 import {ViewController, DateTime} from 'ionic-angular';
 
 @Component({selector: 'event-modal', templateUrl: 'event-modal.html'})
