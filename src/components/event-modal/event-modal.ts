@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {ViewController, DateTime} from 'ionic-angular';
+import {ViewController} from 'ionic-angular';
+import moment from 'moment';
 
 @Component({selector: 'event-modal', templateUrl: 'event-modal.html'})
 export class EventModalComponent {
@@ -24,14 +25,16 @@ export class EventModalComponent {
   }
 
   submitEventForm() {
+    let date = moment(this.datePickerVal).format("DD-MMM-YYYY");
+
     if (this.datePickerVal != "" && this.event.title != "" && this.event.location != "" && this.event.time != "" && this.event.contact != "") {
       
       this.showError = false;
 
       this.event.date = {
-        day: this.datePickerVal.split("-")[2],
-        month: this.datePickerVal.split("-")[1],
-        year: this.datePickerVal.split("-")[0],
+        day: date.split("-")[0],
+        month: date.split("-")[1],
+        year: date.split("-")[2],
       }
 
       this

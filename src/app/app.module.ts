@@ -37,7 +37,6 @@ import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result
 import { MapInfoComponent } from '../components/map-modal/map-modal';
 import { TagsModalComponent } from "../components/tags-modal/tags-modal";
 import { EventModalComponent } from '../components/event-modal/event-modal';
-import { DatePicker } from '@ionic-native/date-picker';
 
 @NgModule({
   declarations: [
@@ -68,7 +67,9 @@ import { DatePicker } from '@ionic-native/date-picker';
     FormsModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      monthShortNames:["Jan, Feb, Mar, Apr, Mat, Jun, Jul, Aug, Sep, Oct, Nov, Dec"]
+    }),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     MnFullpageModule.forRoot(),
@@ -104,7 +105,6 @@ import { DatePicker } from '@ionic-native/date-picker';
     UserServiceProvider,
     ToastController,
     ToastServiceProvider,
-    DatePicker
   ]
 })
 export class AppModule {}
