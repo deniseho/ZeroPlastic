@@ -1312,9 +1312,9 @@ var EventModalComponent = /** @class */ (function () {
         if (this.datePickerVal != "" && this.event.title != "" && this.event.location != "" && this.event.time != "" && this.event.contact != "") {
             this.showError = false;
             this.event.date = {
-                day: date.split("-")[0],
+                day: this.datePickerVal.split("-")[2],
                 month: date.split("-")[1],
-                year: date.split("-")[2],
+                year: this.datePickerVal.split("-")[0],
             };
             this
                 .viewCtrl
@@ -1330,10 +1330,11 @@ var EventModalComponent = /** @class */ (function () {
             .dismiss({ "action": "cancel" });
     };
     EventModalComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'event-modal',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/event-modal/event-modal.html"*/'<ion-header no-border="">\n  <ion-toolbar class="modal-toolbar" color="lightest">\n    <ion-buttons end="">\n      <button ion-button (click)="close()" icon-only="">\n        <ion-icon name="close" large=""></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding="">\n  <div class="img-wrapper">\n    <img src="../../assets/imgs/icn_temp.png" class="icon_property">\n  </div>\n\n  <form (ngSubmit)="submitEventForm()" class="content-wrapper">\n    <p class="event-header">Create your event below and share it with the ZeroPlastic Community</p>\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-datetime displayFormat="MMM/D/YYYY" pickerFormat="MMM/D/YYYY" \n      name="datepicker" [(ngModel)]="datePickerVal"></ion-datetime>\n    </ion-item>\n    <ion-item>\n      <ion-label>Event name</ion-label>\n      <ion-input type="text" [(ngModel)]="event.title" name="title" required></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Location</ion-label>\n      <ion-input type="text" [(ngModel)]="event.location" name="location" required></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Time</ion-label>\n      <ion-input type="text" [(ngModel)]="event.time" name="time" required></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Contact</ion-label>\n      <ion-input type="text" [(ngModel)]="event.contact" name="contact" required></ion-input>\n    </ion-item>\n\n    <button ion-button type="submit" block class="event-btn">Create event</button>\n    <ion-label *ngIf="showError" color="danger">Oops! Some information is missing.</ion-label>\n  </form>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/event-modal/event-modal.html"*/ }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'event-modal',template:/*ion-inline-start:"/Users/deniseho/plastic/src/components/event-modal/event-modal.html"*/'<ion-header no-border="">\n  <ion-toolbar class="modal-toolbar" color="lightest">\n    <ion-buttons end="">\n      <button ion-button (click)="close()" icon-only="">\n        <ion-icon name="close" large=""></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding="">\n  <div class="img-wrapper">\n    <img src="../../assets/imgs/icn_temp.png" class="icon_property">\n  </div>\n\n  <form (ngSubmit)="submitEventForm()" class="content-wrapper">\n    <p class="event-header">Create your event below and share it with the ZeroPlastic Community</p>\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-datetime displayFormat="MMM/D/YYYY" pickerFormat="MMM/D/YYYY"\n      monthShortNames = "Jan, Feb, Mar, Apr, Mat, Jun, Jul, Aug, Sep, Oct, Nov, Dec"       \n      name="datepicker" [(ngModel)]="datePickerVal"></ion-datetime>\n    </ion-item>\n    <ion-item>\n      <ion-label>Event name</ion-label>\n      <ion-input type="text" [(ngModel)]="event.title" name="title" required></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Location</ion-label>\n      <ion-input type="text" [(ngModel)]="event.location" name="location" required></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Time</ion-label>\n      <ion-input type="text" [(ngModel)]="event.time" name="time" required></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Contact</ion-label>\n      <ion-input type="text" [(ngModel)]="event.contact" name="contact" required></ion-input>\n    </ion-item>\n\n    <button ion-button type="submit" block class="event-btn">Create event</button>\n    <ion-label *ngIf="showError" color="danger">Oops! Some information is missing.</ion-label>\n  </form>\n</ion-content>'/*ion-inline-end:"/Users/deniseho/plastic/src/components/event-modal/event-modal.html"*/ }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]) === "function" && _a || Object])
     ], EventModalComponent);
     return EventModalComponent;
+    var _a;
 }());
 
 var Event = /** @class */ (function () {
@@ -1950,9 +1951,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_22__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_20__angular_common_http__["a" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {
-                    monthShortNames: ["Jan, Feb, Mar, Apr, Mat, Jun, Jul, Aug, Sep, Oct, Nov, Dec"]
-                }, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
                 __WEBPACK_IMPORTED_MODULE_23_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_25__firebase_credentials__["a" /* FIREBASE_CONFIG */]),

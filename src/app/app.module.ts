@@ -67,9 +67,7 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
     FormsModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp, {
-      monthShortNames:["Jan, Feb, Mar, Apr, Mat, Jun, Jul, Aug, Sep, Oct, Nov, Dec"]
-    }),
+    IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     MnFullpageModule.forRoot(),
