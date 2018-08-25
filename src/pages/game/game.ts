@@ -1,5 +1,5 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
-import {NavController, NavParams, AlertController} from 'ionic-angular';
+import {NavController, NavParams, AlertController, Platform} from 'ionic-angular';
 import {NativeAudio} from '@ionic-native/native-audio';
 import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
@@ -16,7 +16,14 @@ export class GamePage {
   gamePlay : boolean = true;
 
   @ViewChild('content')content : ElementRef;
-  constructor(public navCtrl : NavController, public alertCtrl : AlertController, private nativeAudio : NativeAudio) {}
+  constructor(public navCtrl : NavController, 
+    public alertCtrl : AlertController, 
+    public platform: Platform,
+    private nativeAudio : NativeAudio) {
+      // platform.registerBackButtonAction(()=>{
+      //   console.log("back pressed 1");
+      // }, 1);
+    }
 
   playGame() {
     this.gamePlay = true;

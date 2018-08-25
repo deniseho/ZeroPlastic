@@ -10,15 +10,14 @@ import * as _ from 'lodash';
 export class AchievementPage {
   currentUser : User;
   badgeRecord : number[];
-  usersList;
-  // usersList : User[];
+  usersList : any[];
 
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private toast : ToastServiceProvider) {
     this.currentUser = this.auth.currentUser;
-    this.getScoreRanking();
+    this.getPageData();
   }
 
-  getScoreRanking() {
+  getPageData() {
     this
       .auth
       .getDBUsers()
@@ -34,32 +33,20 @@ export class AchievementPage {
           this
             .usersList
             .push(y as User);
-          this.usersList = _.first(_.chunk(_.sortBy(this.usersList, "totalScore").reverse(), 10));
+            this.usersList = _.first(_.chunk(_.sortBy(this.usersList, "totalScore").reverse(), 10));
+          });
+          this.currentUser = _.first(_.filter(this.usersList, item=>{
+            return item.email === this.auth.currentUser.email;
+          }))
+          let totalScore = this.currentUser.totalScore;
+          this.badgeRecord = this.auth.getBadgeRecord(totalScore);
+          this.currentUser.badges = this.badgeRecord;
+          this.auth.updateUser(this.currentUser);
         });
-        console.log(this.usersList)
-      });
-  }
+      }
 
   ionViewDidLoad() {
-    let totalScore = this.currentUser.totalScore;
-
-    if (totalScore < 25) {
-      this.badgeRecord = [1, 0, 0, 0, 0];
-    } else if (totalScore >= 25 && totalScore < 60) {
-      this.badgeRecord = [1, 1, 0, 0, 0];
-    } else if (totalScore >= 60 && totalScore < 100) {
-      this.badgeRecord = [1, 1, 1, 0, 0];
-    } else if (totalScore >= 100 && totalScore < 150) {
-      this.badgeRecord = [1, 1, 1, 1, 0];
-    } else if (totalScore >= 150) {
-      this.badgeRecord = [1, 1, 1, 1, 1];
-    }
-
-    if (this.badgeRecord != this.currentUser.badges) {
-      this.currentUser.badges = this.badgeRecord;
-      // this.auth.updateUser(this.currentUser);
-    }
-
+ 
   }
 
 }
