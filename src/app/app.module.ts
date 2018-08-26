@@ -28,22 +28,19 @@ import { MnFullpageModule } from 'ngx-fullpage';
 import * as $ from 'jquery';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
-import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
+// import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 import { ToastServiceProvider } from '../providers/toast-service/toast-service';
-import { BadgesPipe } from '../pipes/badges/badges';
-import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
-import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result-modal';
-import { MapInfoComponent } from '../components/map-modal/map-modal';
-import { TagsModalComponent } from "../components/tags-modal/tags-modal";
-import { EventModalComponent } from '../components/event-modal/event-modal';
-import { VideoModalComponent } from '../components/video-modal/video-modal';
-import {VgCoreModule} from 'videogular2/core';
-import {VgControlsModule} from 'videogular2/controls';
-import {VgOverlayPlayModule} from 'videogular2/overlay-play';
-import {VgBufferingModule} from 'videogular2/buffering';
-import { VideoBaseTexture } from 'pixi.js';
-import { VideoPlayer } from '@ionic-native/video-player';
+// import { BadgesPipe } from '../pipes/badges/badges';
+import { ComponentsModule } from '../components/components.module';
+import { PipesModule } from '../pipes/pipes.module';
+// import { ComponentsModule } from '../components/components.module';
+// import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
+// import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result-modal';
+// import { MapInfoComponent } from '../components/map-modal/map-modal';
+// import { TagsModalComponent } from "../components/tags-modal/tags-modal";
+// import { EventModalComponent } from '../components/event-modal/event-modal';
+// import { VideoModalComponent } from '../components/video-modal/video-modal';
 
 @NgModule({
   declarations: [
@@ -59,30 +56,29 @@ import { VideoPlayer } from '@ionic-native/video-player';
     TopicFivePage,
     AchievementPage,
     GamePage,
-    TopicQuizComponent,
-    QuizResultComponent,
     AlternativesPage,
-    ContentDrawerComponent,
-    ParallaxHeaderDirective,
-    BadgesPipe,
-    MapInfoComponent,
-    TagsModalComponent,
-    EventModalComponent,
-    VideoModalComponent
+    // TopicQuizComponent,
+    // QuizResultComponent,
+    // ContentDrawerComponent,
+    // ParallaxHeaderDirective,
+    // BadgesPipe,
+    // MapInfoComponent,
+    // TagsModalComponent,
+    // EventModalComponent,
+    // VideoModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    MnFullpageModule.forRoot(),
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule
+    IonicModule.forRoot(MyApp, ComponentsModule),
+    // IonicModule.forRoot(ComponentsModule), 
+    // IonicModule.forRoot(PipesModule),
+    // ComponentsModule,
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -98,13 +94,13 @@ import { VideoPlayer } from '@ionic-native/video-player';
     TopicFivePage,
     AchievementPage,
     GamePage,
-    TopicQuizComponent,
-    QuizResultComponent,
+    // TopicQuizComponent,
+    // QuizResultComponent,
     AlternativesPage,
-    MapInfoComponent,
-    TagsModalComponent,
-    EventModalComponent,
-    VideoModalComponent
+    // MapInfoComponent,
+    // TagsModalComponent,
+    // EventModalComponent,
+    // VideoModalComponent
 ],
   providers: [
     StatusBar,
@@ -116,7 +112,6 @@ import { VideoPlayer } from '@ionic-native/video-player';
     UserServiceProvider,
     ToastController,
     ToastServiceProvider,
-    VideoPlayer
   ]
 })
 export class AppModule {}

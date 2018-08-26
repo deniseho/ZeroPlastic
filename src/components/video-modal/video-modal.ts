@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Loading, LoadingController, ViewController, NavController} from 'ionic-angular';
 import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
-import {VideoPlayer} from '@ionic-native/video-player';
 
 @Component({selector: 'video-modal', templateUrl: 'video-modal.html'})
 export class VideoModalComponent {
@@ -13,16 +12,8 @@ export class VideoModalComponent {
   trustedVideoUrl : SafeResourceUrl;
   loading : Loading;
 
-  constructor(public navCtrl : NavController, public loadingCtrl : LoadingController, private viewCtrl : ViewController, private domSanitizer : DomSanitizer, private videoPlayer : VideoPlayer) {
-    this
-      .videoPlayer
-      .play('assets/videos/video01.mp4')
-      .then(() => {
-        console.log('video completed');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  constructor(public navCtrl : NavController, public loadingCtrl : LoadingController, 
+    private viewCtrl : ViewController, private domSanitizer : DomSanitizer) {
   }
 
   ionViewWillEnter() : void {
