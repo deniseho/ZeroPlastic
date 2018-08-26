@@ -14,9 +14,27 @@
 </ion-header>
 
 <ion-content>
-    <!--PROBLEM-->
+
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
+       <!--INTRODUCTION-->
+        <ion-slide>
+            <div class="container-slides-content sea-gradient-wrapper">
+                <div class="vertical-center">
+                    <img src="assets/imgs/swipe-left.svg" class="swipe-icon"> <!--Vector created by Noun Project-->
+                    <h1 class="slide-title-main">About plastic</h1>
+                    <h1 class="slide-title2-main">Introduction</h1>
+                    <div class="line-separator-short"></div>
+                    <h4 class="slide-subtitle">61kg of plastic</h4>
+                    <p>Ireland generates an average of 61kg of plastic waste per person every year, the equivalent of nearly
+                        2,000 water bottles per person annually. Engaging in ways to reduce our plastic consumption is a key
+                        environmental necessity. However, before we start, we need to understand why plastic pollution is
+                        such a pressing issue, its causes, effects, and viable solutions to this issue.</p>
+                </div>
+                <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
+            </div>
+        </ion-slide>
+        <!--PROBLEM-->
         <ion-slide>
             <!--Icons for scrolling-->
             <!--<ion-icon class="arrow-up-style" name="ios-arrow-up"></ion-icon>-->
@@ -31,9 +49,8 @@
                         <div class="line-separator-short"></div>
                         <h4 class="slide-subtitle-secondary">322</h4>
                         <h3 class="slide-subtitle2-secondary">millions</h3>
-                        <img class="infographics-image" src="assets/imgs/icn_tons.png">
+                        <img class="infographics-image" src="assets/imgs/icn_tons.png"> <!--Vector created by Freepik-->
                         <p>of plastic were produced in 2015, the same weight as 900 Empire state buildings.</p>
-                        <img src="../../assets/imgs/swipe-right.svg" class="swipe-icon">
                     </div>
                     <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
                 </div>
@@ -44,10 +61,10 @@
                         <div class="vertical-center">
                             <h4 class="slide-subtitle-secondary">8</h4>
                             <h3 class="slide-subtitle2-secondary">millions</h3>
-                            <img class="infographics-image" src="assets/imgs/icn_tons.png">
+                            <img class="infographics-image" src="assets/imgs/icn_tons.png"> <!--Vector created by Freepik-->
                             <p>8 millions of  this plastic enters our oceans each year, equivalent to emptying a garbage truck of plastic
                                 into an ocean every minute. This figure is estimated to rise to 60 tons per minute by 2050.</p>
-                            <img class="icon_secondary_property" src="assets/imgs/icn_garbage_truck_3_small.png">
+                            <img class="icon_secondary_property" src="assets/imgs/icn_garbage_truck_3_small.png"> <!--Vector created by Freepik-->
                         </div>
                     </div>
 
@@ -88,7 +105,7 @@
                         <h1 class="slide-title-main">About plastic</h1>
                         <h1 class="slide-title2-main">Cause</h1>
                         <div class="line-separator-short"></div>
-                        <img class="icon_property_coins" src="assets/imgs/icn_coins.png">
+                        <img class="icon_property_coins" src="assets/imgs/icn_coins.png"> <!--Vector created by Freepik-->
                         <h4 class="slide-subtitle">Plastics are cheap and easy to manufacture</h4>
                         <p>Plastics have been used to make countless utilities, including plastic
                             water bottles, straws, food containers, lids, and packaging wrappers.</p>
@@ -100,7 +117,7 @@
                     <!--About plastic cause2-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="assets/imgs/icn_trash_full.png">
+                            <img class="icon_property" src="assets/imgs/icn_trash_full.png"> <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Plastics are easily and haphazardly discarded</h4>
                             <p>The use of plastic items such as bags, wrappers, bottles, straws and food containers is
@@ -112,7 +129,7 @@
                     <!--About plastic cause3-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="assets/imgs/icn_fishing_net.png">
+                            <img class="icon_property" src="assets/imgs/icn_fishing_net.png"> <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Plastic decomposes slowly</h4>
                             <p>Plastics are slow to decompose due to their strong chemical bonds that make plastic items
@@ -124,7 +141,7 @@
                     <!--About plastic cause4-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="assets/imgs/icn_fishing_ship.png">
+                            <img class="icon_property" src="assets/imgs/icn_fishing_ship.png"> <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle" style="color: white">The shipping and fishing industry</h4>
                             <p style="color: white">are major contributors of plastic pollution. Plastic waste from ships, sea accidents, and nets
@@ -156,7 +173,7 @@
                     <!--About plastic effect2-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="assets/imgs/icn_human.png">
+                            <img class="icon_property" src="assets/imgs/icn_human.png"> <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Affects humans</h4>
                             <p>Plastic pollution in our oceans severely affects humans in numerous ways. Studies have shown
@@ -212,7 +229,7 @@
                 <!--About plastic solution2-->
                 <div class="container-slides-content">
                     <div class="vertical-center">
-                        <img class="icon_property" src="assets/imgs/icn_recycle.png">
+                        <img class="icon_property" src="assets/imgs/icn_recycle.png"> <!--Vector created by Freepik-->
                         <div class="line-separator-long"></div>
                         <h4 class="slide-subtitle">Recycle</h4>
                         <p>Recycling helps keep single-use plastics out of the ocean, and reduces the amount of new plastics
@@ -235,7 +252,7 @@
                 <!--About plastic solution4-->
                 <div class="container-slides-content">
                     <div class="vertical-center">
-                        <img class="icon_property" src="assets/imgs/icn_non-profit.png">
+                        <img class="icon_property" src="assets/imgs/icn_non-profit.png"> <!--Vector created by Freepik-->
                         <div class="line-separator-long"></div>
                         <h4 class="slide-subtitle" style="color: white">Support organisations adressing plastic pollution</h4>
                         <p style="color: white">Non-profit organisations dealing with the problem of ocean plastic include the Oceanic Society
@@ -245,12 +262,16 @@
             </div>
         </ion-slide>
 
+        <!--QUIZ-->
         <ion-slide>
             <div class="container-slides-content">
                 <div class="vertical-center">
+                    <img style="width: 120px" src="assets/imgs/icn-quiz.png"> <!--Vector created by Freepik-->
+                    <h1 class="slide-title-main">Take action</h1>
+                    <h1 class="slide-title2-main">Quiz</h1>
+                    <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>
                     <p>Earn points and become a senior ecologist!</p>
-                    <p></p>
                     <button ion-button (click)="startQuiz()">Start the quiz</button>
                 </div>
             </div>

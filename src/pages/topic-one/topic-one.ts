@@ -32,7 +32,7 @@ export class TopicOnePage {
     public navParams : NavParams, public modalCtrl : ModalController, 
     public renderer : Renderer, public viewCtrl : ViewController, 
     private auth : AuthServiceProvider) {
-    this.tabs = ["Issue", "Cause", "Effect", "Solution", "Quiz"];
+    this.tabs = ["Introduction", "Issue", "Cause", "Effect", "Solution", "Quiz"];
   }
 
   ionViewDidEnter() {

@@ -25,9 +25,9 @@ export class MyApp{
   @ViewChild(Nav) nav: Nav;
   rootPage = LoginPage;
   users : any;
-  
+
   pages: Array<{title: string, component: any, avatar: string}>;
-  
+
   constructor(
     public platform: Platform,
     public menu: MenuController,
@@ -53,7 +53,7 @@ export class MyApp{
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    }); 
+    });
   }
 
   gotoPage(page) {
@@ -68,7 +68,7 @@ export class MyApp{
 
   logout(){
     this.auth.logout().subscribe(succ => {
-      this.menu.close(); 
+      this.menu.close();
       this.nav.setRoot(LoginPage);
     });
   }
