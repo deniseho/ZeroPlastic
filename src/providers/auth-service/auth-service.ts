@@ -25,7 +25,7 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      this.getAllUsers();
+      // this.getAllUsers();
       return Observable.create(observer => {
         this.currentUser = _.first(_.filter(this.usersList, item => {
           return item.email === credentials.email;

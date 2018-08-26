@@ -4,6 +4,7 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {RegisterPage} from '../register/register';
 import {TopicMenu} from '../topic-menu/topic-menu';
 import { User } from '../../shared/user-model';
+import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
 
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
@@ -19,7 +20,9 @@ export class LoginPage {
     public navParams : NavParams, 
     private auth : AuthServiceProvider, 
     private alertCtrl : AlertController, 
-    private loadingCtrl : LoadingController) {
+    private loadingCtrl : LoadingController,
+    private toast: ToastServiceProvider
+  ) {
       
 
     }
@@ -50,7 +53,7 @@ export class LoginPage {
           this.showError("Access Denied");
         }
       }, error => {
-        this.showError(error);
+        this.showError("ERRRROR: " + this.registerCredentials.email);
       });
     }
   }
@@ -79,4 +82,5 @@ export class LoginPage {
           .navCtrl
           .push(TopicMenu);
   }
+
 }

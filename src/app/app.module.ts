@@ -28,19 +28,17 @@ import { MnFullpageModule } from 'ngx-fullpage';
 import * as $ from 'jquery';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
-// import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
+import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 import { ToastServiceProvider } from '../providers/toast-service/toast-service';
-// import { BadgesPipe } from '../pipes/badges/badges';
-import { ComponentsModule } from '../components/components.module';
+import { BadgesPipe } from '../pipes/badges/badges';
 import { PipesModule } from '../pipes/pipes.module';
-// import { ComponentsModule } from '../components/components.module';
-// import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
-// import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result-modal';
-// import { MapInfoComponent } from '../components/map-modal/map-modal';
-// import { TagsModalComponent } from "../components/tags-modal/tags-modal";
-// import { EventModalComponent } from '../components/event-modal/event-modal';
-// import { VideoModalComponent } from '../components/video-modal/video-modal';
+import { TopicQuizComponent } from '../components/topic-quiz/topic-quiz';
+import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result-modal';
+import { MapInfoComponent } from '../components/map-modal/map-modal';
+import { TagsModalComponent } from "../components/tags-modal/tags-modal";
+import { EventModalComponent } from '../components/event-modal/event-modal';
+import { VideoModalComponent } from '../components/video-modal/video-modal';
 
 @NgModule({
   declarations: [
@@ -57,15 +55,15 @@ import { PipesModule } from '../pipes/pipes.module';
     AchievementPage,
     GamePage,
     AlternativesPage,
-    // TopicQuizComponent,
-    // QuizResultComponent,
-    // ContentDrawerComponent,
-    // ParallaxHeaderDirective,
-    // BadgesPipe,
-    // MapInfoComponent,
-    // TagsModalComponent,
-    // EventModalComponent,
-    // VideoModalComponent
+    ParallaxHeaderDirective,
+    BadgesPipe,
+    TopicQuizComponent,
+    QuizResultComponent,
+    ContentDrawerComponent,
+    MapInfoComponent,
+    TagsModalComponent,
+    EventModalComponent,
+    VideoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -74,11 +72,7 @@ import { PipesModule } from '../pipes/pipes.module';
     HttpClientModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    IonicModule.forRoot(MyApp, ComponentsModule),
-    // IonicModule.forRoot(ComponentsModule), 
-    // IonicModule.forRoot(PipesModule),
-    // ComponentsModule,
-    PipesModule
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -94,13 +88,13 @@ import { PipesModule } from '../pipes/pipes.module';
     TopicFivePage,
     AchievementPage,
     GamePage,
-    // TopicQuizComponent,
-    // QuizResultComponent,
+    TopicQuizComponent,
+    QuizResultComponent,
     AlternativesPage,
-    // MapInfoComponent,
-    // TagsModalComponent,
-    // EventModalComponent,
-    // VideoModalComponent
+    MapInfoComponent,
+    TagsModalComponent,
+    EventModalComponent,
+    VideoModalComponent
 ],
   providers: [
     StatusBar,
