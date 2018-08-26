@@ -26,7 +26,12 @@ page-topic-three {
   }
 
   .container-species {
-    background: url("../../assets/imgs/bg-species-affected.png") no-repeat;
+    background: url("../../assets/imgs/bg-species-affected-01.png") no-repeat 0 20px;
+  }
+
+  .background-species{
+    background-color: #F5AB9A;
+
   }
 
   .container-species, .container-slides-content {
@@ -47,6 +52,7 @@ page-topic-three {
   }
 
   .slide-title-main {
+    margin-top: 10px;
     color: #4747C2;
     font-size: 30px;
     font-weight: normal;
@@ -61,27 +67,42 @@ page-topic-three {
   }
 
   .seagull {
+    width: 30%;
+    max-width: 30%;
     position: absolute;
-    top: 20%;
+    top: 15%;
     right: 10%;
-    background-color: #f53d3d;
-    opacity: 0.6;
+    opacity: 0.9;
   }
 
   .whale {
+    max-width: 70%;
+    width: 70%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: #48C4D8;
-    opacity: 0.6;
+    top: 45%;
+    left: 25%;
   }
 
   .turtle {
+    width: 30%;
+    max-width: 30%;
     position: absolute;
     bottom: 5%;
     left: 10%;
-    background-color: #8a4182;
-    opacity: 0.6;
+    opacity: 0.9;
+  }
+
+  .seagull:hover, .whale:hover, .turtle:hover  {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 15px 0 15px;
+    margin-top: -5px;
   }
 
 }

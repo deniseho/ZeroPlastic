@@ -18,18 +18,19 @@
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
         <!--SPECIES AFFECTED-->
-        <ion-slide>
+        <ion-slide class="background-species">
             <div class="container-species">
                 <h1 class="slide-title-main">Species affected</h1>
-                <h1 class="slide-title2-main">Species</h1>
+                <p>Tap on an animal to learn more</p>
+                <!--<h1 class="slide-title2-main">Species</h1>-->
                 <div class="seagull" on-tap="onTap($event, 'Seagull')">
-                    <img src="assets/imgs/avatar_temp.png">
+                    <img src="assets/imgs/specie-birds.png">
                 </div>
                 <div class="whale" on-tap="onTap($event, 'Whale')">
-                    <img src="assets/imgs/avatar_temp.png">
+                    <img src="assets/imgs/specie-whale.png">
                 </div>
                 <div class="turtle" on-tap="onTap($event, 'Turtle')">
-                    <img src="assets/imgs/avatar_temp.png">
+                    <img src="assets/imgs/specie-turtle.png">
                 </div>
             </div>
         </ion-slide>
