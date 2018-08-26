@@ -1,33 +1,87 @@
 page-topic-three {
 
-    .SwipedTabs-indicatorSegment
-   {
-       -webkit-transition: 0.3s all;
-       -moz-transition:  0.3s all;
-       -o-transition:  0.3s all;
-       transition:  0.3s all;
-       transform-origin: top 0 left 0;
-       height: 1px;
-       position: relative;
-       top: -2px;
-       background-color: blue !important;
+  .SwipedTabs-indicatorSegment {
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    transition: 0.3s all;
+    transform-origin: top 0 left 0;
+    height: 1px;
+    position: relative;
+    top: -2px;
+    background-color: #3333CC !important;
 
+  }
+  .SwipedTabs-tabs ion-segment-button {
+    border: none !important;
+    color: #249E89 !important;
+    background-color: white !important;
 
-   }
-   .SwipedTabs-tabs ion-segment-button
-   {
-       border:none !important;
-       color:green!important;
-       background-color:white!important;
+  }
+  .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+    color: #3333CC !important;
+  }
+  .SwipedTabs-tabs {
+    width: fit-content !important;
+  }
 
-   }
-    .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
-   {
-       color:blue !important;
-   }
-   .SwipedTabs-tabs
-   {
-       width: fit-content !important;
-   }
+  .container-species {
+    background: url("../../assets/imgs/bg-species-affected.png") no-repeat;
+  }
+
+  .container-species, .container-slides-content {
+    height: 86vh;
+    text-align: center;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container-slides-content {
+    display: table;
+  }
+
+  .vertical-center {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 15px 0 15px;
+  }
+
+  .slide-title-main {
+    color: #4747C2;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .slide-title2-main {
+    color: #4747C2;
+    margin-top: -15px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .seagull {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    background-color: #f53d3d;
+    opacity: 0.6;
+  }
+
+  .whale {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #48C4D8;
+    opacity: 0.6;
+  }
+
+  .turtle {
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    background-color: #8a4182;
+    opacity: 0.6;
+  }
 
 }

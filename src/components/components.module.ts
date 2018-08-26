@@ -5,15 +5,18 @@ import { QuizResultComponent } from './quiz-result-modal/quiz-result-modal';
 import { MapInfoComponent } from './map-modal/map-modal';
 import { TagsModalComponent } from './tags-modal/tags-modal';
 import { EventModalComponent } from './event-modal/event-modal';
+import { SpeciesModalComponent } from './species-modal/species-modal';
 @NgModule({declarations: [ContentDrawerComponent,
     TopicQuizComponent,
     QuizResultComponent,
     MapInfoComponent,
     TagsModalComponent,
-    EventModalComponent], imports: [], exports: [ContentDrawerComponent,
+    EventModalComponent,
+    SpeciesModalComponent], imports: [], exports: [ContentDrawerComponent,
     TopicQuizComponent,
     QuizResultComponent,
     MapInfoComponent,
     TagsModalComponent,
-    EventModalComponent]})
+    EventModalComponent,
+    SpeciesModalComponent]})
 export class ComponentsModule {}

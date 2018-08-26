@@ -37,6 +37,7 @@ import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result
 import { MapInfoComponent } from '../components/map-modal/map-modal';
 import { TagsModalComponent } from "../components/tags-modal/tags-modal";
 import { EventModalComponent } from '../components/event-modal/event-modal';
+import {SpeciesModalComponent} from "../components/species-modal/species-modal";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
     BadgesPipe,
     MapInfoComponent,
     TagsModalComponent,
-    EventModalComponent
+    EventModalComponent,
+    SpeciesModalComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
     AlternativesPage,
     MapInfoComponent,
     TagsModalComponent,
-    EventModalComponent
+    EventModalComponent,
+    SpeciesModalComponent
 ],
   providers: [
     StatusBar,

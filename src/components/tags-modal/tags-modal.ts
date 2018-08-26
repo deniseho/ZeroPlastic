@@ -20,7 +20,7 @@ export class TagsModalComponent {
       public navParams : NavParams,
       public viewCtrl : ViewController,
       public modalCtrl : ModalController) {
-        this.tagTitle = navParams.get("tagTitle");
+        this.tagTitle = navParams.get("tagTitle"); //REFERENCE to info
         this.tagFoundIn = navParams.get("tagFoundIn");
         this.tagPlastic = navParams.get("tagPlastic");
         this.tagRecyclabilityTitle = navParams.get("tagRecyclabilityTitle");

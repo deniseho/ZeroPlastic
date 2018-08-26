@@ -8,12 +8,13 @@ import { MapInfoComponent } from '../../components/map-modal/map-modal';
 @Component({selector: 'page-topic-two', templateUrl: 'topic-two.html'})
 export class TopicTwoPage {
   title: string;
-  countryList: string[];
+  countryList: any[];
   drawerOptions: any;
   
   constructor(public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController) {
     this.title = country.title;
     this.countryList = country.countryList;
+
     this.drawerOptions = {
       handleHeight: 50,
       thresholdFromBottom: 100,
@@ -31,7 +32,11 @@ export class TopicTwoPage {
 
     const modal = this
       .modalCtrl
-      .create(MapInfoComponent, {"country": this.countryList[value]});
+      .create(MapInfoComponent, {
+          "countryLabel": this.countryList[value]["Label"],
+          "countryImage": this.countryList[value]["Image"],
+          "countryDescription": this.countryList[value]["Description"]
+      });
     modal.present();
 }
 
