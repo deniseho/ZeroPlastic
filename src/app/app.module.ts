@@ -37,6 +37,13 @@ import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result
 import { MapInfoComponent } from '../components/map-modal/map-modal';
 import { TagsModalComponent } from "../components/tags-modal/tags-modal";
 import { EventModalComponent } from '../components/event-modal/event-modal';
+import { VideoModalComponent } from '../components/video-modal/video-modal';
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
+import { VideoBaseTexture } from 'pixi.js';
+import { VideoPlayer } from '@ionic-native/video-player';
 
 @NgModule({
   declarations: [
@@ -60,7 +67,8 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
     BadgesPipe,
     MapInfoComponent,
     TagsModalComponent,
-    EventModalComponent
+    EventModalComponent,
+    VideoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +79,10 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     MnFullpageModule.forRoot(),
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -91,7 +103,8 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
     AlternativesPage,
     MapInfoComponent,
     TagsModalComponent,
-    EventModalComponent
+    EventModalComponent,
+    VideoModalComponent
 ],
   providers: [
     StatusBar,
@@ -103,6 +116,7 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
     UserServiceProvider,
     ToastController,
     ToastServiceProvider,
+    VideoPlayer
   ]
 })
 export class AppModule {}
