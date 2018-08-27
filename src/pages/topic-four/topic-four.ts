@@ -15,6 +15,8 @@ import {TopicQuizComponent} from '../../components/topic-quiz/topic-quiz';
 import {topic4} from '../../shared/topic4-questions';
 import {EventModalComponent} from '../../components/event-modal/event-modal';
 import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
+import { User } from '../../shared/user-model';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
@@ -28,9 +30,11 @@ export class TopicFourPage {
   tabs : any = [];
   events : any[];
   newEvent : any;
+  currentUser : User;
 
   constructor(public navCtrl : NavController, public navParams : NavParams, 
-    public modalCtrl : ModalController, private toast: ToastServiceProvider) {
+    public modalCtrl : ModalController, private auth: AuthServiceProvider,
+    private toast: ToastServiceProvider) {
     this.tabs = ["Take action", "Volunteer", "Recycle", "Alternatives", "Quiz"];
     this.tagsList = tags; //REFERENCE to info
     this.events = [
@@ -56,6 +60,33 @@ export class TopicFourPage {
         contact: "(01) 896 2320"
       }
     ];
+    this.getPageData();
+  }
+
+  getPageData() {
+    this
+      .auth
+      .getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+
+          if(y["email"]==this.auth.currentUser.email){
+            this.currentUser = y as User;
+          }
+        });
+        let totalScore = this.currentUser.totalScore;
+        this.currentUser.badges = this
+          .auth
+          .getBadgeRecord(totalScore);
+        this
+          .auth
+          .updateUser(this.currentUser);
+      });
   }
 
   ionViewDidEnter() {

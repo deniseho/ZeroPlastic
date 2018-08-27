@@ -15,8 +15,9 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 import {UserServiceProvider} from '../../providers/user-service/user-service';
-import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
-import { topic1 } from '../../shared/topic1-questions';
+import {TopicQuizComponent} from '../../components/topic-quiz/topic-quiz';
+import {topic1} from '../../shared/topic1-questions';
+import {User} from '../../shared/user-model';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -27,20 +28,45 @@ export class TopicOnePage {
   SwipedTabsIndicator : any = null;
   tabElementWidth_px : number = 100;
   tabs : any = [];
+  currentUser : User;
+  badgeRecord : number[];
 
-  constructor(private event : Events, public navCtrl : NavController, 
-    public navParams : NavParams, public modalCtrl : ModalController, 
-    public renderer : Renderer, public viewCtrl : ViewController, 
-    private auth : AuthServiceProvider) {
+  constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public renderer : Renderer, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
     this.tabs = ["Introduction", "Issue", "Cause", "Effect", "Solution", "Quiz"];
+    this.getPageData();
+  }
+
+  getPageData() {
+    this
+      .auth
+      .getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+
+          if(y["email"]==this.auth.currentUser.email){
+            this.currentUser = y as User;
+          }
+        });
+        let totalScore = this.currentUser.totalScore;
+        this.currentUser.badges = this
+          .auth
+          .getBadgeRecord(totalScore);
+        this
+          .auth
+          .updateUser(this.currentUser);
+      });
   }
 
   ionViewDidEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
   }
 
-  ionViewDidLoad() {
-  }
+  ionViewDidLoad() {}
 
   selectTab(index) {
     // this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 *

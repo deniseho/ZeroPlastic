@@ -4,6 +4,8 @@ import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
 import { topic3 } from '../../shared/topic3-questions';
 import { species } from '../../shared/species-info';
 import {SpeciesModalComponent} from "../../components/species-modal/species-modal";
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { User } from '../../shared/user-model';
 
 @Component({selector: 'page-topic-three', templateUrl: 'topic-three.html'})
 export class TopicThreePage {
@@ -15,10 +17,41 @@ export class TopicThreePage {
   SwipedTabsIndicator : any = null;
   tabElementWidth_px : number = 100;
   tabs : any = [];
+  currentUser : User;
 
-  constructor(public navCtrl : NavController,  public modalCtrl : ModalController ) {
-    this.tabs = ["Species", "Quiz"];
-    this.species = species;
+
+  constructor(public navCtrl : NavController,  
+    private auth: AuthServiceProvider,
+    public modalCtrl : ModalController ) {
+          this.tabs = ["Species", "Quiz"];
+          this.species = species;
+    this.getPageData();
+  }
+
+  getPageData() {
+    this
+      .auth
+      .getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+
+          if(y["email"]==this.auth.currentUser.email){
+            this.currentUser = y as User;
+          }
+        });
+        let totalScore = this.currentUser.totalScore;
+        this.currentUser.badges = this
+          .auth
+          .getBadgeRecord(totalScore);
+        this
+          .auth
+          .updateUser(this.currentUser);
+      });
   }
 
   ionViewDidEnter() {

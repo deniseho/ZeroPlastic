@@ -6,20 +6,18 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import * as _ from 'lodash';
 import {User} from '../../shared/user-model';
 import {UserServiceProvider} from '../user-service/user-service';
+import {ToastServiceProvider} from '../toast-service/toast-service';
 
 @Injectable()
 export class AuthServiceProvider {
   currentUser : User;
-  // allUsers : any;
   baseUrl : string = "https://plastic-ocean.firebaseio.com";
 
   dbUserList : AngularFireList < any >;
-  userList : User[];
+  usersList : User[];
   $userKey : string;
 
-  constructor(public http : Http, public db : AngularFireDatabase) {
-    this.getAllUsers();
-  }
+  constructor(public http : Http, public db : AngularFireDatabase, private toast : ToastServiceProvider) {}
 
   ionViewDidLoad() {}
 
@@ -27,8 +25,9 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
+      this.getAllUsers();
       return Observable.create(observer => {
-        this.currentUser = _.first(_.filter(this.userList, item => {
+        this.currentUser = _.first(_.filter(this.usersList, item => {
           return item.email === credentials.email;
         }));
         console.log("this.currentUser")
@@ -80,7 +79,7 @@ export class AuthServiceProvider {
       .getDBUsers()
       .snapshotChanges()
       .subscribe(item => {
-        this.userList = [];
+        this.usersList = [];
         item.forEach(element => {
           var y = element
             .payload
@@ -88,8 +87,9 @@ export class AuthServiceProvider {
           y["$key"] = element.key;
 
           this
-            .userList
+            .usersList
             .push(y as User);
+
         });
       });
   }
@@ -115,6 +115,7 @@ export class AuthServiceProvider {
         email: user.email,
         password: user.password,
         totalScore: user.totalScore,
+        badges: user.badges,
         topic1: user.topic1,
         topic2: user.topic2,
         topic3: user.topic3,
@@ -125,13 +126,55 @@ export class AuthServiceProvider {
       })
   }
 
+  getBadgeRecord(totalScore) {
+    let badgeRecord = [];
+
+    if (totalScore < 25) {
+      badgeRecord = [1, 0, 0, 0, 0];
+    } else if (totalScore >= 25 && totalScore < 60) {
+      badgeRecord = [1, 1, 0, 0, 0];
+    } else if (totalScore >= 60 && totalScore < 100) {
+      badgeRecord = [1, 1, 1, 0, 0];
+    } else if (totalScore >= 100 && totalScore < 150) {
+      badgeRecord = [1, 1, 1, 1, 0];
+    } else if (totalScore >= 150) {
+      badgeRecord = [1, 1, 1, 1, 1];
+    }
+    this.checkBadges(badgeRecord);
+    return badgeRecord;
+  }
+
+  checkBadges(badges) {
+    let user = this.currentUser;
+    let newRecord = badges;
+    let preRecord = [];
+
+    for (let i in user.badges) {
+      preRecord.push(user.badges[i])
+    }
+
+    console.log("---------")
+    console.log("preRecord")
+    console.log(preRecord)
+    console.log("newRecord")
+    console.log(newRecord)
+    console.log("=========")
+
+    if (newRecord.toString() != preRecord.toString()) {
+      this
+        .toast
+        .showToast("level up!", "");
+      this.currentUser.badges = newRecord;
+    }
+  }
+
   updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
-  
+
     let user = currentUser;
 
     let preTotalScore = currentUser.totalScore;
     let preQuestionScores = currentUser[topicTitle];
-    
+
     let quizTotal = 0;
     let quizDiff = 0;
 
@@ -143,7 +186,7 @@ export class AuthServiceProvider {
         quizDiff += 0;
       }
     }
-    
+
     user[topicTitle] = questionScore;
     user.totalScore += quizDiff;
 

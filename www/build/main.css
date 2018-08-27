@@ -70919,6 +70919,8 @@ page-alternatives .alternatives-container {
   background-color: #F1FBF9;
   -webkit-box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.15);
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 page-alternatives .slide-title-main {
@@ -71183,12 +71185,19 @@ page-topic-four .arrow-right-style {
   color: rgba(0, 0, 0, 0.5);
 }
 
-page-topic-four .container-slides-content {
+page-topic-four .container-intro, page-topic-four .container-slides-content {
   width: 100%;
-  height: 83vh;
   text-align: center;
   padding: 10px;
   display: table;
+}
+
+page-topic-four .container-slides-content {
+  height: 83vh;
+}
+
+page-topic-four .container-intro {
+  height: 86vh;
 }
 
 page-topic-four .vertical-center {
@@ -71208,6 +71217,7 @@ page-topic-four .icon-intro-property {
   top: 10%;
   left: 40%;
   width: 20%;
+  max-width: 20%;
 }
 
 page-topic-four .line-separator-short {
@@ -71482,6 +71492,15 @@ page-hello-ionic .menuList:nth-child(6) {
   background: #0D3867 url("../assets/imgs/icn_activities.png") no-repeat 95% 50%;
 }
 
+page-hello-ionic .menuList:hover {
+  background-color: #343499 !important;
+  /* IE 9 */
+  -webkit-transform: scale(1.03);
+  /* Safari */
+  transform: scale(1.03);
+  /* Standard syntax */
+}
+
 page-hello-ionic ion-content {
   height: 98vh !important;
   padding: 10px;
@@ -71564,7 +71583,7 @@ page-topic-one .arrow-down-style {
   position: fixed;
   bottom: 20px;
   font-size: 30px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 
@@ -71587,7 +71606,7 @@ page-topic-one .slide-subtitle2-secondary {
 }
 
 page-topic-one .container-slides-content {
-  height: 83vh;
+  height: 81vh;
   text-align: center;
   padding: 10px;
   display: table;
@@ -71662,6 +71681,12 @@ page-topic-one .icon_property {
   max-width: 100%;
   height: auto;
   margin-bottom: 20px;
+}
+
+page-topic-one .swipe-icon {
+  width: 20%;
+  max-width: 20%;
+  opacity: 0.6;
 }
 
 page-topic-one .icon_property_coins {
@@ -71743,6 +71768,30 @@ page-topic-three .SwipedTabs-tabs {
   width: fit-content !important;
 }
 
+page-topic-two {
+  /*    .China:nth-child(2){
+        // width: 15vh;
+        // height: 8vh;
+        -webkit-transform: translate3d(608px, 136px, 0);
+        transform: translate3d(586px, 80px, 0);
+        background: rgba(255, 0, 0, 0.5);
+    }
+    .China:nth-child(3){
+        // width: 21vh;
+        // height: 7vh;
+        -webkit-transform: translate3d(608px, 136px, 0);
+        transform: translate3d(696px, 227px, 0);
+        background: rgba(255, 0, 0, 0.5);
+    }
+    .China:nth-child(4){
+        // width: 21vh;
+        // height: 18vh;
+        -webkit-transform: translate3d(608px, 136px, 0);
+        transform: translate3d(782px, 30px, 0);
+        background: rgba(255, 0, 0, 0.5);
+    }*/
+}
+
 page-topic-two .scroll-content {
   overflow: auto;
 }
@@ -71761,10 +71810,12 @@ page-topic-two .title {
   color: #4747C2;
   font-size: 25px;
   font-weight: normal;
+  text-shadow: 0 2px 3px rgba(255, 255, 255, 0.5);
 }
 
 page-topic-two .worldMap {
   height: 76vh;
+  margin-top: 8%;
 }
 
 page-topic-two .worldMap img {
@@ -71776,92 +71827,71 @@ page-topic-two .country {
 }
 
 page-topic-two .China:nth-child(1) {
-  -webkit-transform: translate3d(608px, 136px, 0);
-  transform: translate3d(572px, 131px, 0);
-  background: rgba(255, 0, 0, 0.5);
-}
-
-page-topic-two .China:nth-child(2) {
-  -webkit-transform: translate3d(608px, 136px, 0);
-  transform: translate3d(586px, 80px, 0);
-  background: rgba(255, 0, 0, 0.5);
-}
-
-page-topic-two .China:nth-child(3) {
-  -webkit-transform: translate3d(608px, 136px, 0);
-  transform: translate3d(696px, 227px, 0);
-  background: rgba(255, 0, 0, 0.5);
-}
-
-page-topic-two .China:nth-child(4) {
-  -webkit-transform: translate3d(608px, 136px, 0);
-  transform: translate3d(782px, 30px, 0);
-  background: rgba(255, 0, 0, 0.5);
+  -webkit-transform: translate3d(750px, 140px, 0);
+  transform: translate3d(750px, 140px, 0);
 }
 
 page-topic-two .Indonesia {
-  -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(689px, 409px, 0);
-  background: rgba(0, 238, 255, 0.5);
+  -webkit-transform: translate3d(870px, 325px, 0);
+  transform: translate3d(870px, 325px, 0);
 }
 
 page-topic-two .Philippines {
-  -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(850px, 325px, 0);
-  background: rgba(94, 255, 0, 0.5);
+  -webkit-transform: translate3d(785px, 235px, 0);
+  transform: translate3d(785px, 235px, 0);
 }
 
 page-topic-two .Vietnam {
   -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(739px, 276px, 0);
-  background: rgba(206, 66, 73, 0.5);
+  transform: translate3d(700px, 220px, 0);
 }
 
 page-topic-two .SriLanka {
-  -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(565px, 374px, 0);
-  background: rgba(178, 66, 206, 0.5);
+  -webkit-transform: translate3d(556px, 275px, 0);
+  transform: translate3d(556px, 275px, 0);
 }
 
 page-topic-two .Egypt {
-  -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(94px, 315px, 0);
-  background: rgba(91, 100, 223, 0.5);
+  -webkit-transform: translate3d(200px, 230px, 0);
+  transform: translate3d(200px, 230px, 0);
 }
 
 page-topic-two .Thailand {
-  width: 7vh;
-  height: 8vh;
-  -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(694px, 299px, 0);
-  background: rgba(255, 251, 0, 0.5);
+  -webkit-transform: translate3d(620px, 248px, 0);
+  transform: translate3d(620px, 260px, 0);
 }
 
 page-topic-two .Malaysia {
   -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(717px, 370px, 0);
-  background: rgba(255, 136, 0, 0.5);
+  transform: translate3d(695px, 275px, 0);
 }
 
 page-topic-two .Nigeria {
   -webkit-transform: translate3d(8px, 480px, 0);
-  transform: translate3d(8px, 480px, 0);
-  background: rgba(255, 251, 0, 0.5);
+  transform: translate3d(75px, 350px, 0);
 }
 
 page-topic-two .Bangladesh {
-  -webkit-transform: translate3d(919px, 428px, 0);
-  transform: translate3d(634px, 248px, 0);
-  background: rgba(91, 100, 223, 0.5);
+  -webkit-transform: translate3d(590px, 208px, 0);
+  transform: translate3d(590px, 208px, 0);
 }
 
 page-topic-two .circle-btn {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   background: #2CBFA6 !important;
   border-radius: 100% !important;
   -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.14) !important;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.14) !important;
+}
+
+page-topic-two .circle-btn:hover {
+  background: #343499 !important;
+  /* IE 9 */
+  -webkit-transform: scale(1.03);
+  /* Safari */
+  transform: scale(1.03);
+  /* Standard syntax */
 }
 
 page-topic-two .btn-text {
@@ -71877,4 +71907,5 @@ page-topic-two .icon_property {
   top: 20%;
   left: 40%;
   width: 20%;
+  max-width: 20%;
 }

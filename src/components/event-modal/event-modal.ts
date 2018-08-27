@@ -32,9 +32,9 @@ export class EventModalComponent {
       this.showError = false;
 
       this.event.date = {
-        day: date.split("-")[0],
+        day: this.datePickerVal.split("-")[2],
         month: date.split("-")[1],
-        year: date.split("-")[2],
+        year: this.datePickerVal.split("-")[0],
       }
 
       this

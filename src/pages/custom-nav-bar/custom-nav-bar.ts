@@ -28,6 +28,7 @@ export class CustomNavBarPage {
         }))
           .payload
           .toJSON();
+
       });
   }
 

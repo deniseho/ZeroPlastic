@@ -69,9 +69,7 @@ import {SpeciesModalComponent} from "../components/species-modal/species-modal";
     FormsModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp, {
-      monthShortNames:["Jan, Feb, Mar, Apr, Mat, Jun, Jul, Aug, Sep, Oct, Nov, Dec"]
-    }),
+    IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     MnFullpageModule.forRoot(),

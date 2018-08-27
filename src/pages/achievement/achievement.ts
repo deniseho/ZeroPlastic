@@ -1,36 +1,52 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import { User } from '../../shared/user-model';
+import {User} from '../../shared/user-model';
+import {ToastServiceProvider} from '../../providers/toast-service/toast-service';
+import * as _ from 'lodash';
 
 @Component({selector: 'page-achievement', templateUrl: 'achievement.html'})
 
 export class AchievementPage {
   currentUser : User;
   badgeRecord : number[];
+  usersList : any[];
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider) {
-    // this.currentUser = this
-    //   .auth
-    //   .currentUser;
+  constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private toast : ToastServiceProvider) {
+    this.currentUser = this.auth.currentUser;
+    this.getPageData();
+  }
 
-    }
-    
-    ionViewDidLoad() {
-      let score = this.currentUser.totalScore;
-      console.log(score)
+  getPageData() {
+    this
+      .auth
+      .getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        this.usersList = [];
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
 
-    if (score < 25) {
-      this.badgeRecord = [1, 0, 0, 0, 0];
-    } else if (score >= 25 && score < 60) {
-      this.badgeRecord = [1, 1, 0, 0, 0];
-    } else if (score >= 60 && score < 100) {
-      this.badgeRecord = [1, 1, 1, 0, 0];
-    } else if (score >= 100 && score < 150) {
-      this.badgeRecord = [1, 1, 1, 1, 0];
-    } else if (score >= 150) {
-      this.badgeRecord = [1, 1, 1, 1, 1];
-    }
+          this
+            .usersList
+            .push(y as User);
+            this.usersList = _.first(_.chunk(_.sortBy(this.usersList, "totalScore").reverse(), 10));
+          });
+          this.currentUser = _.first(_.filter(this.usersList, item=>{
+            return item.email === this.auth.currentUser.email;
+          }))
+          let totalScore = this.currentUser.totalScore;
+          this.badgeRecord = this.auth.getBadgeRecord(totalScore);
+          this.currentUser.badges = this.badgeRecord;
+          this.auth.updateUser(this.currentUser);
+        });
+      }
+
+  ionViewDidLoad() {
+ 
   }
 
 }

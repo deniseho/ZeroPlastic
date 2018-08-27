@@ -21,68 +21,68 @@ export class UserServiceProvider {
 
   ionViewDidEnter() {}
   
-  getDBUsers() {
-    this.dbUserList = this
-      .db
-      .list('/users');
-    return this.dbUserList;
-  }
+  // getDBUsers() {
+  //   this.dbUserList = this
+  //     .db
+  //     .list('/users');
+  //   return this.dbUserList;
+  // }
 
-  getAllUsers(){
-    this.getDBUsers()
-      .snapshotChanges()
-      .subscribe(item => {
-        item.forEach(element => {
+  // getAllUsers(){
+  //   this.getDBUsers()
+  //     .snapshotChanges()
+  //     .subscribe(item => {
+  //       item.forEach(element => {
 
-          var y = element
-            .payload
-            .toJSON();
-          y["$key"] = element.key;
-        this
-          .userList
-          .push(y as User);
-      });
-    });
-  }
+  //         var y = element
+  //           .payload
+  //           .toJSON();
+  //         y["$key"] = element.key;
+  //       this
+  //         .userList
+  //         .push(y as User);
+  //     });
+  //   });
+  // }
 
   // getCurrentUser(){
   //   return Object.assign({}, this.loginUser );
   // }
 
-  insertUser(user : User) {
-    this
-      .dbUserList
-      .push({name: user.name, email: user.email, password: user.password})
-  }
+  // insertUser(user : User) {
+  //   this
+  //     .dbUserList
+  //     .push({name: user.name, email: user.email, password: user.password})
+  // }
 
-  updateUser(user : User) {
-    this
-      .dbUserList
-      .update(this.$userKey, user)
-  }
+  // updateUser(user : User) {
+  //   this
+  //     .dbUserList
+  //     .update(this.$userKey, user)
+  // }
 
-  updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
+  // updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
   
-    let user = currentUser;
+  //   let user = currentUser;
 
-    let preTotalScore = currentUser.totalScore;
-    let preQuestionScores = currentUser[topicTitle];
+  //   let preTotalScore = currentUser.totalScore;
+  //   let preQuestionScores = currentUser[topicTitle];
     
-    let quizTotal = 0;
-    let quizDiff = 0;
+  //   let quizTotal = 0;
+  //   let quizDiff = 0;
 
-    for (let i = 0; i < questionScore.length; i++) {
-      quizTotal += questionScore[i];
-      if (preQuestionScores[i] < questionScore[i]) {
-        quizDiff += questionScore[i];
-      } else {
-        quizDiff += 0;
-      }
-    }
+  //   for (let i = 0; i < questionScore.length; i++) {
+  //     quizTotal += questionScore[i];
+  //     if (preQuestionScores[i] < questionScore[i]) {
+  //       quizDiff += questionScore[i];
+  //     } else {
+  //       quizDiff += 0;
+  //     }
+  //   }
     
-    user[topicTitle] = questionScore;
-    user.totalScore += quizDiff;
+  //   user[topicTitle] = questionScore;
+  //   user.totalScore += quizDiff;
 
-    this.updateUser(user);
-  }
+  //   this.updateUser(user);
+  // }
 }

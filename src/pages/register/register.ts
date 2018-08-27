@@ -8,16 +8,19 @@ import {ToastServiceProvider} from '../../providers/toast-service/toast-service'
 @Component({selector: 'page-register', templateUrl: 'register.html'})
 export class RegisterPage {
   createSuccess = false;
+  ageGroup : string;
   registerCredentials = {
     name: 'Chia',
     email: 'hoc2@tcd.ie',
     password: 'deniseho'
   };
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private alertCtrl : AlertController) {}
+  constructor(public navCtrl : NavController, public navParams : NavParams, 
+    private auth : AuthServiceProvider, private alertCtrl : AlertController) {
+      this.ageGroup = "9-13";
+    }
 
-  ionViewDidLoad() {
-  }
+  ionViewDidLoad() {}
 
   register() {
     if (this.registerCredentials.name == '' || this.registerCredentials.name == null || this.registerCredentials.name == undefined) {

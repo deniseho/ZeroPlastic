@@ -1,5 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, Slides, Content} from 'ionic-angular';
+import { User } from '../../shared/user-model';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'page-topic-five', templateUrl: 'topic-five.html'})
 export class TopicFivePage {
@@ -11,9 +13,38 @@ export class TopicFivePage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
 
-  constructor(public navCtrl : NavController) {
+  currentUser : User;  
+
+  constructor(public navCtrl : NavController, private auth : AuthServiceProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
   }
+
+  getPageData() {
+    this
+      .auth
+      .getDBUsers()
+      .snapshotChanges()
+      .subscribe(item => {
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+
+          if(y["email"]==this.auth.currentUser.email){
+            this.currentUser = y as User;
+          }
+        });
+        let totalScore = this.currentUser.totalScore;
+        this.currentUser.badges = this
+          .auth
+          .getBadgeRecord(totalScore);
+        this
+          .auth
+          .updateUser(this.currentUser);
+      });
+  }
+
 
   ionViewDidEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
