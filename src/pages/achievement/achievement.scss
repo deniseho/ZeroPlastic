@@ -2,5 +2,131 @@ page-achievement {
     .badgeRecord{
         width: 30%;
         display: inline-block;
+        margin: auto;
+        padding: 8px;
     }
+
+    .container-slides-content {
+        padding: 10px;
+        height: 85vh;
+        display: table;
+    }
+
+    .vertical-center {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 15px 0 15px;
+    }
+
+    .line-separator-short {
+        height: 1px;
+        border-bottom: 1px solid #FEAA48;
+        width: 30%;
+        margin: auto;
+    }
+
+    .line-separator-long {
+        height: 1px;
+        border-bottom: 1px solid #FEAA48;
+        width: 100%;
+        margin: auto;
+    }
+
+    .line-separator-long, .line-separator-short {
+        padding-top: 20px;
+    }
+
+    .slide-title-main {
+        color: #4747C2;
+        font-size: 30px;
+        font-weight: normal;
+        margin: 0px;
+        padding-top: 10px;
+    }
+
+    .icon-profile {
+        font-size: 28px;
+        opacity: 0.8;
+    }
+
+    .slide-title-main, .name, .score, .score-label {
+        text-align: center;
+    }
+
+    .name {
+        font-size: 22px;
+        font-weight: normal;
+        margin: 0px;
+        padding-top: 15px;
+    }
+
+    .slide-subtitle {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .icon-subtitle {
+        font-size: 19px;
+        opacity: 0.8;
+    }
+
+    .slide-subtitle, .name, .leaderboard, .score {
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    .score {
+        font-weight: bold;
+        font-size: 25px;
+        margin: 0px;
+        padding-top: -10px;
+    }
+
+    .score-label {
+        margin-top: 20px;
+        font-weight: normal;
+        margin-bottom: 0px;
+    }
+
+    .leaderboard {
+        font-size: 16px;
+        width: 80%;
+        margin: auto;
+    }
+
+    //.column-1:nth-child(1) {
+    //    background-color: #f53d3d;
+    //}
+
+    .column-1 {
+        text-align: center;
+    }
+
+    .column-2 {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .column-3 {
+        text-align: right;
+    }
+
+
+    /*.sea-gradient-wrapper {
+        position: relative;
+
+    }
+
+    .sea-gradient {
+        width: 100vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-repeat: repeat no-repeat;
+        background-position: 0 bottom;
+        transform-origin: center bottom;
+        animation: move_wave 12s linear infinite;
+        z-index: -1;
+    }*/
+
+
 }

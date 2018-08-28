@@ -1,3 +1,75 @@
 quiz-result-modal {
 
+  .slide-title-main {
+    color: #4747C2;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .slide-subtitle {
+    color: white;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 500;
+    margin-top: -10px;
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+  }
+
+  .p-custom {
+    margin-bottom: 5px;
+  }
+
+
+  .description {
+    margin-top: -10px;
+    line-height: 22px;
+  }
+
+  .line-separator-short {
+    width: 80px;
+    margin-bottom: 20px;
+  }
+
+  .line-separator-short, .line-separator-long {
+    height: 1px;
+    border-bottom: 2px solid #FEAA48;
+    margin: auto;
+  }
+
+  .line-separator-long {
+    width: 90%;
+  }
+
+  .container-slides-content {
+    //height: 85vh;
+    text-align: center;
+    //padding: 10px;
+  }
+
+  .quiz-score {
+    background-color: #6666CC;
+  }
+
+  .quiz-score, .total-score {
+    margin: auto;
+    width: 200px;
+    border-radius: 100px;
+  }
+
+  .total-score {
+    background-color: #2CBFA6;
+  }
+
+
+  h4 {
+    line-height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+
 }

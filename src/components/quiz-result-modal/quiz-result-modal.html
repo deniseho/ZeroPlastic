@@ -1,19 +1,37 @@
 <!--template for overlay-->
 
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Result
-    </ion-title>
-    <ion-buttons start>
+<ion-header no-border="">
+  <ion-toolbar class="modal-toolbar" color="lightest">
+    <ion-buttons end="">
+      <button ion-button (click)="close()" icon-only="">
+        <ion-icon name="close" large=""></ion-icon>
+      </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>Quiz score: {{quizScore}}</h1>
-  <h1>Total score: {{totalScore}}</h1>
-  <button ion-button (click)="close()">
-    <span ion-text>Confirm</span>
-  </button>
+  <!--<h1>Quiz score: {{quizScore}}</h1>
+  <h1>Total score: {{totalScore}}</h1>-->
+  <div class="container-slides-content">
+    <img src="assets/imgs/cup-quiz.png"> <!--Vector created by Freepik-->
+    <h1 class="slide-title-main">Well done!</h1>
+    <p class="description">Keep it up and become a Master Environmentalist!</p>
+    <div class="line-separator-short"></div>
+    <div class="space"></div>
+
+    <p class="p-custom">Quiz score</p>
+    <div class="quiz-score">
+      <h4 class="slide-subtitle">{{quizScore}} pts</h4>
+    </div>
+
+    <p class="p-custom">Your total score</p>
+    <div class="total-score">
+      <h4 class="slide-subtitle">{{totalScore}} pts</h4>
+    </div>
+
+    <!--<button ion-button (click)="close()">
+      <span ion-text>Confirm</span>
+    </button>-->
+  </div>
 </ion-content>

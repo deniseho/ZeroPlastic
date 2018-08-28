@@ -38,6 +38,7 @@ import { MapInfoComponent } from '../components/map-modal/map-modal';
 import { TagsModalComponent } from "../components/tags-modal/tags-modal";
 import { EventModalComponent } from '../components/event-modal/event-modal';
 import {SpeciesModalComponent} from "../components/species-modal/species-modal";
+import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider";
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import {SpeciesModalComponent} from "../components/species-modal/species-modal";
     MapInfoComponent,
     TagsModalComponent,
     EventModalComponent,
-    SpeciesModalComponent
+    SpeciesModalComponent,
+      OnboardingSliderPage
   ],
   imports: [
     BrowserModule,
@@ -94,7 +96,8 @@ import {SpeciesModalComponent} from "../components/species-modal/species-modal";
     MapInfoComponent,
     TagsModalComponent,
     EventModalComponent,
-    SpeciesModalComponent
+    SpeciesModalComponent,
+      OnboardingSliderPage
 ],
   providers: [
     StatusBar,

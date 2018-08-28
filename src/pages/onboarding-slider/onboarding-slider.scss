@@ -1,0 +1,48 @@
+page-onboarding-slider {
+  .slide-title-main {
+    color: #4747C2;
+    opacity: 0.7;
+    font-size: 26px;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .line-separator-short, .line-separator-long {
+    height: 1px;
+    border-bottom: 1px solid #FEAA48;
+    margin: auto;
+  }
+
+  .line-separator-short {
+    width: 30%;
+  }
+
+  .line-separator-long {
+    width: 90%;
+  }
+
+  .skip {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+  }
+
+  .logo {
+    width: 70%;
+    max-width: 70%;
+    margin-bottom: 20px;
+  }
+
+  .icon-slide {
+    padding-top: 20px;
+  }
+
+}

@@ -1,29 +1,27 @@
-<ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Quiz
-      </ion-title>
-      <ion-buttons start>
-        <button ion-button (click)="showLeaveConfirm()">
-          <ion-icon name="close" large=""></ion-icon>
-          <!--<span ion-text color="primary">Cancel</span>-->
+<ion-header no-border="">
+    <ion-toolbar class="modal-toolbar" color="lightest">
+        <ion-buttons end="">
+            <button ion-button (click)="close()" icon-only="">
+                <ion-icon name="close" large=""></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides #quizSlides>
+    <ion-slide *ngFor="let question of topic.questionList; index as i">
+        <h1 class="slide-title-main">Quiz</h1>
+      <img src="assets/imgs/icn-quiz.png">
+      <h3 class="question">{{question.question}}</h3>
+      <ion-buttons *ngFor="let option of question.options">
+        <button ion-button block large text-wrap=""
+                [ngClass]="[btnStyle]"
+                [disabled]="disableButtons"
+                (click)="checkAnswer($event, i, option)">
+          {{option.description}}
         </button>
       </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-    <ion-slides #quizSlides>
-      <ion-slide *ngFor="let question of topic.questionList; index as i">
-        <h3>{{question.question}}</h3>
-        <ion-buttons *ngFor="let option of question.options">
-          <button ion-button block large 
-            [ngClass]="[btnStyle]"
-            [disabled]="disableButtons"
-            (click)="checkAnswer($event, i, option)">
-            {{option.description}}
-          </button>
-        </ion-buttons>
-      </ion-slide>
-    </ion-slides>
-  </ion-content>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -16,14 +16,16 @@ import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AlternativesPage } from '../pages/alternatives/alternatives';
 import * as _ from 'lodash';
-import 'jquery'; // Import jQuery
+import 'jquery';
+import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider"; // Import jQuery
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp{
   @ViewChild(Nav) nav: Nav;
-  rootPage = LoginPage;
+  // rootPage = LoginPage;
+  rootPage = OnboardingSliderPage;
   users : any;
 
   pages: Array<{title: string, component: any, avatar: string}>;
@@ -72,4 +74,10 @@ export class MyApp{
       this.nav.setRoot(LoginPage);
     });
   }
+
+    /*gotoAchievement() {
+        this
+            .navCtrl
+            .push(AchievementPage);
+    }*/
 }

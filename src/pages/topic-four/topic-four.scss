@@ -46,19 +46,13 @@ page-topic-four {
   //     height: 95vh;
   //}
 
-  .arrow-up-style, .arrow-down-style {
-    position: fixed;
-    font-size: 30px;
-    color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-  }
-
-  .arrow-up-style {
-    top: 20px;
-  }
-
   .arrow-down-style {
+    position: absolute;
     bottom: 20px;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    z-index: 2;
   }
 
   .arrow-right-style {
@@ -277,9 +271,8 @@ page-topic-four {
     height: 53vh;
     text-align: center;
     padding: 30px 10px 30px 10px;
-    background: url("../../assets/imgs/game-intro-bg.png") no-repeat;
+    background: url("../assets/imgs/game-intro-bg.png") no-repeat;
     display: table;
-
   }
 
   .container-btn-content-game {
@@ -291,7 +284,6 @@ page-topic-four {
 
   .text-shadow {
     //text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
-    color: rgba(0, 0, 0, 0.8);
     margin-bottom: 0px;
   }
 

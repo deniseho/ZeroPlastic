@@ -26,7 +26,7 @@ page-topic-three {
   }
 
   .container-species {
-    background: url("../../assets/imgs/bg-species-affected-01.png") no-repeat 0 20px;
+    background: url("../assets/imgs/bg-species-affected-01.png") no-repeat 0 20px;
   }
 
   .background-species{
@@ -98,11 +98,14 @@ page-topic-three {
   }
 
   p {
-    color: rgba(0, 0, 0, 0.7);
     font-size: 16px;
     line-height: 20px;
     padding: 0 15px 0 15px;
     margin-top: -5px;
+  }
+
+  .slide-subtitle, p {
+    color: rgba(0, 0, 0, 0.7);
   }
 
 }

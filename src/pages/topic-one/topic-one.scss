@@ -63,16 +63,8 @@ page-topic-one {
     margin-bottom: 20px;
   }
 
-  .arrow-up-style {
-    position: fixed;
-    top: 20px;
-    font-size: 30px;
-    color: rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-
   .arrow-down-style {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     font-size: 30px;
     color: rgba(0, 0, 0, 0.4);
