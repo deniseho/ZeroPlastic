@@ -1,40 +1,43 @@
-import {Component} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {Loading, LoadingController, ViewController, NavController} from 'ionic-angular';
 import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
+import {VideoPlayer, VideoOptions} from '@ionic-native/video-player';
 
 @Component({selector: 'video-modal', templateUrl: 'video-modal.html'})
 export class VideoModalComponent {
-
-  video : any = {
-    url: 'https://www.youtube.com/embed/omXcEA8YDgM?autoplay=1'
-  };
+  videoOptions : VideoOptions;
+  videoUrl : string;
 
   trustedVideoUrl : SafeResourceUrl;
   loading : Loading;
 
-  constructor(public navCtrl : NavController, public loadingCtrl : LoadingController, 
-    private viewCtrl : ViewController, private domSanitizer : DomSanitizer) {
+  constructor(public navCtrl : NavController, public loadingCtrl : LoadingController, private viewCtrl : ViewController, private videoPlayer : VideoPlayer) {
+    // this.playVideo();
   }
 
-  ionViewWillEnter() : void {
-    this.trustedVideoUrl = this
-      .domSanitizer
-      .bypassSecurityTrustResourceUrl(this.video.url);
+  ionViewDidEnter() {}
 
-    // this.loading = this
-    //   .loadingCtrl
-    //   .create({content: 'Please wait...'});
+  // stopVideo() {
+  //   this
+  //     .videoPlayer
+  //     .close();
+  // }
 
-    // this
-    //   .loading
-    //   .present();
-  }
+  // async playVideo() {
+  //   try {
+  //     this.videoOptions = {
+  //       volume: 0.7,
+  //       scalingMode: 1
+  //     }
 
-  handleIFrameLoadEvent() : void {
-    // this
-    //   .loading
-    //   .dismiss();
-  }
+  //     this.videoUrl = "assets/videos/video01.mp4";
+  //     await this
+  //       .videoPlayer
+  //       .play(this.videoUrl);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // }
 
   close() {
     this

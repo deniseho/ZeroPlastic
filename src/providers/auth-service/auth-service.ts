@@ -17,7 +17,9 @@ export class AuthServiceProvider {
   usersList : User[];
   $userKey : string;
 
-  constructor(public http : Http, public db : AngularFireDatabase, private toast : ToastServiceProvider) {}
+  constructor(public http : Http, public db : AngularFireDatabase, private toast : ToastServiceProvider) {
+    this.getAllUsers();
+  }
 
   ionViewDidLoad() {}
 
@@ -144,32 +146,36 @@ export class AuthServiceProvider {
     return badgeRecord;
   }
 
-  checkBadges(badges) {
-    let user = this.currentUser;
-    let newRecord = badges;
-    let preRecord = [];
+  newRecord : any[];
+  preRecord : any[];
 
-    for (let i in user.badges) {
-      preRecord.push(user.badges[i])
+  checkBadges(badges) {
+    this.newRecord = badges;
+    this.preRecord = [];
+    let newRecordNum = 0;
+    let preRecordNum = 0;
+
+    for (let i in this.currentUser.badges) {
+      this.preRecord.push(this.currentUser.badges[i])
     }
+    console.log(this.currentUser)
 
     console.log("---------")
     console.log("preRecord")
-    console.log(preRecord)
+    console.log(this.newRecord)
     console.log("newRecord")
-    console.log(newRecord)
+    console.log(this.preRecord)
     console.log("=========")
 
-    if (newRecord.toString() != preRecord.toString()) {
+    if (this.newRecord.toString() != this.preRecord.toString() && this.preRecord != []) {
       this
         .toast
         .showToast("level up!", "");
-      this.currentUser.badges = newRecord;
+      this.currentUser.badges = this.newRecord;
     }
   }
 
   updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
-
     let user = currentUser;
 
     let preTotalScore = currentUser.totalScore;

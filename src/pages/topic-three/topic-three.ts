@@ -1,10 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, Slides, Content, ModalController} from 'ionic-angular';
-import {TopicQuizComponent} from '../../components/topic-quiz/topic-quiz';
-import {topic3} from '../../shared/topic3-questions';
-import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import {User} from '../../shared/user-model';
-import {VideoModalComponent} from '../../components/video-modal/video-modal';
+import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
+import { topic3 } from '../../shared/topic3-questions';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { User } from '../../shared/user-model';
+import { VideoModalComponent } from '../../components/video-modal/video-modal';
 
 @Component({selector: 'page-topic-three', templateUrl: 'topic-three.html'})
 export class TopicThreePage {
@@ -17,7 +17,9 @@ export class TopicThreePage {
   tabs : any = [];
   currentUser : User;
 
-  constructor(public navCtrl : NavController, private auth : AuthServiceProvider, public modalCtrl : ModalController) {
+  constructor(public navCtrl : NavController,  
+    private auth: AuthServiceProvider,
+    public modalCtrl : ModalController ) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
     this.getPageData();
   }
@@ -34,24 +36,26 @@ export class TopicThreePage {
             .toJSON();
           y["$key"] = element.key;
 
-          if (y["email"] == this.auth.currentUser.email) {
+          if(y["email"]==this.auth.currentUser.email){
             this.currentUser = y as User;
           }
         });
         let totalScore = this.currentUser.totalScore;
-        this.currentUser.badges = this
-          .auth
-          .getBadgeRecord(totalScore);
-        this
-          .auth
-          .updateUser(this.currentUser);
+        console.log("totalScore")
+        console.log(this.currentUser)
+        // this.currentUser.badges = this
+        //   .auth
+        //   .getBadgeRecord(totalScore);
+        // this
+        //   .auth
+        //   .updateUser(this.currentUser);
       });
   }
 
-  playVideo() {
+  playVideo(){
     const modal = this
-      .modalCtrl
-      .create(VideoModalComponent);
+    .modalCtrl
+    .create(VideoModalComponent);
     modal.present();
   }
 
