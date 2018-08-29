@@ -1,33 +1,67 @@
 page-topic-five {
-
-    .SwipedTabs-indicatorSegment
-   {
-       -webkit-transition: 0.3s all;
-       -moz-transition:  0.3s all;
-       -o-transition:  0.3s all;
-       transition:  0.3s all;
-       transform-origin: top 0 left 0;
-       height: 1px;
-       position: relative;
-       top: -2px;
-       background-color: blue !important;
-
-
-   }
-   .SwipedTabs-tabs ion-segment-button
-   {
-       border:none !important;
-       color:green!important;
-       background-color:white!important;
-
-   }
-    .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
-   {
-       color:blue !important;
-   }
-   .SwipedTabs-tabs
-   {
-       width: fit-content !important;
-   }
+    .menuList {
+        //width: 95%;
+        height: 16%;
+        cursor: pointer;
+        margin: 10px 10px 0 10px;
+        border-radius: 4px;
+      }
+    
+      ion-card {
+        position: relative;
+        text-align: left;
+        padding-left: 5%;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 22px;
+        width: 100%;
+        font-weight: 500;
+        color: #fff;
+      }
+    
+      .menuList:nth-child(2) {
+        background: #74D7DA url("../assets/imgs/icn_plastic_pollution.png") no-repeat 95% 50%;
+      }
+    
+      .menuList:nth-child(3) {
+        background: #51C0CA url("../assets/imgs/icn_plastics.png") no-repeat 95% 50%;
+      }
+    
+      .menuList:nth-child(4) {
+        background: #3A8EA7 url("../assets/imgs/icn_octopus.png") no-repeat 95% 50%;
+      }
+    
+      .menuList:nth-child(5) {
+        background: #175D84 url("../assets/imgs/icn_take_action.png") no-repeat 95% 50%;
+      }
+    
+      .menuList:nth-child(6) {
+        background: #0D3867 url("../assets/imgs/icn_activities.png") no-repeat 95% 50%;
+      }
+    
+      .menuList:hover {
+        background-color: #343499 !important;
+        -ms-transform: scale(1.03); /* IE 9 */
+        -webkit-transform: scale(1.03); /* Safari */
+        transform: scale(1.03); /* Standard syntax */
+        //opacity: 0.6;
+      }
+    
+      ion-content {
+        height: 98vh !important;
+        padding: 10px;
+      }
+    
+      .slide-title-main {
+        color: #4747C2;
+        font-size: 28px;
+        font-weight: normal;
+        text-align: left;
+        padding-left: 10px;
+      }
+    
 
 }

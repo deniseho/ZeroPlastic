@@ -221,13 +221,13 @@ export class AuthServiceProvider {
 
     if (totalScore < 25) {
       badgeRecord = [1, 0, 0, 0, 0];
-    } else if (totalScore >= 25 && totalScore < 40) {
+    } else if (totalScore >= 25 && totalScore < 60) {
       badgeRecord = [1, 1, 0, 0, 0];
-    } else if (totalScore >= 40 && totalScore < 60) {
+    } else if (totalScore >= 60 && totalScore < 100) {
       badgeRecord = [1, 1, 1, 0, 0];
-    } else if (totalScore >= 60 && totalScore < 80) {
+    } else if (totalScore >= 100 && totalScore < 150) {
       badgeRecord = [1, 1, 1, 1, 0];
-    } else if (totalScore >= 80) {
+    } else if (totalScore >= 150) {
       badgeRecord = [1, 1, 1, 1, 1];
     }
 

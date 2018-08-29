@@ -29,7 +29,7 @@ export class TopicQuizComponent {
   topicTitle : string;
 
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private userApi : UserServiceProvider, private auth : AuthServiceProvider) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private auth : AuthServiceProvider) {
 
     this.topic = navParams.get("collection");
 
