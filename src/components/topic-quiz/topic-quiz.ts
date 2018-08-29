@@ -101,10 +101,13 @@ export class TopicQuizComponent {
         this.disableButtons = false;
         this.nextSlide();
       } else {
+
+        this.auth.preUser = this.currentUser;
         this
           .auth
           .updateUserAchievement(this.currentUser, this.quizScore, this.questionPoints, this.topicTitle);
-
+        this.auth.getBadgeRecord(this.currentUser.badges);
+        this.auth.checkBadges();
         this.showResultPage();
         this
           .nativeAudio

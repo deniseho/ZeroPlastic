@@ -45,15 +45,11 @@ export class TopicThreePage {
             this.currentUser = y as User;
           }
         });
+        this.auth.preRecord = this.currentUser.badges;
         let totalScore = this.currentUser.totalScore;
-        console.log("totalScore")
-        console.log(this.currentUser)
-        // this.currentUser.badges = this
-        //   .auth
-        //   .getBadgeRecord(totalScore);
-        // this
-        //   .auth
-        //   .updateUser(this.currentUser);
+        this.currentUser.badges = this
+          .auth
+          .getBadgeRecord(totalScore);
       });
   }
 

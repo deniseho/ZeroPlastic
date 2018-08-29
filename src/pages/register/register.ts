@@ -10,9 +10,9 @@ export class RegisterPage {
   createSuccess = false;
   ageGroup : string;
   registerCredentials = {
-    name: '',
-    email: '',
-    password: ''
+    name: 'Chia',
+    email: 'hoc2@tcd.ie',
+    password: 'deniseho'
   };
 
   constructor(public navCtrl : NavController, public navParams : NavParams, 

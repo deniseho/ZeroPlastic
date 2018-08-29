@@ -133,7 +133,7 @@ export class AuthServiceProvider {
 
     if (totalScore < 25) {
       badgeRecord = [1, 0, 0, 0, 0];
-    } else if (totalScore >= 25 && totalScore < 60) {
+    } else if (totalScore >= 25 && totalScore < 30) {
       badgeRecord = [1, 1, 0, 0, 0];
     } else if (totalScore >= 60 && totalScore < 100) {
       badgeRecord = [1, 1, 1, 0, 0];
@@ -142,36 +142,41 @@ export class AuthServiceProvider {
     } else if (totalScore >= 150) {
       badgeRecord = [1, 1, 1, 1, 1];
     }
-    this.checkBadges(badgeRecord);
+    if(badgeRecord!=[]){
+      this.newRecord = badgeRecord;
+    }
     return badgeRecord;
   }
 
   newRecord : any[];
   preRecord : any[];
-
-  checkBadges(badges) {
-    this.newRecord = badges;
+  preUser : any;
+  checkBadges() {
     this.preRecord = [];
     let newRecordNum = 0;
     let preRecordNum = 0;
 
-    for (let i in this.currentUser.badges) {
-      this.preRecord.push(this.currentUser.badges[i])
-    }
-    console.log(this.currentUser)
+    if(this.preUser!=undefined&&this.newRecord!=[]){
 
-    console.log("---------")
-    console.log("preRecord")
-    console.log(this.newRecord)
-    console.log("newRecord")
-    console.log(this.preRecord)
-    console.log("=========")
-
-    if (this.newRecord.toString() != this.preRecord.toString() && this.preRecord != []) {
-      this
+      for (let i in this.currentUser.badges) {
+        this.preRecord.push(this.preUser.badges[i])
+      }
+      console.log(this.currentUser)
+      
+      console.log("---------")
+      console.log("preRecord")
+      console.log(this.newRecord)
+      console.log("newRecord")
+      console.log(this.preRecord)
+      console.log("=========")
+      
+      if (this.newRecord.toString() != this.preRecord.toString() && this.newRecord != []) {
+        this
         .toast
         .showToast("level up!", "");
-      this.currentUser.badges = this.newRecord;
+        this.currentUser.badges = this.newRecord;
+        this.preUser = this.currentUser;
+      }
     }
   }
 
