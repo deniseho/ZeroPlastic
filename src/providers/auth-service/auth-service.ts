@@ -173,7 +173,7 @@ export class AuthServiceProvider {
       if (this.newRecord.toString() != this.preRecord.toString() && this.newRecord != []) {
         this
         .toast
-        .showToast("level up!", "");
+        .showToast("You got a new badge!", "");
         this.currentUser.badges = this.newRecord;
         this.preUser = this.currentUser;
       }
