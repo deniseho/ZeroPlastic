@@ -116,7 +116,7 @@ export class AuthServiceProvider {
   updateEvents(event){
     this.dbEventList = this.getDBEvents();
     this.dbEventList.push(event);
-    this.toast.showToast(this.currentUser.name + " just created a new event!", "");
+    this.toast.showToast(this.currentUser.name + " just created a new event!", "createEvent");
   }
 
   insertUser(user : User) {
@@ -209,7 +209,7 @@ export class AuthServiceProvider {
     if(preNum < newNum){
       this
       .toast
-      .showToast("You got a new badge!", "");
+      .showToast("You got a new badge!", "level"+newNum);
       user.badges = newRecord;
       this.updateUser(user);
     }

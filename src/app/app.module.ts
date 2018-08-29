@@ -66,7 +66,7 @@ import { VideoPlayer } from '@ionic-native/video-player';
     TagsModalComponent,
     EventModalComponent,
     SpeciesModalComponent,
-      OnboardingSliderPage
+    OnboardingSliderPage
   ],
   imports: [
     BrowserModule,
@@ -98,7 +98,7 @@ import { VideoPlayer } from '@ionic-native/video-player';
     TagsModalComponent,
     EventModalComponent,
     SpeciesModalComponent,
-      OnboardingSliderPage
+    OnboardingSliderPage
 ],
   providers: [
     StatusBar,

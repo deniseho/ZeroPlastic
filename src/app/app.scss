@@ -80,6 +80,38 @@
   } 
 }
 
+
+
+.level2 { 
+  .toast-message { 
+    // background: color($colors, primary);
+  } 
+  .toast-message::before {
+    background-image: url("../assets/imgs/bunny.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 50px; 
+    height: 50px;
+    content:"";
+  } 
+}
+
+.createEvent{
+  .toast-message { 
+    // background: color($colors, primary);
+  } 
+  .toast-message::before {
+    background-image: url("../assets/imgs/bunny.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 50px; 
+    height: 50px;
+    content:"";
+  } 
+}
+
+
+
 .textToast{
   .toast-message { 
     // background: color($colors, primary);

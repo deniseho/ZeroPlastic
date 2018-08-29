@@ -31,7 +31,7 @@
         <h2 class="content-color">Home</h2>
         <ion-icon item-end name="ios-arrow-forward" color="gray"></ion-icon>
       </ion-item>
-      <ion-item class="bg-color" ion-item *ngFor="let p of pages" (click)="gotoPage(p)">
+      <ion-item class="bg-color" ion-item *ngFor="let p of pages" (click)="gotoPage(p)" style="z-index:999">
           <ion-avatar item-start>
             <img class="menu-avatar" src={{p.avatar}}>
           </ion-avatar>
