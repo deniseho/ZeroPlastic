@@ -8,7 +8,7 @@ import { ToastServiceProvider } from '../../providers/toast-service/toast-servic
 
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
-  // loading  : Loading;
+  loading  : Loading;
   registerCredentials = {
     email: 'hoc2@tcd.ie',
     password: 'deniseho'
@@ -34,7 +34,7 @@ export class LoginPage {
   }
 
   login() {
-    // this.showLoading();
+    this.showLoading();
   if(this.registerCredentials.email==''||this.registerCredentials.email==null||this.registerCredentials.email==undefined){
       this.showError("Please enter your email.");
     }else if(this.registerCredentials.password==''||this.registerCredentials.password==null||this.registerCredentials.password==undefined){
@@ -58,19 +58,19 @@ export class LoginPage {
     }
   }
 
-  // showLoading() {
-  //   this.loading = this
-  //     .loadingCtrl
-  //     .create({content: 'Please wait...', dismissOnPageChange: true});
-  //   this
-  //     .loading
-  //     .present();
-  // }
+  showLoading() {
+    this.loading = this
+      .loadingCtrl
+      .create({content: 'Please wait...', dismissOnPageChange: true});
+    this
+      .loading
+      .present();
+  }
 
   showError(text : any) {
-    // this
-    //   .loading
-    //   .dismiss();
+    this
+      .loading
+      .dismiss();
     let alert = this
       .alertCtrl
       .create({title: 'Fail', subTitle: text, buttons: ['OK']});

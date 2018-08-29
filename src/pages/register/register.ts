@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, AlertController} from 'ionic-angular';
+import {NavController, NavParams, AlertController, DateTime} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {TopicMenu} from "../topic-menu/topic-menu";
 import {LoginPage} from "../login/login";
@@ -10,9 +10,9 @@ export class RegisterPage {
   createSuccess = false;
   ageGroup : string;
   registerCredentials = {
-    name: 'Chia',
-    email: 'hoc2@tcd.ie',
-    password: 'deniseho'
+    name: '',
+    email: '',
+    password: ''
   };
 
   constructor(public navCtrl : NavController, public navParams : NavParams, 
@@ -30,6 +30,7 @@ export class RegisterPage {
     } else if (this.registerCredentials.password == '' || this.registerCredentials.password == null || this.registerCredentials.password == undefined) {
       this.showPopup("Error", "Please enter your password.");
     } else {
+      this.registerCredentials.email = 'hoc2@tcd.ie';
       this
         .auth
         .register(this.registerCredentials)

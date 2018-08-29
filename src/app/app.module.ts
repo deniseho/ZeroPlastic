@@ -39,6 +39,7 @@ import { MapInfoComponent } from '../components/map-modal/map-modal';
 import { TagsModalComponent } from "../components/tags-modal/tags-modal";
 import { EventModalComponent } from '../components/event-modal/event-modal';
 import { VideoModalComponent } from '../components/video-modal/video-modal';
+import { VideoPlayer } from '@ionic-native/video-player';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { VideoModalComponent } from '../components/video-modal/video-modal';
     UserServiceProvider,
     ToastController,
     ToastServiceProvider,
+    VideoPlayer
   ]
 })
 export class AppModule {}
