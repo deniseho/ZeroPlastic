@@ -113,9 +113,9 @@ export class AuthServiceProvider {
     .list('/events');
   }
 
-  updateEvents(events){
+  updateEvents(event){
     this.dbEventList = this.getDBEvents();
-    this.dbEventList.push(events);
+    this.dbEventList.push(event);
     this.toast.showToast(this.currentUser.name + " just created a new event!", "");
   }
 

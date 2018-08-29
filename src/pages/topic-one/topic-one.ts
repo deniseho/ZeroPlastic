@@ -29,7 +29,7 @@ export class TopicOnePage {
   tabElementWidth_px : number = 100;
   tabs : any = [];
   currentUser : User;
-  badgeRecord : number[];
+  events : any[];
 
   constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public renderer : Renderer, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
     this.tabs = ["Introduction", "Issue", "Cause", "Effect", "Solution", "Quiz"];
@@ -50,6 +50,28 @@ export class TopicOnePage {
 
           if(y["email"]==this.auth.currentUser.email){
             this.currentUser = y as User;
+          }
+        });
+      });
+
+      this
+      .auth
+      .getDBEvents()
+      .snapshotChanges()
+      .subscribe(item => {
+        this.events = [];
+
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+          console.log("getDBEvents y")
+          console.log(y)
+          if (this.events != undefined) {
+            this
+              .events
+              .push(y);
           }
         });
       });

@@ -14,7 +14,8 @@ export class TopicFivePage {
   tabs : any = [];
 
   currentUser : User;  
-
+  events: any[];
+  
   constructor(public navCtrl : NavController, private auth : AuthServiceProvider) {
     this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
   }
@@ -33,6 +34,28 @@ export class TopicFivePage {
 
           if(y["email"]==this.auth.currentUser.email){
             this.currentUser = y as User;
+          }
+        });
+      });
+
+      this
+      .auth
+      .getDBEvents()
+      .snapshotChanges()
+      .subscribe(item => {
+        this.events = [];
+
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+          console.log("getDBEvents y")
+          console.log(y)
+          if (this.events != undefined) {
+            this
+              .events
+              .push(y);
           }
         });
       });

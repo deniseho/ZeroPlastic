@@ -14,9 +14,9 @@ import {TagsModalComponent} from "../../components/tags-modal/tags-modal";
 import {TopicQuizComponent} from '../../components/topic-quiz/topic-quiz';
 import {topic4} from '../../shared/topic4-questions';
 import {EventModalComponent} from '../../components/event-modal/event-modal';
-import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
-import { User } from '../../shared/user-model';
-import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import {ToastServiceProvider} from '../../providers/toast-service/toast-service';
+import {User} from '../../shared/user-model';
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
@@ -32,34 +32,16 @@ export class TopicFourPage {
   newEvent : any;
   currentUser : User;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, 
-    public modalCtrl : ModalController, private auth: AuthServiceProvider,
-    private toast: ToastServiceProvider) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, private auth : AuthServiceProvider, private toast : ToastServiceProvider) {
     this.tabs = ["Take action", "Volunteer", "Recycle", "Alternatives", "Quiz"];
     this.tagsList = tags; //REFERENCE to info
-    this.events = [
-      {
-        date: {
-          day: "17",
-          month: "Sep",
-          year: "2018"
-        },
-        title: "Beach clean up",
-        location: "Donabate Village, Balcarrick, Donabate, Co. Dublin",
-        time: "9:30am",
-        contact: "(01) 896 2320"
-      }, {
-        date: {
-          day: "22",
-          month: "Sep",
-          year: "2018"
-        },
-        title: "Recycling workshop",
-        location: "Donabate Village, Balcarrick, Donabate, Co. Dublin",
-        time: "6:00pm",
-        contact: "(01) 896 2320"
-      }
-    ];
+    // this.events = [   {     date: {       day: "17",       month: "Sep",
+    // year: "2018"     },     title: "Beach clean up",     location: "Donabate
+    // Village, Balcarrick, Donabate, Co. Dublin",     time: "9:30am",     contact:
+    // "(01) 896 2320"   }, {     date: {       day: "22",       month: "Sep",
+    // year: "2018"     },     title: "Recycling workshop",     location: "Donabate
+    // Village, Balcarrick, Donabate, Co. Dublin",     time: "6:00pm",     contact:
+    // "(01) 896 2320"   } ];
     this.getPageData();
   }
 
@@ -75,8 +57,30 @@ export class TopicFourPage {
             .toJSON();
           y["$key"] = element.key;
 
-          if(y["email"]==this.auth.currentUser.email){
+          if (y["email"] == this.auth.currentUser.email) {
             this.currentUser = y as User;
+          }
+        });
+      });
+
+    this
+      .auth
+      .getDBEvents()
+      .snapshotChanges()
+      .subscribe(item => {
+        this.events = [];
+
+        item.forEach(element => {
+          var y = element
+            .payload
+            .toJSON();
+          y["$key"] = element.key;
+          console.log("getDBEvents y")
+          console.log(y)
+          if (this.events != undefined) {
+            this
+              .events
+              .push(y);
           }
         });
       });
@@ -154,16 +158,20 @@ export class TopicFourPage {
       .create(EventModalComponent);
 
     modal.onDidDismiss(data => {
-      if(data.action != 'cancel'){
+      if (data.action != 'cancel') {
 
         //new event list
-        this.events.push(data.event);
+        this
+          .events
+          .push(data.event);
 
         //update event db
-        this.auth.updateEvents(this.events);
+        this
+          .auth
+          .updateEvents(data.event);
       }
     });
-    
+
     modal.present();
   }
 }
