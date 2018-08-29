@@ -31,8 +31,8 @@
                 <ion-label stacked>Nickname</ion-label>
                 <ion-input type="text" placeholder="Name" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
               </ion-item>
-              <ion-item *ngIf="ageGroup=='9-13'" >
-                <ion-label stacked>Parent email</ion-label>
+              <ion-item >
+                <ion-label stacked>{{ageGroup=='9-13'?'Parent email':'Email'}} </ion-label>
                 <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
               </ion-item>
               <ion-item>
