@@ -17,6 +17,10 @@ export class AuthServiceProvider {
   usersList : User[];
   $userKey : string;
 
+  dbEventList : AngularFireList < any >;
+  eventssList : any[];
+  
+
   constructor(public http : Http, public db : AngularFireDatabase, private toast : ToastServiceProvider) {
     this.getAllUsers();
   }
@@ -101,6 +105,18 @@ export class AuthServiceProvider {
       .db
       .list('/users/' + this.$userKey);
     // return Object.assign({}, this.currentUser);
+  }
+
+  getDBEvents(){
+    return this
+    .db
+    .list('/events');
+  }
+
+  updateEvents(events){
+    this.dbEventList = this.getDBEvents();
+    this.dbEventList.push(events);
+    this.toast.showToast(this.currentUser.name + " just created a new event!", "");
   }
 
   insertUser(user : User) {
@@ -216,4 +232,5 @@ export class AuthServiceProvider {
 
     return badgeRecord;
   }
+
 }

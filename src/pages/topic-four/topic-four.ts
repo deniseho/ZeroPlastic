@@ -155,8 +155,12 @@ export class TopicFourPage {
 
     modal.onDidDismiss(data => {
       if(data.action != 'cancel'){
+
+        //new event list
         this.events.push(data.event);
-        this.toast.showToast("A new event is created!", "");
+
+        //update event db
+        this.auth.updateEvents(this.events);
       }
     });
     
