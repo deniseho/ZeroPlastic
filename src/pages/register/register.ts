@@ -30,7 +30,6 @@ export class RegisterPage {
     } else if (this.registerCredentials.password == '' || this.registerCredentials.password == null || this.registerCredentials.password == undefined) {
       this.showPopup("Error", "Please enter your password.");
     } else {
-      this.registerCredentials.email = 'hoc2@tcd.ie';
       this
         .auth
         .register(this.registerCredentials)
