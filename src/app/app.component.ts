@@ -48,11 +48,11 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       {
-        title: 'About Plastic',
+        title: 'About Plastics',
         component: TopicOnePage,
         avatar: 'assets/imgs/icn_plastic_pollution.png'
       }, {
-        title: 'Top 10 countries',
+        title: 'Top 10 contributors',
         component: TopicTwoPage,
         avatar: 'assets/imgs/icn_plastics.png'
       }, {

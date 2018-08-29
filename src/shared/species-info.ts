@@ -11,14 +11,14 @@ export const species: any = {
         title: "Whales",
         description: "Plastic pollution is a growing threat to whales and dolphins. 56% percent of all whale and dolphin " +
         "species, from small fish-eating dolphins to the largest filter feeding whales, have been recorded eating marine " +
-        "plastics that theyve mistaken for food.",
+        "plastics that they've mistaken for food.",
         image: "assets/imgs/icn-whale.png",
         video: "https://www.youtube.com/embed/RNVO12C2p6Y"
     },
     Turtle: {
         title: "Turtles",
-        description:"More than half of the world's sea turtles have ingested some form of plastic or trash. Jellyfish, " +
-        "plastic bags, balloons; all these will look like a meal to a hungry sea turtle. Nearly all species of sea turtles " +
+        description:"More than half of the world's sea turtles have ingested some form of plastic or trash. A hungry sea turtle is unable to distinguish\n" +
+        "between a jellyfish and plastic items such as plastic bags, and straws. Nearly all species of sea turtles " +
         "are already on the endangered species list. We simply cannot afford to have thousands dying per year due to " +
         "plastics in the ocean",
         image: "assets/imgs/icn-turtle.png",

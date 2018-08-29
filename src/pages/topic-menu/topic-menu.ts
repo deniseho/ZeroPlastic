@@ -18,8 +18,8 @@ export class TopicMenu {
     public navParams : NavParams, 
   ) {
       this.pages = [
-      { title: 'About Plastic', component: TopicOnePage },
-      { title: 'Top 10 countries', component: TopicTwoPage },
+      { title: 'About Plastics', component: TopicOnePage },
+      { title: 'Top 10 contributors', component: TopicTwoPage },
       { title: 'Species Affected', component: TopicThreePage },
       { title: 'Take Action', component: TopicFourPage },
       { title: 'Activities', component: TopicFivePage },
