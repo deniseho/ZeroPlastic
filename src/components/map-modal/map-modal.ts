@@ -1,21 +1,27 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, ViewController, ModalController} from 'ionic-angular';
 
-@Component({selector: 'map-modal', templateUrl: 'map-modal.html'})
+@Component({
+    selector: 'map-modal',
+    templateUrl: 'map-modal.html'})
 export class MapInfoComponent {
-  countryInfo : string;
+  label: string;
+  description: string;
+  image: string;
 
   constructor(
       public navCtrl : NavController,
       public navParams : NavParams,
       public viewCtrl : ViewController,
       public modalCtrl : ModalController) {
-    this.countryInfo = navParams.get("country");
+        this.label = navParams.get("countryLabel");
+        this.description = navParams.get("countryDescription");
+        this.image = navParams.get("countryImage");
 
   }
   ionViewDidEnter() {}
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() {  }
 
   close() {
     this

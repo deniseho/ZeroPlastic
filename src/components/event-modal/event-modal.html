@@ -10,7 +10,7 @@
 
 <ion-content padding="">
   <div class="img-wrapper">
-    <img src="../../assets/imgs/icn_temp.png" class="icon_property">
+    <img src="assets/imgs/icn-calendar.png" class="icon_property" alt="Banner vector created by Makyzz - Freepik.com">
   </div>
 
   <form (ngSubmit)="submitEventForm()" class="content-wrapper">
@@ -19,23 +19,23 @@
       <ion-label>Date</ion-label>
       <ion-datetime displayFormat="MMM/D/YYYY" pickerFormat="MMM/D/YYYY"
       monthShortNames = "Jan, Feb, Mar, Apr, Mat, Jun, Jul, Aug, Sep, Oct, Nov, Dec"       
-      name="datepicker" [(ngModel)]="datePickerVal"></ion-datetime>
+      name="datepicker" [(ngModel)]="datePickerVal" aria-placeholder="Select date"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Event name</ion-label>
-      <ion-input type="text" [(ngModel)]="event.title" name="title" required></ion-input>
+      <ion-input type="text" [(ngModel)]="event.title" name="title" placeholder="e.g. Beach Clean-up" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Location</ion-label>
-      <ion-input type="text" [(ngModel)]="event.location" name="location" required></ion-input>
+      <ion-input type="text" [(ngModel)]="event.location" name="location" required placeholder="e.g. Balbriggan, Front Strand Beach, Dublin"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Time</ion-label>
-      <ion-input type="text" [(ngModel)]="event.time" name="time" required></ion-input>
+      <ion-input type="text" [(ngModel)]="event.time" name="time" type="number"required placeholder="e.g. 18:00"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Contact</ion-label>
-      <ion-input type="text" [(ngModel)]="event.contact" name="contact" required></ion-input>
+      <ion-input type="text" [(ngModel)]="event.contact" name="contact" placeholder="phone or email" required></ion-input>
     </ion-item>
 
     <button ion-button type="submit" block class="event-btn">Create event</button>

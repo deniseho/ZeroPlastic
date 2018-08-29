@@ -1,13 +1,16 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, Slides, Content, ModalController} from 'ionic-angular';
+import {IonicPage, NavController, Slides, Content, NavParams, ModalController} from 'ionic-angular';
 import { TopicQuizComponent } from '../../components/topic-quiz/topic-quiz';
 import { topic3 } from '../../shared/topic3-questions';
+import { species } from '../../shared/species-info';
+import {SpeciesModalComponent} from "../../components/species-modal/species-modal";
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { User } from '../../shared/user-model';
 import { VideoModalComponent } from '../../components/video-modal/video-modal';
 
 @Component({selector: 'page-topic-three', templateUrl: 'topic-three.html'})
 export class TopicThreePage {
+  species : any[];
 
   @ViewChild('SwipedTabsSlider')SwipedTabsSlider : Slides;
   @ViewChild('scroll')scroll : Content;
@@ -17,10 +20,12 @@ export class TopicThreePage {
   tabs : any = [];
   currentUser : User;
 
+
   constructor(public navCtrl : NavController,  
     private auth: AuthServiceProvider,
     public modalCtrl : ModalController ) {
-    this.tabs = ["Problem", "Cause", "Effect", "Importance", "Quiz"];
+          this.tabs = ["Species", "Quiz"];
+          this.species = species;
     this.getPageData();
   }
 
@@ -87,6 +92,18 @@ export class TopicThreePage {
   animateIndicator($event) {
     if (this.SwipedTabsIndicator) 
       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
+    }
+
+    onTap($event, value) : void {
+        const modal = this
+            .modalCtrl
+            .create(SpeciesModalComponent, {
+              "specieVideo": this.species[value]["video"],
+              "specieTitle": this.species[value]["title"],
+              "specieDescription": this.species[value]["description"],
+              "specieImage": this.species[value]["image"]
+            });
+        modal.present();
     }
   
   startQuiz() {

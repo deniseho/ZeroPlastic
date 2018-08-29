@@ -23,21 +23,27 @@ import {LoginPage} from '../pages/login/login';
 import {AuthServiceProvider} from '../providers/auth-service/auth-service';
 import {AlternativesPage} from '../pages/alternatives/alternatives';
 import * as _ from 'lodash';
-import 'jquery'; // Import jQuery
+import 'jquery';
+import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider"; // Import jQuery
 
-@Component({templateUrl: 'app.html'})
-export class MyApp {
-  @ViewChild(Nav)nav : Nav;
-  unregisterBackButtonAction : any;
-  rootPage = LoginPage;
+@Component({
+  templateUrl: 'app.html'
+})
+export class MyApp{
+  @ViewChild(Nav) nav: Nav;
+  // rootPage = LoginPage;
+  rootPage = OnboardingSliderPage;
   users : any;
-  pages : Array < {
-    title: string,
-    component: any,
-    avatar: string
-  } >;
 
-  constructor(public platform : Platform, public menu : MenuController, public statusBar : StatusBar, public splashScreen : SplashScreen, private auth : AuthServiceProvider, public app : App, public alertCtrl : AlertController) {
+  pages: Array<{title: string, component: any, avatar: string}>;
+
+  constructor(
+    public platform: Platform,
+    public menu: MenuController,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    private auth: AuthServiceProvider,
+  ) {
     this.initializeApp();
     console.log("this.auth.getAllUsers()");
     console.log(this.auth.getAllUsers());
@@ -73,57 +79,50 @@ export class MyApp {
         statusBar.styleDefault();
         splashScreen.hide();
 
-        platform.registerBackButtonAction(() => {
+        // platform.registerBackButtonAction(() => {
 
-          let nav = app.getActiveNavs()[0];
-          let activeView = nav.getActive();
+        //   let nav = app.getActiveNavs()[0];
+        //   let activeView = nav.getActive();
 
-          if (activeView.name === "FirstPage") {
+        //   if (activeView.name === "FirstPage") {
 
-            if (nav.canGoBack()) { //Can we go back?
-              nav.pop();
-            } else {
-              const alert = this
-                .alertCtrl
-                .create({
-                  title: 'App termination',
-                  message: 'Do you want to close the app?',
-                  buttons: [
-                    {
-                      text: 'Cancel',
-                      role: 'cancel',
-                      handler: () => {
-                        console.log('Application exit prevented!');
-                      }
-                    }, {
-                      text: 'Close App',
-                      handler: () => {
-                        this
-                          .platform
-                          .exitApp(); // Close this application
-                      }
-                    }
-                  ]
-                });
-              alert.present();
-            }
-          }
-        });
+        //     if (nav.canGoBack()) { //Can we go back?
+        //       nav.pop();
+        //     } else {
+        //       const alert = this
+        //         .alertCtrl
+        //         .create({
+        //           title: 'App termination',
+        //           message: 'Do you want to close the app?',
+        //           buttons: [
+        //             {
+        //               text: 'Cancel',
+        //               role: 'cancel',
+        //               handler: () => {
+        //                 console.log('Application exit prevented!');
+        //               }
+        //             }, {
+        //               text: 'Close App',
+        //               handler: () => {
+        //                 this
+        //                   .platform
+        //                   .exitApp(); // Close this application
+        //               }
+        //             }
+        //           ]
+        //         });
+        //       alert.present();
+        //     }
+        //   }
+        // });
       });
   }
 
   initializeApp() {
-    this
-      .platform
-      .ready()
-      .then(() => {
-        this
-          .statusBar
-          .styleDefault();
-        this
-          .splashScreen
-          .hide();
-      });
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
   }
 
   gotoPage(page) {
@@ -144,17 +143,16 @@ export class MyApp {
       .setRoot(TopicMenu);
   }
 
-  logout() {
-    this
-      .auth
-      .logout()
-      .subscribe(succ => {
-        this
-          .menu
-          .close();
-        this
-          .nav
-          .setRoot(LoginPage);
-      });
+  logout(){
+    this.auth.logout().subscribe(succ => {
+      this.menu.close();
+      this.nav.setRoot(LoginPage);
+    });
   }
+
+    /*gotoAchievement() {
+        this
+            .navCtrl
+            .push(AchievementPage);
+    }*/
 }

@@ -12,17 +12,25 @@
     <!--</ion-list>-->
     <ion-list class="profile_section_wrapper">
       <ion-item class="profile_section bg-color">
-        <ion-thumbnail item-start>
-          <img src="assets/imgs/avatar_temp.png">
+        <ion-thumbnail item-start="">
+          <img src="assets/imgs/icn-avatar-2.png">
         </ion-thumbnail>
-        <h2 class="points content-color">25 points</h2>
-        <h2 class="badges content-color">1/6 badges</h2>
-        <img class="progress-bar" src="assets/imgs/progress_bar.png">
+        <button class="link-achievements" ion-button="" clear="" color="secondary" icon-start="" (click)="gotoAchievement()"><ion-icon name="trophy" color="secondary" large=""></ion-icon>Achievemnets</button>
+        <!--<h2 class="points content-color">25 points</h2>-->
+        <!--<h2 class="badges content-color">1/6 badges</h2>-->
+        <!--<img class="progress-bar" src="assets/imgs/progress_bar.png">-->
       </ion-item>
     </ion-list>
 
     <ion-list>
       <ion-list-header class="bg-color">Discover</ion-list-header>
+      <ion-item class="bg-color" (click)="gotoHomepage()">
+        <ion-avatar item-start>
+          <img class="menu-avatar" src="assets/imgs/icn-home.png">
+        </ion-avatar>
+        <h2 class="content-color">Home</h2>
+        <ion-icon item-end name="ios-arrow-forward" color="gray"></ion-icon>
+      </ion-item>
       <ion-item class="bg-color" ion-item *ngFor="let p of pages" (click)="gotoPage(p)">
           <ion-avatar item-start>
             <img class="menu-avatar" src={{p.avatar}}>

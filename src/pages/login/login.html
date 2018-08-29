@@ -14,7 +14,7 @@
       <ion-card>
         <ion-card-header>Login</ion-card-header>
 
-        <img class="avatar" style="width: 110px" src="assets/imgs/avatar_temp.png">
+        <img class="avatar" style="width: 110px" src="assets/imgs/icn-avatar-2.png">
         <div>
           <form (ngSubmit)="login()" #loginForm="ngForm">
             <ion-list inset="">
@@ -32,7 +32,7 @@
 
             <div padding>
               <button ion-button color="primary" full type="submit" [disabled]="!loginForm.form.valid">Login</button>
-              <button ion-button color="primary" block clear type="button" (click)="createAccount()">Register</button>
+              <button ion-button color="primary" block clear type="button" (click)="createAccount()" style="margin-top: 20px">Register</button>
             </div>
             <!-- <button class="skip-button" ion-button color="secondary" clear item-start icon-end (click)="gotoHomepage()">Skip <ion-icon name="ios-arrow-forward"></ion-icon></button> -->
 

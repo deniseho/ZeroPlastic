@@ -1,18 +1,20 @@
 <!--Modal for interactive map-->
 
-<ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Information
-      </ion-title>
-      <ion-buttons start>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+<ion-header no-border="">
+  <ion-toolbar class="modal-toolbar" color="lightest">
+    <!--<ion-title>{{specieTitle}}</ion-title>-->
+    <ion-buttons end="">
+      <button ion-button (click)="close()" icon-only="">
+        <ion-icon name="close" large=""></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
   
   <ion-content padding>
-    <p [innerHTML]="countryInfo"></p>
-    <button ion-button (click)="close()">
-      <span ion-text>Back to the map</span>
-    </button>
+    <div class="content-wrapper">
+      <img src="{{image}}">
+      <h4 class="title">{{label}}</h4>
+      <p class="description">{{description}}</p>
+    </div>
   </ion-content>

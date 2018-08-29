@@ -34,12 +34,10 @@
 
         <!--VOLUNTEER-->
         <ion-slide>
-            <!--Icons for scrolling
-            <ion-icon class="arrow-up-style" name="ios-arrow-dropup-circle-outline"></ion-icon>
-            <ion-icon class="arrow-down-style" name="ios-arrow-dropdown-circle-outline"></ion-icon>-->
 
             <div>
                 <!--tidy towns-->
+                <ion-icon class="arrow-down-style" name="ios-arrow-down"></ion-icon>
                 <div class="container-slides-content sea-gradient-wrapper">
                     <div class="vertical-center">
                         <h1 class="slide-title-main">Take action</h1>
@@ -109,7 +107,7 @@
                                         {{event.time}}
                                     </ion-col>
                                     <ion-col class="contact" col-7 item-end icon-start>
-                                        <ion-icon name="call" small></ion-icon>
+                                        <ion-icon name="contact" small></ion-icon>
                                         {{event.contact}}
                                     </ion-col>
                                 </ion-row>
@@ -122,6 +120,7 @@
 
         <!--RECYCLE-->
         <ion-slide>
+            <ion-icon class="arrow-down-style" name="ios-arrow-down"></ion-icon>
             <div>
                 <div class="sea-gradient-wrapper">
                     <div>
@@ -181,8 +180,8 @@
                 <div class="game-container">
                     <div class="container-btn-content-game">
                         <div class="game-content-wrapper">
-                            <h4 class="slide-subtitle text-shadow" style="margin-top: 0px">Now test your knowledge with this game!</h4>
-                            <p class="text-shadow">Place the plastics in the correct trash bin and earn points</p>
+                            <h4 class="slide-subtitle text-shadow" style="margin-top: 0px">Test your knowledge with this game!</h4>
+                            <p class="text-shadow">Place the plastics in the correct bin and earn points to become a master environmentalist</p>
                         </div>
                         <button ion-button (click)="gotoGamePage()" color="secondary" icon-start item-end>
                             <ion-icon name="md-game-controller-b"></ion-icon>
@@ -203,12 +202,12 @@
         <ion-slide>
             <div class="container-slides-content">
                 <div class="vertical-center">
-                    <img style="width: 120px" src="assets/imgs/icn_temp.png">
-                    <h1 class="slide-title-main">About plastic</h1>
+                    <img style="width: 120px" src="assets/imgs/icn-quiz.png"> <!--Vector created by Freepik-->
+                    <h1 class="slide-title-main">Take action</h1>
                     <h1 class="slide-title2-main">Quiz</h1>
                     <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>
-                    <p>Earn points and become a senior ecologist!</p>
+                    <p>Earn points and become a master environmentalist!</p>
                     <button ion-button (click)="startQuiz()">Start the quiz</button>
                 </div>
             </div>

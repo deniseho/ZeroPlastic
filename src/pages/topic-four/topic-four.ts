@@ -20,7 +20,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @Component({selector: 'page-topic-four', templateUrl: 'topic-four.html'})
 export class TopicFourPage {
-  tagsList : any[];
+  tagsList : any[]; //REFERENCE to info
 
   @ViewChild('SwipedTabsSlider')SwipedTabsSlider : Slides;
   @ViewChild('scroll')scroll : Content;
@@ -36,7 +36,7 @@ export class TopicFourPage {
     public modalCtrl : ModalController, private auth: AuthServiceProvider,
     private toast: ToastServiceProvider) {
     this.tabs = ["Take action", "Volunteer", "Recycle", "Alternatives", "Quiz"];
-    this.tagsList = tags;
+    this.tagsList = tags; //REFERENCE to info
     this.events = [
       {
         date: {
@@ -131,6 +131,7 @@ export class TopicFourPage {
       .push(AlternativesPage);
   }
 
+  //REFERENCE to info
   onTap($event, value) : void {
     const modal = this
       .modalCtrl

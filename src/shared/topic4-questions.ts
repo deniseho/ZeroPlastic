@@ -2,126 +2,106 @@ export const topic4 : any = {
     collectionName: "topic4",
     questionList: [
         {
-            question: "topic4 question 01",
+            question: "Which tag codes are generally non recyclable?",
             options: [
                 {
-                    description: "correct",
+                    description: "3 & 6 ",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "1 & 2",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "4 & 5",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
+                    description: "1 & 4",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic4 question 02",
+            question: "Disposable plates and cutleries fall under which tag?",
             options: [
                 {
-                    description: "wrong",
+                    description: "Tag 1",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Tag 2 ",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "correct",
+                    description: "Tag 6",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "None of the above",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic4 question 03",
+            question: "How many tags are there in total?",
             options: [
                 {
-                    description: "wrong",
+                    description: "2",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "correct",
+                    description: "6",
                     points: 5,
                     isAnswer: true
                 }, {
-                    description: "wrong",
+                    description: "5",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "wrong",
+                    description: "None of the above",
                     points: 0,
                     isAnswer: false
                 }
             ]
         }, {
-            question: "topic4 question 04",
+            question: "Water bottles fall under which tag?",
             options: [
                 {
-                    description: "wrong",
+                    description: "Tag 2",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Tag 6",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Tag 3",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "correct",
+                    description: "Tag 1",
                     points: 5,
                     isAnswer: true
-                }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
                 }
             ]
         }, {
-            question: "topic4 question 05",
+            question: "Milk bottles fall under which tag?",
             options: [
                 {
-                    description: "wrong",
+                    description: "Tag 4",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Tag 6",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
+                    description: "Tag 3",
                     points: 0,
                     isAnswer: false
                 }, {
-                    description: "wrong",
-                    points: 0,
-                    isAnswer: false
-                }, {
-                    description: "correct",
+                    description: "Tag 2",
                     points: 5,
                     isAnswer: true
                 }

@@ -38,7 +38,8 @@ import { QuizResultComponent } from '../components/quiz-result-modal/quiz-result
 import { MapInfoComponent } from '../components/map-modal/map-modal';
 import { TagsModalComponent } from "../components/tags-modal/tags-modal";
 import { EventModalComponent } from '../components/event-modal/event-modal';
-import { VideoModalComponent } from '../components/video-modal/video-modal';
+import {SpeciesModalComponent} from "../components/species-modal/species-modal";
+import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider";
 import { VideoPlayer } from '@ionic-native/video-player';
 
 @NgModule({
@@ -64,7 +65,8 @@ import { VideoPlayer } from '@ionic-native/video-player';
     MapInfoComponent,
     TagsModalComponent,
     EventModalComponent,
-    VideoModalComponent
+    SpeciesModalComponent,
+      OnboardingSliderPage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,8 @@ import { VideoPlayer } from '@ionic-native/video-player';
     MapInfoComponent,
     TagsModalComponent,
     EventModalComponent,
-    VideoModalComponent
+    SpeciesModalComponent,
+      OnboardingSliderPage
 ],
   providers: [
     StatusBar,

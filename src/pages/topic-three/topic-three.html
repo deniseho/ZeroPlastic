@@ -1,8 +1,4 @@
 <ion-header>
-    <!-- 
-            <ion-navbar>
-              <ion-title>Topic Three</ion-title>
-            </ion-navbar> -->
     <custom-nav-bar></custom-nav-bar>
     <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">
         <ion-segment class="SwipedTabs-tabs">
@@ -21,29 +17,33 @@
 
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
-        <ion-slide>
-            <h1>Problem Species affected</h1>
-            <button ion-button (click)="playVideo()">Play video</button>
-            
+        <!--SPECIES AFFECTED-->
+        <ion-slide class="background-species">
+            <div class="container-species">
+                <h1 class="slide-title-main">Species affected</h1>
+                <p>Tap on an animal to learn more</p>
+                <!--<h1 class="slide-title2-main">Species</h1>-->
+                <div class="seagull" on-tap="onTap($event, 'Seagull')">
+                    <img src="assets/imgs/specie-birds.png">
+                </div>
+                <div class="whale" on-tap="onTap($event, 'Whale')">
+                    <img src="assets/imgs/specie-whale.png">
+                </div>
+                <div class="turtle" on-tap="onTap($event, 'Turtle')">
+                    <img src="assets/imgs/specie-turtle.png">
+                </div>
+            </div>
         </ion-slide>
-        <ion-slide>
-            <h1>Cause</h1>
-        </ion-slide>
-        <ion-slide>
-            <h1>Effect</h1>
-        </ion-slide>
-        <ion-slide>
-            <h1>Importance</h1>
-        </ion-slide>
+        <!--QUIZ-->
         <ion-slide>
             <div class="container-slides-content">
                 <div class="vertical-center">
-                    <img style="width: 120px" src="assets/imgs/icn_temp.png">
+                    <img style="width: 120px" src="assets/imgs/icn-quiz.png"> <!--Vector created by Freepik-->
                     <h1 class="slide-title-main">Species Affected</h1>
                     <h1 class="slide-title2-main">Quiz</h1>
                     <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>
-                    <p>Earn points and become a senior ecologist!</p>
+                    <p>Earn points and become a master environmentalist!</p>
                     <button ion-button (click)="startQuiz()">Start the quiz</button>
                 </div>
             </div>

@@ -28,12 +28,11 @@ export class TopicOnePage {
   SwipedTabsIndicator : any = null;
   tabElementWidth_px : number = 100;
   tabs : any = [];
-
   currentUser : User;
   badgeRecord : number[];
 
   constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public renderer : Renderer, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
-    this.tabs = ["Issue", "Cause", "Effect", "Solution", "Quiz"];
+    this.tabs = ["Introduction", "Issue", "Cause", "Effect", "Solution", "Quiz"];
     this.getPageData();
   }
 

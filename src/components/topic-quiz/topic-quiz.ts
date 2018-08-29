@@ -131,14 +131,14 @@ export class TopicQuizComponent {
     const confirm = this
       .alertCtrl
       .create({
-        title: 'Are you sure to leave?',
-        message: 'You will lose your current points!',
+        title: 'Are you sure you want to exit?',
+        message: 'You will lose your progress and current points!',
         buttons: [
           {
-            text: 'Cancel',
+            text: 'Continue the quiz',
             handler: () => {}
           }, {
-            text: 'Confirm',
+            text: 'Exit',
             handler: () => {
               this
                 .viewCtrl

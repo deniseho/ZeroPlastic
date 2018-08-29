@@ -1,2 +1,21 @@
 map-modal {
+  .content-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+
+  .title {
+    text-align: center;
+    color: #4747C2;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .description {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 15px 0 15px;
+    margin-top: 0;
+  }
 }
