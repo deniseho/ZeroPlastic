@@ -128,58 +128,6 @@ export class AuthServiceProvider {
       })
   }
 
-  getBadgeRecord(totalScore) {
-    let badgeRecord = [];
-
-    if (totalScore < 25) {
-      badgeRecord = [1, 0, 0, 0, 0];
-    } else if (totalScore >= 25 && totalScore < 30) {
-      badgeRecord = [1, 1, 0, 0, 0];
-    } else if (totalScore >= 60 && totalScore < 100) {
-      badgeRecord = [1, 1, 1, 0, 0];
-    } else if (totalScore >= 100 && totalScore < 150) {
-      badgeRecord = [1, 1, 1, 1, 0];
-    } else if (totalScore >= 150) {
-      badgeRecord = [1, 1, 1, 1, 1];
-    }
-    if(badgeRecord!=[]){
-      this.newRecord = badgeRecord;
-    }
-    return badgeRecord;
-  }
-
-  newRecord : any[];
-  preRecord : any[];
-  preUser : any;
-  checkBadges() {
-    this.preRecord = [];
-    let newRecordNum = 0;
-    let preRecordNum = 0;
-
-    if(this.preUser!=undefined&&this.newRecord!=[]){
-
-      for (let i in this.currentUser.badges) {
-        this.preRecord.push(this.preUser.badges[i])
-      }
-      console.log(this.currentUser)
-      
-      console.log("---------")
-      console.log("preRecord")
-      console.log(this.newRecord)
-      console.log("newRecord")
-      console.log(this.preRecord)
-      console.log("=========")
-      
-      if (this.newRecord.toString() != this.preRecord.toString() && this.newRecord != []) {
-        this
-        .toast
-        .showToast("You got a new badge!", "");
-        this.currentUser.badges = this.newRecord;
-        this.preUser = this.currentUser;
-      }
-    }
-  }
-
   updateUserAchievement(currentUser, quizScore, questionScore, topicTitle) {
     let user = currentUser;
 
@@ -199,8 +147,73 @@ export class AuthServiceProvider {
     }
 
     user[topicTitle] = questionScore;
+
+    //new total score
     user.totalScore += quizDiff;
+    console.log("--------")
+
+    console.log("preTotalScore")
+    console.log(preTotalScore)
+    console.log("user.totalScore")
+    console.log(user.totalScore)
+
+    this.checkBadgesDiff(preTotalScore, user.totalScore);
 
     this.updateUser(user);
+  }
+
+  checkBadgesDiff(preScore, newScore){
+    let preNum = 0;
+    let newNum = 0;
+    let user = this.currentUser;
+
+    //previous badges record
+    let preRecord = this.getBadgeRecord(preScore);
+
+    //new badges record
+    let newRecord = this.getBadgeRecord(newScore);
+
+    for (let i in preRecord) {
+      preNum += preRecord[i];
+    }
+
+    for (let i in newRecord) {
+      newNum += newRecord[i];
+    }
+    console.log("preRecord")
+    console.log(preRecord)
+    console.log("preNum")
+    console.log(preNum)
+    console.log("newRecord")
+    console.log(newRecord)
+    console.log("newNum")
+    console.log(newNum)
+    console.log("--------")
+
+    if(preNum < newNum){
+      this
+      .toast
+      .showToast("You got a new badge!", "");
+      user.badges = newRecord;
+      this.updateUser(user);
+    }
+  }
+
+  getBadgeRecord(totalScore) {
+    let badgeRecord = [];
+
+    if (totalScore < 25) {
+      badgeRecord = [1, 0, 0, 0, 0];
+    } else if (totalScore >= 25 && totalScore < 40) {
+      badgeRecord = [1, 1, 0, 0, 0];
+    } else if (totalScore >= 40 && totalScore < 60) {
+      badgeRecord = [1, 1, 1, 0, 0];
+    } else if (totalScore >= 60 && totalScore < 80) {
+      badgeRecord = [1, 1, 1, 1, 0];
+    } else if (totalScore >= 80) {
+      badgeRecord = [1, 1, 1, 1, 1];
+    }
+
+    return badgeRecord;
   }
 }

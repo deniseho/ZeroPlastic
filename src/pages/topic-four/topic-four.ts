@@ -79,11 +79,6 @@ export class TopicFourPage {
             this.currentUser = y as User;
           }
         });
-        this.auth.preRecord = this.currentUser.badges;
-        let totalScore = this.currentUser.totalScore;
-        this.currentUser.badges = this
-          .auth
-          .getBadgeRecord(totalScore);
       });
   }
 

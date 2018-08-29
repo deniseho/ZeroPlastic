@@ -35,15 +35,6 @@ export class TopicFivePage {
             this.currentUser = y as User;
           }
         });
-        // this.auth.preRecord = this.currentUser.badges;
-        // let totalScore = this.currentUser.totalScore;
-        // this.currentUser.badges = this
-        //   .auth
-        //   .getBadgeRecord(totalScore);
-        console.log("this.auth.preRecord")
-        console.log(this.auth.preRecord)
-        console.log("this.currentUser.badges")
-        console.log(this.currentUser.badges)
       });
   }
 
