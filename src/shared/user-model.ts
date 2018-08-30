@@ -18,7 +18,7 @@ export class User {
         this.name = (name!=null||name!=undefined)?name:"guest";
         this.email = (email!=null||email!=undefined)?email:"guest";
         this.password = (password!=null||password!=undefined)?password:"guest";
-        this.totalScore = (totalScore!=null||totalScore!=undefined)?totalScore:0;
+        this.totalScore = (totalScore!=null||totalScore!=undefined)?totalScore:5;
         this.badges = (badges!=null||badges!=undefined)?badges:[1,0,0,0,0];
         this.topic1 = (topic1!=null||topic1!=undefined)?topic1:[0,0,0,0,0];
         this.topic2 = (topic2!=null||topic2!=undefined)?topic2:[0,0,0,0,0];

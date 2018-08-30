@@ -9,25 +9,27 @@ import {ToastServiceProvider} from '../../providers/toast-service/toast-service'
 export class RegisterPage {
   createSuccess = false;
   ageGroup : string;
-  registerCredentials = {
-    name: '',
-    email: '',
-    password: ''
-  };
+  registerCredentials:any;
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, 
-    private auth : AuthServiceProvider, private alertCtrl : AlertController) {
-      this.ageGroup = "9-13";
-    }
+  constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private alertCtrl : AlertController) {
+    this.ageGroup = "9-13";
+    this.registerCredentials = {
+      name: '',
+      email: '',
+      password: ''
+    };
+  }
 
   ionViewDidLoad() {}
 
   register() {
-    if (this.registerCredentials.name == '' || this.registerCredentials.name == null || this.registerCredentials.name == undefined) {
+    if (this.registerCredentials.name === '' || this.registerCredentials.name === null || this.registerCredentials.name === undefined) {
       this.showPopup("Error", "Please enter your name.");
-    } else if (this.registerCredentials.email == '' || this.registerCredentials.email == null || this.registerCredentials.email == undefined) {
+    } else if (this.registerCredentials.email === 'guest@gmail.com') {
+      this.showPopup("Error", "guest@gmail.com is already taken. Please use another email.");
+    } else if (this.registerCredentials.email === '' || this.registerCredentials.email === null || this.registerCredentials.email === undefined) {
       this.showPopup("Error", "Please enter your email.");
-    } else if (this.registerCredentials.password == '' || this.registerCredentials.password == null || this.registerCredentials.password == undefined) {
+    } else if (this.registerCredentials.password === '' || this.registerCredentials.password === null || this.registerCredentials.password === undefined) {
       this.showPopup("Error", "Please enter your password.");
     } else {
       this
@@ -56,7 +58,7 @@ export class RegisterPage {
               if (this.createSuccess) {
                 this
                   .navCtrl
-                  .popToRoot();
+                  .push(LoginPage, {"registerCredentials":this.registerCredentials});
               }
             }
           }
