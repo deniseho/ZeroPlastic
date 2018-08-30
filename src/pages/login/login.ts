@@ -3,30 +3,22 @@ import {NavController, NavParams, Loading, AlertController, LoadingController} f
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {RegisterPage} from '../register/register';
 import {TopicMenu} from '../topic-menu/topic-menu';
-import { User } from '../../shared/user-model';
-import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
+import {User} from '../../shared/user-model';
+import {ToastServiceProvider} from '../../providers/toast-service/toast-service';
 
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
-  loading  : Loading;
-  registerCredentials = {
-    email: 'hoc2@tcd.ie',
-    password: 'deniseho'
+  loading : Loading;
+  loginCredentials = {
+    email: 'guest@gmail.com',
+    password: 'guest'
   };
 
-
-  constructor(
-    public navCtrl : NavController, 
-    public navParams : NavParams, 
-    private auth : AuthServiceProvider, 
-    private alertCtrl : AlertController, 
-    private loadingCtrl : LoadingController,
-    private toast: ToastServiceProvider
-  ) {
-      
-
+  constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private alertCtrl : AlertController, 
+    private loadingCtrl : LoadingController, private toast : ToastServiceProvider) {
     }
 
+  
   createAccount() {
     this
       .navCtrl
@@ -35,26 +27,26 @@ export class LoginPage {
 
   login() {
     this.showLoading();
-  if(this.registerCredentials.email==''||this.registerCredentials.email==null||this.registerCredentials.email==undefined){
+    if (this.loginCredentials.email == '' || this.loginCredentials.email == null || this.loginCredentials.email == undefined) {
       this.showError("Please enter your email.");
-    }else if(this.registerCredentials.password==''||this.registerCredentials.password==null||this.registerCredentials.password==undefined){
+    } else if (this.loginCredentials.password == '' || this.loginCredentials.password == null || this.loginCredentials.password == undefined) {
       this.showError("Please enter your password.");
-    }else{
-    this
-      .auth
-      .login(this.registerCredentials)
-      .subscribe(allowed => {
-        if (allowed) {
+    }else {
+      this
+        .auth
+        .login(this.loginCredentials)
+        .subscribe(allowed => {
+          if (allowed) {
             this
-            .navCtrl
-            .setRoot(TopicMenu);
-            
-        } else {
-          this.showError("Access Denied");
-        }
-      }, error => {
-        this.showError("ERRRROR: " + this.registerCredentials.email);
-      });
+              .navCtrl
+              .setRoot(TopicMenu);
+
+          } else {
+            this.showError("Access Denied");
+          }
+        }, error => {
+          this.showError("ERRRROR: " + this.loginCredentials.email);
+        });
     }
   }
 
@@ -78,9 +70,9 @@ export class LoginPage {
   }
 
   gotoHomepage() {
-      this
-          .navCtrl
-          .push(TopicMenu);
+    this
+      .navCtrl
+      .push(TopicMenu);
   }
 
 }

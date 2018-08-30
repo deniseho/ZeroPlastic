@@ -70,25 +70,45 @@ export class MyApp {
       }
     ];
 
-    platform
-      .ready()
-      .then(() => {
-        statusBar.styleDefault();
-        splashScreen.hide();
+    // platform
+    //   .ready()
+    //   .then(() => {
+    //     statusBar.styleDefault();
+    //     splashScreen.hide();
 
-        // platform.registerBackButtonAction(() => {   let nav = app.getActiveNavs()[0];
-        //   let activeView = nav.getActive();   if (activeView.name === "FirstPage") {
-        //    if (nav.canGoBack()) { //Can we go back?       nav.pop();     } else {
-        //   const alert = this         .alertCtrl         .create({           title:
-        // 'App termination',           message: 'Do you want to close the app?',
-        //    buttons: [             {               text: 'Cancel',               role:
-        // 'cancel',               handler: () => {
-        // console.log('Application exit prevented!');               }             }, {
-        //              text: 'Close App',               handler: () => {
-        //  this                   .platform                   .exitApp(); // Close this
-        // application               }             }           ]         });
-        // alert.present();     }   } });
-      });
+    //     platform.registerBackButtonAction(() => {
+    //       let nav = app.getActiveNavs()[0];
+    //       let activeView = nav.getActive();
+    //       if (activeView.name === "FirstPage") {
+    //         if (nav.canGoBack()) { //Can we go back?       nav.pop();     } else {
+    //           const alert = this
+    //             .alertCtrl
+    //             .create({
+    //               title: 'App termination',
+    //               message: 'Do you want to close the app?',
+    //               buttons: [
+    //                 {
+    //                   text: 'Cancel',
+    //                   role: 'cancel',
+    //                   handler: () => {
+    //                     console.log('Application exit prevented!');
+    //                   }
+    //                 }, {
+    //                   text: 'Close App',
+    //                   handler: () => {
+    //                     this
+    //                       .platform
+    //                       .exitApp(); // Close this
+    //                     application
+    //                   }
+    //                 }
+    //               ]
+    //             });
+    //           alert.present();
+    //         }
+    //       }
+    //     });
+    //   });
   }
 
   initializeApp() {

@@ -18,6 +18,7 @@ import {UserServiceProvider} from '../../providers/user-service/user-service';
 import {TopicQuizComponent} from '../../components/topic-quiz/topic-quiz';
 import {topic1} from '../../shared/topic1-questions';
 import {User} from '../../shared/user-model';
+import { VideoModalComponent } from '../../components/video-modal/video-modal';
 
 @Component({selector: 'page-topic-one', templateUrl: 'topic-one.html'})
 export class TopicOnePage {
@@ -48,13 +49,13 @@ export class TopicOnePage {
             .toJSON();
           y["$key"] = element.key;
 
-          if(y["email"]==this.auth.currentUser.email){
+          if (y["email"] == this.auth.currentUser.email) {
             this.currentUser = y as User;
           }
         });
       });
 
-      this
+    this
       .auth
       .getDBEvents()
       .snapshotChanges()
@@ -124,6 +125,15 @@ export class TopicOnePage {
       .modalCtrl
       .create(TopicQuizComponent, {"collection": topic1});
     modal.present();
+  }
+
+  playVideo(num) {
+    const modal = this
+      .modalCtrl
+      .create(VideoModalComponent, {"videoNum": num});
+    modal.present();
+    this.currentUser.totalScore += 5;
+    this.auth.updateUser(this.currentUser);
   }
 
 }

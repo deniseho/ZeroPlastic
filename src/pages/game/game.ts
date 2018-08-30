@@ -5,6 +5,8 @@ import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
 import {TopicTwoPage} from '../topic-two/topic-two';
 import {TopicFourPage} from '../topic-four/topic-four';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { User } from '../../shared/user-model';
 
 @Component({selector: 'page-game', templateUrl: 'game.html'})
 
@@ -14,15 +16,15 @@ export class GamePage {
   gameScore : number = 0;
   gameLife : number = 5;
   gamePlay : boolean = true;
+  currentUser: User;
 
   @ViewChild('content')content : ElementRef;
   constructor(public navCtrl : NavController, 
     public alertCtrl : AlertController, 
     public platform: Platform,
-    private nativeAudio : NativeAudio) {
-      // platform.registerBackButtonAction(()=>{
-      //   console.log("back pressed 1");
-      // }, 1);
+    private nativeAudio : NativeAudio,
+    private auth: AuthServiceProvider) {
+      this.currentUser = this.auth.currentUser;
     }
 
   playGame() {
@@ -245,6 +247,10 @@ export class GamePage {
         .app
         .ticker
         .stop();
+
+      self.currentUser.totalScore = self.gameScore;
+      self.auth.updateUser(self.currentUser);
+
       const prompt = self
         .alertCtrl
         .create({

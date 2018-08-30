@@ -41,6 +41,8 @@ import { EventModalComponent } from '../components/event-modal/event-modal';
 import {SpeciesModalComponent} from "../components/species-modal/species-modal";
 import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider";
 import { VideoPlayer } from '@ionic-native/video-player';
+import { VideoModalComponent } from '../components/video-modal/video-modal';
+import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { VideoPlayer } from '@ionic-native/video-player';
     AlternativesPage,
     ParallaxHeaderDirective,
     BadgesPipe,
+    SafeDomPipe,
     TopicQuizComponent,
     QuizResultComponent,
     ContentDrawerComponent,
@@ -66,7 +69,8 @@ import { VideoPlayer } from '@ionic-native/video-player';
     TagsModalComponent,
     EventModalComponent,
     SpeciesModalComponent,
-    OnboardingSliderPage
+    OnboardingSliderPage,
+    VideoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +102,8 @@ import { VideoPlayer } from '@ionic-native/video-player';
     TagsModalComponent,
     EventModalComponent,
     SpeciesModalComponent,
-    OnboardingSliderPage
+    OnboardingSliderPage,
+    VideoModalComponent    
 ],
   providers: [
     StatusBar,
