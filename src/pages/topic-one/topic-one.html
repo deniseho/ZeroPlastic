@@ -2,22 +2,25 @@
     <custom-nav-bar></custom-nav-bar>
     <ion-content #scroll scrollX="true" scrollY="false" style="height: 50px;">
         <ion-segment class="SwipedTabs-tabs">
-            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'
-                [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
+            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
+                                [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'
+                                [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
                 {{tab}}
             </ion-segment-button>
         </ion-segment>
 
         <!-- here is our dynamic line  "indicator"-->
-        <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.px': (this.tabElementWidth_px)}"></div>
+        <div id='indicator' class="SwipedTabs-indicatorSegment"
+             [ngStyle]="{'width.px': (this.tabElementWidth_px)}"></div>
     </ion-content>
 </ion-header>
 
 <ion-content>
 
-    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
-        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
-       <!--INTRODUCTION-->
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)"
+                (ionSlideWillChange)="updateIndicatorPosition()"
+                (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="false">
+        <!--INTRODUCTION-->
         <ion-slide>
             <div class="container-slides-content sea-gradient-wrapper">
                 <div class="vertical-center">
@@ -26,9 +29,12 @@
                     <h1 class="slide-title2-main">Learn more</h1>
                     <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">61kg of plastic</h4>
-                    <p>Ireland generates an average of 61kg of plastic waste per person every year, the equivalent of nearly
-                        2,000 water bottles per person annually. Engaging in ways to reduce our plastic consumption is a key
-                        environmental necessity. However, before we start, we need to understand why plastic pollution is
+                    <p>Ireland generates an average of 61kg of plastic waste per person every year, the equivalent of
+                        nearly
+                        2,000 water bottles per person annually. Engaging in ways to reduce our plastic consumption is a
+                        key
+                        environmental necessity. However, before we start, we need to understand why plastic pollution
+                        is
                         such a pressing issue, its causes, effects, and viable solutions to this issue.</p>
                 </div>
                 <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
@@ -43,7 +49,7 @@
             <div>
                 <div class="container-slides-content sea-gradient-wrapper">
                     <div class="vertical-center">
-                    <!--About plastic problem1-->
+                        <!--About plastic problem1-->
                         <h1 class="slide-title-main">About plastic</h1>
                         <h1 class="slide-title2-main">Issue</h1>
                         <div class="line-separator-short"></div>
@@ -51,7 +57,10 @@
                         <h3 class="slide-subtitle2-secondary">million</h3>
                         <img class="infographics-image" src="assets/imgs/icn_tons.png"> <!--Vector created by Freepik-->
                         <p>of plastic were produced in 2015, the same weight as 900 Empire state buildings.</p>
-                        <button ion-button color="primary" type="button" (click)="playVideo('02')">Play Video</button>                        
+                        <button class="animation" ion-button color="primary" type="button" (click)="playVideo('02')" icon-start="">
+                            <ion-icon name="play"></ion-icon>
+                            Play Video
+                        </button>
                     </div>
                     <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
                 </div>
@@ -63,7 +72,8 @@
                             <!--<h4 class="slide-subtitle-secondary">8</h4>
                             <h3 class="slide-subtitle2-secondary">million</h3>
                             <img class="infographics-image" src="assets/imgs/icn_tons.png"> &lt;!&ndash;Vector created by Freepik&ndash;&gt;-->
-                            <img class="icon_property" src="assets/imgs/icn_garbage_truck_2.png"> <!--Vector created by Freepik-->
+                            <img class="icon_property" src="assets/imgs/icn_garbage_truck_2.png">
+                            <!--Vector created by Freepik-->
                             <p>A garbage truck of plastics enters our
                                 oceans every minute, that equates to 8 million tons of
                                 plastic entering our oceans each year.</p>
@@ -78,7 +88,8 @@
                             <p class="subtitle-small">Plastic</p>
                             <h4 class="slide-subtitle-line-before">never fully biodegrade</h4>
                             <p>Plastics photodegrade, which means that they break down
-                                into smaller, and smaller pieces until they are at a microscopic level. Any toxic additives contained within the
+                                into smaller, and smaller pieces until they are at a microscopic level. Any toxic
+                                additives contained within the
                                 plastics are released into the ocean.</p>
                         </div>
                     </div>
@@ -88,8 +99,10 @@
                         <div class="vertical-center">
                             <img class="icon_property" src="assets/imgs/icn_ocean_percentage.png">
                             <div class="line-separator-long"></div>
-                            <p class="p_line_before" style="color: white">97% of the Earth’s water supply is contained in the ocean. Plastic waste is greatly endangering the world’s
-                                water supply. Plastics dumped in landfills form dangerous chemicals, and when these chemicals seep
+                            <p class="p_line_before" style="color: white">97% of the Earth’s water supply is contained
+                                in the ocean. Plastic waste is greatly endangering the world’s
+                                water supply. Plastics dumped in landfills form dangerous chemicals, and when these
+                                chemicals seep
                                 underground, they degrade the water quality.</p>
                         </div>
                     </div>
@@ -112,11 +125,15 @@
                         <h1 class="slide-title-main">About plastic</h1>
                         <h1 class="slide-title2-main">Cause</h1>
                         <div class="line-separator-short"></div>
-                        <img class="icon_property_coins" src="assets/imgs/icn_coins.png"> <!--Vector created by Freepik-->
+                        <img class="icon_property_coins" src="assets/imgs/icn_coins.png">
+                        <!--Vector created by Freepik-->
                         <h4 class="slide-subtitle">Plastics are cheap and easy to manufacture</h4>
                         <p>Plastics have been used to make countless utilities, including plastic
                             water bottles, straws, food containers, lids, and packaging wrappers.</p>
-                            <button ion-button color="primary" type="button" (click)="playVideo('01')">Play Video</button>
+                        <button class="animation" ion-button color="primary" type="button" (click)="playVideo('01')" icon-start="">
+                            <ion-icon name="play"></ion-icon>
+                            Play Video
+                        </button>
                     </div>
                     <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
                 </div>
@@ -125,10 +142,12 @@
                     <!--About plastic cause2-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="assets/imgs/icn_trash_full.png"> <!--Vector created by Freepik-->
+                            <img class="icon_property" src="assets/imgs/icn_trash_full.png">
+                            <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Plastics are easily and haphazardly discarded</h4>
-                            <p>The use of plastic items such as bags, wrappers, bottles, straws and food containers are very
+                            <p>The use of plastic items such as bags, wrappers, bottles, straws and food containers are
+                                very
                                 typically very short. Whenever plastics are thrown away, they continue to persist within
                                 the environment.</p>
                         </div>
@@ -137,22 +156,27 @@
                     <!--About plastic cause3-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="assets/imgs/icn_fishing_net.png"> <!--Vector created by Freepik-->
+                            <img class="icon_property" src="assets/imgs/icn_fishing_net.png">
+                            <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Plastic decomposes slowly</h4>
                             <p>Plastics are slow to decompose due to their strong chemical bonds that make plastic items
-                                durable. The EPA has stated that “every bit of plastic ever made still exists”. A plastic
-                                bottle can take up to 400 years to decompose, while plastic fishing lines can take more than 600 years.</p>
+                                durable. The EPA has stated that “every bit of plastic ever made still exists”. A
+                                plastic
+                                bottle can take up to 400 years to decompose, while plastic fishing lines can take more
+                                than 600 years.</p>
                         </div>
                     </div>
 
                     <!--About plastic cause4-->
                     <div class="container-slides-content">
                         <div class="vertical-center">
-                            <img class="icon_property" src="assets/imgs/icn_fishing_ship.png"> <!--Vector created by Freepik-->
+                            <img class="icon_property" src="assets/imgs/icn_fishing_ship.png">
+                            <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle" style="color: white">The shipping and fishing industry</h4>
-                            <p style="color: white">are major contributors of plastic pollution. Plastic waste from ships, sea accidents, and nets
+                            <p style="color: white">are major contributors of plastic pollution. Plastic waste from
+                                ships, sea accidents, and nets
                                 used for fishing emit toxins into the water which severely affects marine creatures.</p>
                         </div>
                     </div>
@@ -174,9 +198,12 @@
                         <h1 class="slide-title2-main">Effects</h1>
                         <div class="line-separator-short"></div>
                         <h4 class="slide-subtitle">Threatens the life of numerous sea creatures</h4>
-                        <p>These marine creatures ingest plastic mainly by mistaking it as food, and can also be endangered
-                            by plastics through becoming entangled in plastic products such as fishing nets, and can holders.
-                            44% of all seabird species, along with sea turtles, and cetaceans have been documented to have
+                        <p>These marine creatures ingest plastic mainly by mistaking it as food, and can also be
+                            endangered
+                            by plastics through becoming entangled in plastic products such as fishing nets, and can
+                            holders.
+                            44% of all seabird species, along with sea turtles, and cetaceans have been documented to
+                            have
                             plastic debris in or around their bodies.</p>
                     </div>
                     <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
@@ -188,9 +215,12 @@
                             <img class="icon_property" src="assets/imgs/icn_human.png"> <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Affects humans</h4>
-                            <p>Plastic pollution in our oceans severely affects humans in numerous ways. Studies have shown
-                                that toxins in plastics can cause several health issues such as cancer, and immune system
-                                problems. Ingestion of plastic by fish and other marine creatures finds its way into peoples’
+                            <p>Plastic pollution in our oceans severely affects humans in numerous ways. Studies have
+                                shown
+                                that toxins in plastics can cause several health issues such as cancer, and immune
+                                system
+                                problems. Ingestion of plastic by fish and other marine creatures finds its way into
+                                peoples’
                                 bodies when they consume marine food.</p>
                         </div>
                     </div>
@@ -201,7 +231,8 @@
                             <img class="icon_property" src="assets/imgs/icn_ecosystem.png">
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Threatens our ecosystem</h4>
-                            <p>Plastic pollution poses a serious threat to our ecosystems. Plastics in our oceans can lead
+                            <p>Plastic pollution poses a serious threat to our ecosystems. Plastics in our oceans can
+                                lead
                                 to the invasion of non-indigenous species, and organisms in marine colonies. </p>
                         </div>
                     </div>
@@ -212,8 +243,10 @@
                             <img class="icon_property" src="assets/imgs/icn_garbage_patch.png">
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle" style="color: white">Garbage patches</h4>
-                            <p style="color: white">Plastic pollution has resulted in the creation of several floating garbage patches in our
-                                oceans called gyres. The Great Pacific Garbage patch located in the North Pacific Ocean off
+                            <p style="color: white">Plastic pollution has resulted in the creation of several floating
+                                garbage patches in our
+                                oceans called gyres. The Great Pacific Garbage patch located in the North Pacific Ocean
+                                off
                                 the coast of California is reported to be the largest ocean garbage patch in the world.
                                 According to some studies this patch is twice the size of Texas.</p>
                         </div>
@@ -235,8 +268,8 @@
                     <h1 class="slide-title2-main">Solution</h1>
                     <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">Reduce use of single-use plastics</h4>
-                    <p>As 60-90% of marine litter is plastic-based, refusing  any single-use plastics, reducing our
-                        dependence on plastics, and  carrying  reusable versions of these products will greatly help to
+                    <p>As 60-90% of marine litter is plastic-based, refusing any single-use plastics, reducing our
+                        dependence on plastics, and carrying reusable versions of these products will greatly help to
                         reduce the amount of new plastics in circulation.</p>
                 </div>
                 <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
@@ -249,7 +282,8 @@
                         <img class="icon_property" src="assets/imgs/icn_recycle.png"> <!--Vector created by Freepik-->
                         <div class="line-separator-long"></div>
                         <h4 class="slide-subtitle">Recycle</h4>
-                        <p>Recycling helps keep single-use plastics out of the ocean, and reduces the amount of new plastics
+                        <p>Recycling helps keep single-use plastics out of the ocean, and reduces the amount of new
+                            plastics
                             in circulation.</p>
                     </div>
                 </div>
@@ -261,7 +295,8 @@
                         <div class="line-separator-long"></div>
                         <h4 class="slide-subtitle">Avoid using products containing microbeads</h4>
                         <p>Microbeads have become a growing source of plastic pollution in recent years. You can avoid
-                            products containing microbeads by looking for polythelene and polypropylene on the ingredients
+                            products containing microbeads by looking for polythelene and polypropylene on the
+                            ingredients
                             label of cosmetic products, and toiletries such as face wash, and shower gel. </p>
                     </div>
                 </div>
@@ -269,10 +304,13 @@
                 <!--About plastic solution4-->
                 <div class="container-slides-content">
                     <div class="vertical-center">
-                        <img class="icon_property" src="assets/imgs/icn_non-profit.png"> <!--Vector created by Freepik-->
+                        <img class="icon_property" src="assets/imgs/icn_non-profit.png">
+                        <!--Vector created by Freepik-->
                         <div class="line-separator-long"></div>
-                        <h4 class="slide-subtitle" style="color: white">Support organisations adressing plastic pollution</h4>
-                        <p style="color: white">Non-profit organisations dealing with the problem of ocean plastic include the Oceanic Society
+                        <h4 class="slide-subtitle" style="color: white">Support organisations adressing plastic
+                            pollution</h4>
+                        <p style="color: white">Non-profit organisations dealing with the problem of ocean plastic
+                            include the Oceanic Society
                             Plastic Soup Foundation, and Plastic Pollution Coalition.</p>
                     </div>
                 </div>
@@ -289,7 +327,10 @@
                     <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">Test your knowledge with this quiz</h4>
                     <p>Earn points and become a master environmentalist!</p>
-                    <button ion-button (click)="startQuiz()">Start the quiz</button>
+                    <button ion-button (click)="startQuiz()" icon-start="">
+                        <ion-icon name="school"></ion-icon>
+                        Start the quiz
+                    </button>
                 </div>
             </div>
         </ion-slide>

@@ -53,6 +53,7 @@ page-topic-one {
     color: #4747C2;
     font-size: 30px;
     font-weight: normal;
+    margin-top: 0px;
   }
 
   .slide-title2-main {
@@ -153,6 +154,7 @@ page-topic-one {
     line-height: 20px;
     padding: 0 15px 0 15px;
     margin-top: 0;
+    margin-bottom: 5px;
   }
 
   .p_line_before {
@@ -226,6 +228,10 @@ page-topic-one {
     100% {
       transform: translateX(0) translateZ(0) scaleY(1)
     }
+  }
+
+  .animation {
+
   }
 
 }
