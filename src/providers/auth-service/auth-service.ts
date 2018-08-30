@@ -18,7 +18,6 @@ export class AuthServiceProvider {
   $userKey : string;
 
   dbEventList : AngularFireList < any >;
-  eventssList : any[];
   
 
   constructor(public http : Http, public db : AngularFireDatabase, private toast : ToastServiceProvider) {
