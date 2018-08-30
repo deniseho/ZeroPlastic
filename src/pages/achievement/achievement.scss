@@ -76,15 +76,28 @@ page-achievement {
 
     .score {
         font-weight: bold;
-        font-size: 25px;
+        font-size: 22px;
         margin: 0px;
         padding-top: -10px;
     }
 
+    .score-container {
+        margin: auto;
+        padding: 10px;
+        width: 200px;
+        border-radius: 100px;
+        background-color: #2CBFA6;
+
+        h4 {
+            color: white;
+        }
+    }
+
     .score-label {
+        font-size: 16px;
         margin-top: 20px;
-        font-weight: normal;
-        margin-bottom: 0px;
+        //font-weight: normal;
+        margin-bottom: 3px;
     }
 
     .leaderboard {
@@ -108,6 +121,11 @@ page-achievement {
 
     .column-3 {
         text-align: right;
+    }
+
+    .header-custom {
+        background: linear-gradient(#82E0EF, #24337A);
+        height: 130px;
     }
 
 
