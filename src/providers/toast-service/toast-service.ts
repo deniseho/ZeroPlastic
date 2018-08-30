@@ -20,8 +20,8 @@ export class ToastServiceProvider {
       .toastCtrl
       .create({
         message: message, 
-        duration: 1500, 
-        position: 'middle',
+        duration: 5000,
+        position: 'top',
         cssClass: cssClass});
 
     toast.present(toast);

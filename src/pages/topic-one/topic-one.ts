@@ -33,14 +33,7 @@ export class TopicOnePage {
   events : any[];
 
   constructor(private event : Events, public navCtrl : NavController, public navParams : NavParams, public modalCtrl : ModalController, public renderer : Renderer, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
-    this.tabs = [
-      "Introduction",
-      "Issue",
-      "Cause",
-      "Effect",
-      "Solution",
-      "Quiz"
-    ];
+    this.tabs = ["Learn more", "Issue", "Cause", "Effects", "Solution", "Quiz"];
     this.getPageData();
   }
 

@@ -22,8 +22,8 @@
             <div class="container-slides-content sea-gradient-wrapper">
                 <div class="vertical-center">
                     <img src="assets/imgs/swipe-left.svg" class="swipe-icon"> <!--Vector created by Noun Project-->
-                    <h1 class="slide-title-main">About plastic</h1>
-                    <h1 class="slide-title2-main">Introduction</h1>
+                    <h1 class="slide-title-main">About plastics</h1>
+                    <h1 class="slide-title2-main">Learn more</h1>
                     <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">61kg of plastic</h4>
                     <p>Ireland generates an average of 61kg of plastic waste per person every year, the equivalent of nearly
@@ -34,9 +34,12 @@
                 <img class="sea-gradient" src="assets/imgs/sea_gradient.png">
             </div>
         </ion-slide>
-        <!--PROBLEM-->
+        <!--Issue-->
         <ion-slide>
-            <ion-icon class="arrow-down-style" name="ios-arrow-down"></ion-icon>
+            <div class="arrow-down-style">
+                <p class="scroll-down-text">Scroll Down</p>
+                <ion-icon class="scroll-down-icon" name="ios-arrow-down"></ion-icon>
+            </div>
             <div>
                 <div class="container-slides-content sea-gradient-wrapper">
                     <div class="vertical-center">
@@ -45,7 +48,7 @@
                         <h1 class="slide-title2-main">Issue</h1>
                         <div class="line-separator-short"></div>
                         <h4 class="slide-subtitle-secondary">322</h4>
-                        <h3 class="slide-subtitle2-secondary">millions</h3>
+                        <h3 class="slide-subtitle2-secondary">million</h3>
                         <img class="infographics-image" src="assets/imgs/icn_tons.png"> <!--Vector created by Freepik-->
                         <p>of plastic were produced in 2015, the same weight as 900 Empire state buildings.</p>
                         <button ion-button color="primary" type="button" (click)="playVideo('02')">Play Video</button>                        
@@ -57,12 +60,13 @@
                     <div class="container-slides-content">
                         <!--About plastic problem2-->
                         <div class="vertical-center">
-                            <h4 class="slide-subtitle-secondary">8</h4>
-                            <h3 class="slide-subtitle2-secondary">millions</h3>
-                            <img class="infographics-image" src="assets/imgs/icn_tons.png"> <!--Vector created by Freepik-->
-                            <p>8 millions of  this plastic enters our oceans each year, equivalent to emptying a garbage truck of plastic
-                                into an ocean every minute. This figure is estimated to rise to 60 tons per minute by 2050.</p>
-                            <img class="icon_secondary_property" src="assets/imgs/icn_garbage_truck_3_small.png"> <!--Vector created by Freepik-->
+                            <!--<h4 class="slide-subtitle-secondary">8</h4>
+                            <h3 class="slide-subtitle2-secondary">million</h3>
+                            <img class="infographics-image" src="assets/imgs/icn_tons.png"> &lt;!&ndash;Vector created by Freepik&ndash;&gt;-->
+                            <img class="icon_property" src="assets/imgs/icn_garbage_truck_2.png"> <!--Vector created by Freepik-->
+                            <p>A garbage truck of plastics enters our
+                                oceans every minute, that equates to 8 million tons of
+                                plastic entering our oceans each year.</p>
                         </div>
                     </div>
 
@@ -74,7 +78,7 @@
                             <p class="subtitle-small">Plastic</p>
                             <h4 class="slide-subtitle-line-before">never fully biodegrade</h4>
                             <p>Plastics photodegrade, which means that they break down
-                                into smaller, and smaller pieces to the microscopic level. Any toxic additives contained within the
+                                into smaller, and smaller pieces until they are at a microscopic level. Any toxic additives contained within the
                                 plastics are released into the ocean.</p>
                         </div>
                     </div>
@@ -97,7 +101,6 @@
         <!--CAUSE-->
         <ion-slide>
             <!--About plastic cause1-->
-            <ion-icon class="arrow-down-style" name="ios-arrow-down"></ion-icon>
             <div>
                 <div class="container-slides-content sea-gradient-wrapper">
                     <div class="vertical-center">
@@ -120,7 +123,7 @@
                             <img class="icon_property" src="assets/imgs/icn_trash_full.png"> <!--Vector created by Freepik-->
                             <div class="line-separator-long"></div>
                             <h4 class="slide-subtitle">Plastics are easily and haphazardly discarded</h4>
-                            <p>The use of plastic items such as bags, wrappers, bottles, straws and food containers is
+                            <p>The use of plastic items such as bags, wrappers, bottles, straws and food containers are very
                                 typically very short. Whenever plastics are thrown away, they continue to persist within
                                 the environment.</p>
                         </div>
@@ -154,13 +157,12 @@
 
         <!--EFFECT-->
         <ion-slide>
-            <ion-icon class="arrow-down-style" name="ios-arrow-down"></ion-icon>
             <div>
                 <!--About plastic effect1-->
                 <div class="container-slides-content sea-gradient-wrapper">
                     <div class="vertical-center">
                         <h1 class="slide-title-main">About plastic</h1>
-                        <h1 class="slide-title2-main">Effect</h1>
+                        <h1 class="slide-title2-main">Effects</h1>
                         <div class="line-separator-short"></div>
                         <h4 class="slide-subtitle">Threatens the life of numerous sea creatures</h4>
                         <p>These marine creatures ingest plastic mainly by mistaking it as food, and can also be endangered
@@ -189,7 +191,7 @@
                         <div class="vertical-center">
                             <img class="icon_property" src="assets/imgs/icn_ecosystem.png">
                             <div class="line-separator-long"></div>
-                            <h4 class="slide-subtitle">Threat to our ecosystem</h4>
+                            <h4 class="slide-subtitle">Threatens our ecosystem</h4>
                             <p>Plastic pollution poses a serious threat to our ecosystems. Plastics in our oceans can lead
                                 to the invasion of non-indigenous species, and organisms in marine colonies. </p>
                         </div>
@@ -203,7 +205,8 @@
                             <h4 class="slide-subtitle" style="color: white">Garbage patches</h4>
                             <p style="color: white">Plastic pollution has resulted in the creation of several floating garbage patches in our
                                 oceans called gyres. The Great Pacific Garbage patch located in the North Pacific Ocean off
-                                the coast of California is reported to be the largest ocean garbage patch in the world.</p>
+                                the coast of California is reported to be the largest ocean garbage patch in the world.
+                                According to some studies this patch is twice the size of Texas.</p>
                         </div>
                     </div>
                 </div>
@@ -213,14 +216,13 @@
         <!--SOLUTION-->
         <ion-slide>
             <!--About plastic solution1-->
-            <ion-icon class="arrow-down-style" name="ios-arrow-down"></ion-icon>
             <div class="container-slides-content sea-gradient-wrapper">
                 <div class="vertical-center">
                     <h1 class="slide-title-main">About plastic</h1>
                     <h1 class="slide-title2-main">Solution</h1>
                     <div class="line-separator-short"></div>
                     <h4 class="slide-subtitle">Reduce use of single-use plastics</h4>
-                    <p>As 60-90% of marine litter is plastic-based refusing  any single-use plastics, reducing our
+                    <p>As 60-90% of marine litter is plastic-based, refusing  any single-use plastics, reducing our
                         dependence on plastics, and  carrying  reusable versions of these products will greatly help to
                         reduce the amount of new plastics in circulation.</p>
                 </div>

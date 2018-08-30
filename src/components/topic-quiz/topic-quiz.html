@@ -12,7 +12,7 @@
   <ion-slides #quizSlides>
     <ion-slide *ngFor="let question of topic.questionList; index as i">
         <h1 class="slide-title-main">Quiz</h1>
-      <img src="assets/imgs/icn-quiz.png">
+      <!--<img src="assets/imgs/icn-quiz.png">--><!--Vector designed by Freepik-->
       <h3 class="question">{{question.question}}</h3>
       <ion-buttons *ngFor="let option of question.options">
         <button ion-button block large text-wrap=""

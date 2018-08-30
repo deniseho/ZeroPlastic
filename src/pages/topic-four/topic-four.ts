@@ -140,7 +140,9 @@ export class TopicFourPage {
         "tagRecyclable": this.tagsList[value]["recyclable"],
         "tagIcon": this.tagsList[value]["icon"],
         "tagTypePlasticTitle": this.tagsList[value]["typePlasticTitle"],
-        "tagRecyclableDescription": this.tagsList[value]["recyclableDescription"]
+        "tagRecyclableDescription": this.tagsList[value]["recyclableDescription"],
+          "tagPlastic1": this.tagsList[value]["plastic1"],
+          "tagPlastic2": this.tagsList[value]["plastic2"]
       });
     modal.present();
   }

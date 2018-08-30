@@ -29,15 +29,15 @@
             <ion-list inset="">
               <ion-item>
                 <ion-label stacked>Nickname</ion-label>
-                <ion-input type="text" placeholder="Name" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
+                <ion-input clearInput="true" type="text" placeholder="Name" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
               </ion-item>
               <ion-item >
                 <ion-label stacked>{{ageGroup=='9-13'?'Parent email':'Email'}} </ion-label>
-                <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                <ion-input clearInput="true" type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label stacked>Password</ion-label>
-                <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                <ion-input clearInput="true" type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
               </ion-item>
             </ion-list>
 
