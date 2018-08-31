@@ -1,12 +1,13 @@
 <ion-header>
-  <custom-nav-bar></custom-nav-bar>
+    <custom-nav-bar></custom-nav-bar>
 </ion-header>
 
 <ion-content>
     <div class="container-slides-content sea-gradient-wrapper">
         <div class="vertical-center">
             <div class="container-header">
-                <h1 class="slide-title-main" icon-start=""><ion-icon class="icon-profile" color="secondary" name="happy"></ion-icon>Profile</h1>
+                <h1 class="slide-title-main" icon-start="">
+                    <ion-icon class="icon-profile" color="secondary" name="happy"></ion-icon>Profile</h1>
                 <h1 class="name">Hi! {{currentUser.name}}</h1>
                 <!--<h4>Email: {{currentUser.email}}</h4>-->
                 <!--<div class="line-separator-short"></div>-->
@@ -15,12 +16,14 @@
                 <h4 class="score">{{currentUser.totalScore}} pts</h4>
             </div>
             <div class="line-separator-long"></div>
-            <h4 class="slide-subtitle" icon-start=""><ion-icon name="ios-ribbon" class="icon-subtitle"></ion-icon>Achievements </h4>
+            <h4 class="slide-subtitle" icon-start="">
+                <ion-icon name="ios-ribbon" class="icon-subtitle"></ion-icon>Achievements </h4>
             <div class="badgeRecord" *ngFor="let item of badgeRecord; index as i">
                 <img src="{{item|badges: i}}">
             </div>
             <div class="line-separator-long"></div>
-            <h4 class="slide-subtitle" icon-start=""><ion-icon name="trophy" class="icon-subtitle"></ion-icon>Leaderboard</h4>
+            <h4 class="slide-subtitle" icon-start="">
+                <ion-icon name="trophy" class="icon-subtitle"></ion-icon>Leaderboard</h4>
             <div>
                 <ion-row class="leaderboard" *ngFor="let user of (usersList); index as i">
                     <ion-col col-2="" class="column-1">{{i+1}}</ion-col>
@@ -31,4 +34,5 @@
         </div>
         <!--<img class="sea-gradient" src="assets/imgs/bg_ocean.png">-->
     </div>
+
 </ion-content>

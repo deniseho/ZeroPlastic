@@ -7,77 +7,77 @@
 
 
 <ion-content padding="">
-  <img class="login-background" src="assets/imgs/bg-log-in-2.png">
-
-  <ion-grid style="height: 100%">
-    <ion-row justify-content-center align-items-center style="height: 100%">
-      <ion-card>
-        <ion-card-header>Login</ion-card-header>
-
-        <img class="avatar" style="width: 110px" src="assets/imgs/icn-avatar-2.png">
-        <div>
-          <form (ngSubmit)="login()" #loginForm="ngForm">
-            <ion-list inset="">
-              <ion-item>
-                <ion-label stacked>Email</ion-label>
-                <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="loginCredentials.email" required></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label stacked>Password</ion-label>
-                <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="loginCredentials.password" required></ion-input>
-              </ion-item>
-
-            </ion-list>
-
-            <div padding>
-              <button ion-button color="primary" full type="submit" [disabled]="!loginForm.form.valid">Login</button>
-              <button ion-button color="primary" block clear type="button" (click)="createAccount()" style="margin-top: 20px">Register</button>
-            </div>
-            <!-- <button class="skip-button" ion-button color="secondary" clear item-start icon-end (click)="gotoHomepage()">Skip <ion-icon name="ios-arrow-forward"></ion-icon></button> -->
-
-          </form>
-        </div>
-        
-      </ion-card>
+    <img class="login-background" src="assets/imgs/bg-log-in-2.png">
+  
+    <ion-grid style="height: 100%">
+      <ion-row justify-content-center align-items-center style="height: 100%">
+        <ion-card>
+          <ion-card-header>Login</ion-card-header>
+  
+          <img class="avatar" style="width: 110px" src="assets/imgs/icn-avatar-2.png">
+          <div>
+            <form (ngSubmit)="login()" #loginForm="ngForm">
+              <ion-list inset="">
+                <ion-item>
+                  <ion-label stacked>Email</ion-label>
+                  <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                </ion-item>
+  
+                <ion-item>
+                  <ion-label stacked>Password</ion-label>
+                  <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                </ion-item>
+  
+              </ion-list>
+  
+              <div padding>
+                <button ion-button color="primary" full type="submit" [disabled]="!loginForm.form.valid">Login</button>
+                <button ion-button color="primary" block clear type="button" (click)="createAccount()" style="margin-top: 20px">Register</button>
+              </div>
+              <!-- <button class="skip-button" ion-button color="secondary" clear item-start icon-end (click)="gotoHomepage()">Skip <ion-icon name="ios-arrow-forward"></ion-icon></button> -->
+  
+            </form>
+          </div>
+          
+        </ion-card>
+      </ion-row>
+    </ion-grid>
+  
+  
+    <!--<ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        LOGO
+      </ion-col>
+      <ion-col></ion-col>
     </ion-row>
-  </ion-grid>
-
-
-  <!--<ion-row>
-    <ion-col></ion-col>
-    <ion-col>
-      LOGO
-    </ion-col>
-    <ion-col></ion-col>
-  </ion-row>
-
-  <div>
-    <form (ngSubmit)="login()" #loginForm="ngForm">
-
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-
-            <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
-            </ion-item>
-
-            <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
-            </ion-item>
-
-          </ion-list>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <button ion-button full type="submit" [disabled]="!loginForm.form.valid">Login</button>
-          <button ion-button block clear type="button" (click)="createAccount()">Create New Account</button>
-        </ion-col>
-      </ion-row>
-
-    </form>
-  </div>-->
-</ion-content>
+  
+    <div>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+  
+        <ion-row>
+          <ion-col>
+            <ion-list inset>
+  
+              <ion-item>
+                <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+              </ion-item>
+  
+            </ion-list>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row>
+          <ion-col>
+            <button ion-button full type="submit" [disabled]="!loginForm.form.valid">Login</button>
+            <button ion-button block clear type="button" (click)="createAccount()">Create New Account</button>
+          </ion-col>
+        </ion-row>
+  
+      </form>
+    </div>-->
+  </ion-content>
