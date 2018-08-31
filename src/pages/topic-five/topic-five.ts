@@ -83,8 +83,6 @@ export class TopicFivePage {
             .payload
             .toJSON();
           y["$key"] = element.key;
-          console.log("getDBEvents y")
-          console.log(y)
           if (this.events != undefined) {
             this
               .events
