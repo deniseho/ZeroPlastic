@@ -10,8 +10,8 @@ import { ToastServiceProvider } from '../../providers/toast-service/toast-servic
 export class LoginPage {
   loading  : Loading;
   registerCredentials = {
-    email: 'hoc2@tcd.ie',
-    password: 'deniseho'
+    email: 'guest@gmail.com',
+    password: 'test'
   };
 
 

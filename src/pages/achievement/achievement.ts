@@ -11,6 +11,7 @@ export class AchievementPage {
   currentUser : User;
   badgeRecord : number[];
   usersList : any[];
+  rankingList: any[];
 
   constructor(public navCtrl : NavController, public navParams : NavParams, private auth : AuthServiceProvider, private toast : ToastServiceProvider) {
     this.currentUser = this.auth.currentUser;
@@ -33,10 +34,11 @@ export class AchievementPage {
           this
             .usersList
             .push(y as User);
-            this.usersList = _.first(_.chunk(_.sortBy(this.usersList, "totalScore").reverse(), 10));
+            // this.usersList = _.first(_.chunk(_.sortBy(this.usersList, "totalScore").reverse(), 10));
+            this.rankingList = _.first(_.chunk(_.orderBy(this.usersList, ['totalScore'], ['desc']), 10));
           });
           this.currentUser = _.first(_.filter(this.usersList, item=>{
-            return item.email === this.auth.currentUser.email;
+            return item.email == this.auth.currentUser.email;
           }))
           let totalScore = this.currentUser.totalScore;
           this.badgeRecord = this.auth.getBadgeRecord(totalScore);
