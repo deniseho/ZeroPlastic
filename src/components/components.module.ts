@@ -7,7 +7,7 @@ import { TagsModalComponent } from './tags-modal/tags-modal';
 import { EventModalComponent } from './event-modal/event-modal';
 import { SpeciesModalComponent } from './species-modal/species-modal';
 import { SpeciesvideoComponent } from './speciesvideo/speciesvideo';
-import { GameInfoPageComponent } from './game-info-page/game-info-page';
+// import { GameInfoPageComponent } from './game-info-page/game-info-page';
 @NgModule({declarations: [ContentDrawerComponent,
     TopicQuizComponent,
     QuizResultComponent,
@@ -16,7 +16,8 @@ import { GameInfoPageComponent } from './game-info-page/game-info-page';
     EventModalComponent,
     SpeciesModalComponent,
     SpeciesvideoComponent,
-    GameInfoPageComponent], imports: [], exports: [ContentDrawerComponent,
+    // GameInfoPageComponent
+], imports: [], exports: [ContentDrawerComponent,
     TopicQuizComponent,
     QuizResultComponent,
     MapInfoComponent,
@@ -24,5 +25,6 @@ import { GameInfoPageComponent } from './game-info-page/game-info-page';
     EventModalComponent,
     SpeciesModalComponent,
     SpeciesvideoComponent,
-    GameInfoPageComponent]})
+    // GameInfoPageComponent
+]})
 export class ComponentsModule {}

@@ -198,6 +198,10 @@ export class GamePage {
             .nativeAudio
             .play('correct');
 
+          self
+            .vibration
+            .vibrate(400);
+
           self.gameScore++;
           container.removeChild(item);
 
@@ -206,6 +210,10 @@ export class GamePage {
           self
             .nativeAudio
             .play('wrong');
+
+          self
+            .vibration
+            .vibrate([100, 100, 100]);
 
           item.y = self.app.screen.height - bottomPadding;
           bottomPadding += 3;
@@ -258,18 +266,18 @@ export class GamePage {
         .auth
         .updateUser(self.currentUser);
 
-        let message = "";
-        let title = "";
-        let subTitle = "";
-        if(self.gameScore>=0&&self.gameScore<10){
-            title = "Not bad! But you can do much better.";
-            subTitle = "You've got <b>" + self.gameScore + "</b> points.";
-            message = " You've matched <b>" + self.gameScore + "</b> items correctly.";
-        }else if(self.gameScore >=10 && self.gameScore < 20){
-            title = "Well done!";
-            subTitle = "You've got <b>" + self.gameScore + "</b> points.";
-            message = "You've matched <b>" + self.gameScore + "</b> items correctly.";
-        }
+      let message = "";
+      let title = "";
+      let subTitle = "";
+      if (self.gameScore >= 0 && self.gameScore < 10) {
+        title = "Not bad! But you can do much better.";
+        subTitle = "You've got <b>" + self.gameScore + "</b> points.";
+        message = " You've matched <b>" + self.gameScore + "</b> items correctly.";
+      } else if (self.gameScore >= 10 ) {
+        title = "Well done!";
+        subTitle = "You've got <b>" + self.gameScore + "</b> points.";
+        message = "You've matched <b>" + self.gameScore + "</b> items correctly.";
+      }
 
       const prompt = self
         .alertCtrl
