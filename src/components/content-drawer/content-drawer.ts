@@ -19,7 +19,7 @@ export class ContentDrawerComponent {
   
   ngAfterViewInit() {
     this.renderer.setElementClass(this.element.nativeElement, "map-drawer", true);
-    document.getElementsByClassName("map-drawer")[0].setAttribute("data-content", "Scroll up to see legend");
+    document.getElementsByClassName("map-drawer")[0].setAttribute("data-content", "Pull up to see legend");
 
     if(this.options.handleHeight){
       this.handleHeight = this.options.handleHeight;
@@ -64,7 +64,7 @@ export class ContentDrawerComponent {
       topDiff >= bottomDiff ? bounceToBottom = true : bounceToTop = true;
      
       document.getElementsByClassName("map-drawer")[0].setAttribute("data-content", 
-      topDiff >= bottomDiff ? "Scroll up" :"Scroll down");
+      topDiff >= bottomDiff ? "Pull up" :"Pull down");
     }
  
     if((newTop < this.thresholdTop && ev.additionalEvent === "panup") || bounceToTop){
