@@ -1,5 +1,5 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
-import {NavController, NavParams, AlertController, Platform} from 'ionic-angular';
+import {NavController, NavParams, AlertController, Platform, ModalController} from 'ionic-angular';
 import {NativeAudio} from '@ionic-native/native-audio';
 import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
@@ -7,6 +7,7 @@ import {TopicTwoPage} from '../topic-two/topic-two';
 import {TopicFourPage} from '../topic-four/topic-four';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { User } from '../../shared/user-model';
+import {GameInfoPageComponent} from "../../components/game-info-page/game-info-page";
 
 @Component({selector: 'page-game', templateUrl: 'game.html'})
 
@@ -23,7 +24,8 @@ export class GamePage {
     public alertCtrl : AlertController, 
     public platform: Platform,
     private nativeAudio : NativeAudio,
-    private auth: AuthServiceProvider) {
+    private auth: AuthServiceProvider,
+    private modalCtrl: ModalController) {
       this.currentUser = this.auth.currentUser;
     }
 
@@ -379,8 +381,19 @@ export class GamePage {
     prompt.present();
   }
 
+    openInfo(){
+        const modal = this
+            .modalCtrl
+            .create(GameInfoPageComponent);
+        modal.present();
+        this.stopGame();
 
-  ionViewWillLeave() {
+        modal.onDidDismiss(data => {
+          this.playGame();
+        });
+    }
+
+    ionViewWillLeave() {
     this.stopGame();
   }
 

@@ -12,9 +12,13 @@
           </button>
         </ion-col>
 
-        <ion-col col-1=""></ion-col>
+        <ion-col col-2="">
+          <div class="info-btn">
+            <button ion-button="" icon-only="" clear="" color="lightest" (click)="openInfo()"><ion-icon name="information-circle"></ion-icon></button>
+          </div>
+        </ion-col>
 
-        <ion-col col-4>
+        <ion-col col-3>
           <div class="score">
             <p>Score:</p>
             <h4>{{gameScore}}</h4>
@@ -23,7 +27,7 @@
         </ion-col>
         <ion-col col-3 >
           <div class="tries">
-            <p>Tries left:</p>
+            <p>Tries<br>left:</p>
             <h4> {{gameLife}}</h4>
           </div>
         </ion-col>

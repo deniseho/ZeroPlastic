@@ -20,7 +20,7 @@ export const tags: any = {
         recyclabilityTitle: "Recyclable:",
         recyclable: "YES",
         recyclableDescription: "(through most curbside recycling programs)",
-        plastic1: "assets/imgs/game/tag2-2.png",
+        plastic1: "assets/imgs/game/tag-2-b.png",
         plastic2: "assets/imgs/game/tag2-1.png"
     },
     Tag3: {

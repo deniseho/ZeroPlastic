@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NavController, NavParams, ViewController, ModalController} from "ionic-angular";
 
 /**
  * Generated class for the GameInfoPageComponent component.
@@ -14,9 +15,16 @@ export class GameInfoPageComponent {
 
   text: string;
 
-  constructor() {
+  constructor(public viewCtrl : ViewController) {
     console.log('Hello GameInfoPageComponent Component');
     this.text = 'Hello World';
   }
+
+    close() {
+        this
+            .viewCtrl
+            .dismiss();
+    }
+
 
 }

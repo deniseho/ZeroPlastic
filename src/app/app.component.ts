@@ -26,12 +26,13 @@ import * as _ from 'lodash';
 import 'jquery';
 import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider"; // Import jQuery
 import {AchievementPage} from '../pages/achievement/achievement';
+import {GameInfoPageComponent} from "../components/game-info-page/game-info-page";
 
 @Component({templateUrl: 'app.html'})
 export class MyApp {
   @ViewChild(Nav)nav : Nav;
-  // rootPage = LoginPage;
-  rootPage = OnboardingSliderPage;
+  //rootPage = GameInfoPageComponent;
+   rootPage = OnboardingSliderPage;
   users : any;
 
   pages : Array < {

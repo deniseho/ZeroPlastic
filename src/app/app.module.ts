@@ -43,6 +43,7 @@ import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider
 import { VideoPlayer } from '@ionic-native/video-player';
 import { VideoModalComponent } from '../components/video-modal/video-modal';
 import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
+import {GameInfoPageComponent} from "../components/game-info-page/game-info-page";
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
     EventModalComponent,
     SpeciesModalComponent,
     OnboardingSliderPage,
-    VideoModalComponent
+    VideoModalComponent,
+    GameInfoPageComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,8 @@ import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
     EventModalComponent,
     SpeciesModalComponent,
     OnboardingSliderPage,
-    VideoModalComponent    
+    VideoModalComponent,
+    GameInfoPageComponent
 ],
   providers: [
     StatusBar,
