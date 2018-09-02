@@ -16,6 +16,8 @@
     <p>{{specieDescription}}</p>
     <div class="divider-long"> </div>
   </div>
-  <iframe width="100%" height="50%" [src]="sanitize(specieVideo)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  <p class="source">Source:<a href="{{specieVideo}}" target="_blank">{{specieVideo}}</a></p>
+  <button ion-button color="primary" type="button" (click)="playVideo(specieVideo)" icon-start="">
+      <ion-icon name="play"></ion-icon>
+      Play Video
+  </button>
 </ion-content>

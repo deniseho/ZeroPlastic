@@ -5,8 +5,9 @@ import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
 import {TopicTwoPage} from '../topic-two/topic-two';
 import {TopicFourPage} from '../topic-four/topic-four';
-import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { User } from '../../shared/user-model';
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import {User} from '../../shared/user-model';
+import {Vibration} from '@ionic-native/vibration';
 
 @Component({selector: 'page-game', templateUrl: 'game.html'})
 
@@ -16,16 +17,12 @@ export class GamePage {
   gameScore : number = 0;
   gameLife : number = 5;
   gamePlay : boolean = true;
-  currentUser: User;
+  currentUser : User;
 
   @ViewChild('content')content : ElementRef;
-  constructor(public navCtrl : NavController, 
-    public alertCtrl : AlertController, 
-    public platform: Platform,
-    private nativeAudio : NativeAudio,
-    private auth: AuthServiceProvider) {
-      this.currentUser = this.auth.currentUser;
-    }
+  constructor(public navCtrl : NavController, public alertCtrl : AlertController, public platform : Platform, private nativeAudio : NativeAudio, private auth : AuthServiceProvider, private vibration : Vibration) {
+    this.currentUser = this.auth.currentUser;
+  }
 
   playGame() {
     this.gamePlay = true;
@@ -43,7 +40,7 @@ export class GamePage {
       .stop();
   }
 
-  toggleGame(){
+  toggleGame() {
     this.gamePlay = !this.gamePlay;
     if (this.gamePlay) {
       this.playGame()
@@ -225,6 +222,10 @@ export class GamePage {
             .nativeAudio
             .play('wrong');
 
+          self
+            .vibration
+            .vibrate([200, 100, 200]);
+
           item.y = self.app.screen.height - bottomPadding;
           bottomPadding += 3;
           self.gameLife--;
@@ -234,6 +235,10 @@ export class GamePage {
           self
             .nativeAudio
             .play('correct');
+
+          self
+            .vibration
+            .vibrate(400);
 
           self.gameScore++;
           container.removeChild(item);
@@ -249,7 +254,9 @@ export class GamePage {
         .stop();
 
       self.currentUser.totalScore = self.gameScore;
-      self.auth.updateUser(self.currentUser);
+      self
+        .auth
+        .updateUser(self.currentUser);
 
       const prompt = self
         .alertCtrl
@@ -364,7 +371,6 @@ export class GamePage {
       });
     prompt.present();
   }
-
 
   ionViewWillLeave() {
     this.stopGame();

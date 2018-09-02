@@ -56,7 +56,7 @@ export class RegisterPage {
               if (this.createSuccess) {
                 this
                   .navCtrl
-                  .popToRoot();
+                  .push(LoginPage);
               }
             }
           }

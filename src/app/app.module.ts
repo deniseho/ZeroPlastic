@@ -43,6 +43,8 @@ import {OnboardingSliderPage} from "../pages/onboarding-slider/onboarding-slider
 import { VideoPlayer } from '@ionic-native/video-player';
 import { VideoModalComponent } from '../components/video-modal/video-modal';
 import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
+import { SpeciesvideoComponent } from '../components/speciesvideo/speciesvideo';
+import { Vibration } from '@ionic-native/vibration';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,8 @@ import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
     EventModalComponent,
     SpeciesModalComponent,
     OnboardingSliderPage,
-    VideoModalComponent
+    VideoModalComponent,
+    SpeciesvideoComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +106,8 @@ import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
     EventModalComponent,
     SpeciesModalComponent,
     OnboardingSliderPage,
-    VideoModalComponent    
+    VideoModalComponent,
+    SpeciesvideoComponent    
 ],
   providers: [
     StatusBar,
@@ -115,7 +119,8 @@ import { SafeDomPipe } from '../pipes/safe-dom/safe-dom';
     UserServiceProvider,
     ToastController,
     ToastServiceProvider,
-    VideoPlayer
+    VideoPlayer,
+    Vibration
   ]
 })
 export class AppModule {}
