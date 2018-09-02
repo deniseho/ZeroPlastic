@@ -9,9 +9,11 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class QuizResultComponent {
     quizScore : number;
     totalScore : number;
+    correctNum : number;
     constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, private auth : AuthServiceProvider) {
         this.totalScore = this.auth.currentUser.totalScore;
         this.quizScore = this.navParams.get("quizScore");
+        this.correctNum = this.navParams.get("correctNum");
     }
 
     ionViewDidLoad() {}

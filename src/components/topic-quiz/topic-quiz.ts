@@ -12,6 +12,7 @@ import {UserServiceProvider} from '../../providers/user-service/user-service';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {QuizResultComponent} from '../quiz-result-modal/quiz-result-modal';
 import {User} from '../../shared/user-model';
+import { Vibration } from '@ionic-native/vibration';
 
 @Component({selector: 'topic-quiz', templateUrl: 'topic-quiz.html'})
 export class TopicQuizComponent {
@@ -27,9 +28,13 @@ export class TopicQuizComponent {
   quizScore : number;
   questionPoints : number[];
   topicTitle : string;
+  correctNum : number;
+  
 
-
-  constructor(public navCtrl : NavController, public navParams : NavParams, public viewCtrl : ViewController, public modalCtrl : ModalController, public alertCtrl : AlertController, private nativeAudio : NativeAudio, private auth : AuthServiceProvider) {
+  constructor(public navCtrl : NavController, public navParams : NavParams, 
+    public viewCtrl : ViewController, public modalCtrl : ModalController,
+     public alertCtrl : AlertController, private nativeAudio : NativeAudio, 
+     private auth : AuthServiceProvider, private vibration: Vibration) {
 
     this.topic = navParams.get("collection");
 
@@ -40,6 +45,8 @@ export class TopicQuizComponent {
 
     this.btnStyle = "";
     this.disableButtons = false;
+
+    this.correctNum = 0;
   }
 
   ionViewDidEnter() {
@@ -61,6 +68,17 @@ export class TopicQuizComponent {
       .nativeAudio
       .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
 
+    this
+      .nativeAudio
+      .setVolumeForComplexAsset("correct", 10);
+
+    this
+      .nativeAudio
+      .setVolumeForComplexAsset("wrong", 10);
+
+    this
+      .nativeAudio
+      .setVolumeForComplexAsset("new_badge", 10);
   }
 
   checkAnswer(e, i, option) {
@@ -69,6 +87,8 @@ export class TopicQuizComponent {
 
     //user answer question correctly
     if (option.isAnswer) {
+      this.correctNum++;
+
       e
         .target
         .parentNode
@@ -79,17 +99,22 @@ export class TopicQuizComponent {
         .nativeAudio
         .play('correct');
 
-    } else {
-      //user answer question wrongly
-      e
+        this.vibration.vibrate(400);
+        
+        
+      } else {
+        //user answer question wrongly
+        e
         .target
         .parentNode
         .classList
         .add("btn-wrong");
-
-      this
+        
+        this
         .nativeAudio
         .play('wrong');
+        
+        this.vibration.vibrate([200,100,200]);
     }
 
     setTimeout(() => {
@@ -154,7 +179,7 @@ export class TopicQuizComponent {
   showResultPage() {
     const modal = this
       .modalCtrl
-      .create(QuizResultComponent, {quizScore: this.quizScore});
+      .create(QuizResultComponent, {quizScore: this.quizScore, correctNum: this.correctNum});
 
     //todo: insert score & badge into db
     modal.onDidDismiss(data => {

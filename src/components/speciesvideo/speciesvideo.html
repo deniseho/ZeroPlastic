@@ -1,0 +1,14 @@
+<ion-header no-border="">
+    <ion-toolbar class="modal-toolbar" color="lightest">
+      <ion-buttons end="">
+        <button ion-button (click)="close()" icon-only="">
+          <ion-icon name="close" large=""></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+ <iframe width="100%" height="90%" [src]="sanitize(specieVideo)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <p class="source">Source:<a href="{{specieVideo}}" target="_blank">{{specieVideo}}</a></p>
+</ion-content>

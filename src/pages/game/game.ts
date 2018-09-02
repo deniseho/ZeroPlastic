@@ -5,9 +5,10 @@ import * as PIXI from 'pixi.js';
 import {items} from '../game/items';
 import {TopicTwoPage} from '../topic-two/topic-two';
 import {TopicFourPage} from '../topic-four/topic-four';
-import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { User } from '../../shared/user-model';
 import {GameInfoPageComponent} from "../../components/game-info-page/game-info-page";
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
+import {User} from '../../shared/user-model';
+import {Vibration} from '@ionic-native/vibration';
 
 @Component({selector: 'page-game', templateUrl: 'game.html'})
 
@@ -17,17 +18,18 @@ export class GamePage {
   gameScore : number = 0;
   gameLife : number = 5;
   gamePlay : boolean = true;
-  currentUser: User;
+  currentUser : User;
 
   @ViewChild('content')content : ElementRef;
-  constructor(public navCtrl : NavController, 
-    public alertCtrl : AlertController, 
-    public platform: Platform,
-    private nativeAudio : NativeAudio,
-    private auth: AuthServiceProvider,
-    private modalCtrl: ModalController) {
-      this.currentUser = this.auth.currentUser;
-    }
+  constructor(public navCtrl : NavController,
+              public alertCtrl : AlertController,
+              public platform : Platform,
+              private nativeAudio : NativeAudio,
+              private auth : AuthServiceProvider,
+              private modalCtrl: ModalController,
+              private vibration : Vibration) {
+    this.currentUser = this.auth.currentUser;
+  }
 
   playGame() {
     this.gamePlay = true;
@@ -45,7 +47,7 @@ export class GamePage {
       .stop();
   }
 
-  toggleGame(){
+  toggleGame() {
     this.gamePlay = !this.gamePlay;
     if (this.gamePlay) {
       this.playGame()
@@ -203,6 +205,10 @@ export class GamePage {
             .nativeAudio
             .play('correct');
 
+          self
+            .vibration
+            .vibrate(400);
+
           self.gameScore++;
           container.removeChild(item);
 
@@ -211,6 +217,10 @@ export class GamePage {
           self
             .nativeAudio
             .play('wrong');
+
+          self
+            .vibration
+            .vibrate([100, 100, 100]);
 
           item.y = self.app.screen.height - bottomPadding;
           bottomPadding += 3;
@@ -227,6 +237,10 @@ export class GamePage {
             .nativeAudio
             .play('wrong');
 
+          self
+            .vibration
+            .vibrate([200, 100, 200]);
+
           item.y = self.app.screen.height - bottomPadding;
           bottomPadding += 3;
           self.gameLife--;
@@ -236,6 +250,10 @@ export class GamePage {
           self
             .nativeAudio
             .play('correct');
+
+          self
+            .vibration
+            .vibrate(400);
 
           self.gameScore++;
           container.removeChild(item);
@@ -251,20 +269,22 @@ export class GamePage {
         .stop();
 
       self.currentUser.totalScore = self.gameScore;
-      self.auth.updateUser(self.currentUser);
+      self
+        .auth
+        .updateUser(self.currentUser);
 
-        let message = "";
-        let title = "";
-        let subTitle = "";
-        if(self.gameScore>=0&&self.gameScore<10){
-            title = "Not bad! But you can do much better.";
-            subTitle = "You've got <b>" + self.gameScore + "</b> points.";
-            message = " You've matched <b>" + self.gameScore + "</b> items correctly.";
-        }else if(self.gameScore >=10 && self.gameScore < 20){
-            title = "Well done!";
-            subTitle = "You've got <b>" + self.gameScore + "</b> points.";
-            message = "You've matched <b>" + self.gameScore + "</b> items correctly.";
-        }
+      let message = "";
+      let title = "";
+      let subTitle = "";
+      if (self.gameScore >= 0 && self.gameScore < 10) {
+        title = "Not bad! But you can do much better.";
+        subTitle = "You've got <b>" + self.gameScore + "</b> points.";
+        message = " You've matched <b>" + self.gameScore + "</b> items correctly.";
+      } else if (self.gameScore >= 10 ) {
+        title = "Well done!";
+        subTitle = "You've got <b>" + self.gameScore + "</b> points.";
+        message = "You've matched <b>" + self.gameScore + "</b> items correctly.";
+      }
 
       const prompt = self
         .alertCtrl
@@ -381,7 +401,7 @@ export class GamePage {
     prompt.present();
   }
 
-    openInfo(){
+  openInfo(){
         const modal = this
             .modalCtrl
             .create(GameInfoPageComponent);
