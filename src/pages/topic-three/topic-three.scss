@@ -98,7 +98,7 @@ page-topic-three {
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 20px;
     padding: 0 15px 0 15px;
     margin-top: -5px;
@@ -107,5 +107,23 @@ page-topic-three {
   .slide-subtitle, p {
     color: rgba(0, 0, 0, 0.7);
   }
+
+
+  .seagull, .whale, .turtle {
+    //background-color: white;
+    background-color: white;
+    border-radius: 100px;
+    padding: 10px;
+    -webkit-animation: flash linear 4s infinite;
+    animation: flash linear 4s infinite;
+  }
+
+  @keyframes flash {
+    0% { opacity: .7;}
+    50% { opacity: .3;}
+    100% { opacity: .7;}
+  }
+
+
 
 }
