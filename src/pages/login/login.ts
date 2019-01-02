@@ -10,7 +10,7 @@ import { ToastServiceProvider } from '../../providers/toast-service/toast-servic
 export class LoginPage {
   loading  : Loading;
   registerCredentials = {
-    email: 'guest02@gmail.com',
+    email: 'guest01@gmail.com',
     password: 'test'
   };
 

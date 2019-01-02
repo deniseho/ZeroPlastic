@@ -69,6 +69,18 @@ export class GamePage {
       .nativeAudio
       .preloadSimple('new_badge', 'assets/audio/New-Badge.m4a');
 
+      this
+      .nativeAudio
+      .setVolumeForComplexAsset("correct", 10);
+
+    this
+      .nativeAudio
+      .setVolumeForComplexAsset("wrong", 10);
+
+      this
+      .nativeAudio
+      .setVolumeForComplexAsset("new_badge", 10);
+
     let self = this;
     let bottomPadding = 95;
 

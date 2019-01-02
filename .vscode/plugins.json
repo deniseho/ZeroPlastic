@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-x-toast","cordova-plugin-datepicker"]}
+{"plugins":["cordova-plugin-x-toast","cordova-plugin-datepicker","com.moust.cordova.videoplayer","cordova-plugin-whitelist","cordova-plugin-device","cordova-plugin-splashscreen","cordova-plugin-ionic-webview","cordova-plugin-ionic-keyboard","cordova-sqlite-storage","cordova-plugin-statusbar","cordova-plugin-nativeaudio","cordova-plugin-fullscreen","cordova-plugin-vibration"]}

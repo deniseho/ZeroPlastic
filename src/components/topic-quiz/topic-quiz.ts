@@ -85,6 +85,16 @@ export class TopicQuizComponent {
     this.questionPoints[i] = option.points;
     this.quizScore += Number(option.points);
 
+    // this.topic.questionList[i].options.forEach((element, index) => {
+    //   if(element.isAnswer){
+    //     console.log(
+    //       e
+    //       .target
+    //       .parentNode.parentNode.parentNode
+    //     )
+    //   }  
+    // });
+
     //user answer question correctly
     if (option.isAnswer) {
       this.correctNum++;

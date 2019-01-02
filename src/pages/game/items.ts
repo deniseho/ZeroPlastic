@@ -30,7 +30,7 @@ export var items : any[] = [
     {
         url: 'assets/imgs/game/tag3-1.png',
         tag: "tag3",
-        recycable: false,
+        recycable: true,
         speed: 1.2,
     }, {
         url: 'assets/imgs/game/tag3-2.png',
